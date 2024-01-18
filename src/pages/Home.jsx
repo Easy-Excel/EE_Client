@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Logo from "../assets/images/logo.png";
-//import Navbar from "../components/Navbar";
 import Navbar from "../components/Navbar"
-//import Navbar from "../components/Navbar";
+
 
 
 const MainContainer = styled.div`
@@ -11,20 +10,7 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   background-color: #d1e5cf;
-  height: 550px;
-`;
-const NavContainer = styled.div`
-  background-color: #107c41;
-  width: calc(100% - 220px);
-  height: 79px;
-  margin: 20px 100px;
-  text-align: center;
-  margin: auto;
-  position: absolute;
-  top: 170px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 15px;
+  height: 100vh;
 `;
 
 const ServContainer = styled.div`
@@ -36,7 +22,7 @@ const ServContainer = styled.div`
 const Content = styled.div`
   //width: calc(100% - 200px);
   width: 80%;//백분율로 조장해야 화면 크기에 따라 조절됨
-  height: 400px;
+  height: 450px;
   background-color: white;
   margin: auto;
   display: flex;
@@ -50,9 +36,17 @@ const LogoImg = styled.img`
   margin: auto;
   background-size: cover;
   position: absolute;
-  top: 50px;
+  top: 70px;
 `;
-
+const Footer =styled.footer`
+  position: absolute;
+  color: #107c41;
+  font-weight: 400;
+  font-size: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 3px;
+`
 export default function Home() {
   return (
     <MainContainer>
@@ -61,6 +55,8 @@ export default function Home() {
       <Content>
         <LogoImg src={Logo} />
       </Content>
+      <Footer>Copyright © Easy Excel</Footer>
     </MainContainer>
+    
   );
 }
