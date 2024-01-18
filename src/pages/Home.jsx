@@ -10,7 +10,7 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   background-color: #d1e5cf;
-  height: 100vh;
+  height: calc(100vh - 88px);
 `;
 
 const ServContainer = styled.div`
