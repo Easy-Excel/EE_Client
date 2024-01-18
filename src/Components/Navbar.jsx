@@ -68,6 +68,7 @@ const Wrapper = styled.div`
     background: #fff;
   }
 `;
+
 const Navbar = ({ toggle, setToggle }) => {
   const navigate = useNavigate();
   const onClickToggleHandler = () => {
