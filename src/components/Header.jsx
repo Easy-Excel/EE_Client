@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as LogoSvg } from "../assets/images/Logo.svg";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar"
 
 //Header
 const Head = styled.header`
@@ -55,6 +56,7 @@ const Items = styled.ul`
   align-items: center;
   list-style-type: none;
 `;
+
 const Item = styled.li`
   margin-left: 40px;
   justify-content: center;

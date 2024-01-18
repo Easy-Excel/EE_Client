@@ -7,12 +7,14 @@ const StHeader = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center; /* 화면 가운데 정렬을 위한 스타일 */
-  margin-top: 235px; /* 원하는 위치로 조정 */
+  margin-top: -40px; /* 원하는 위치로 조정 */
 `;
 
 const NavMenu = styled.div`
-  width: 1220px;
+  //width: 1220px;
   height: 79.211px;
+  //width:1350px;
+  width:84%;
   flex-shrink: 0; //figma에서 네비게이터 사이즈
   border-radius: 19.248px;
   background: #107c41;
@@ -81,17 +83,16 @@ const Navbar = ({ toggle, setToggle }) => {
     <StHeader>
       <NavMenu>
         <Wrapper>
-          <MenuItem
+        <MenuItem
             onClick={() => {
-              navigate("function");
+              navigate("/home/function");
               setArrowState(true);
-              setActiveMenu("./function");
-            }}
-          >
+              setActiveMenu("./home/function");
+            }}>
             엑셀 함수
-          </MenuItem>
+        </MenuItem>
           <ArrowImage
-            showArrow={activeMenu === "./function"}
+            showArrow={activeMenu === "./home/function"}
             src={require("../assets/images/polygon.svg").default}
             alt="화살표"
           />
