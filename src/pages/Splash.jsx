@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled, { css } from "styled-components";
-import { ReactComponent as LogoSvg } from "../assets/images/Logo.svg";
+import { ReactComponent as LogoSvg } from "../assets/images/logo.svg";
 
 const Wrapper = styled.div`
   width: 100%;

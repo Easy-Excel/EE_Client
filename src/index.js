@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createGlobalStyle } from "styled-components";
 
+import "./assets/index.css";
+
 const GlobalStyle = createGlobalStyle`
 @import url('https://webfontworld.github.io/sunn/SUIT.css');
 @import url("https://fonts.googleapis.com/css2?family=Knewave&display=swap");

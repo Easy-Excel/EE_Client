@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { ReactComponent as LogoSvg } from "../assets/images/Logo.svg";
+import { ReactComponent as LogoSvg } from "../assets/images/logo.svg";
 import { Link } from "react-router-dom";
-import Navbar from "./Navbar"
 
 //Header
 const Head = styled.header`
