@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/images/Logo.svg";
 import Navbar from "../components/Navbar"
 
 
@@ -9,7 +9,7 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #d1e5cf;
+  background-color: #CEEBDE;
   height: calc(100vh - 88px);
 `;
 
