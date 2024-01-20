@@ -6,6 +6,11 @@ import OurTeam from "./pages/OurTeam";
 import Contact from "./pages/Contact";
 import Splash from "./pages/Splash";
 import Footer from "./components/Footer";
+import Function from "./pages/Function";
+import Category from "./pages/Category";
+import Shortcut from "./pages/Shortcut";
+import Extra from "./pages/Extra";
+import Etc from "./pages/Etc";
 
 function App() {
   return (
@@ -14,6 +19,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Splash />}></Route>
         <Route path="/home" element={<Home />}></Route>
+        <Route path="/home/function" element={<Function/>}></Route>
+        <Route path="/home/category" element={<Category/>}></Route>
+        <Route path="/home/shortcut" element={<Shortcut/>}></Route>
+        <Route path="/home/extra" element={<Extra/>}></Route>
+        <Route path="/home/etc" element={<Etc/>}></Route>
         <Route path="/ourVision" element={<OurVision />}></Route>
         <Route path="/ourTeam" element={<OurTeam />}></Route>
         <Route path="/contact" element={<Contact />}></Route>

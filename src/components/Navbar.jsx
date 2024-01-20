@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +12,7 @@ const StHeader = styled.nav`
 
 const NavMenu = styled.div`
   //width: 1220px;
-  height: 79.211px;
+  height: 71px;
   //width:1350px;
   width:84%;
   flex-shrink: 0; //figma에서 네비게이터 사이즈
@@ -46,14 +46,13 @@ const ArrowImage = styled.img`
   height: 59px;
   flex-shrink: 0;
   left: 50%;
-
   transform: translateX(-50%);
-
-  margin-top: -16px;
+  margin-top: -11px;
   position: absolute;
   display: ${({ showArrow }) => (showArrow ? "block" : "none")};
   z-index: 1;
 `;
+
 const Wrapper = styled.div`
   flex-grow: 1; /* 각 항목이 동일한 너비를 가지도록 설정합니다. */
   position: relative;
@@ -71,13 +70,27 @@ const Wrapper = styled.div`
   }
 `;
 
+
+
+
 const Navbar = ({ toggle, setToggle }) => {
   const navigate = useNavigate();
   const onClickToggleHandler = () => {
     setToggle(!toggle);
   };
-  const [activeMenu, setActiveMenu] = useState(null);
+  const [activeMenu, setActiveMenu] = useState(null);//뭐가 활성화 상태인지 쳌
   const [arrowState, setArrowState] = useState(false);
+
+// useEffect(()=>{
+//   if(activeMenu){
+//     navigate(activeMenu);
+//   }
+// },[activeMenu,navigate]);
+
+useEffect(() => {
+    // Set arrow state immediately after component mounts
+    setArrowState(activeMenu === "/home/category");
+  }, [activeMenu]);
 
   return (
     <StHeader>
@@ -85,65 +98,72 @@ const Navbar = ({ toggle, setToggle }) => {
         <Wrapper>
         <MenuItem
             onClick={() => {
-              navigate("/home/function");
               setArrowState(true);
               setActiveMenu("./home/function");
+              navigate("/home/function");
+              //클릭을 하자마자 화살표 모양이 나타나야 함//
             }}>
             엑셀 함수
         </MenuItem>
-          <ArrowImage
-            showArrow={activeMenu === "./home/function"}
+        <ArrowImage
+            showArrow={activeMenu==="./home/function"}
             src={require("../assets/images/polygon.svg").default}
             alt="화살표"
           />
         </Wrapper>
-
+        
         <Wrapper>
           <MenuItem
             onClick={() => {
-              navigate("/category");
               setArrowState(true);
-              setActiveMenu("./category");
+              setActiveMenu("./home/category");
+              navigate("/home/category");
             }}
-          >
+              // isActive={activeMenu==="./home/category"}
+              >
             범주
           </MenuItem>
-          <ArrowImage
-            showArrow={activeMenu === "./category"}
-            src={require("../assets/images/polygon.svg").default}
-            alt="화살표"
-          />
+          {activeMenu === "/home/category" && (
+      <ArrowImage
+        showArrow={arrowState}
+        src={require("../assets/images/polygon.svg").default}
+        alt="화살표"
+      />
+  )}
+
         </Wrapper>
 
         <Wrapper>
           <MenuItem
             onClick={() => {
-              navigate("/shortcut");
+              navigate("/home/shortcut");
               setArrowState(true);
-              setActiveMenu("./shortcut");
+              setActiveMenu("./home/shortcut");
             }}
           >
             단축키
           </MenuItem>
           <ArrowImage
-            showArrow={activeMenu === "./shortcut"}
+            showArrow={activeMenu === "./home/shortcut"}
             src={require("../assets/images/polygon.svg").default}
             alt="화살표"
           />
         </Wrapper>
 
+
+
         <Wrapper>
           <MenuItem
             onClick={() => {
-              navigate("/extra");
+              navigate("/home/extra");
               setArrowState(true);
-              setActiveMenu("./extra");
+              setActiveMenu("./home/extra");
             }}
           >
             추가 기능
           </MenuItem>
           <ArrowImage
-            showArrow={activeMenu === "./extra"}
+            showArrow={activeMenu === "./home/extra"}
             src={require("../assets/images/polygon.svg").default}
             alt="화살표"
           />
@@ -152,15 +172,15 @@ const Navbar = ({ toggle, setToggle }) => {
         <Wrapper>
           <MenuItem
             onClick={() => {
-              navigate("/etc");
+              navigate("/home/etc");
               setArrowState(true);
-              setActiveMenu("./etc");
+              setActiveMenu("./home/etc");
             }}
           >
             기타
           </MenuItem>
           <ArrowImage
-            showArrow={activeMenu === "./etc"}
+            showArrow={activeMenu === "./home/etc"}
             src={require("../assets/images/polygon.svg").default}
             alt="화살표"
           />

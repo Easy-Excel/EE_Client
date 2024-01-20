@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import logo from "../assets/images/Logo.svg";
+import logo from "../assets/images/Logo.svg`";
 
 export default function OurVision() {
   return (
@@ -9,7 +9,7 @@ export default function OurVision() {
         <div className="vision-header">Our Vision</div>
         <div className="vision-main">
           <div className="vision-logo">
-            <img src={logo} alt="로고" />
+            <img src={Logo} alt="로고" />
           </div>
           <div className="vision-logo2">EASY EXCEL</div>
           <div className="vision-context">
