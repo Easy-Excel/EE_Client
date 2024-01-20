@@ -7,6 +7,40 @@
     width: 100%;
 }
 
+ /*header시작*/
+ .header-container {
+    background-color: white;
+ }
+
+ .header-wrap {
+    height: 64px;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+ }
+
+ .header-left-wrap{
+    display: flex;
+ }
+
+ .header-left-wrap ul {
+    display: flex;
+    margin-left: 16px;
+ }
+
+.header-left-wrap li{
+    display: 14px;
+    padding: 8px;
+}
+
+ .header-nav-item {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+ }
+
  /*our vision 페이지*/
 .vision-main {
     box-sizing: border-box;
@@ -69,7 +103,7 @@
     position: absolute;
     width: 377px;
     height: 435px;
-    left: 50%;
+    left: 10%;
     top: 309px;
 
 }
@@ -77,9 +111,7 @@
     /* EASY EXCEL */
 
     position: absolute;
-    width: 420px;
-    height: 105px;
-    left: 50%;
+    left: 10%;
     top: 741px;
 
     font-family: 'Knewave';
@@ -105,7 +137,7 @@
     font-family: 'SUIT';
     font-style: normal;
     font-weight: 500;
-    font-size: 20%;
+    font-size: 25px;
     line-height: 30px;
 
     color: #000000;
@@ -176,8 +208,8 @@
     position: absolute;
     width: 959px;
     height: 960px;
-    left:20%;
-    text-align: center;
+    left: 7%;
+    right: 5%;
     top: 0px;
     }
 
@@ -223,8 +255,8 @@
 
 .membername1{
     position: absolute;
-    left: 18.5%;
-    right: 22.54%;
+    left: 8.5%;
+    right: 12.54%;
     top: 86.24%;
     bottom: -0.92%;
 
@@ -275,8 +307,8 @@
 }
 .membername2{
     position: absolute;
-    left: 18.5%;
-    right: 22.54%;
+    left: 8.5%;
+    right: 12.54%;
     top: 86.24%;
     bottom: -0.92%;
     font-family: 'SUIT';
@@ -333,8 +365,8 @@
 
 .membername3{
     position: absolute;
-    left: 18.5%;
-    right: 22.54%;
+    left: 8.5%;
+    right: 12.54%;
     top: 86.24%;
     bottom: -0.92%;
 
@@ -378,8 +410,8 @@ top: 669px;
     /* 이름/학교 */
 
     position: absolute;
-    left: 18.5%;
-    right: 22.54%;
+    left: 8.5%;
+    right: 12.54%;
     top: 86.24%;
     bottom: -0.92%;
 
@@ -426,8 +458,8 @@ top: 669px;
     /* 이름/학교 */
     
     position: absolute;
-    left: 18.5%;
-    right: 22.54%;
+    left: 8.5%;
+    right: 12.54%;
     top: 86.24%;
     bottom: -0.92%;
     
@@ -471,8 +503,8 @@ top: 669px;
 }
 .membername6{
     position: absolute;
-    left: 18.5%;
-    right: 22.54%;
+    left: 8.5%;
+    right: 12.54%;
     top: 86.24%;
     bottom: -0.92%;
 
@@ -525,8 +557,8 @@ top: 669px;
     
 .membername7{
     position: absolute;
-    left: 18.5%;
-    right: 22.54%;
+    left: 8.5%;
+    right: 12.54%;
     top: 86.24%;
     bottom: -0.92%;
     font-family: 'SUIT';
@@ -562,8 +594,8 @@ top: 669px;
 
 .membername8{
     position: absolute;
-    left: 18.5%;
-    right: 22.54%;
+    left: 8.5%;
+    right: 12.54%;
     top: 86.24%;
     bottom: -0.92%;
     font-family: 'SUIT';
@@ -602,8 +634,8 @@ top: 669px;
 }
 .membername9{
     position: absolute;
-    left: 18.5%;
-    right: 22.54%;
+    left: 8.5%;
+    right: 12.54%;
     top: 86.24%;
     bottom: -0.92%;
 
@@ -644,8 +676,8 @@ top: 669px;
 
 .membername10{
     position: absolute;
-    left: 18.5%;
-    right: 22.54%;
+    left: 0%;
+    right: 0.54%;
     top: 86.24%;
     bottom: -0.92%;
 
@@ -722,8 +754,6 @@ top: 669px;
     /* EASY EXCEL */
 
     position: absolute;
-    width: 420px;
-    height: 105px;
     left: 95px;
     top: 291px;
 
@@ -738,25 +768,25 @@ top: 669px;
 .contact-logo{
 
     position: absolute;
-    left: 60.3%;
-    right: 20.6%;
-    top: 41.84%;
+    right: 150px;
+    top: 420px;
     bottom: 43.68%;
-
 
 }
 .contact-git{
     position: absolute;
-    left: 10.77%;
-    right: 81.52%;
-    top: 56.93%;
+    left: 150px;
+    top: 620px;
     bottom: 33.58%;
+
+    width: 100px;
+    height: 100px;
 }
 
 .contact-instar{
     position: absolute;
-    left: 10.77%;
-    right: 81.52%;
-    top: 43.21%;
+    left: 150px;
+    top: 470px;
     bottom: 47.06%;
+
 }

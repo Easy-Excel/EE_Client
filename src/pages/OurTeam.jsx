@@ -1,5 +1,5 @@
 import React from 'react';
-import profillimage from '../assets/profillimage.png';
+import profillimage from '../assets/images/profillimage.png';
 
 export default function OurTeam() {
     return(
