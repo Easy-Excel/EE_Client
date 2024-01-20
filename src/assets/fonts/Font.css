@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Knewave";
+  src: url("./knewave.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  /* src: local("knewave"), url(./knewave.woff) format("woff"); */
+  font-display: swap;
+}
