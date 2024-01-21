@@ -19,7 +19,7 @@ my-app/
   │   │   ├─ reducers/
   │   │   └─ types/
   │   ├─ styles/      --> 스타일 관련 js, css 파일이 저장되는 폴더
-  │   │   ├─ GlobalStyles.js   --> 스타일 초기화(reset.css) 및 전역 스타일 관련 코드
+  │   │   ├─ GlobalStyles.js   --> 스타일 초기화(reset.css) 및 전역 스타일 관련 코드
   ├─ .env
   ├─ .gitignore
   ├─ package.json
