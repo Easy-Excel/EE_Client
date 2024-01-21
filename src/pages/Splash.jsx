@@ -8,13 +8,12 @@ import { motion } from "framer-motion";
 const fadeOut = keyframes`
   from {
     opacity: 1;
-    filter: blur(0);
   }
   to {
     opacity: 0;
-    filter: blur(10px);
   }
 `;
+
 //---component---//
 const Wrapper = styled.div`
   width: 100%;
@@ -30,23 +29,23 @@ const Logo = styled(LogoSvg)`
   position: absolute;
   bottom: 37px;
   right: 36px;
-  animation: ${fadeOut} 1s ease-in-out;
+  animation: ${fadeOut} 1s cubic-bezier(0.99, 0, 0.82, 0.05) forwards;
 `;
 
 //background green box 공통 스타일 (BGBox first child를 기본으로 설정)
-const commonBGBox = css`
-  width: 200%;
+const commonBGBoxStyle = css`
+  width: 150%;
   height: 36.07px;
   left: -79.61px;
   top: 900px;
   position: absolute;
   transform: rotate(-30deg);
   transform-origin: 0 0;
-  background: #ceebde;
+  background-color: #ceebde;
 `;
 
 const BgMainBox = styled.div`
-  ${commonBGBox}
+  ${commonBGBoxStyle}
   height: 197.6px;
   left: -160px;
   top: 600px;
@@ -60,51 +59,57 @@ const MainTitle = styled(motion.div)`
   color: rgba(16, 124, 65, 0.79);
 `;
 
-const BGBox = styled(motion.div)`
-  ${commonBGBox}
+const BGBox = styled.div`
+  ${commonBGBoxStyle}
+  background:none;
   &:nth-child(2) {
     left: -7.61px;
     top: 790px;
   }
 `;
 
+const BGGreenBox = styled(motion.div)`
+  background-color: #ceebde;
+  width: 100%;
+  height: 100%;
+`;
 function Splash() {
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   console.log("useEffect 실행");
-  //   const timer = setTimeout(() => {
-  //     navigate("/home");
-  //   }, 2000); //2초
+  useEffect(() => {
+    console.log("useEffect 실행");
+    const timer = setTimeout(() => {
+      navigate("/home");
+    }, 1300); //1.3초
 
-  //   return () => clearTimeout(timer);
-  // }, [navigate]);
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   return (
     <Wrapper>
       <BgMainBox>
         <MainTitle
-          initial={{ opacity: 1, x: 0 }}
-          animate={{ opacity: 0, x: -1000 }}
-          transition={{ duration: 1 }}
+          initial={{ x: 0 }}
+          animate={{ x: 2000 }}
+          transition={{ duration: 1, ease: [0.99, 0, 0.82, 0.05] }}
         >
           EASY EXCEL
         </MainTitle>
       </BgMainBox>
-      <BGBox
-        initial={{ opacity: 1, x: 0 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-      />
-      <BGBox
-      // initial={{ opacity: 1, x: 0 }}
-      // animate={{ opacity: 1, x: 0 }}
-      // transition={{ duration: 1 }}
-      />
-      <Logo
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 0 }}
-        transition={{ duration: 1 }}
-      />
+      <BGBox>
+        <BGGreenBox
+          initial={{ x: 0 }}
+          animate={{ x: -3000 }}
+          transition={{ duration: 1, ease: [0.99, 0, 0.82, 0.05] }}
+        />
+      </BGBox>
+      <BGBox>
+        <BGGreenBox
+          initial={{ x: 0 }}
+          animate={{ x: -3000 }}
+          transition={{ duration: 1, ease: [0.99, 0, 0.82, 0.05] }}
+        />
+      </BGBox>
+      <Logo />
     </Wrapper>
   );
 }

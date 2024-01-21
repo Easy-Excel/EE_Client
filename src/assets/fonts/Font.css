@@ -1,8 +1,35 @@
 @font-face {
   font-family: "Knewave";
-  src: url("./knewave.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-  /* src: local("knewave"), url(./knewave.woff) format("woff"); */
+  src: url("./knewave.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SUIT";
+  font-weight: 400;
+  font-style: normal;
+  src: url("./SUIT-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SUIT";
+  font-weight: 500;
+  font-style: normal;
+  src: url("./SUIT-Medium.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SUIT";
+  font-weight: 700;
+  font-style: normal;
+  src: url("./SUIT-Bold.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "SUIT";
+  font-weight: 800;
+  font-style: normal;
+  src: url("./SUIT-ExtraBold.woff2") format("woff2");
   font-display: swap;
 }

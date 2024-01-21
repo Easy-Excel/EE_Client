@@ -39,7 +39,8 @@ html, body {
 body {
   line-height: 1;
   font-weight: 400;
-  font-family: 'SUIT-Regular', sans-serif;
+  font-family: 'SUIT', sans-serif;
+  font-weight: 500;
   color:black;
   line-height: 1.2;
   padding-top: 90px;
