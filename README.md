@@ -14,12 +14,12 @@ my-app/
   │   ├─ containers/ --> 상태관리와 같은 로직이 포함된 컨테이너 컴포넌트를 저장하는 폴더
   │   ├─ hooks/      --> 사용자 Custom Hook코드를 저장하는 폴더
   │   ├─ pages/      --> 각각의 페이지에 대한 레이아웃이나 특정 페이지 관련 로직을 담당하는 컴포넌트를 저장하는 폴더
-  │   └─ store/      --> 상태 관리를 위한 (예시 : Redux, Mobx등등..) 과 관련코드들이 저장되는 폴더
+  │   ├─ store/      --> 상태 관리를 위한 (예시 : Redux, Mobx등등..) 과 관련코드들이 저장되는 폴더
   │   │   ├─ actions/
   │   │   ├─ reducers/
   │   │   └─ types/
-  │   ├─ styles/      --> 스타일 관련 js, css 파일이 저장되는 폴더
-  │   │   ├─ GlobalStyles.js   --> 스타일 초기화(reset.css) 및 전역 스타일 관련 코드
+  │   └─ styles/      --> 스타일 관련 js, css 파일이 저장되는 폴더
+  │       ├─ GlobalStyles.js   --> 스타일 초기화(reset.css) 및 전역 스타일 관련 코드
   ├─ .env
   ├─ .gitignore
   ├─ package.json
