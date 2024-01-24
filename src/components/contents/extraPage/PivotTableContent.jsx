@@ -13,6 +13,7 @@ const Container = styled.div`
   //width: 100%; /* Ensure full width of the container */
   max-height: 390px;
   overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 const Title = styled.div`
