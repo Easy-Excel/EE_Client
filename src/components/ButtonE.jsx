@@ -32,7 +32,8 @@ const BtnWrapper = styled.div`
   height: 100px;
   gap: 40px;
   flex-shrink: 0;
-  margin: 25px auto; /* 좌우 가운데 정렬을 위한 margin 설정 */
+  margin: 0px auto; /* 좌우 가운데 정렬을 위한 margin 설정 */
+  margin-bottom: 22px;
   padding: 27px 20px;
   border-bottom: 3.11px solid black;
 `;

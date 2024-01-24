@@ -20,7 +20,7 @@ const Title = styled.div`
   font-style: normal;
   font-weight: 800;
   line-height: normal;
-  //margin-bottom:-100px;
+  margin-bottom: 20px;
   /* position: absolute;
   top: 32%;
   left: 17%;
@@ -102,8 +102,8 @@ const Btn = styled.button`
   font-style: normal;
   font-weight: 800;
   line-height: normal;
-  margin-top: 20px;
-  margin-left: 60px;
+  /* margin-top: 20px;
+  margin-left: 60px; */
 `;
 const PivotTableContent = () => {
   return (

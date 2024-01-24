@@ -21,7 +21,8 @@ const Content = styled.div`
   //width: calc(100% - 200px);
   width: 80%; //백분율로 조장해야 화면 크기에 따라 조절됨
   min-height: 700px;
-  height: 700px; //내부에 맞게 길이가 세로로 늘어날 수 있도록 조정
+  max-height: 700px;
+  overflow-y: auto; // 세로 스크롤바를 표시하고, 내용이 넘칠 때 스크롤 가능하게 함
   background-color: white;
   margin: auto;
   display: flex;
@@ -29,7 +30,7 @@ const Content = styled.div`
   position: relative;
   margin-top: 0px;
   margin-bottom: 60px; //bottom 여백 추가
-  padding: 0px 58px; //Content 좌우 여백 전체 적용
+  padding: 20px 58px; //Content 좌우 여백 전체 적용
 `;
 
 export default function Skeleton() {
