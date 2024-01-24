@@ -7,6 +7,9 @@ import {
   HelpImage,
   ExampleBtn,
   Container,
+  ExampleQuestion,
+  ExampleSubQuestion,
+  ExampleAnswer,
 } from "./ExtraComponent";
 
 //Webpack의 require.context를 사용하여 특정 폴더의 모든 파일 가져오기
@@ -55,8 +58,28 @@ const FeatureDescription = () => (
 const Example = () => (
   <Container minHeight={"390px"} maxHeight={"390px"}>
     <Title text="시나리오 관리자 예제" />
-    <Paragraph text="피벗테이블 예제 페이지입니다." />
-    <SubTitle text="부제목" />
+    <ExampleQuestion
+      text={
+        "[1] 시나리오 관리자 기능을 이용하여 표에서 기획팀과 개발팀의 소진율 [E4:E5]이 다음과 같이 변동하는 경우 소진액 합계 [D10]의 변동 시나리오를 작성하시오.\n이때 소진액은 예산*소진율/100으로 계산됩니다.\n [E4] 셀의 이름은 '기획팀소진율', '[E5]셀의 이름은 '개발팀소진율'로 정의하시오."
+      }
+    >
+      <ExampleSubQuestion
+        text={
+          "시나리오1: 시나리오 이름은 '비율인상', 기획팀 소진율은 30, 개발팀 소진율은 90으로 설정하시오.\n시나리오2: 시나리오 이름은 '비율인하', 기획팀 소진율은 10, 개발팀 소진율은 60으로 설정하시오."
+        }
+      />
+    </ExampleQuestion>
+    <HelpImage
+      width={"553px"}
+      height={"284px"}
+      marginLeft={"73px"}
+      src={images[3]}
+    />
+    <ExampleAnswer
+      text={
+        "[E4] 셀을 클릭한 후 셀이름을 '기획팀소진율'로 정의하고 [E5] 셀을 클릭한 후 셀이름을 '개발팀소진율'로 정의합니다.\n[데이터] - [예측] -[가상분석] - [시나리오 관리자]를 클릭합니다.\n추가 버튼을 눌러 누른 후 시나리오 이름을 [비율인상]으로 기입합니다.\n변경 셀은 E4, E5셀을 기입하고 시나리오 값에는 각각 30, 90을 작성합니다.\n비율인하의 경우에도 4)와 같은 방식으로 작성한 후 [시나리오 관리자] - [요약] 버튼을 클릭하고 변동 셀에는 D10 셀을 기입합니다.\n확인 버튼을 클릭하면 시나리오 요약 보고서가 생성됩니다."
+      }
+    />
   </Container>
 );
 

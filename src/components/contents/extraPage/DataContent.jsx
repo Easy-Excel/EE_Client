@@ -7,6 +7,8 @@ import {
   HelpImage,
   ExampleBtn,
   Container,
+  ExampleQuestion,
+  ExampleAnswer,
 } from "./ExtraComponent";
 
 //Webpack의 require.context를 사용하여 특정 폴더의 모든 파일 가져오기
@@ -51,9 +53,23 @@ const FeatureDescription = () => (
 
 const Example = () => (
   <Container minHeight={"390px"} maxHeight={"390px"}>
-    <Title text="시나리오 관리자 예제" />
-    <Paragraph text="피벗테이블 예제 페이지입니다." />
-    <SubTitle text="부제목" />
+    <Title text="데이터 통합 예제" />
+    <ExampleQuestion
+      text={
+        "데이터 통합 기능을 이용하여 [표1], [표2], [표3], [표4]의 자료에서 대륙별 '육지면적'과 '해양면적'의 최대값이 [표5]에 표시되도록 지정하되, 아시아, 유럽, 아프리카 대륙만을 대상으로 하시오."
+      }
+    ></ExampleQuestion>
+    <HelpImage
+      width={"727px"}
+      height={"302px"}
+      marginLeft={"73px"}
+      src={images[3]}
+    />
+    <ExampleAnswer
+      text={
+        "[표5]에 구하고자 하는 대륙명과 면적의 종류를 작성합니다.\n[표5]를 드래그한 채 [데이터] - [데이터 도구] - [통합]을 클릭합니다.\n최대값을 구해야 하므로 함수 부분에서 최대를 선택합니다.\n참조 영역에는 [표1], [표2], [표3], [표4]에 해당하는 범위를 드래그한 후 아래에 추가 버튼을 클릭합니다.\n사용할 레이블에 있는 첫 행, 왼쪽 열 항목을 모두 체크해준 후 확인 버튼을 눌러 작업을 완료합니다."
+      }
+    />
   </Container>
 );
 

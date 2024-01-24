@@ -7,6 +7,7 @@ import {
   HelpImage,
   ExampleBtn,
   Container,
+  ExampleQuestion,
 } from "./ExtraComponent";
 
 //Webpack의 require.context를 사용하여 특정 폴더의 모든 파일 가져오기
@@ -18,6 +19,7 @@ const imagesContext = require.context(
 // 이미지 파일 목록을 배열로 가져오기 (해당 폴더 내의 모든 이미지 파일이 배열에 포함됨)
 const images = imagesContext.keys().map(imagesContext);
 
+//기능 설명 화면
 const FeatureDescription = () => (
   <Container minHeight={"390px"} maxHeight={"390px"}>
     <Title text="피벗테이블" />
@@ -59,6 +61,7 @@ const FeatureDescription = () => (
   </Container>
 );
 
+//Example 화면
 const Example = () => (
   <Container minHeight={"390px"} maxHeight={"390px"}>
     <Title text="피벗테이블 예제" />

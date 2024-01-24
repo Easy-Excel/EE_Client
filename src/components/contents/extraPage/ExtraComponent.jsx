@@ -6,6 +6,7 @@ const ExtraContainer = styled.div`
   max-height: ${({ maxHeight }) => maxHeight};
   min-height: ${({ minHeight }) => minHeight};
   overflow-y: auto;
+  padding-right: 15px;
 `;
 const ExtraTitle = styled.div`
   color: #000;
@@ -18,7 +19,6 @@ const ExtraTitle = styled.div`
 `;
 
 const ExtraParagraph = styled.div`
-  box-sizing: border-box;
   color: #000;
   font-family: SUIT;
   font-size: 20px;
@@ -88,6 +88,61 @@ const Btn = styled.button`
   }
 `;
 
+const ExQuestion = styled.div`
+  color: #000;
+  font-family: SUIT;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  word-wrap: break-word;
+  margin: 0px;
+  margin-left: 37px;
+  margin-bottom: 15px;
+  display: flex;
+  gap: 5px;
+  line-height: 1.4;
+`;
+
+const SubQuestion = styled.div`
+  color: #000;
+  font-family: SUIT;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  word-wrap: break-word;
+  margin: 0px;
+  margin-top: 15px;
+  line-height: 1.4;
+`;
+const ExAnswerTitle = styled.div`
+  color: black;
+  font-size: 22px;
+  font-family: SUIT;
+  font-weight: 500;
+  word-wrap: break-word;
+  margin: 15px;
+  margin-left: 73px;
+`;
+
+const ExAnswer = styled.div`
+  color: black;
+  font-size: 18px;
+  font-family: SUIT;
+  font-weight: 500;
+  word-wrap: break-word;
+
+  border-radius: 20px;
+  border: 1px solid #000;
+
+  background: #fcfcfc;
+
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 20px 20px;
+  margin: 0px 10px 15px 73px;
+`;
+
 function Title({ text }) {
   return <ExtraTitle>{text}</ExtraTitle>;
 }
@@ -119,4 +174,63 @@ function Container({ minHeight, maxHeight, children }) {
   );
 }
 
-export { Title, SubTitle, Paragraph, How, HelpImage, ExampleBtn, Container };
+function ExampleQuestion({ text, children = null }) {
+  const lines = text
+    .split("\n")
+    .map((line, index) => <div key={index}>{line}</div>);
+  return (
+    <ExQuestion>
+      <div>Q.</div>
+      <div>
+        {lines}
+        {children}
+      </div>
+    </ExQuestion>
+  );
+}
+function ExampleSubQuestion({ text }) {
+  const lines = text
+    .split("\n")
+    .map((line, index) => <div key={index}>{line}</div>);
+  return <SubQuestion>{lines}</SubQuestion>;
+}
+
+function ExampleAnswer({ text }) {
+  const lines = text.split("\n").map((line, index) => (
+    <div key={index} style={{ display: "flex", gap: "14px" }}>
+      <div
+        style={{
+          border: "1px solid black",
+          borderRadius: "50%",
+          width: "25px",
+          height: "25px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {index}
+      </div>
+      {line}
+    </div>
+  ));
+  return (
+    <div>
+      <ExAnswerTitle> {">"} 함수식 풀이</ExAnswerTitle>
+      <ExAnswer>{lines}</ExAnswer>
+    </div>
+  );
+}
+
+export {
+  Title,
+  SubTitle,
+  Paragraph,
+  How,
+  HelpImage,
+  ExampleBtn,
+  Container,
+  ExampleQuestion,
+  ExampleSubQuestion,
+  ExampleAnswer,
+};
