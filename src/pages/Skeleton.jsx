@@ -41,7 +41,6 @@ export default function Skeleton() {
       <Content>
         <Outlet />
       </Content>
-      {/* <Footer>Copyright © Easy Excel</Footer> */}
     </MainContainer>
   );
 }

@@ -94,7 +94,7 @@ const Btn = styled.button`
   justify-content: center;
   align-items: center;
   border-radius: 16px;
-  border: 1px solid #000;
+  border: none;
   background-color: #107c41;
   color: #fff;
   font-family: SUIT;
@@ -104,7 +104,12 @@ const Btn = styled.button`
   line-height: normal;
   /* margin-top: 20px;
   margin-left: 60px; */
+
+  :hover {
+    cursor: pointer;
+  }
 `;
+
 const PivotTableContent = () => {
   return (
     <div>
