@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import pivotTableImage from "./pivotTable.png";
 
@@ -12,6 +12,7 @@ const Container = styled.div`
   //text-align: center; /* Center the text horizontally */
   //width: 100%; /* Ensure full width of the container */
   max-height: 390px;
+  min-height: 390px;
   overflow-y: auto;
   overflow-x: hidden;
 `;
@@ -108,35 +109,56 @@ const Btn = styled.button`
   /* margin-top: 20px;
   margin-left: 60px; */
 
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 `;
 
+const FeatureDescription = () => (
+  <Container>
+    <Title>피벗테이블</Title>
+    <Paragraph>
+      피벗테이블은 데이터를 계산, 요약 및 분석하는 강력한 도구로서 데이터의
+      비교, 패턴 및 추세를 보는데 사용할 수 있습니다.
+    </Paragraph>
+    <SubTitle>사용하는 방법</SubTitle>
+
+    <How>
+      1. 피벗테이블로 확인하고 싶은 데이터 영역을 추가해준 뒤,[삽입]
+      피벗테이블을 선택합니다.
+    </How>
+    <HelpImage src={pivotTableImage} />
+
+    {/* src={require("../assets/images/polygon.svg").default */}
+    <How>
+      2. 피벗테이블로 확인하고 싶은 데이터 영역을 추가해준 뒤,[삽입]
+      피벗테이블을 선택합니다.
+    </How>
+  </Container>
+);
+
+const Example = () => (
+  <Container>
+    <Title>피벗테이블 예제</Title>
+    <Paragraph>피벗테이블 예제 페이지입니다.</Paragraph>
+    <SubTitle>부제목</SubTitle>
+  </Container>
+);
+
 const PivotTableContent = () => {
+  //useState Hook을 사용하여 페이지 상태, 버튼 텍스트 상태 관리
+  const [isExamplePage, setExampePage] = useState(false);
+  const [buttonText, setButtonText] = useState("예제");
+
+  //버튼 클릭시 페이지 내용 변경하는 이벤트
+  const handleExamplePage = () => {
+    setExampePage(!isExamplePage);
+    setButtonText(isExamplePage ? "예제" : "기능 설명");
+  };
   return (
     <div>
-      <Container>
-        <Title>피벗테이블</Title>
-        <Paragraph>
-          피벗테이블은 데이터를 계산, 요약 및 분석하는 강력한 도구로서 데이터의
-          비교, 패턴 및 추세를 보는데 사용할 수 있습니다.
-        </Paragraph>
-        <SubTitle>사용하는 방법</SubTitle>
-
-        <How>
-          1. 피벗테이블로 확인하고 싶은 데이터 영역을 추가해준 뒤,[삽입]
-          피벗테이블을 선택합니다.
-        </How>
-        <HelpImage src={pivotTableImage} />
-
-        {/* src={require("../assets/images/polygon.svg").default */}
-        <How>
-          2. 피벗테이블로 확인하고 싶은 데이터 영역을 추가해준 뒤,[삽입]
-          피벗테이블을 선택합니다.
-        </How>
-      </Container>
-      <Btn>예제</Btn>
+      {isExamplePage ? <Example /> : <FeatureDescription />}
+      <Btn onClick={handleExamplePage}>{buttonText}</Btn>
     </div>
   );
 };
