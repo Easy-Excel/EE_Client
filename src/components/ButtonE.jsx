@@ -28,7 +28,7 @@ const BtnWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center; /* 수평 가운데 정렬 */
-  width: auto;
+  width: 100%;
   height: 100px;
   gap: 40px;
   flex-shrink: 0;
