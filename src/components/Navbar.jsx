@@ -7,7 +7,7 @@ const StHeader = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center; /* 화면 가운데 정렬을 위한 스타일 */
-  margin-top: -40px; /* 원하는 위치로 조정 */
+  margin-top: -45px; /* 원하는 위치로 조정 */
 `;
 
 const NavMenu = styled.div`

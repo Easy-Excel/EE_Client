@@ -12,9 +12,23 @@ const MainContainer = styled.div`
   /* height: calc(100vh - 88px); */ //Content 길이에 맞게 늘어나도록 주석처리
 `;
 const ServContainer = styled.div`
+  display: flex;
+  padding-top: 60px;
+  justify-content: center;
   background-color: #f9f8f8;
-  height: 80px;
+  height: 200px;
   text-align: center;
+  font-size: 22px;
+  font-family: SUIT;
+  font-weight: 500;
+  word-wrap: break-word;
+  gap: 6px;
+
+  > div {
+    font-family: SUIT;
+    font-weight: 700;
+    word-wrap: break-word;
+  }
 `;
 
 const Content = styled.div`
@@ -33,7 +47,10 @@ const Content = styled.div`
 export default function Skeleton() {
   return (
     <MainContainer>
-      <ServContainer>서비스 상세 내용 </ServContainer>
+      <ServContainer>
+        슬기로운 엑셀 사용을 위한 통합정리 서비스,
+        <span>Easy Excel</span>
+      </ServContainer>
       <Navbar />
       <Content>
         <Outlet />
