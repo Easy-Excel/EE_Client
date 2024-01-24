@@ -3,6 +3,8 @@ import ButtonE from "../components/ButtonE";
 import styled from "styled-components";
 //함수 페이지//로 가야함
 import PivotTableContent from "../components/contents/extraPage/PivotTableContent";
+import SummaryContent from "../components/contents/extraPage/SummaryContent";
+import DataContent from "../components/contents/extraPage/DataContent";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -15,10 +17,15 @@ function Extra() {
   const [activeContent, setActiveContent] = useState("pivotTable");
 
   const handleButtonClick = (content) => {
+    console.log(content);
     setActiveContent(content);
   };
   const contentComponents = {
     pivotTable: <PivotTableContent />,
+    summary: <SummaryContent />,
+    data: <DataContent />,
+    // validation :,
+    // macro:,
   };
 
   return (

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import {
   Title,
   SubTitle,
@@ -12,7 +11,7 @@ import {
 
 //Webpack의 require.context를 사용하여 특정 폴더의 모든 파일 가져오기
 const imagesContext = require.context(
-  "../../../assets/images/extra",
+  "../../../assets/images/extra/pivotTable",
   false,
   /\.(png|jpg|jpeg|gif|svg)$/
 );

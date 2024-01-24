@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const ExtraContainer = styled.div`
+  box-sizing: border-box;
   max-height: ${({ maxHeight }) => maxHeight};
   min-height: ${({ minHeight }) => minHeight};
   overflow-y: auto;
-  overflow-x: hidden;
 `;
 const ExtraTitle = styled.div`
   color: #000;
@@ -18,6 +18,7 @@ const ExtraTitle = styled.div`
 `;
 
 const ExtraParagraph = styled.div`
+  box-sizing: border-box;
   color: #000;
   font-family: SUIT;
   font-size: 20px;
@@ -25,8 +26,7 @@ const ExtraParagraph = styled.div`
   font-weight: 500;
   line-height: normal;
 
-  margin: 0px auto; /* Center the paragraph horizontally */
-  width: 100%;
+  margin: 0px;
   margin-left: 38px;
   margin-bottom: 15px;
 `;
