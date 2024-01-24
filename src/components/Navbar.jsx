@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import polygon from "../assets/images/navBar/polygon.svg";
 
 const StHeader = styled.nav`
   //네비게이션 바 가운데 정렬하려고
@@ -84,9 +85,9 @@ const isArrowActive = (path) => {
 const Navbar = ({ toggle, setToggle }) => {
   const navigate = useNavigate();
   const location = useLocation(); //useLocation 훅을 사용하여 현재 URL 파악하고 URL에 따라 polygon 이미지 활성화
-  const onClickToggleHandler = () => {
-    setToggle(!toggle);
-  };
+  // const onClickToggleHandler = () => {
+  //   setToggle(!toggle);
+  // };
   const [activeMenu, setActiveMenu] = useState(null); //뭐가 활성화 상태인지 쳌
   // const [arrowState, setArrowState] = useState(false);
   // 코드에서 실 사용되지 않는 부분이라 주석처리했습니다.
@@ -114,7 +115,7 @@ const Navbar = ({ toggle, setToggle }) => {
           </MenuItem>
           <ArrowImage
             showArrow={activeMenu === "/home/function"}
-            src={require("../assets/images/polygon.svg").default}
+            src={polygon}
             alt="화살표"
           />
         </Wrapper>
@@ -133,7 +134,7 @@ const Navbar = ({ toggle, setToggle }) => {
           {/* {activeMenu === "/home/category" && ( */}
           <ArrowImage
             showArrow={activeMenu === "/home/category"}
-            src={require("../assets/images/polygon.svg").default}
+            src={polygon}
             alt="화살표"
           />
           {/* )} */}
@@ -151,7 +152,7 @@ const Navbar = ({ toggle, setToggle }) => {
           </MenuItem>
           <ArrowImage
             showArrow={activeMenu === "/home/shortcut"}
-            src={require("../assets/images/polygon.svg").default}
+            src={polygon}
             alt="화살표"
           />
         </Wrapper>
@@ -168,7 +169,7 @@ const Navbar = ({ toggle, setToggle }) => {
           </MenuItem>
           <ArrowImage
             showArrow={activeMenu === "/home/extra"}
-            src={require("../assets/images/polygon.svg").default}
+            src={polygon}
             alt="화살표"
           />
         </Wrapper>
@@ -185,7 +186,7 @@ const Navbar = ({ toggle, setToggle }) => {
           </MenuItem>
           <ArrowImage
             showArrow={activeMenu === "/home/etc"}
-            src={require("../assets/images/polygon.svg").default}
+            src={polygon}
             alt="화살표"
           />
         </Wrapper>

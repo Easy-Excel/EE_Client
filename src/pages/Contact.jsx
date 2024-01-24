@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/images/Logo.svg";
-import instar from "../assets/images/instar.png";
-import git from "../assets/images/git.png";
+import logo from "../assets/images/logo/Logo.svg";
+import instar from "../assets/images/main/instar.png";
+import git from "../assets/images/main/git.png";
 
 export default function Contact() {
   return (

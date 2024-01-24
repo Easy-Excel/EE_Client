@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled, { css, keyframes } from "styled-components";
-import { ReactComponent as LogoSvg } from "../assets/images/Logo.svg";
+import { ReactComponent as LogoSvg } from "../assets/images/logo/Logo.svg";
 import { motion } from "framer-motion";
 //---animation & transition---//
 //fade out

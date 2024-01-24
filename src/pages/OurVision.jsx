@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import logo from "../assets/images/Logo.svg";
+import logo from "../assets/images/logo/Logo.svg";
 
 export default function OurVision() {
   return (
