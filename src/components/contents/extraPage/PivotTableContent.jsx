@@ -1,147 +1,70 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import pivotTableImage from "./pivotTable.png";
+import {
+  Title,
+  SubTitle,
+  Paragraph,
+  How,
+  HelpImage,
+  ExampleBtn,
+  Container,
+} from "./ExtraComponent";
 
-const Container = styled.div`
-  /* position: absolute; */
-  //margin: 0 auto;
-  /* top: 40%;
-  left: 50%;
-  transform: translateX(-50%); */
-  /* width: 80%; */
-  //text-align: center; /* Center the text horizontally */
-  //width: 100%; /* Ensure full width of the container */
-  max-height: 390px;
-  min-height: 390px;
-  overflow-y: auto;
-  overflow-x: hidden;
-`;
-
-const Title = styled.div`
-  color: #000;
-  font-family: SUIT;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-  margin-bottom: 20px;
-  /* position: absolute;
-  top: 32%;
-  left: 17%;
-  transform: translateX(-50%); */
-`;
-const Paragraph = styled.div`
-  color: #000;
-  font-family: SUIT;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  left: 10%;
-  //position: absolute;
-  //margin-top: 15px;
-  //margin-bottom: 17px;
-  width: 90%;
-  margin: 0 auto; /* Center the paragraph horizontally */
-  max-width: 1200px; /* Set a maximum width if needed */
-  margin: -7px auto;
-
-  margin-top: 5px;
-  margin-bottom: 40px;
-`;
-
-const SubTitle = styled.div`
-  color: #000;
-  font-family: SUIT;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-  letter-spacing: -0.44px;
-
-  margin-top: 60px;
-  margin-bottom: 10px;
-  /* position: absolute;
-  top: 1%; //위치 조정
-  left: 15%;
-  transform: translateX(-90%); */
-`;
-const HelpImage = styled.img`
-  margin-top: 100px;
-  width: 268px;
-  height: 146px;
-  flex-shrink: 0;
-  transform: translateX(40%);
-  margin-top: -4px;
-  margin-left: 50px;
-`;
-const How = styled.div`
-  color: #000;
-  font-family: SUIT;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.4px;
-  //margin-top: 30px;
-  transform: translateX(10%);
-
-  padding: 30px;
-`;
-
-const Btn = styled.button`
-  //버튼 크기 조정
-  display: flex;
-  width: 14%; //창 조절할 때마다 버튼 크기도 조정
-  padding: 10px;
-  height: 54px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 16px;
-  border: none;
-  background-color: #107c41;
-  color: #fff;
-  font-family: SUIT;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-  /* margin-top: 20px;
-  margin-left: 60px; */
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
+//Webpack의 require.context를 사용하여 특정 폴더의 모든 파일 가져오기
+const imagesContext = require.context(
+  "../../../assets/images/extra",
+  false,
+  /\.(png|jpg|jpeg|gif|svg)$/
+);
+// 이미지 파일 목록을 배열로 가져오기 (해당 폴더 내의 모든 이미지 파일이 배열에 포함됨)
+const images = imagesContext.keys().map(imagesContext);
 
 const FeatureDescription = () => (
-  <Container>
-    <Title>피벗테이블</Title>
-    <Paragraph>
-      피벗테이블은 데이터를 계산, 요약 및 분석하는 강력한 도구로서 데이터의
-      비교, 패턴 및 추세를 보는데 사용할 수 있습니다.
-    </Paragraph>
-    <SubTitle>사용하는 방법</SubTitle>
+  <Container minHeight={"390px"} maxHeight={"390px"}>
+    <Title text="피벗테이블" />
+    <Paragraph
+      text="피벗테이블은 데이터를 계산, 요약 및 분석하는 강력한 도구로서 데이터의
+        비교, 패턴 및 추세를 보는데 사용할 수 있습니다."
+    />
+    <SubTitle text="사용하는 방법" />
 
-    <How>
-      1. 피벗테이블로 확인하고 싶은 데이터 영역을 추가해준 뒤,[삽입]
-      피벗테이블을 선택합니다.
-    </How>
-    <HelpImage src={pivotTableImage} />
+    <How text="1. 피벗테이블로 확인하고 싶은 데이터 영역을 추가해준 뒤, [삽입] > 피벗테이블을 선택합니다." />
 
-    {/* src={require("../assets/images/polygon.svg").default */}
-    <How>
-      2. 피벗테이블로 확인하고 싶은 데이터 영역을 추가해준 뒤,[삽입]
-      피벗테이블을 선택합니다.
-    </How>
+    <HelpImage
+      width={"286px"}
+      height={"146px"}
+      marginLeft={"94px"}
+      src={images[0]}
+    />
+    <How text="2. 팝업창이 뜨면 데이터 범위를 점검하고, 새 시트에 피벗테이블을 추가할 것인지, 기존 시트에 추가할 것인지 선택합니다." />
+    <HelpImage
+      width={"344px"}
+      height={"248px"}
+      marginLeft={"94px"}
+      src={images[1]}
+    />
+    <How text="3.보고 싶은 데이터 기준을 '행' 부분에, 기준에 맞추어 보고싶은 항목을 '값' 부분에 선택하여 넣어줍니다." />
+    <HelpImage
+      width={"736px"}
+      height={"337px"}
+      marginLeft={"94px"}
+      src={images[2]}
+    />
+    <How text="4. 값에 대한 내용은 기본적으로 합계 또는 개수로 나오며 필요에 따라 평균, 최대/최소값 등으로 변경 가능합니다." />
+    <HelpImage
+      width={"739px"}
+      height={"335px"}
+      marginLeft={"94px"}
+      src={images[3]}
+    />
   </Container>
 );
 
 const Example = () => (
-  <Container>
-    <Title>피벗테이블 예제</Title>
-    <Paragraph>피벗테이블 예제 페이지입니다.</Paragraph>
-    <SubTitle>부제목</SubTitle>
+  <Container minHeight={"390px"} maxHeight={"390px"}>
+    <Title text="피벗테이블 예제" />
+    <Paragraph text="피벗테이블 예제 페이지입니다." />
+    <SubTitle text="부제목" />
   </Container>
 );
 
@@ -158,7 +81,7 @@ const PivotTableContent = () => {
   return (
     <div>
       {isExamplePage ? <Example /> : <FeatureDescription />}
-      <Btn onClick={handleExamplePage}>{buttonText}</Btn>
+      <ExampleBtn onClick={handleExamplePage} buttonText={buttonText} />
     </div>
   );
 };
