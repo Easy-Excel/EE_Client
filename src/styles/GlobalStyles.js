@@ -34,7 +34,7 @@ footer, header, hgroup, main, menu, nav, section {
 }
 //for full screen
 html, body {
-    height: 100%;
+    width: 100%;
 }
 body {
   line-height: 1;

@@ -14,7 +14,7 @@ const NavMenu = styled.div`
   //width: 1220px;
   height: 71px;
   //width:1350px;
-  width:84%;
+  width: 84%;
   flex-shrink: 0; //figma에서 네비게이터 사이즈
   border-radius: 19.248px;
   background: #107c41;
@@ -42,8 +42,8 @@ const MenuItem = styled.div`
 `;
 
 const ArrowImage = styled.img`
-  width: 110px;
-  height: 59px;
+  width: 55px;
+  height: 45px;
   flex-shrink: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -70,24 +70,21 @@ const Wrapper = styled.div`
   }
 `;
 
-
-
-
 const Navbar = ({ toggle, setToggle }) => {
   const navigate = useNavigate();
   const onClickToggleHandler = () => {
     setToggle(!toggle);
   };
-  const [activeMenu, setActiveMenu] = useState(null);//뭐가 활성화 상태인지 쳌
+  const [activeMenu, setActiveMenu] = useState(null); //뭐가 활성화 상태인지 쳌
   const [arrowState, setArrowState] = useState(false);
 
-// useEffect(()=>{
-//   if(activeMenu){
-//     navigate(activeMenu);
-//   }
-// },[activeMenu,navigate]);
+  // useEffect(()=>{
+  //   if(activeMenu){
+  //     navigate(activeMenu);
+  //   }
+  // },[activeMenu,navigate]);
 
-useEffect(() => {
+  useEffect(() => {
     // Set arrow state immediately after component mounts
     setArrowState(activeMenu === "/home/category");
   }, [activeMenu]);
@@ -96,22 +93,23 @@ useEffect(() => {
     <StHeader>
       <NavMenu>
         <Wrapper>
-        <MenuItem
+          <MenuItem
             onClick={() => {
               setArrowState(true);
               setActiveMenu("./home/function");
               navigate("/home/function");
               //클릭을 하자마자 화살표 모양이 나타나야 함//
-            }}>
+            }}
+          >
             엑셀 함수
-        </MenuItem>
-        <ArrowImage
-            showArrow={activeMenu==="./home/function"}
+          </MenuItem>
+          <ArrowImage
+            showArrow={activeMenu === "./home/function"}
             src={require("../assets/images/polygon.svg").default}
             alt="화살표"
           />
         </Wrapper>
-        
+
         <Wrapper>
           <MenuItem
             onClick={() => {
@@ -119,18 +117,17 @@ useEffect(() => {
               setActiveMenu("./home/category");
               navigate("/home/category");
             }}
-              // isActive={activeMenu==="./home/category"}
-              >
+            // isActive={activeMenu==="./home/category"}
+          >
             범주
           </MenuItem>
-          {activeMenu === "/home/category" && (
-      <ArrowImage
-        showArrow={arrowState}
-        src={require("../assets/images/polygon.svg").default}
-        alt="화살표"
-      />
-  )}
-
+          {/* {activeMenu === "/home/category" && ( */}
+          <ArrowImage
+            showArrow={activeMenu === "./home/category"}
+            src={require("../assets/images/polygon.svg").default}
+            alt="화살표"
+          />
+          {/* )} */}
         </Wrapper>
 
         <Wrapper>
@@ -149,8 +146,6 @@ useEffect(() => {
             alt="화살표"
           />
         </Wrapper>
-
-
 
         <Wrapper>
           <MenuItem

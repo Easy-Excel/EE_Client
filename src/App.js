@@ -11,6 +11,7 @@ import Category from "./pages/Category";
 import Shortcut from "./pages/Shortcut";
 import Extra from "./pages/Extra";
 import Etc from "./pages/Etc";
+import Home2 from "./pages/Skeleton";
 
 function App() {
   return (
@@ -18,15 +19,17 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Splash />}></Route>
-        <Route path="/home" element={<Home />}></Route>
-        <Route path="/home/function" element={<Function/>}></Route>
-        <Route path="/home/category" element={<Category/>}></Route>
-        <Route path="/home/shortcut" element={<Shortcut/>}></Route>
-        <Route path="/home/extra" element={<Extra/>}></Route>
-        <Route path="/home/etc" element={<Etc/>}></Route>
         <Route path="/ourVision" element={<OurVision />}></Route>
         <Route path="/ourTeam" element={<OurTeam />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
+        <Route element={<Home2 />}>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/home/function" element={<Function />}></Route>
+          <Route path="/home/category" element={<Category />}></Route>
+          <Route path="/home/shortcut" element={<Shortcut />}></Route>
+          <Route path="/home/extra" element={<Extra />}></Route>
+          <Route path="/home/etc" element={<Etc />}></Route>
+        </Route>
       </Routes>
       {/* <Footer /> */}
     </BrowserRouter>
