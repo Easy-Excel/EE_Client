@@ -11,6 +11,8 @@ const Container = styled.div`
   /* width: 80%; */
   //text-align: center; /* Center the text horizontally */
   //width: 100%; /* Ensure full width of the container */
+  max-height: 390px;
+  overflow-y: auto;
 `;
 
 const Title = styled.div`
@@ -113,8 +115,8 @@ const Btn = styled.button`
 const PivotTableContent = () => {
   return (
     <div>
-      <Title>피벗테이블</Title>
       <Container>
+        <Title>피벗테이블</Title>
         <Paragraph>
           피벗테이블은 데이터를 계산, 요약 및 분석하는 강력한 도구로서 데이터의
           비교, 패턴 및 추세를 보는데 사용할 수 있습니다.
@@ -132,8 +134,8 @@ const PivotTableContent = () => {
           2. 피벗테이블로 확인하고 싶은 데이터 영역을 추가해준 뒤,[삽입]
           피벗테이블을 선택합니다.
         </How>
-        <Btn>예제</Btn>
       </Container>
+      <Btn>예제</Btn>
     </div>
   );
 };

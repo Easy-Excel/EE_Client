@@ -19,10 +19,7 @@ const ServContainer = styled.div`
 
 const Content = styled.div`
   width: 80%; //백분율로 조장해야 화면 크기에 따라 조절됨
-  min-height: 700px;
-  max-height: 700px;
-  overflow-y: auto; // 세로 스크롤바를 표시하고, 내용이 넘칠 때 스크롤 가능하게 함
-  overflow-x: hidden;
+  height: 615px;
   background-color: white;
   margin: auto;
   display: flex;
