@@ -6,6 +6,7 @@ import PivotTableContent from "../components/contents/extraPage/PivotTableConten
 
 const Content = styled.div`
   width: 100%; //무조건 width 100%로 해주어야 함!
+  padding-bottom: 20px;
 `;
 
 //버튼을 클릭하면 해당 내용이 show되도록 짤 거임.

@@ -11,7 +11,7 @@ const Btn = styled.button`
   justify-content: center;
   align-items: center;
   border-radius: 16px;
-  border: 1px solid #000;
+  border: ${({ border }) => border}; //선택/미선택 테두리 스타일 달리 적용
   background-color: ${({ color }) => color};
   color: ${({ fontColor }) => fontColor};
 
@@ -32,8 +32,7 @@ const BtnWrapper = styled.div`
   height: 100px;
   gap: 40px;
   flex-shrink: 0;
-  margin: 0px auto; /* 좌우 가운데 정렬을 위한 margin 설정 */
-  margin-bottom: 22px;
+  margin: 22px auto; /* 좌우 가운데 정렬을 위한 margin 설정 */
   padding: 27px 20px;
   border-bottom: 3.11px solid black;
 `;
@@ -67,6 +66,7 @@ function ButtonE({ onButtonClick }) {
       <Btn
         color={buttonColors[0]}
         fontColor={buttonColors[0] === "#107c41" ? "white" : "black"}
+        border={buttonColors[0] === "#107c41" ? "none" : "1px solid black"}
         onClick={() => handleButtonClick(0)}
       >
         피벗테이블
@@ -74,6 +74,7 @@ function ButtonE({ onButtonClick }) {
       <Btn
         color={buttonColors[1]}
         fontColor={buttonColors[1] === "#107c41" ? "white" : "black"}
+        border={buttonColors[1] === "#107c41" ? "none" : "1px solid black"}
         onClick={() => handleButtonClick(1)}
       >
         시나리오 요약
@@ -81,6 +82,7 @@ function ButtonE({ onButtonClick }) {
       <Btn
         color={buttonColors[2]}
         fontColor={buttonColors[2] === "#107c41" ? "white" : "black"}
+        border={buttonColors[2] === "#107c41" ? "none" : "1px solid black"}
         onClick={() => handleButtonClick(2)}
       >
         데이터 표
@@ -88,6 +90,7 @@ function ButtonE({ onButtonClick }) {
       <Btn
         color={buttonColors[3]}
         fontColor={buttonColors[3] === "#107c41" ? "white" : "black"}
+        border={buttonColors[3] === "#107c41" ? "none" : "1px solid black"}
         onClick={() => handleButtonClick(3)}
       >
         유효성 검사
@@ -95,6 +98,7 @@ function ButtonE({ onButtonClick }) {
       <Btn
         color={buttonColors[4]}
         fontColor={buttonColors[4] === "#107c41" ? "white" : "black"}
+        border={buttonColors[4] === "#107c41" ? "none" : "1px solid black"}
         onClick={() => handleButtonClick(4)}
       >
         매크로
