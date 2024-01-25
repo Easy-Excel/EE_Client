@@ -12,7 +12,7 @@ const Head = styled.header`
   background-color: white;
   position: fixed;
   top: 0;
-  height: 88px;
+  height: 70px;
   color: #3a3a3a;
   box-sizing: border-box;
   z-index: 100; //우선 순위 가장 높게

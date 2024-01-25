@@ -15,9 +15,9 @@ const ServContainer = styled.div`
   padding-top: 60px;
   justify-content: center;
   background-color: #f9f8f8;
-  height: 200px;
+  height: 180px;
   text-align: center;
-  font-size: 20px;//1/25
+  font-size: 18px;//1/25
   font-family: SUIT;
   font-weight: 500;
   word-wrap: break-word;

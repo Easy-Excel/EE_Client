@@ -43,7 +43,7 @@ body {
   font-weight: 500;
   color:black;
   line-height: 1.2;
-  padding-top: 90px;
+  padding-top: 70px;
 }
 menu, ol, ul {
   list-style: none;
