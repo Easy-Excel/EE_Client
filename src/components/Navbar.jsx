@@ -16,7 +16,7 @@ const NavMenu = styled.div`
   //width: 1220px;
   height: 71px;
   //width:1350px;
-  width: 84%;
+  width: 75%;//화면 비율 조정하느라 네비 바 줄임(1/25)
   flex-shrink: 0; //figma에서 네비게이터 사이즈
   border-radius: 19.248px;
   background: #107c41;
@@ -33,7 +33,7 @@ const MenuItem = styled.div`
   cursor: pointer;
   color: #fff;
   font-family: SUIT;
-  font-size: 22px;
+  font-size: 20px;//글씨크기 줄임(1/25)
   font-style: normal;
   font-weight: 800;
   line-height: normal;
@@ -71,7 +71,6 @@ const Wrapper = styled.div`
     background: #fff;
   }
 `;
-
 //URL에 따라 활성화 여부 결정
 const isArrowActive = (path) => {
   if (path === "/home/function") return true;

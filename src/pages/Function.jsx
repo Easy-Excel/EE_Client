@@ -24,6 +24,7 @@ function Function() {
     console.log(content);
     setActiveContent(content);
   };
+  
   const contentComponents = {
     AtoH: <AtoH />,
     ItoP: <ItoP />,

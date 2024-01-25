@@ -17,7 +17,7 @@ const ServContainer = styled.div`
   background-color: #f9f8f8;
   height: 200px;
   text-align: center;
-  font-size: 22px;
+  font-size: 20px;//1/25
   font-family: SUIT;
   font-weight: 500;
   word-wrap: break-word;
@@ -31,7 +31,7 @@ const ServContainer = styled.div`
 `;
 
 const Content = styled.div`
-  width: 80%; //백분율로 조장해야 화면 크기에 따라 조절됨
+  width: 70%; //백분율로 조장해야 화면 크기에 따라 조절됨
   height: 615px;
   background-color: white;
   margin: auto;

@@ -5,7 +5,7 @@ const Btn = styled.button`
   //버튼 크기 조정
   display: flex;
   //width: 217px;
-  width: 17%; //창 조절할 때마다 버튼 크기도 조정
+  width:20%; //창 조절할 때마다 버튼 크기도 조정
   padding: 10px;
   height: 53px;
   justify-content: center;
@@ -52,6 +52,7 @@ function ButtonA({ onButtonClick }) {
     //처음에는 제일 왼쪽 버튼이 칠해진 게 디폴트
     const contentMapping = ["AtoH", "ItoP", "QtoZ"];
     onButtonClick(contentMapping[index]); //클릭된 내용을 부모 컴포넌트에 전달
+    
   };
 
   return (

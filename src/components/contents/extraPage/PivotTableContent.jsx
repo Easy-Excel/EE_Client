@@ -16,6 +16,7 @@ const imagesContext = require.context(
   false,
   /\.(png|jpg|jpeg|gif|svg)$/
 );
+
 // 이미지 파일 목록을 배열로 가져오기 (해당 폴더 내의 모든 이미지 파일이 배열에 포함됨)
 const images = imagesContext.keys().map(imagesContext);
 
