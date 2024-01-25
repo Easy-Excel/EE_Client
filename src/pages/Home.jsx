@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/images/Logo.svg";
 import Navbar from "../components/Navbar"
 
 
@@ -9,8 +9,8 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #d1e5cf;
-  height: 100vh;
+  background-color: #CEEBDE;
+  height: calc(100vh - 88px);
 `;
 
 const ServContainer = styled.div`
@@ -38,15 +38,7 @@ const LogoImg = styled.img`
   position: absolute;
   top: 70px;
 `;
-const Footer =styled.footer`
-  position: absolute;
-  color: #107c41;
-  font-weight: 400;
-  font-size: 10px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  bottom: 3px;
-`
+
 export default function Home() {
   return (
     <MainContainer>
@@ -54,8 +46,7 @@ export default function Home() {
       <Navbar />
       <Content>
         <LogoImg src={Logo} />
-      </Content>
-      <Footer>Copyright © Easy Excel</Footer>
+      </Content>    
     </MainContainer>
     
   );

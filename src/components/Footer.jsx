@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-const Foot = styled.footer`
-  height: 165px;
-  width: 100px;
-`;
-
+const Foot =styled.footer`
+  position: absolute;
+  color: #107c41;
+  font-weight: 400;
+  font-size: 10px;
+  bottom: 3px;
+`
 export default function Footer() {
   return (
-    <Foot>
-      <div>This is footer</div>
-    </Foot>
+    <Foot>Copyright © Easy Excel</Foot>
   );
 }
