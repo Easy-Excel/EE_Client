@@ -1,0 +1,1089 @@
+@import 'reset.css';
+
+.root-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+ /*header시작*/
+ .header-container {
+    background-color: white;
+ }
+
+ .header-wrap {
+    height: 64px;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+ }
+
+ .header-left-wrap{
+    display: flex;
+ }
+
+ .header-left-wrap ul {
+    display: flex;
+    margin-left: 16px;
+ }
+
+.header-left-wrap li{
+    display: 14px;
+    padding: 8px;
+}
+
+ .header-nav-item {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+ }
+
+ /*our vision 페이지*/
+.vision-main {
+    box-sizing: border-box;
+    min-width: 600px;
+    max-width: 100%;
+    height: 900px;
+    background-color: #CEEBDE;
+    padding: 20px 10px;
+    margin: 150px 0px;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+}
+
+ .vision-header {
+            /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 488px;
+    height: 82px;
+    left: 59px;
+    top: 137px;
+
+    background: #107C41;
+    border-radius: 16px;
+
+
+
+    /* Our Vision */
+
+    width: 400px;
+    height: 62px;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 62px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    }
+
+.vision-logo {
+    /* Logo */
+
+    position: absolute;
+    width: 377px;
+    height: 435px;
+    left: 97px;
+    top: 309px;
+
+}
+.vision-logo2{
+    /* EASY EXCEL */
+
+    position: absolute;
+    width: 420px;
+    height: 105px;
+    left: 96px;
+    top: 741px;
+
+    font-family: 'Knewave';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 124px;
+
+    color: #107C41;
+
+
+}
+
+.vision-context{
+    /* Lorem ipsum dolor sit amet consectetur. Luctus nunc porttitor interdum vulputate tellus at. Felis nibh nibh id ultricies adipiscing sed pretium pulvinar. Aliquam neque aliquet netus suscipit. Scelerisque a magnis semper scelerisque condimentum. Phasellus et vitae accumsan feugiat facilisi posuere consectetur. Sit viverra augue ullamcorper viverra varius vestibulum eu dictum dictum. Urna tincidunt posuere neque purus tristique egestas auctor id. Mauris orci dui quisque dictumst diam venenatis ultricies. Luctus nunc porttitor interdum vulputate tellus at. Felis nibh nibh id ultricies adipiscing sed pretium pulvinar. Aliquam neque aliquet netus suscipit. Scelerisque a magnis semper scelerisque condimentum. Phasellus et vitae accumsan feugiat facilisi posuere consectetur. Sit viverra augue ullamcorper viverra varius vestibulum eu dictum dictum. Urna tincidunt posuere neque purus tristique egestas auctor id. Mauris orci dui quisque dictumst diam venenatis ultricies. */
+
+    position: absolute;
+    width: 809px;
+    height: 450px;
+    left: 558px;
+    top: 309px;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+
+    color: #000000;
+
+
+}
+
+/*OurTeam 페이지 */
+
+
+.team-main {
+    box-sizing: border-box;
+    min-width: 600px;
+    max-width: 100%;
+    height: 1000px;
+    background-color: #CEEBDE;
+    padding: 20px 10px;
+    margin: 150px 0px;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+.team-position1 {
+    font-family: 'SUIT';
+    /* Group 70 */
+
+    position: absolute;
+    width: 959px;
+    height: 960px;
+    left: 232px;
+    top: 272px;
+
+
+
+    /* Front-end */
+
+    position: absolute;
+    width: 141px;
+    height: 37px;
+    left: calc(50% - 141px/2 - 1px);
+    top: 590px;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+    text-align: center;
+
+    color: #000000;
+
+
+
+    /* 멤버 설명 카드 */
+
+    position: absolute;
+    width: 173px;
+    height: 218px;
+    left: 499px;
+    top: 334px;
+
+
+
+    /* Frame 2 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.08094px;
+    gap: 9.08px;
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 19.72%;
+
+    background: #E7E6E6;
+
+
+    /* 이미지 */
+
+    width: 100.8px;
+    height: 35px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* 이름/학교 */
+
+    position: absolute;
+    left: 18.5%;
+    right: 22.54%;
+    top: 86.24%;
+    bottom: -0.92%;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #000000;
+
+
+
+    /* 멤버 설명 카드 */
+
+    position: absolute;
+    width: 173px;
+    height: 218px;
+    left: 1016px;
+    top: 669px;
+
+
+
+    /* Frame 2 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.08094px;
+    gap: 9.08px;
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 19.72%;
+
+    background: #E7E6E6;
+
+
+    /* 이미지 */
+
+    width: 100.8px;
+    height: 35px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* 이름/학교 */
+
+    position: absolute;
+    left: 18.5%;
+    right: 22.54%;
+    top: 86.24%;
+    bottom: -0.92%;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #000000;
+
+
+
+    /* 멤버 설명 카드 */
+
+    position: absolute;
+    width: 173px;
+    height: 218px;
+    left: 749px;
+    top: 669px;
+
+
+
+    /* Frame 2 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.08094px;
+    gap: 9.08px;
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 19.72%;
+
+    background: #E7E6E6;
+
+
+    /* 이미지 */
+
+    width: 100.8px;
+    height: 35px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* 이름/학교 */
+
+    position: absolute;
+    left: 18.5%;
+    right: 22.54%;
+    top: 86.24%;
+    bottom: -0.92%;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #000000;
+
+
+
+    /* 멤버 설명 카드 */
+
+    position: absolute;
+    width: 173px;
+    height: 218px;
+    left: 499px;
+    top: 669px;
+
+
+
+    /* Frame 2 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.08094px;
+    gap: 9.08px;
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 19.72%;
+
+    background: #E7E6E6;
+
+
+    /* 이미지 */
+
+    width: 100.8px;
+    height: 35px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* 이름/학교 */
+
+    position: absolute;
+    left: 18.5%;
+    right: 22.54%;
+    top: 86.24%;
+    bottom: -0.92%;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #000000;
+
+
+
+    /* 멤버 설명 카드 */
+
+    position: absolute;
+    width: 173px;
+    height: 218px;
+    left: 232px;
+    top: 669px;
+
+
+
+    /* Frame 2 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.08094px;
+    gap: 9.08px;
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 19.72%;
+
+    background: #E7E6E6;
+
+
+    /* 이미지 */
+
+    width: 100.8px;
+    height: 35px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* 이름/학교 */
+
+    position: absolute;
+    left: 18.5%;
+    right: 22.54%;
+    top: 86.24%;
+    bottom: -0.92%;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #000000;
+
+
+
+    /* 멤버 설명 카드 */
+
+    position: absolute;
+    width: 173px;
+    height: 218px;
+    left: 749px;
+    top: 334px;
+
+
+
+    /* Frame 2 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.08094px;
+    gap: 9.08px;
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 19.72%;
+
+    background: #E7E6E6;
+
+
+    /* 이미지 */
+
+    width: 100.8px;
+    height: 35px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* 이름/학교 */
+
+    position: absolute;
+    left: 18.5%;
+    right: 22.54%;
+    top: 86.24%;
+    bottom: -0.92%;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #000000;
+
+
+
+    /* Back-end */
+
+    position: absolute;
+    width: 136px;
+    height: 37px;
+    left: calc(50% - 136px/2 - 1.5px);
+    top: 935px;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+    text-align: center;
+
+    color: #000000;
+
+
+
+    /* 멤버 설명 카드 */
+
+    position: absolute;
+    width: 173px;
+    height: 218px;
+    left: 1018px;
+    top: 1014px;
+
+
+
+    /* Frame 2 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.08094px;
+    gap: 9.08px;
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 19.72%;
+
+    background: #E7E6E6;
+
+
+    /* 이미지 */
+
+    width: 100.8px;
+    height: 35px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* 이름/학교 */
+
+    position: absolute;
+    left: 18.5%;
+    right: 22.54%;
+    top: 86.24%;
+    bottom: -0.92%;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #000000;
+
+
+
+    /* 멤버 설명 카드 */
+
+    position: absolute;
+    width: 173px;
+    height: 218px;
+    left: 749px;
+    top: 1014px;
+
+
+
+    /* Frame 2 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.08094px;
+    gap: 9.08px;
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 19.72%;
+
+    background: #E7E6E6;
+
+
+    /* 이미지 */
+
+    width: 100.8px;
+    height: 35px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* 이름/학교 */
+
+    position: absolute;
+    left: 18.5%;
+    right: 22.54%;
+    top: 86.24%;
+    bottom: -0.92%;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #000000;
+
+
+
+    /* 멤버 설명 카드 */
+
+    position: absolute;
+    width: 173px;
+    height: 218px;
+    left: 499px;
+    top: 1014px;
+
+
+
+    /* Frame 2 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.08094px;
+    gap: 9.08px;
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 19.72%;
+
+    background: #E7E6E6;
+
+
+    /* 이미지 */
+
+    width: 100.8px;
+    height: 35px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* 이름/학교 */
+
+    position: absolute;
+    left: 18.5%;
+    right: 22.54%;
+    top: 86.24%;
+    bottom: -0.92%;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #000000;
+
+
+
+    /* 멤버 설명 카드 */
+
+    position: absolute;
+    width: 173px;
+    height: 218px;
+    left: 233px;
+    top: 1014px;
+
+
+
+    /* Frame 2 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9.08094px;
+    gap: 9.08px;
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 19.72%;
+
+    background: #E7E6E6;
+
+
+    /* 이미지 */
+
+    width: 100.8px;
+    height: 35px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #000000;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+
+    /* 이름/학교 */
+
+    position: absolute;
+    left: 18.5%;
+    right: 22.54%;
+    top: 86.24%;
+    bottom: -0.92%;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #000000;
+
+
+
+    /* Plan */
+
+    position: absolute;
+    width: 60px;
+    height: 37px;
+    left: 556px;
+    top: 272px;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+    text-align: center;
+
+    color: #000000;
+
+
+
+    /* Design */
+
+    position: absolute;
+    width: 94px;
+    height: 37px;
+    left: 785px;
+    top: 272px;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+    text-align: center;
+
+    color: #000000;
+
+
+}
+
+ .team-header {
+            /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 488px;
+    height: 82px;
+    left: 59px;
+    top: 137px;
+
+    background: #107C41;
+    border-radius: 16px;
+
+
+
+    /* title */
+
+    width: 400px;
+    height: 62px;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 62px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+ }
+
+
+
+
+
+/*Contact 페이지 */
+
+
+.contact-main {
+    box-sizing: border-box;
+    min-width: 600px;
+    max-width: 100%;
+    height: 900px;
+    background-color: #CEEBDE;
+    padding: 20px 10px;
+    margin: 150px 0px;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+}
+
+ .contact-header {
+            /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 488px;
+    height: 82px;
+    left: 59px;
+    top: 137px;
+
+    background: #107C41;
+    border-radius: 16px;
+
+
+
+    /* title */
+
+    width: 400px;
+    height: 62px;
+
+    font-family: 'SUIT';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 62px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+ }
+
+.contact-logo2 {
+    /* EASY EXCEL */
+
+    position: absolute;
+    width: 420px;
+    height: 105px;
+    left: 95px;
+    top: 291px;
+
+    font-family: 'Knewave';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 124px;
+
+    color: #107C41;
+}
+.contact-logo{
+
+    position: absolute;
+    left: 80.3%;
+    right: 20.6%;
+    top: 41.84%;
+    bottom: 43.68%;
+
+
+}
+.contact-git{
+    position: absolute;
+    left: 10.77%;
+    right: 81.52%;
+    top: 56.93%;
+    bottom: 33.58%;
+}
+
+.contact-instar{
+    position: absolute;
+    left: 10.77%;
+    right: 81.52%;
+    top: 43.21%;
+    bottom: 47.06%;
+}
