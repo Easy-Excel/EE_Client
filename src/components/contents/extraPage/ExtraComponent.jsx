@@ -91,7 +91,7 @@ const Btn = styled.button`
 const ExQuestion = styled.div`
   color: #000;
   font-family: SUIT;
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
   word-wrap: break-word;
@@ -106,7 +106,7 @@ const ExQuestion = styled.div`
 const SubQuestion = styled.div`
   color: #000;
   font-family: SUIT;
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
   word-wrap: break-word;
