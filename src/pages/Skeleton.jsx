@@ -8,14 +8,14 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   background-color: #ceebde;
-  /* height: calc(100vh - 88px); */ //Content 길이에 맞게 늘어나도록 주석처리
+  height: 93vh;
 `;
 const ServContainer = styled.div`
   display: flex;
   padding-top: 53px; //글자 위치 조절시 조정
   justify-content: center;
   background-color: #f9f8f8;
-  height: 170px;
+  height: 22%;
   text-align: center;
   font-size: 18px; //1/25
   font-family: SUIT;
@@ -32,14 +32,12 @@ const ServContainer = styled.div`
 
 const Content = styled.div`
   width: 73%; //백분율로 조장해야 화면 크기에 따라 조절됨
-  height: 63vh; //1/26 : viewport height로 수정
+  height: 63vh; //viewport height로 수정
   background-color: white;
   margin: auto;
   display: flex;
   justify-content: center;
-  position: relative;
   margin-top: 0px;
-  margin-bottom: 59px; //bottom 여백 추가
   padding: 0px 58px; //Content 좌우 여백 전체 적용
 `;
 

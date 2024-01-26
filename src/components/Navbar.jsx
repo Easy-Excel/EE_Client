@@ -9,14 +9,14 @@ const StHeader = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center; /* 화면 가운데 정렬을 위한 스타일 */
-  margin-top: -45px; /* 원하는 위치로 조정 */
+  margin-top: -38px; /* 원하는 위치로 조정 */
 `;
 
 const NavMenu = styled.div`
   //width: 1220px;
   height: 71px;
   //width:1350px;
-  width: 75%;//화면 비율 조정하느라 네비 바 줄임(1/25)
+  width: 75%; //화면 비율 조정하느라 네비 바 줄임(1/25)
   flex-shrink: 0; //figma에서 네비게이터 사이즈
   border-radius: 19.248px;
   background: #107c41;
@@ -33,7 +33,7 @@ const MenuItem = styled.div`
   cursor: pointer;
   color: #fff;
   font-family: SUIT;
-  font-size: 20px;//글씨크기 줄임(1/25)
+  font-size: 20px; //글씨크기 줄임(1/25)
   font-style: normal;
   font-weight: 800;
   line-height: normal;
