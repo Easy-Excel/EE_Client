@@ -31,7 +31,7 @@ const ServContainer = styled.div`
 `;
 
 const Content = styled.div`
-  width: 70%; //백분율로 조장해야 화면 크기에 따라 조절됨
+  width: 73%; //백분율로 조장해야 화면 크기에 따라 조절됨
   height: 63vh; //1/26 : viewport height로 수정
   background-color: white;
   margin: auto;

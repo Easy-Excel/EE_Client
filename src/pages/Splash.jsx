@@ -29,7 +29,7 @@ const Logo = styled(LogoSvg)`
   position: absolute;
   bottom: 37px;
   right: 36px;
-  animation: ${fadeOut} 1s cubic-bezier(0.99, 0, 0.82, 0.05) forwards;
+  animation: ${fadeOut} 1s cubic-bezier(0.79, 0, 0.85, 0.23) forwards;
 `;
 
 //background green box 공통 스타일 (BGBox first child를 기본으로 설정)
@@ -79,7 +79,7 @@ function Splash() {
     console.log("useEffect 실행");
     const timer = setTimeout(() => {
       navigate("/home");
-    }, 1300); //1.3초
+    }, 1500); //1.5초
 
     return () => clearTimeout(timer);
   }, [navigate]);
@@ -90,7 +90,8 @@ function Splash() {
         <MainTitle
           initial={{ x: 0 }}
           animate={{ x: 2000 }}
-          transition={{ duration: 1, ease: [0.99, 0, 0.82, 0.05] }}
+          transition={{ duration: 1, ease: [0.79, 0, 0.85, 0.23] }}
+          // transition={{ duration: 1.5, ease: [0.69, -0.01, 0.73, 0.21] }}
         >
           EASY EXCEL
         </MainTitle>
@@ -98,15 +99,17 @@ function Splash() {
       <BGBox>
         <BGGreenBox
           initial={{ x: 0 }}
-          animate={{ x: -3000 }}
-          transition={{ duration: 1, ease: [0.99, 0, 0.82, 0.05] }}
+          animate={{ x: -3400 }}
+          // transition={{ duration: 1.5, ease: [0.99, 0, 0.82, 0.05] }}
+          transition={{ duration: 1, ease: [0.79, 0, 0.85, 0.23] }}
         />
       </BGBox>
       <BGBox>
         <BGGreenBox
           initial={{ x: 0 }}
           animate={{ x: -3000 }}
-          transition={{ duration: 1, ease: [0.99, 0, 0.82, 0.05] }}
+          transition={{ duration: 1, ease: [0.79, 0, 0.85, 0.23] }}
+          // transition={{ duration: 1.5, ease: [0.99, 0, 0.82, 0.05] }}
         />
       </BGBox>
       <Logo />
