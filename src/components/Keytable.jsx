@@ -16,7 +16,8 @@ const KeytableContainer = styled.div`
 `;
 
 const Table = styled.div`
-  width: 100%;
+  width: 120%;
+  border : 2px solid #D9D9D9;
 `;
 
 const HeaderRow = styled.div`
@@ -26,7 +27,7 @@ const HeaderRow = styled.div`
   padding: 10px;
   border-bottom: 1px solid #ccc;
   font-weight: 800; 
-  width: 120%;
+  width: 100%;
   text-align: center;
 `;
 
@@ -133,7 +134,7 @@ function Keytable() {
         </HeaderRow>
         <StyledFixedSizeList
           height={50 * visibleRows}
-          width={'120%'}
+          width={'100%'}
           itemCount={data.length}
           itemSize={50}
         >
