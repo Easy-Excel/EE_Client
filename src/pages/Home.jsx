@@ -3,11 +3,11 @@ import styled from "styled-components";
 import Logo from "../assets/images/logo/Logo.svg";
 
 const LogoImg = styled.img`
-  width: 310px;
+  width: 33%;
   margin: auto;
   background-size: cover;
-  position: absolute;
-  top: 76px;
+  /* position: absolute;
+  top: 76px; */
 `;
 
 export default function Home() {
