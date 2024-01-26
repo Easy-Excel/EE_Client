@@ -10,7 +10,6 @@ const Head = styled.header`
   justify-content: center;
   align-items: center;
   background-color: white;
-  background-color: tomato;
   position: fixed;
   top: 0;
   height: 70px;
