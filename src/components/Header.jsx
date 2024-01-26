@@ -10,6 +10,7 @@ const Head = styled.header`
   justify-content: center;
   align-items: center;
   background-color: white;
+  background-color: tomato;
   position: fixed;
   top: 0;
   height: 70px;
@@ -37,7 +38,7 @@ const Title = styled.div`
   display: flex;
   align-items: center;
   color: black;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 800;
   flex-direction: row;
 `;
@@ -45,8 +46,8 @@ const Title = styled.div`
 //Logo
 const Logo = styled(LogoSvg)`
   margin-right: 17px;
-  width: 36px;
-  height: 42px;
+  width: 32px;
+  height: 37px;
 `;
 
 //Header Navigation
