@@ -4,22 +4,18 @@ import styled from 'styled-components';
 
 // Styled components
 const KeytableContainer = styled.div`
-  // 화면 정가운데 배치
   height: 250px;
-  width: 65%;
-  position: absolute;
-
-  // 수정 필요
-  transform: translate(-50%, -50%);
-  left:55%;
-  bottom:-10px;
+  width: 140%;
 `;
 
 const Table = styled.div`
-  width: 85%;
+  width: 100%;
+  position: relative;
+  left: -13%;
+  bottom:-60px;
   border : 2px solid #D9D9D9;
-  position: relative; //스크롤바
   overflow: hidden;
+  margin: 0 auto;
 `;
 
 const HeaderRow = styled.div`
@@ -27,7 +23,6 @@ const HeaderRow = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
   font-weight: 800;
   font-size: 20px;
   width: 100%;
@@ -39,7 +34,6 @@ const Row = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
   font-size: 18px;
 `;
 
