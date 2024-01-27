@@ -1,7 +1,7 @@
 import ButtonC from "../components/ButtonC";
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import Keytable from "../components/Keytable";
 const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
@@ -22,7 +22,9 @@ function Category() {
     <Container>
       <ButtonC onButtonClick={handleButtonClick} />
       {contentComponents[activeContent]}
+      <Keytable/>
     </Container>
+    
   );
 }
 

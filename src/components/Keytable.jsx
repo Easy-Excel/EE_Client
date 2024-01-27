@@ -11,13 +11,15 @@ const KeytableContainer = styled.div`
 
   // 수정 필요
   transform: translate(-50%, -50%);
-  left:45%;
-  bottom:20%;
+  left:55%;
+  bottom:-10px;
 `;
 
 const Table = styled.div`
-  width: 120%;
+  width: 85%;
   border : 2px solid #D9D9D9;
+  position: relative; //스크롤바
+  overflow: hidden;
 `;
 
 const HeaderRow = styled.div`
@@ -26,7 +28,8 @@ const HeaderRow = styled.div`
   justify-content: space-between;
   padding: 10px;
   border-bottom: 1px solid #ccc;
-  font-weight: 800; 
+  font-weight: 800;
+  font-size: 20px;
   width: 100%;
   text-align: center;
 `;
@@ -37,6 +40,7 @@ const Row = styled.div`
   justify-content: space-between;
   padding: 10px;
   border-bottom: 1px solid #ccc;
+  font-size: 18px;
 `;
 
 const Cell = styled.div`
@@ -46,12 +50,10 @@ const Cell = styled.div`
 // 스크롤 바 css
 const StyledFixedSizeList = styled(FixedSizeList)`
   /* 스크롤바 스타일 */
-  overflow-y: auto;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 18px;
-  height: 100%;
+  width: 100%;
+  height: calc(100%-40px);
+  //overflow-y: hidden;
+  
 
   &::-webkit-scrollbar {
     width: 18px;
@@ -61,6 +63,10 @@ const StyledFixedSizeList = styled(FixedSizeList)`
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background: #D9D9D9;
+  }
+  //호버시 색상 변경
+  &::-webkit-scrollbar-thumb:hover {
+    background-color:#908F8F;
   }
 
   &::-webkit-scrollbar-track {
@@ -111,9 +117,16 @@ const StyledFixedSizeList = styled(FixedSizeList)`
     }
   }
 `;
-
+const ScrollbarContainer = styled.div`
+  //position: absolute;
+  //top: 40px;
+  //right: 10px;
+  height: calc(100% - 40px);
+  width: 18px;
+  overflow-y: auto;
+`;
 function Keytable() {
-  const data = [
+  const data = [//dB에서 받아올 부분 만약 받아온다면 keytable함수의 파라미터로 {data}
     { description: '다른 이름으로 저장', windows: 'F12', mac: 'Cmd ↑ S' },
     { description: '새 통합문서 만들기', windows: 'Ctrl N', mac: 'Cmd N' },
     { description: '인쇄하기', windows: 'Ctrl P', mac: 'Cmd P' },
@@ -133,10 +146,10 @@ function Keytable() {
           <Cell>Mac</Cell>
         </HeaderRow>
         <StyledFixedSizeList
-          height={50 * visibleRows}
+          height={55 * visibleRows}
           width={'100%'}
           itemCount={data.length}
-          itemSize={50}
+          itemSize={55}
         >
           {({ index, style }) => (
             <Row style={style}>
@@ -160,7 +173,9 @@ function Keytable() {
             </Row>
           )}
         </StyledFixedSizeList>
+        <ScrollbarContainer/>
       </Table>
+      
     </KeytableContainer>
   );
 }
