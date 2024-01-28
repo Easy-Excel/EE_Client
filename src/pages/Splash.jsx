@@ -24,12 +24,12 @@ const Wrapper = styled.div`
 `;
 
 const Logo = styled(LogoSvg)`
-  width: 285px;
-  height: 329px;
+  width: 90px;
+  height: 110px;
   position: absolute;
-  bottom: 37px;
-  right: 36px;
-  animation: ${fadeOut} 1s cubic-bezier(0.79, 0, 0.85, 0.23) forwards;
+  bottom: 28px;
+  right: 38px;
+  animation: ${fadeOut} 1s cubic-bezier(0.99, 0, 0.93, 0.02) forwards;
 `;
 
 //background green box 공통 스타일 (BGBox first child를 기본으로 설정)
@@ -61,17 +61,10 @@ const MainTitle = styled(motion.div)`
 
 const BGBox = styled.div`
   ${commonBGBoxStyle}
-  background:none;
   &:nth-child(2) {
     left: -7.61px;
     top: 790px;
   }
-`;
-
-const BGGreenBox = styled(motion.div)`
-  background-color: #ceebde;
-  width: 100%;
-  height: 100%;
 `;
 function Splash() {
   const navigate = useNavigate();
@@ -90,28 +83,14 @@ function Splash() {
         <MainTitle
           initial={{ x: 0 }}
           animate={{ x: 2000 }}
-          transition={{ duration: 1, ease: [0.79, 0, 0.85, 0.23] }}
-          // transition={{ duration: 1.5, ease: [0.69, -0.01, 0.73, 0.21] }}
+          transition={{ duration: 1, ease: [0.99, 0, 0.93, 0.02] }}
+          // transition={{ duration: 1, ease: [0.79, 0, 0.85, 0.23] }}
         >
           EASY EXCEL
         </MainTitle>
       </BgMainBox>
-      <BGBox>
-        <BGGreenBox
-          initial={{ x: 0 }}
-          animate={{ x: -3400 }}
-          // transition={{ duration: 1.5, ease: [0.99, 0, 0.82, 0.05] }}
-          transition={{ duration: 1, ease: [0.79, 0, 0.85, 0.23] }}
-        />
-      </BGBox>
-      <BGBox>
-        <BGGreenBox
-          initial={{ x: 0 }}
-          animate={{ x: -3000 }}
-          transition={{ duration: 1, ease: [0.79, 0, 0.85, 0.23] }}
-          // transition={{ duration: 1.5, ease: [0.99, 0, 0.82, 0.05] }}
-        />
-      </BGBox>
+      <BGBox />
+      <BGBox />
       <Logo />
     </Wrapper>
   );
