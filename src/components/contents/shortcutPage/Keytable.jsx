@@ -9,7 +9,7 @@ const KeytableContainer = styled.div`
 `;
 
 const Table = styled.div`
-  width: 100%;
+  width: 70%;//테이블 사이즈 조금 줄였습니다.(진주)
   position: relative;
   left: -13%;
   bottom:-60px;

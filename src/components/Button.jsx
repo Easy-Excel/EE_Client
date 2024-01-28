@@ -1,0 +1,45 @@
+import React, { useState } from "react";
+import styled from "styled-components";
+
+const Btn=styled.div`
+    //버튼 크기 조정
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    width: ${(props) => props.width};
+    height: ${(props) => props.height};
+    background-color: ${(props) => props.backgroundColor};
+    color: ${(props) => props.fontColor};
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    border: ${({ border }) => border}; //선택/미선택 테두리 스타일 달리 적용
+`
+const ButtonTitle=styled.div`//버튼 안의 텍스트
+    color: ${(props) => props.fontColor};
+    font-family: SUIT;
+    font-size: 20px;//버튼 글자를 조금 줄였습니다.(1/28)
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+`
+//버튼 한개 컴포넌트
+function Button({ width,height,border,text,onButtonClick,backgroundColor,fontColor}) {
+    return(
+            <Btn 
+            width={width} 
+            height={height} 
+            onClick={onButtonClick}
+            backgroundColor={backgroundColor}
+            border={border}
+            >
+            <ButtonTitle fontColor={fontColor}>{text}</ButtonTitle>
+            </Btn>
+    );
+}
+
+export default Button;

@@ -5,12 +5,12 @@ import {
   Paragraph,
   How,
   HelpImage,
-  ExampleBtn,
   Container,
   ExampleQuestion,
   ExampleSubQuestion,
   ExampleAnswer,
 } from "./ExtraComponent";
+import Button from "../../Button";
 
 //Webpack의 require.context를 사용하여 특정 폴더의 모든 파일 가져오기
 const imagesContext = require.context(
@@ -93,10 +93,22 @@ const SummaryContent = () => {
     setExampePage(!isExamplePage);
     setButtonText(isExamplePage ? "예제" : "기능 설명");
   };
-  return (
+
+  const contentComponents = {
+      예제: <Example/>,
+      기능설명: <FeatureDescription />,
+  }
+  return(
     <div>
-      {isExamplePage ? <Example /> : <FeatureDescription />}
-      <ExampleBtn onClick={handleExamplePage} buttonText={buttonText} />
+      {isExamplePage? <Example/> : <FeatureDescription />}
+      <Button 
+        width={"20%"}
+        height={"53px"}
+        backgroundColor={"#107c41"}
+        fontColor={"white"}
+        text={buttonText}
+        onButtonClick={handleExamplePage}
+       />
     </div>
   );
 };
