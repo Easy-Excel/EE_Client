@@ -11,35 +11,35 @@ const ExtraContainer = styled.div`
 const ExtraTitle = styled.div`
   color: #000;
   font-family: SUIT;
-  font-size: 30px;
+  font-size: 23px;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
-  margin: 20px 0px;
+  margin: 12px 0px;
 `;
 
 const ExtraParagraph = styled.div`
   color: #000;
   font-family: SUIT;
-  font-size: 20px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 
   margin: 0px;
   margin-left: 38px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 `;
 
 const ExtraSubTitle = styled.div`
   color: #000;
   font-family: SUIT;
-  font-size: 22px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
-  letter-spacing: -0.44px;
-  margin: 20px 0px 10px 38px;
+  letter-spacing: -0.4px;
+  margin: 20px 0px 12px 38px;
 `;
 const Image = styled.img`
   flex-shrink: 0;
@@ -51,7 +51,7 @@ const Image = styled.img`
 const ExtraHow = styled.div`
   color: #000;
   font-family: SUIT;
-  font-size: 20px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -62,9 +62,9 @@ const ExtraHow = styled.div`
 const Btn = styled.button`
   //버튼 크기 조정
   display: flex;
-  width: 14%; //창 조절할 때마다 버튼 크기도 조정
+  width: 15%;
   padding: 10px;
-  height: 54px;
+  /* height: 45px; */
   justify-content: center;
   align-items: center;
   border-radius: 16px;
@@ -72,7 +72,7 @@ const Btn = styled.button`
   background-color: #107c41;
   color: #fff;
   font-family: SUIT;
-  font-size: 22px;
+  font-size: 110%;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
@@ -81,17 +81,12 @@ const Btn = styled.button`
   &:hover {
     cursor: pointer;
   }
-
-  //화면 너비에 따라 글자 크기 조정 임시 적용
-  @media (max-width: 1300px) {
-    font-size: 1.6923vw;
-  }
 `;
 
 const ExQuestion = styled.div`
   color: #000;
   font-family: SUIT;
-  font-size: 20px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
   word-wrap: break-word;
@@ -106,7 +101,7 @@ const ExQuestion = styled.div`
 const SubQuestion = styled.div`
   color: #000;
   font-family: SUIT;
-  font-size: 20px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
   word-wrap: break-word;
@@ -116,7 +111,7 @@ const SubQuestion = styled.div`
 `;
 const ExAnswerTitle = styled.div`
   color: black;
-  font-size: 22px;
+  font-size: 16px;
   font-family: SUIT;
   font-weight: 500;
   word-wrap: break-word;
@@ -126,7 +121,7 @@ const ExAnswerTitle = styled.div`
 
 const ExAnswer = styled.div`
   color: black;
-  font-size: 18px;
+  font-size: 14px;
   font-family: SUIT;
   font-weight: 500;
   word-wrap: break-word;
@@ -138,9 +133,20 @@ const ExAnswer = styled.div`
 
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  gap: 10px;
   padding: 20px 20px;
   margin: 0px 10px 15px 73px;
+`;
+
+const ExAnswerNumber = styled.div`
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
 `;
 
 function Title({ text }) {
@@ -198,19 +204,7 @@ function ExampleSubQuestion({ text }) {
 function ExampleAnswer({ text }) {
   const lines = text.split("\n").map((line, index) => (
     <div key={index} style={{ display: "flex", gap: "14px" }}>
-      <div
-        style={{
-          border: "1px solid black",
-          borderRadius: "50%",
-          width: "25px",
-          height: "25px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        {index}
-      </div>
+      <ExAnswerNumber>{index + 1}</ExAnswerNumber>
       {line}
     </div>
   ));
