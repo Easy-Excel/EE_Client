@@ -33,7 +33,7 @@ const MenuItem = styled.div`
   cursor: pointer;
   color: #fff;
   font-family: SUIT;
-  font-size: 20px; //글씨크기 줄임(1/25)
+  font-size: 19px; //글씨크기 줄임(1/25)
   font-style: normal;
   font-weight: 800;
   line-height: normal;
@@ -44,12 +44,12 @@ const MenuItem = styled.div`
 `;
 
 const ArrowImage = styled.img`
-  width: 55px;
-  height: 45px;
+  width: 40px;
+  height: 33px;
   flex-shrink: 0;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: -11px;
+  margin-top: -5px;
   position: absolute;
   display: ${({ showArrow }) => (showArrow ? "block" : "none")};
   z-index: 1;

@@ -3,10 +3,11 @@ import styled from "styled-components";
 
 const ExtraContainer = styled.div`
   box-sizing: border-box;
-  max-height: ${({ maxHeight }) => maxHeight};
-  min-height: ${({ minHeight }) => minHeight};
+  height: ${({ height }) => height}; //vh단위
   overflow-y: auto;
   padding-right: 15px;
+  margin-top: 17px;
+  margin-bottom: 10px;
 `;
 const ExtraTitle = styled.div`
   color: #000;
@@ -15,7 +16,7 @@ const ExtraTitle = styled.div`
   font-style: normal;
   font-weight: 800;
   line-height: normal;
-  margin: 12px 0px;
+  margin-bottom: 12px;
 `;
 
 const ExtraParagraph = styled.div`
@@ -57,30 +58,6 @@ const ExtraHow = styled.div`
   line-height: normal;
   //margin-top: 30px;
   margin: 0px 0px 10px 59px;
-`;
-
-const Btn = styled.button`
-  //버튼 크기 조정
-  display: flex;
-  width: 15%;
-  padding: 10px;
-  /* height: 45px; */
-  justify-content: center;
-  align-items: center;
-  border-radius: 16px;
-  border: none;
-  background-color: #107c41;
-  color: #fff;
-  font-family: SUIT;
-  font-size: 110%;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-  margin-top: 10px;
-
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 const ExQuestion = styled.div`
@@ -168,16 +145,8 @@ function HelpImage({ width, height, marginLeft, src }) {
   );
 }
 
-function ExampleBtn({ buttonText, onClick }) {
-  return <Btn onClick={onClick}>{buttonText}</Btn>;
-}
-
-function Container({ minHeight, maxHeight, children }) {
-  return (
-    <ExtraContainer minHeight={minHeight} maxHeight={maxHeight}>
-      {children}
-    </ExtraContainer>
-  );
+function Container({ height, children }) {
+  return <ExtraContainer height={height}>{children}</ExtraContainer>;
 }
 
 function ExampleQuestion({ text, children = null }) {
@@ -222,7 +191,6 @@ export {
   Paragraph,
   How,
   HelpImage,
-  ExampleBtn,
   Container,
   ExampleQuestion,
   ExampleSubQuestion,
