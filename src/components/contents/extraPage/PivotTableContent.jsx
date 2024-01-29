@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+
 import {
   Title,
   SubTitle,
@@ -20,9 +22,13 @@ const imagesContext = require.context(
 // 이미지 파일 목록을 배열로 가져오기 (해당 폴더 내의 모든 이미지 파일이 배열에 포함됨)
 const images = imagesContext.keys().map(imagesContext);
 
+const StyledDiv = styled.div`
+  height: 100%;
+`;
+
 //기능 설명 화면
 const FeatureDescription = () => (
-  <Container height={"42vh"}>
+  <Container>
     <Title text="피벗테이블" />
     <Paragraph
       text="피벗테이블은 데이터를 계산, 요약 및 분석하는 강력한 도구로서 데이터의
@@ -86,7 +92,7 @@ const PivotTableContent = () => {
     setButtonText(isExamplePage ? "예제" : "기능 설명");
   };
   return (
-    <div style={{ maxHeight: "100%" }}>
+    <StyledDiv>
       {isExamplePage ? <Example /> : <FeatureDescription />}
       <Button
         width={"15%"}
@@ -96,7 +102,7 @@ const PivotTableContent = () => {
         text={buttonText}
         onButtonClick={handleExamplePage}
       />
-    </div>
+    </StyledDiv>
   );
 };
 
