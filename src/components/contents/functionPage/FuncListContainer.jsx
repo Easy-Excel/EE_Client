@@ -22,6 +22,20 @@ const ContainerBox = styled.div`
   display: flex;
   justify-content: center;
 
+  //-----스크롤바 스타일링------//
+  &::-webkit-scrollbar {
+    flex-shrink: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #d9d9d9;
+  }
+  //호버시 색상 변경
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #908f8f;
+  }
+
   & > div {
     width: 100%;
     display: flex;
@@ -40,13 +54,18 @@ const ContainerBox = styled.div`
 //   gap: 24px;
 // `;
 
-function FuncListContainer({ funcList }) {
+function FuncListContainer({ funcList, listSize, sortingType }) {
   // const dividedArrays = chunkArray(funcList);
   return (
     <ContainerBox>
       <div>
-        {funcList.map((value, index) => (
-          <FunBox key={index} value={value}></FunBox>
+        {funcList.map((value) => (
+          <FunBox
+            key={value.functionId}
+            funcName={value.name}
+            funcId={value.functionId}
+            sortingType={sortingType}
+          ></FunBox>
         ))}
       </div>
     </ContainerBox>

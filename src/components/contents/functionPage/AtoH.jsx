@@ -66,8 +66,14 @@ const funcList = [
 ];
 
 const listSize = funcList.length;
+const sortingType = "A~H";
 
 export default function AtoH() {
-  // console.log(dividedArrays);
-  return <Container funcList={funcList} />;
+  return (
+    <Container
+      funcList={funcList}
+      listSize={listSize}
+      sortingType={sortingType}
+    />
+  );
 }

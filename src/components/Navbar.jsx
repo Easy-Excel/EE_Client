@@ -93,10 +93,8 @@ const Navbar = ({ toggle, setToggle }) => {
 
   //useEffect Hook 수정 - 새로고침할 때 화살표 사라지는 오류 수정을 위함
   useEffect(() => {
-    console.log("useEffect 호출");
     setActiveMenu(location.pathname);
   }, []);
-  console.log(activeMenu);
 
   return (
     <StHeader>
@@ -104,9 +102,10 @@ const Navbar = ({ toggle, setToggle }) => {
         <Wrapper>
           <MenuItem
             onClick={() => {
+              let subCategory = "AtoH";
               // setArrowState(true); //큰 의미가 없는 부분이라 주석처리 (아래 모두)
               setActiveMenu("/home/function");
-              navigate("/home/function");
+              navigate("/home/function", { state: { subCategory } });
               //클릭을 하자마자 화살표 모양이 나타나야 함//
             }}
           >

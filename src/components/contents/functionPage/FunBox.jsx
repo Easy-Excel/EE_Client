@@ -21,15 +21,11 @@ const FunctionBox = styled.div`
   }
 `;
 
-export default function FunBox({ funcName }) {
+export default function FunBox({ funcId, funcName, sortingType }) {
   const navigate = useNavigate();
 
   const onClickBox = (event) => {
-    event.preventDefault();
-    navigate(
-      `/home/function/${funcName}`
-      // state:{}
-    );
+    navigate(`/home/function/${funcName}`, { state: { funcId, sortingType } });
   };
 
   return <FunctionBox onClick={onClickBox}>{funcName}</FunctionBox>;

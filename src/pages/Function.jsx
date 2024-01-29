@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import styled from "styled-components";
 import Button from "../components/Button";
 import AtoH from "../components/contents/functionPage/AtoH";
@@ -17,7 +18,8 @@ function Function() {
     console.log("API 호출");
   });
 
-  const [activeContent, setActiveContent] = useState("AtoH");
+  const { state } = useLocation();
+  const [activeContent, setActiveContent] = useState(state.subCategory);
 
   const [buttons, setButtons] = useState([
     {

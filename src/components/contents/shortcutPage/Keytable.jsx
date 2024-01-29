@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 // Styled components
-const TopContainer= styled.div`
-  height:100%;
-  margin-top:20px;
+const TopContainer = styled.div`
+  height: 100%;
+  margin-top: 20px;
 `;
 
 const KeytableContainer = styled.div`
@@ -24,7 +24,6 @@ const KeytableContainer = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background-color: #908f8f;
   }
-
 `;
 
 const Table = styled.div`
@@ -51,7 +50,7 @@ const Rows = styled.div`
   text-align: center;
 `;
 const Row = styled.div`
-  border :1px solid #d9d9d9;
+  border: 1px solid #d9d9d9;
   display: flex;
   justify-content: space-between;
   padding: 15px;
@@ -61,7 +60,7 @@ const Row = styled.div`
 
 const Cell = styled.div`
   flex: 1;
-  font-weight:700;
+  font-weight: 700;
 `;
 
 const WordBox = styled.span`
@@ -71,7 +70,7 @@ const WordBox = styled.span`
   font-weight: 800;
   padding: 8px 17px;
   margin: 5px 3px;
-  font-family: Arial, Helvetica, sans-serif;// 여기만 글씨체 바꾸기
+  font-family: Arial, Helvetica, sans-serif; // 여기만 글씨체 바꾸기
 `;
 function Keytable() {
   const data = [
@@ -93,21 +92,21 @@ function Keytable() {
             <Cell>Mac</Cell>
           </HeaderRow>
           <Rows>
-          {data.map((item, index) => (
-            <Row key={index}>
-              <Cell>{item.description}</Cell>
-              <Cell>
-                {item.windows.split(" ").map((word, i) => (
-                  <WordBox key={i}>{word}</WordBox>
-                ))}
-              </Cell>
-              <Cell>
-                {item.mac.split(" ").map((word, i) => (
-                  <WordBox key={i}>{word}</WordBox>
-                ))}
-              </Cell>
-            </Row>
-          ))}
+            {data.map((item, index) => (
+              <Row key={index}>
+                <Cell>{item.description}</Cell>
+                <Cell>
+                  {item.windows.split(" ").map((word, i) => (
+                    <WordBox key={i}>{word}</WordBox>
+                  ))}
+                </Cell>
+                <Cell>
+                  {item.mac.split(" ").map((word, i) => (
+                    <WordBox key={i}>{word}</WordBox>
+                  ))}
+                </Cell>
+              </Row>
+            ))}
           </Rows>
         </Table>
       </KeytableContainer>
