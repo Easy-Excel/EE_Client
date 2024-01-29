@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const FunctionBox = styled.div`
@@ -15,6 +16,13 @@ const FunctionBox = styled.div`
   }
 `;
 
-export default function FunBox({ value }) {
-  return <FunctionBox>{value}</FunctionBox>;
+export default function FunBox({ funcName }) {
+  const navigate = useNavigate();
+
+  const onClickBox = (event) => {
+    event.preventDefault();
+    navigate(`/home/function/${funcName}`);
+  };
+
+  return <FunctionBox onClick={onClickBox}>{funcName}</FunctionBox>;
 }

@@ -41,7 +41,7 @@ function FuncListContainer({ funcList }) {
         <FuncListColum key={arrayIndex}>
           {array.map((currentValue, index) => {
             console.log(currentValue);
-            return <FunBox key={index} value={currentValue}></FunBox>;
+            return <FunBox key={index} funcName={currentValue}></FunBox>;
           })}
         </FuncListColum>
       ))}
