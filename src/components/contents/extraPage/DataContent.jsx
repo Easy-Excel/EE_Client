@@ -5,11 +5,11 @@ import {
   Paragraph,
   How,
   HelpImage,
-  ExampleBtn,
   Container,
   ExampleQuestion,
   ExampleAnswer,
 } from "./ExtraComponent";
+import Button from "../../Button";
 
 //Webpack의 require.context를 사용하여 특정 폴더의 모든 파일 가져오기
 const imagesContext = require.context(
@@ -21,7 +21,7 @@ const imagesContext = require.context(
 const images = imagesContext.keys().map(imagesContext);
 
 const FeatureDescription = () => (
-  <Container minHeight={"390px"} maxHeight={"390px"}>
+  <Container height={"42vh"}>
     <Title text="데이터 통합" />
     <Paragraph text="복수의 데이터를 종합하여, 개별 데이터로는 알 수 없는 인사이트를 도출하거나 새로운 시각을 제공하는 기능입니다." />
     <SubTitle text="사용하는 방법" />
@@ -52,7 +52,7 @@ const FeatureDescription = () => (
 );
 
 const Example = () => (
-  <Container minHeight={"390px"} maxHeight={"390px"}>
+  <Container height={"42vh"}>
     <Title text="데이터 통합 예제" />
     <ExampleQuestion
       text={
@@ -83,10 +83,20 @@ const DataContent = () => {
     setExampePage(!isExamplePage);
     setButtonText(isExamplePage ? "예제" : "기능 설명");
   };
+
   return (
     <div>
+      {/* {isExamplePage ? <Example /> : <FeatureDescription />}
+      <ExampleBtn onClick={handleExamplePage} buttonText={buttonText} /> */}
       {isExamplePage ? <Example /> : <FeatureDescription />}
-      <ExampleBtn onClick={handleExamplePage} buttonText={buttonText} />
+      <Button
+        width={"15%"}
+        // height={"53px"}
+        backgroundColor={"#107c41"}
+        fontColor={"white"}
+        text={buttonText}
+        onButtonClick={handleExamplePage}
+      />
     </div>
   );
 };
