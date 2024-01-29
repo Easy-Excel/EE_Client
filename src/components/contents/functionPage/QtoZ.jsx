@@ -32,6 +32,7 @@ export default function QtoZ() {
       funcList={funcList}
       listSize={listSize}
       sortingType={sortingType}
+      category={1}
     />
   );
 }

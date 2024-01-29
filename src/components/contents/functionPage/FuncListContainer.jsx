@@ -54,7 +54,7 @@ const ContainerBox = styled.div`
 //   gap: 24px;
 // `;
 
-function FuncListContainer({ funcList, listSize, sortingType }) {
+function FuncListContainer({ funcList, listSize, sortingType, category }) {
   // const dividedArrays = chunkArray(funcList);
   return (
     <ContainerBox>
@@ -65,6 +65,7 @@ function FuncListContainer({ funcList, listSize, sortingType }) {
             funcName={value.name}
             funcId={value.functionId}
             sortingType={sortingType}
+            category={category}
           ></FunBox>
         ))}
       </div>

@@ -74,6 +74,7 @@ export default function AtoH() {
       funcList={funcList}
       listSize={listSize}
       sortingType={sortingType}
+      category={1}
     />
   );
 }

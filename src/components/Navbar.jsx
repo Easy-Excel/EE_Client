@@ -121,9 +121,10 @@ const Navbar = ({ toggle, setToggle }) => {
         <Wrapper>
           <MenuItem
             onClick={() => {
+              let subCategory = "DateTime";
               // setArrowState(true);
               setActiveMenu("/home/category");
-              navigate("/home/category");
+              navigate("/home/category", { state: { subCategory } });
             }}
             // isActive={activeMenu==="./home/category"}
           >

@@ -94,6 +94,7 @@ export default function ItoP() {
       funcList={funcList}
       listSize={listSize}
       sortingType={sortingType}
+      category={1}
     />
   );
 }

@@ -18,8 +18,9 @@ export default function FuncDetail() {
 
   const funcId = state.funcId;
   const sortingType = state.sortingType;
+  const category = state.category;
 
-  const [buttons, setButtons] = useState([
+  const [funcButtons, setFunButtons] = useState([
     {
       id: "AtoH",
       width: "22%",
@@ -52,6 +53,59 @@ export default function FuncDetail() {
     },
   ]); //버튼들을 담을 배열
 
+  const [cateButtons, setCateButtons] = useState([
+    {
+      id: "DateTime",
+      width: "16%",
+      height: "45px",
+      backgroundColor: "#107c41",
+      fontColor: "white",
+      border: "none",
+      text: "날짜/시간",
+      content: "DateTime",
+    },
+    {
+      id: "Statistics",
+      width: "16%",
+      height: "45px",
+      backgroundColor: "white",
+      fontColor: "black",
+      border: "1px solid black",
+      text: "통계",
+      content: "Statistics",
+    },
+    {
+      id: "SearchRef",
+      width: "16%",
+      height: "45px",
+      backgroundColor: "white",
+      fontColor: "black",
+      border: "1px solid black",
+      text: "찾기/참조 영역",
+      content: "SearchRef",
+    },
+    {
+      id: "DataBase",
+      width: "16%",
+      height: "45px",
+      backgroundColor: "white",
+      fontColor: "black",
+      border: "1px solid black",
+      text: "데이터베이스",
+      content: "DataBase",
+    },
+    {
+      id: "Text",
+      width: "16%",
+      height: "45px",
+      backgroundColor: "white",
+      fontColor: "black",
+      border: "1px solid black",
+      text: "텍스트",
+      content: "Text",
+    },
+  ]); //버튼들을 담을 배열
+
   useEffect(() => {
     console.log(`${funcId}로 데이터 가져오기`);
     // //데이터가져오기
@@ -62,7 +116,7 @@ export default function FuncDetail() {
     //   })
     //   .then((data) => {
     //     // 가져온 데이터를 상태에 설정
-    //     setFuncData = data.result;
+    //     setFuncData(data.result);
     //   })
     //   .catch((error) => {
     //     console.error("Error fetching data:", error);
@@ -70,7 +124,11 @@ export default function FuncDetail() {
   }, [funcId]);
 
   const handleButtonClick = (subCategory) => {
-    navigate("/home/function", { state: { subCategory } });
+    if (category === 1) {
+      navigate("/home/function", { state: { subCategory } });
+    } else {
+      navigate("/home/category", { state: { subCategory } });
+    }
   };
 
   const [isExamplePage, setExampePage] = useState(false);
@@ -84,20 +142,42 @@ export default function FuncDetail() {
 
   return (
     <div style={{ width: "100%", height: "100%", paddingBottom: "20px" }}>
-      <BtnWrapper gap={"5.8vw"}>
-        {buttons.map((button) => (
-          <Button
-            key={button.id}
-            width={button.width}
-            height={button.height}
-            backgroundColor={button.text === sortingType ? "#107c41" : "white"}
-            fontColor={button.text === sortingType ? "white" : "black"}
-            border={button.text === sortingType ? "none" : "1px solid black"}
-            text={button.text}
-            onButtonClick={() => handleButtonClick(button.content)}
-          ></Button>
-        ))}
-      </BtnWrapper>
+      {category === 1 ? (
+        <BtnWrapper gap={"5.8vw"}>
+          {funcButtons.map((button) => (
+            <Button
+              key={button.id}
+              width={button.width}
+              height={button.height}
+              backgroundColor={
+                button.text === sortingType ? "#107c41" : "white"
+              }
+              fontColor={button.text === sortingType ? "white" : "black"}
+              border={button.text === sortingType ? "none" : "1px solid black"}
+              text={button.text}
+              onButtonClick={() => handleButtonClick(button.content)}
+            />
+          ))}
+        </BtnWrapper>
+      ) : (
+        <BtnWrapper gap={"2.4vw"}>
+          {cateButtons.map((button) => (
+            <Button
+              key={button.id}
+              width={button.width}
+              height={button.height}
+              backgroundColor={
+                button.text === sortingType ? "#107c41" : "white"
+              }
+              fontColor={button.text === sortingType ? "white" : "black"}
+              border={button.text === sortingType ? "none" : "1px solid black"}
+              text={button.text}
+              onButtonClick={() => handleButtonClick(button.content)}
+            />
+          ))}
+        </BtnWrapper>
+      )}
+
       <FContainer
         height={"68%"}
         funcName={funcData.name}

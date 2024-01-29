@@ -1,5 +1,30 @@
 import React from "react";
+import Container from "../functionPage/FuncListContainer";
+
+const funcList = [
+  {
+    functionId: 1,
+    name: "DataBase",
+  },
+  {
+    functionId: 2,
+    name: "Function",
+  },
+  {
+    functionId: 3,
+    name: "Category",
+  },
+];
+const listSize = funcList.length;
+const sortingType = "DataBase";
 
 export default function DataBase() {
-  return <div>데이터 베이스 컴포넌트</div>;
+  return (
+    <Container
+      funcList={funcList}
+      listSize={listSize}
+      sortingType={sortingType}
+      category={2}
+    />
+  );
 }

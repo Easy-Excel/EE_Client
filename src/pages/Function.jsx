@@ -18,6 +18,7 @@ function Function() {
     console.log("API 호출");
   });
 
+  //navigator로 넘겨받은 값
   const { state } = useLocation();
   const [activeContent, setActiveContent] = useState(state.subCategory);
 
