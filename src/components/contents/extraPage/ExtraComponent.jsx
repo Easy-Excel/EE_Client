@@ -3,11 +3,19 @@ import styled from "styled-components";
 
 const ExtraContainer = styled.div`
   box-sizing: border-box;
-  height: ${({ height }) => height}; //vh단위
+  height: 68%;
   overflow-y: auto;
   padding-right: 15px;
   margin-top: 17px;
   margin-bottom: 10px;
+
+  @media screen and (max-height: 780px) {
+    height: 64%;
+  }
+
+  @media screen and (max-height: 700px) {
+    height: 62%;
+  }
 `;
 const ExtraTitle = styled.div`
   color: #000;
