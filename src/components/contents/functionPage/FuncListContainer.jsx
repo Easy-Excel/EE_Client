@@ -4,7 +4,7 @@ import FunBox from "./FunBox";
 
 //3개의 리스트로 쪼개는 함수. 각 리스트 원소 개수는 최소 6개여야 함
 function chunkArray(array) {
-  const chunkSize = Math.max(Math.ceil(array.length / 3), 6);
+  const chunkSize = Math.max(Math.ceil(array.length / 3), 5);
   const result = [];
   for (let i = 0; i < array.length; i += chunkSize) {
     result.push(array.slice(i, i + chunkSize));
@@ -15,7 +15,7 @@ function chunkArray(array) {
 const ContainerBox = styled.div`
   box-sizing: border-box;
   width: 100%;
-  max-height: 360px;
+  max-height: 40vh;
   padding: 0px 60px;
   overflow-y: auto;
 
