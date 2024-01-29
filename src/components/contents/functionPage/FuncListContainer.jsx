@@ -15,7 +15,7 @@ function chunkArray(array) {
 const ContainerBox = styled.div`
   box-sizing: border-box;
   width: 100%;
-  max-height: 360px;
+  max-height: 42vh;
   padding: 0px 60px;
   overflow-y: auto;
 

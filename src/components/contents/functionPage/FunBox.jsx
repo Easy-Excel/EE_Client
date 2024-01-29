@@ -21,7 +21,10 @@ export default function FunBox({ funcName }) {
 
   const onClickBox = (event) => {
     event.preventDefault();
-    navigate(`/home/function/${funcName}`);
+    navigate(
+      `/home/function/${funcName}`
+      // state:{}
+    );
   };
 
   return <FunctionBox onClick={onClickBox}>{funcName}</FunctionBox>;
