@@ -108,7 +108,7 @@ const SubQuestion = styled.div`
   margin-top: 15px;
   line-height: 1.4;
 `;
-const ExAnswerTitle = styled.div`
+export const ExAnswerTitle = styled.div`
   color: black;
   font-size: 16px;
   font-family: SUIT;
@@ -118,7 +118,7 @@ const ExAnswerTitle = styled.div`
   margin-left: 73px;
 `;
 
-const ExAnswer = styled.div`
+export const ExAnswer = styled.div`
   color: black;
   font-size: 14px;
   font-family: SUIT;
@@ -137,7 +137,7 @@ const ExAnswer = styled.div`
   margin: 0px 10px 15px 73px;
 `;
 
-const ExAnswerNumber = styled.div`
+export const ExAnswerNumber = styled.div`
   border: 1px solid black;
   border-radius: 50%;
   width: 18px;
@@ -146,6 +146,8 @@ const ExAnswerNumber = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 13px;
+
+  min-width: 18px;
 `;
 
 function Title({ text }) {

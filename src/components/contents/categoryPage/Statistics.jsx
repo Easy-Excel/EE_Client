@@ -25,7 +25,7 @@ const funcList = [
 ];
 
 const listSize = funcList.length;
-const sortingType = "Statistics";
+const sortingType = "통계";
 
 export default function Statistics() {
   return (

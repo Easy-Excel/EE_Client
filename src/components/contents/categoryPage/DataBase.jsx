@@ -16,7 +16,7 @@ const funcList = [
   },
 ];
 const listSize = funcList.length;
-const sortingType = "DataBase";
+const sortingType = "데이터베이스";
 
 export default function DataBase() {
   return (

@@ -1,0 +1,47 @@
+{
+  "isSuccess": true,
+  "code": "2000",
+  "message": "Ok",
+  "result": {
+    "id": 1,
+    "title": "A반 기말고사 성적 평균? AVERAGE 예제",
+    "question": "다음은 A 기업의 상품코드, 상품명, 단가를 모아놓은 표입니다.\nVLOOKUP 함수를 활용하여 A003의 상품명을 찾으시오.",
+    "awnser": "정답",
+    "exampleExplanationDTOList": [
+      {
+        "explanationId": 1,
+        "explanation": " 각 학생의 성적평균은 [C5:G5] 범위를 드래그한 후 AVERAGE 함수를 사용하여 계산합니다."
+      },
+      {
+        "explanationId": 2,
+        "explanation": "각 과목당 평균은 [C5:C13] 범위를 드래그한 후 AVERAGE 함수를 사용하여 계산합니다."
+      },
+      {
+        "explanationId": 3,
+        "explanation": "설명3"
+      }
+    ],
+    "exampleTipDTOList": [
+      {
+        "tipId": 1,
+        "content": "소수점 첫 째 자리까지만 구하기 위해서는 ROUND 함수를 활용하여 계산합니다."
+      },
+      {
+        "tipId": 2,
+        "content": "일반적인 AVERAGE 함수와는 다르게 특정 조건에 해당하는 셀의 평균을 구할 때는 AVERAGEIF 함수를 사용합니다."
+      },
+      {
+        "tipId": 3,
+        "content": "팁3"
+      }
+    ],
+    "exampleImgDTOList": [
+      {
+        "imgId": 1,
+        "url": "https://velog.velcdn.com/images/rnrgll/post/ae019a5d-9c34-426b-8176-197bf73a1543/image.png"
+      }
+    ],
+    "listSize": 1,
+    "functionId": 1
+  }
+}

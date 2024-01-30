@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from "react";
-import FContainer from "./FuncComponents";
+import FDetailContainer from "./FuncDetailComponents";
+import FExampleContainer from "./FuncExampleComponent";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
 
+//버튼
 import Button from "../../Button";
 import BtnWrapper from "../../BtnWrapper";
 
+//테스트용 데이터
 import testData from "./functionData.json";
+import exampleTestData from "./functionExampleData.json";
 
 export default function FuncDetail() {
-  const [funcData, setFuncData] = useState(testData.result);
-
   const navigate = useNavigate();
 
   //네비게이트 훅을 통해 넘겨받은 정보 (api 연동시 사용)
+  //함수 id를 받음 -> id를 가지고 서버에서 해당 함수에 대한 데이터 가져오기
   const { state } = useLocation();
-
   const funcId = state.funcId;
   const sortingType = state.sortingType;
-  const category = state.category;
+  const category = Number(state.category); //서브 카테고리를 위해 가져오는 값(함수인지 범주인지)
+  const exType = 1; //예제 타입을 저장. 임시로 값 할당
 
+  //category가 함수인경우 서브 카테고리 버튼
   const [funcButtons, setFunButtons] = useState([
     {
       id: "AtoH",
@@ -53,6 +57,7 @@ export default function FuncDetail() {
     },
   ]); //버튼들을 담을 배열
 
+  //category가 범주인 경우 서브 카테고리 버튼
   const [cateButtons, setCateButtons] = useState([
     {
       id: "DateTime",
@@ -106,8 +111,13 @@ export default function FuncDetail() {
     },
   ]); //버튼들을 담을 배열
 
+  //서버에서 함수 데이터를 가져와 저장 / 현재는 임시로 테스트 데이터 저장
+  const [funcData, setFuncData] = useState(testData.result);
+  const [funcExData, setFuncExData] = useState(exampleTestData.result);
+
+  //데이터 가져오기
   useEffect(() => {
-    console.log(`${funcId}로 데이터 가져오기`);
+    // console.log(`${funcId}로 데이터 가져오기`);
     // //데이터가져오기
     // fetch(`/functions/${funcId}`)
     // fetch("./functionData.json")
@@ -123,6 +133,7 @@ export default function FuncDetail() {
     //   });
   }, [funcId]);
 
+  //서브 카테고리 버튼 클릭시 페이지 이동
   const handleButtonClick = (subCategory) => {
     if (category === 1) {
       navigate("/home/function", { state: { subCategory } });
@@ -131,6 +142,7 @@ export default function FuncDetail() {
     }
   };
 
+  //함수 설명, 함수 예제 상태 관리
   const [isExamplePage, setExampePage] = useState(false);
   const [buttonText, setButtonText] = useState("함수 예제");
 
@@ -140,51 +152,65 @@ export default function FuncDetail() {
     setButtonText(isExamplePage ? "함수 예제" : "함수 설명");
   };
 
+  console.log(funcExData);
+
   return (
+    // 서브카테고리 버튼들
     <div style={{ width: "100%", height: "100%", paddingBottom: "20px" }}>
-      {category === 1 ? (
-        <BtnWrapper gap={"5.8vw"}>
-          {funcButtons.map((button) => (
-            <Button
-              key={button.id}
-              width={button.width}
-              height={button.height}
-              backgroundColor={
-                button.text === sortingType ? "#107c41" : "white"
-              }
-              fontColor={button.text === sortingType ? "white" : "black"}
-              border={button.text === sortingType ? "none" : "1px solid black"}
-              text={button.text}
-              onButtonClick={() => handleButtonClick(button.content)}
-            />
-          ))}
-        </BtnWrapper>
+      {isExamplePage ? (
+        <FExampleContainer type={exType} height={"84%"} exData={funcExData} />
       ) : (
-        <BtnWrapper gap={"2.4vw"}>
-          {cateButtons.map((button) => (
-            <Button
-              key={button.id}
-              width={button.width}
-              height={button.height}
-              backgroundColor={
-                button.text === sortingType ? "#107c41" : "white"
-              }
-              fontColor={button.text === sortingType ? "white" : "black"}
-              border={button.text === sortingType ? "none" : "1px solid black"}
-              text={button.text}
-              onButtonClick={() => handleButtonClick(button.content)}
-            />
-          ))}
-        </BtnWrapper>
+        // 그룹화하기 위한 빈태그
+        <>
+          {category === 1 ? (
+            <BtnWrapper gap={"5.8vw"}>
+              {funcButtons.map((button) => (
+                <Button
+                  key={button.id}
+                  width={button.width}
+                  height={button.height}
+                  backgroundColor={
+                    button.text === sortingType ? "#107c41" : "white"
+                  }
+                  fontColor={button.text === sortingType ? "white" : "black"}
+                  border={
+                    button.text === sortingType ? "none" : "1px solid black"
+                  }
+                  text={button.text}
+                  onButtonClick={() => handleButtonClick(button.content)}
+                />
+              ))}
+            </BtnWrapper>
+          ) : (
+            <BtnWrapper gap={"2.4vw"}>
+              {cateButtons.map((button) => (
+                <Button
+                  key={button.id}
+                  width={button.width}
+                  height={button.height}
+                  backgroundColor={
+                    button.text === sortingType ? "#107c41" : "white"
+                  }
+                  fontColor={button.text === sortingType ? "white" : "black"}
+                  border={
+                    button.text === sortingType ? "none" : "1px solid black"
+                  }
+                  text={button.text}
+                  onButtonClick={() => handleButtonClick(button.content)}
+                />
+              ))}
+            </BtnWrapper>
+          )}
+          <FDetailContainer
+            height={"68%"}
+            funcName={funcData.name}
+            funcDes={funcData.explanation}
+            argList={funcData.engAndKorList}
+            funcFeats={funcData.caution}
+          />
+        </>
       )}
 
-      <FContainer
-        height={"68%"}
-        funcName={funcData.name}
-        funcDes={funcData.explanation}
-        argList={funcData.engAndKorList}
-        funcFeats={funcData.caution}
-      ></FContainer>
       <Button
         width={"15%"}
         // height={"53px"}
@@ -196,3 +222,6 @@ export default function FuncDetail() {
     </div>
   );
 }
+
+//FDetailContainer 값 넘겨줄 때 하나씩 넘겨주지 말고 result 객체 자체를 넘기고 내부에서 처리하도록 수정할까 고려중...
+//FExampleContainer 처럼

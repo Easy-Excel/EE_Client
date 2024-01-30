@@ -25,7 +25,7 @@ const funcList = [
 ];
 
 const listSize = funcList.length;
-const sortingType = "SearchRef";
+const sortingType = "찾기/참조 영역";
 
 export default function SearchRef() {
   return (
