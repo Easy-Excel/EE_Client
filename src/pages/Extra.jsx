@@ -9,14 +9,11 @@ import MacroContent from "../components/contents/extraPage/MacroContent";
 import ValidationContent from "../components/contents/extraPage/ValidationContent";
 import BtnWrapper from "../components/BtnWrapper";
 import useComponentSize from "../hooks/UseComponentSzie";
-import { render } from "@testing-library/react";
 
 const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
-  max-height: 63vh;
   height: 100%;
-  /* padding-bottom: 20px; */
 `;
 
 //함수 페이지//로 가야함
@@ -80,7 +77,6 @@ function Extra() {
   ]); //버튼들을 담을 배열
   //
   const handleButtonClick = (content) => {
-    console.log(content);
     setActiveContent(content);
   };
 
@@ -88,8 +84,8 @@ function Extra() {
   const [componentRef, size] = useComponentSize();
 
   const renderHeight = {
-    mainBox: size.height - (45 + 26 + 17) - 27 - 10,
-    container: size.height - (45 + 26 + 17) - 27 - 20 - 65.5,
+    mainBox: size.height - (45 + 26 + 17),
+    container: size.height - (45 + 26 + 17) - 65.5 - 10,
   };
 
   const contentComponents = {

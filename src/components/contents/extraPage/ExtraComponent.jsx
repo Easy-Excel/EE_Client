@@ -6,7 +6,7 @@ const ExtraContainer = styled.div`
   height: ${(props) => props.height}px;
   overflow-y: auto;
   padding-right: 15px;
-  margin-top: 17px;
+  padding-top: 17px;
   margin-bottom: 10px;
 
   //-----스크롤바 스타일링------//
@@ -21,14 +21,6 @@ const ExtraContainer = styled.div`
   //호버시 색상 변경
   &::-webkit-scrollbar-thumb:hover {
     background-color: #908f8f;
-  }
-
-  @media screen and (max-height: 780px) {
-    height: 64%;
-  }
-
-  @media screen and (max-height: 700px) {
-    height: 62%;
   }
 `;
 const ExtraTitle = styled.div`
