@@ -28,7 +28,7 @@ const Teamheader = styled.div`
     width: 488px;
     height: 82px;
     left: 59px;
-    top: 137px;
+    top: 180px;
 
     background: #107C41;
     border-radius: 16px;
@@ -113,11 +113,14 @@ const Plan = styled.div`
     color: #000000;`
 const Memberprofil1 = styled.div`
   /* 멤버 설명 카드 */
+    display: flex;
     position: absolute;
     width: 173px;
     height: 218px;
     left: 499px;
+    flex-wrap: no;
     top: 334px;`
+  
 
 const Memberimage1 = styled.div`
     display: flex;

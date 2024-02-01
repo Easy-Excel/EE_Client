@@ -22,7 +22,7 @@ const Contactheader = styled.div`
     width: 488px;
     height: 82px;
     left: 59px;
-    top: 137px;
+    top: 180px;
 
     background: #107C41;
     border-radius: 16px;
