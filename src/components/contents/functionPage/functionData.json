@@ -1,0 +1,28 @@
+{
+  "isSuccess": true,
+  "code": "2000",
+  "message": "Ok",
+  "result": {
+    "id": 1,
+    "name": "AVERAGE",
+    "explanation": "AVERAGE설명1\nAVERAGE설명2",
+    "caution": ["AVERAGE주의1", "AVERAGE주의2", "AVERAGE주의3"],
+    "engAndKorList": [
+      {
+        "order": 1,
+        "eng": "Lookup_range",
+        "kor": "범위"
+      },
+      {
+        "order": 2,
+        "eng": "Col_index_num",
+        "kor": "열번호"
+      },
+      {
+        "order": 3,
+        "eng": "Number1",
+        "kor": "범위1"
+      }
+    ]
+  }
+}

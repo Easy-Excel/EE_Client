@@ -12,6 +12,8 @@ import Shortcut from "./pages/Shortcut";
 import Extra from "./pages/Extra";
 import Etc from "./pages/Etc";
 import Skeleton from "./pages/Skeleton";
+import FuncDetail from "./components/contents/functionPage/FuncDetail";
+
 
 function App() {
   return (
@@ -29,9 +31,14 @@ function App() {
           <Route path="/home/shortcut" element={<Shortcut />}></Route>
           <Route path="/home/extra" element={<Extra />}></Route>
           <Route path="/home/etc" element={<Etc />}></Route>
+
+          {/* function 세부 내용 라우팅 */}
+          <Route path="/home/function/:funcName" element={<FuncDetail />} />
+          
         </Route>
       </Routes>
       <Footer />
+      
     </BrowserRouter>
   );
 }

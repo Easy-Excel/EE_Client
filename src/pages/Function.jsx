@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import styled from "styled-components";
 import Button from "../components/Button";
 import AtoH from "../components/contents/functionPage/AtoH";
 import ItoP from "../components/contents/functionPage/ItoP";
 import QtoZ from "../components/contents/functionPage/QtoZ";
 import BtnWrapper from "../components/BtnWrapper";
+import ChatBot from "../components/ChatBot";
+
 const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
@@ -17,7 +20,9 @@ function Function() {
     console.log("API 호출");
   });
 
-  const [activeContent, setActiveContent] = useState("AtoH");
+  //navigator로 넘겨받은 값
+  const { state } = useLocation();
+  const [activeContent, setActiveContent] = useState(state.subCategory);
 
   const [buttons, setButtons] = useState([
     {
@@ -56,6 +61,7 @@ function Function() {
     console.log(content);
     setActiveContent(content);
   };
+  
   const contentComponents = {
     AtoH: <AtoH />,
     ItoP: <ItoP />,
@@ -63,6 +69,7 @@ function Function() {
   };
 
   return (
+    <>
     <Container>
       <BtnWrapper gap={"5.8vw"}>
         {buttons.map((button) => (
@@ -79,7 +86,11 @@ function Function() {
         ))}
       </BtnWrapper>
       {contentComponents[activeContent]}
+        <ChatBot></ChatBot>
     </Container>
+
+    </>
+
   );
 }
 export default Function;

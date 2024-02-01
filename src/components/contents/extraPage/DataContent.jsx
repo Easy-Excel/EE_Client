@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+
 import {
   Title,
   SubTitle,
@@ -19,9 +21,12 @@ const imagesContext = require.context(
 );
 // 이미지 파일 목록을 배열로 가져오기 (해당 폴더 내의 모든 이미지 파일이 배열에 포함됨)
 const images = imagesContext.keys().map(imagesContext);
+const StyledDiv = styled.div`
+  height: 100%;
+`;
 
 const FeatureDescription = () => (
-  <Container height={"42vh"}>
+  <Container>
     <Title text="데이터 통합" />
     <Paragraph text="복수의 데이터를 종합하여, 개별 데이터로는 알 수 없는 인사이트를 도출하거나 새로운 시각을 제공하는 기능입니다." />
     <SubTitle text="사용하는 방법" />
@@ -52,7 +57,7 @@ const FeatureDescription = () => (
 );
 
 const Example = () => (
-  <Container height={"42vh"}>
+  <Container>
     <Title text="데이터 통합 예제" />
     <ExampleQuestion
       text={
@@ -85,7 +90,7 @@ const DataContent = () => {
   };
 
   return (
-    <div>
+    <StyledDiv>
       {/* {isExamplePage ? <Example /> : <FeatureDescription />}
       <ExampleBtn onClick={handleExamplePage} buttonText={buttonText} /> */}
       {isExamplePage ? <Example /> : <FeatureDescription />}
@@ -97,7 +102,7 @@ const DataContent = () => {
         text={buttonText}
         onButtonClick={handleExamplePage}
       />
-    </div>
+    </StyledDiv>
   );
 };
 

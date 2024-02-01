@@ -1,5 +1,39 @@
 import React from "react";
+import Container from "../functionPage/FuncListContainer";
+
+const funcList = [
+  {
+    functionId: 1,
+    name: "TEST",
+  },
+  {
+    functionId: 2,
+    name: "TEST",
+  },
+  {
+    functionId: 3,
+    name: "TEST",
+  },
+  {
+    functionId: 4,
+    name: "TEST",
+  },
+  {
+    functionId: 5,
+    name: "TEST",
+  },
+];
+
+const listSize = funcList.length;
+const sortingType = "Text";
 
 export default function Text() {
-  return <div>텍스트 컴포넌트</div>;
+  return (
+    <Container
+      funcList={funcList}
+      listSize={listSize}
+      sortingType={sortingType}
+      category={2}
+    />
+  );
 }

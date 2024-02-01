@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+
 import {
   Title,
   SubTitle,
@@ -20,9 +22,12 @@ const imagesContext = require.context(
 );
 // 이미지 파일 목록을 배열로 가져오기 (해당 폴더 내의 모든 이미지 파일이 배열에 포함됨)
 const images = imagesContext.keys().map(imagesContext);
+const StyledDiv = styled.div`
+  height: 100%;
+`;
 
 const FeatureDescription = () => (
-  <Container height={"42vh"}>
+  <Container>
     <Title text="시나리오 관리자" />
     <Paragraph
       text="시나리오 관리자는 다양한 상황과 변수에 따른 여러가지 결과값을 예상하여 알려주는 기능으로, 
@@ -56,11 +61,11 @@ const FeatureDescription = () => (
 );
 
 const Example = () => (
-  <Container height={"42vh"}>
+  <Container>
     <Title text="시나리오 관리자 예제" />
     <ExampleQuestion
       text={
-        "[1] 시나리오 관리자 기능을 이용하여 표에서 기획팀과 개발팀의 소진율 [E4:E5]이 다음과 같이 변동하는 경우 소진액 합계 [D10]의 변동 시나리오를 작성하시오.\n이때 소진액은 예산*소진율/100으로 계산됩니다.\n [E4] 셀의 이름은 '기획팀소진율', '[E5]셀의 이름은 '개발팀소진율'로 정의하시오."
+        "시나리오 관리자 기능을 이용하여 표에서 기획팀과 개발팀의 소진율 [E4:E5]이 다음과 같이 변동하는 경우 소진액 합계 [D10]의 변동 시나리오를 작성하시오.\n이때 소진액은 예산*소진율/100으로 계산됩니다.\n [E4] 셀의 이름은 '기획팀소진율', '[E5]셀의 이름은 '개발팀소진율'로 정의하시오."
       }
     >
       <ExampleSubQuestion
@@ -99,7 +104,7 @@ const SummaryContent = () => {
     기능설명: <FeatureDescription />,
   };
   return (
-    <div>
+    <StyledDiv>
       {isExamplePage ? <Example /> : <FeatureDescription />}
       <Button
         width={"15%"}
@@ -109,7 +114,7 @@ const SummaryContent = () => {
         text={buttonText}
         onButtonClick={handleExamplePage}
       />
-    </div>
+    </StyledDiv>
   );
 };
 
