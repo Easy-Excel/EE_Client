@@ -3,91 +3,72 @@ import React from "react";
 import logo from "../assets/images/logo/Logo.svg";
 import styled from "styled-components";
 
-const Visionwrap = styled.div``
 
 const Visioncontainer = styled.div`
     background-color: #e2e0e0ea;
+    
 `
 
-const Visionmain = styled.div`
-    box-sizing: border-box;
-    min-width: 600px;
-    max-width: 100%;
-    height: 700px;
+const Visionwrap = styled.div`
     background-color: #CEEBDE;
-    padding: 20px 10px;
-    margin: 150px 0px;
+    margin: 40px 0px 0px 0px;
     color: black;
     text-align: center;
-    border-radius: 10px;
-    min-height: 149.6px;
-`;
+    @media screen and (max-height: 680px) {
+    height: 632.4px;
+    };`
+
+const Visionmain = styled.div`
+    align-items: center;
+    justify-content: center;
+    width: 100%; //백분율로 조장해야 화면 크기에 따라 조절됨
+    height: 63vh;
+    text-align: center;
+    padding: 20px ;
+
+`
 
 const Visionheader = styled.div`
-           /* Auto layout */
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    gap: 10px;
-
     position: absolute;
-    width: 488px;
-    height: 82px;
     left: 59px;
-    top: 180px;
-
+    top: 75px;
     background: #107C41;
     border-radius: 16px;
-
-
-
-    /* Our Vision */
-
     width: 400px;
     height: 62px;
 
     font-family: 'SUIT';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 50px;
+    font-weight: 800;
+    font-size: 47px;
     line-height: 62px;
     text-align: center;
-
     color: #FFFFFF;
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 `;
 
 
 const Visionlogo = styled.div`
     /* Logo */
-    
-    position: absolute;
-    width: 200px;
-    height: 435px;
-    left: 10%;
-    top: 309px;
+    display: flex;
+    width: 100px;
+    height: 350px;
+    margin-left: 80px;
+    margin-top: 60px;
 
 `;
 
 
 const Visionlogo2 = styled.div`
    /* EASY EXCEL */
-
-    position: absolute;
-    left: 10%;
-    top: 741px;
+    display: flex;
+    margin-left: 80px;
 
     font-family: 'Knewave';
     font-style: normal;
     font-weight: 400;
-    font-size: 80px;
+    font-size: 65px;
     line-height: 124px;
 
     color: #107C41;
@@ -98,8 +79,8 @@ const Visioncontext = styled.div`
     position: absolute;
     width: 809px;
     height: 450px;
-    left: 40%;
-    top: 330px;
+    left: 35%;
+    top: 200px;
     margin: 0px 60px;
     font-family: 'SUIT';
     font-style: bold;
@@ -114,8 +95,8 @@ const Visioncontext1 = styled.div`
     position: absolute;
     width: 650px;
     height: 450px;
-    left: 40%;
-    top: 400px;
+    left: 35%;
+    top: 250px;
     margin: 0px 60px;
     font-family: 'SUIT';
     font-style: normal;
