@@ -1,0 +1,54 @@
+{ 
+    "positons" : [
+        {"id" : 1, "position" :"Plan"},
+        {"id" : 2, "position" :"Design"},
+        {"id" : 3, "position" :"Front-end"},
+        {"id" : 4, "position" :"Back-end"}
+    ],
+     "members1" : [
+        {"id" : 1,
+        "position": "Plan", 
+        "image" :"이미지" , 
+        "name" : "이름/학교1"},
+        {"id" : 2,
+        "position": "Design", 
+        "image" :"이미지" , 
+        "name" : "이름/학교2"}
+    ],
+      "members2" : [
+        {"id" : 3,
+        "position": "Plan", 
+        "image" :"이미지" , 
+        "name" : "이름/학교3"},
+        {"id" : 4,
+        "position": "Design", 
+        "image" :"이미지" , 
+        "name" : "이름/학교4"},
+        {"id" : 5,
+        "position": "Front-end", 
+        "image" :"이미지" , 
+        "name" : "이름/학교5"},
+        {"id" : 6,
+        "position": "Front-end", 
+        "image" :"이미지" , 
+        "name" : "이름/학교6"}
+    ],
+        "members3" : [
+        {"id" : 7,
+        "position": "Plan", 
+        "image" :"이미지" , 
+        "name" : "이름/학교7"},
+        {"id" : 8,
+        "position": "Design", 
+        "image" :"이미지" , 
+        "name" : "이름/학교8"},
+        {"id" : 9,
+        "position": "Front-end", 
+        "image" :"이미지" , 
+        "name" : "이름/학교9"},
+        {"id" : 10,
+        "position": "Front-end", 
+        "image" :"이미지" , 
+        "name" : "이름/학교10"}
+    ]
+}

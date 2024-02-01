@@ -14,6 +14,7 @@ import Etc from "./pages/Etc";
 import Skeleton from "./pages/Skeleton";
 import FuncDetail from "./components/contents/functionPage/FuncDetail";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -33,9 +34,11 @@ function App() {
 
           {/* function 세부 내용 라우팅 */}
           <Route path="/home/function/:funcName" element={<FuncDetail />} />
+          
         </Route>
       </Routes>
       <Footer />
+      
     </BrowserRouter>
   );
 }

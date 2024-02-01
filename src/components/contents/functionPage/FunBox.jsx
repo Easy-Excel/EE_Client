@@ -28,7 +28,7 @@ export default function FunBox({ funcId, funcName, sortingType, category }) {
     navigate(`/home/function/${funcName}`, {
       state: { funcId, sortingType, category },
     });
-  };
+  };//함수를 클릭하면 함수 정보로 navigate
 
   return <FunctionBox onClick={onClickBox}>{funcName}</FunctionBox>;
 }

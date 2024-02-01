@@ -93,11 +93,13 @@ const FuncSyntaxArgBox = styled.div`
   flex-direction: column;
   gap: 6px;
 `; //argument 영어, 한국어 한 묶음
+
 const FuncSyntaxArg = styled.div`
   border-bottom: 2.5px solid black;
   text-align: center;
   padding-bottom: 3px;
 `; //argument
+
 const FuncSyntaxArgKor = styled.div`
   color: #000;
   text-align: center;
@@ -154,6 +156,7 @@ export default function FDetailContainer({
     </FuncContainer>
   );
 }
+
 function FSynBox({ funcName, argList }) {
   return (
     <FuncSyntaxBox>

@@ -10,6 +10,7 @@ import {
   HelpImage,
   Container,
   ExampleQuestion,
+  ExampleAnswer,
 } from "./ExtraComponent";
 import Button from "../../Button";
 
