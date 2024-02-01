@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+
 import {
   Title,
   SubTitle,
@@ -20,9 +22,12 @@ const imagesContext = require.context(
 );
 // 이미지 파일 목록을 배열로 가져오기 (해당 폴더 내의 모든 이미지 파일이 배열에 포함됨)
 const images = imagesContext.keys().map(imagesContext);
+const StyledDiv = styled.div`
+  height: 100%;
+`;
 
 const FeatureDescription = () => (
-  <Container height={"42vh"}>
+  <Container>
     <Title text="시나리오 관리자" />
     <Paragraph
       text="시나리오 관리자는 다양한 상황과 변수에 따른 여러가지 결과값을 예상하여 알려주는 기능으로, 
@@ -56,7 +61,7 @@ const FeatureDescription = () => (
 );
 
 const Example = () => (
-  <Container height={"42vh"}>
+  <Container>
     <Title text="시나리오 관리자 예제" />
     <ExampleQuestion
       text={
@@ -99,7 +104,7 @@ const SummaryContent = () => {
     기능설명: <FeatureDescription />,
   };
   return (
-    <div>
+    <StyledDiv>
       {isExamplePage ? <Example /> : <FeatureDescription />}
       <Button
         width={"15%"}
@@ -109,7 +114,7 @@ const SummaryContent = () => {
         text={buttonText}
         onButtonClick={handleExamplePage}
       />
-    </div>
+    </StyledDiv>
   );
 };
 

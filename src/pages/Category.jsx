@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router";
 import styled from "styled-components";
 import Button from "../components/Button";
 import DateTime from "../components/contents/categoryPage/DateTime";
@@ -20,7 +21,9 @@ function Category() {
     console.log("API 호출");
   });
 
-  const [activeContent, setActiveContent] = useState("DateTime");
+  //navigator로 넘겨받은 값
+  const { state } = useLocation();
+  const [activeContent, setActiveContent] = useState(state.subCategory);
 
   const [buttons, setButtons] = useState([
     {

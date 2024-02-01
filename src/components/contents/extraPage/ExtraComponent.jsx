@@ -3,11 +3,33 @@ import styled from "styled-components";
 
 const ExtraContainer = styled.div`
   box-sizing: border-box;
-  height: ${({ height }) => height}; //vh단위
+  height: 68%;
   overflow-y: auto;
   padding-right: 15px;
   margin-top: 17px;
   margin-bottom: 10px;
+
+  //-----스크롤바 스타일링------//
+  &::-webkit-scrollbar {
+    flex-shrink: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #d9d9d9;
+  }
+  //호버시 색상 변경
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #908f8f;
+  }
+
+  @media screen and (max-height: 780px) {
+    height: 64%;
+  }
+
+  @media screen and (max-height: 700px) {
+    height: 62%;
+  }
 `;
 const ExtraTitle = styled.div`
   color: #000;
