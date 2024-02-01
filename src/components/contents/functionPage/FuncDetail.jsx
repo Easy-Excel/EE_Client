@@ -8,6 +8,7 @@ import useComponentSize from "../../../hooks/UseComponentSzie";
 
 //버튼
 import Button from "../../Button";
+import { FExampleNextButton } from "./FuncExampleComponent";
 //테스트용 데이터
 import testData from "./functionData.json";
 import exampleTestData from "./functionExampleData.json";
@@ -20,12 +21,13 @@ export default function FuncDetail() {
   const { state } = useLocation();
   const funcId = state.funcId;
   const sortingType = state.sortingType;
-  const exType = 1; //예제 타입을 저장. 임시로 값 할당
 
   //서버에서 함수 데이터를 가져와 저장 / 현재는 임시로 테스트 데이터 저장
   const [funcData, setFuncData] = useState(testData.result);
-  const [funcExData, setFuncExData] = useState(exampleTestData.result);
-
+  const [funcExData, setFuncExData] = useState(
+    exampleTestData.result.functionsExampleDTOList
+  );
+  const exampleCount = exampleTestData.result.listSize;
   //함수 설명, 함수 예제 상태 관리
   const [isExamplePage, setExampePage] = useState(false);
   const [buttonText, setButtonText] = useState("함수 예제");
@@ -57,6 +59,41 @@ export default function FuncDetail() {
   const [componentRef, size] = useComponentSize();
   const [containerSize, setContainerSize] = useState("84%");
 
+  //이전, 다음 버튼 활성화 상태 관리, 예제 인덱스 상태관리
+  const [hasNext, setHasNext] = useState(true);
+  const [hasPrev, setHasPrev] = useState(false);
+  const [exIndex, setExIndex] = useState(0);
+
+  useEffect(() => {
+    if (exampleCount == 1) {
+      setHasNext(false);
+      setHasPrev(false);
+    } else if (exampleCount > 1) {
+      setHasNext(true);
+      setHasPrev(false);
+    }
+  }, []);
+
+  const onClickNext = () => {
+    setExIndex((pre) => pre + 1); //인덱스 증가
+    if (exIndex + 1 === exampleCount - 1) {
+      setHasNext(false);
+    } else {
+      setHasNext(true);
+    }
+    setHasPrev(true);
+  };
+
+  const onClickPrev = () => {
+    setExIndex((pre) => pre - 1); //인덱스 증가
+    if (exIndex - 1 === 0) {
+      setHasPrev(false);
+    } else {
+      setHasPrev(true);
+    }
+    setHasNext(true);
+  };
+
   useEffect(() => {
     const newContainerSize = size.height - 27 - 10 - 65.5; //div(흰 박스) - 스크롤 영역 margin-top - 스크롤 영역 margin-bottom - 버튼 영역+margin
     setContainerSize(newContainerSize.toString() + "px");
@@ -73,9 +110,13 @@ export default function FuncDetail() {
     >
       {isExamplePage ? (
         <FExampleContainer
-          type={exType}
+          idx={exIndex}
           height={containerSize}
           exData={funcExData}
+          leftDisable={!hasPrev}
+          rightDisable={!hasNext}
+          leftClick={onClickPrev}
+          rightClick={onClickNext}
         />
       ) : (
         // 그룹화하기 위한 빈태그

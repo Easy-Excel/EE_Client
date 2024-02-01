@@ -9,6 +9,7 @@ export const FuncContainer = styled.div`
   margin-top: 32px;
   margin-bottom: 10px;
   padding-right: 15px;
+  position: relative;
 
   //-----스크롤바 스타일링------//
   &::-webkit-scrollbar {
