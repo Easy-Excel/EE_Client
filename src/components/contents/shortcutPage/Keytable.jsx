@@ -69,8 +69,8 @@ const WordBox = styled.span`
   background-color: #b6b6b6;
   color: black;
   font-weight: 800;
-  padding: 8px 17px;
-  margin: 5px 3px;
+  padding: 9px 17px;
+  margin: 3px 3px;
   font-family: Arial, Helvetica, sans-serif;// 여기만 글씨체 바꾸기
 `;
 function Keytable() {
