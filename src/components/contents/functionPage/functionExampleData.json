@@ -4,7 +4,7 @@
   "message": "Ok",
   "result": {
     "id": 1,
-    "title": "A반 기말고사 성적 평균? AVERAGE 예제",
+    "title": "AVERAGE 예제 - A반 기말고사 성적 평균",
     "question": "다음은 A 기업의 상품코드, 상품명, 단가를 모아놓은 표입니다.\nVLOOKUP 함수를 활용하여 A003의 상품명을 찾으시오.",
     "awnser": "정답",
     "exampleExplanationDTOList": [

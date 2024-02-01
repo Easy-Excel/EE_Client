@@ -6,11 +6,9 @@ export const FuncContainer = styled.div`
   box-sizing: border-box;
   height: ${(props) => props.height};
   overflow-y: auto;
-  margin-top: 17px;
+  margin-top: 27px;
   margin-bottom: 10px;
   padding-right: 15px;
-
-  background-color: yellow;
 
   //-----스크롤바 스타일링------//
   &::-webkit-scrollbar {
