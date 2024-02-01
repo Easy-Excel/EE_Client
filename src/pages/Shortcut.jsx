@@ -8,6 +8,10 @@ import Move from "../components/contents/shortcutPage/Move";
 import SheetEditor from "../components/contents/shortcutPage/SheetEditor";
 import BtnWrapper from "../components/BtnWrapper";
 
+//컴포넌트 사이즈를 가져오기 위한 hook
+import useComponentSize from "../hooks/UseComponentSzie";
+import { render } from "@testing-library/react";
+
 const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
@@ -75,18 +79,24 @@ function ShortCut() {
   ]); //버튼들을 담을 배열
 
   const handleButtonClick = (content) => {
-    console.log(content);
     setActiveContent(content);
   };
+
+  //Container 높이 계산해서 자식에게 props로 전달
+  const [componentRef, size] = useComponentSize();
+
+  const renderHeight = {
+    mainBox: size.height - (45 + 26 + 17),
+  };
   const contentComponents = {
-    Execution: <Keytable />,
-    General: <General />,
-    SheetEditor: <SheetEditor />,
-    Integrate: <Integrate />,
-    Move: <Move />,
+    Execution: <Keytable height={renderHeight} />,
+    General: <General height={renderHeight} />,
+    SheetEditor: <SheetEditor height={renderHeight} />,
+    Integrate: <Integrate height={renderHeight} />,
+    Move: <Move height={renderHeight} />,
   };
   return (
-    <Container>
+    <Container ref={componentRef}>
       <BtnWrapper gap={"2.4vw"}>
         {buttons.map((button) => (
           <Button

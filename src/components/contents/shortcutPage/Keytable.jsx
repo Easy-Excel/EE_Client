@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 // Styled components
 const TopContainer = styled.div`
-  height: 100%;
-  margin-top: 20px;
+  height: ${(props) => props.height}px;
+  padding: 20px 0px;
 `;
 
 const KeytableContainer = styled.div`
-  height: 300px;
+  height: 100%;
   width: 100%;
   overflow-y: auto;
 
@@ -72,7 +72,7 @@ const WordBox = styled.span`
   margin: 5px 3px;
   font-family: Arial, Helvetica, sans-serif; // 여기만 글씨체 바꾸기
 `;
-function Keytable() {
+function Keytable({ height }) {
   const data = [
     { description: "다른 이름으로 저장", windows: "F12", mac: "Cmd ↑ S" },
     { description: "새 통합문서 만들기", windows: "Ctrl N", mac: "Cmd N" },
@@ -83,7 +83,7 @@ function Keytable() {
   ];
 
   return (
-    <TopContainer>
+    <TopContainer height={height.mainBox}>
       <KeytableContainer>
         <Table>
           <HeaderRow>
