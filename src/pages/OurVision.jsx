@@ -121,21 +121,10 @@ export default function OurVision() {
           </Visionlogo>
           <Visionlogo2>EASY EXCEL</Visionlogo2>
           <Visioncontext>
-            Lorem ipsum dolor sit amet consectetur. Luctus nunc porttitor
-            interdum vulputate tellus at. Felis nibh nibh id ultricies
-            adipiscing sed pretium pulvinar. Aliquam neque aliquet netus
-            suscipit. Scelerisque a magnis semper scelerisque condimentum.
-            Phasellus et vitae accumsan feugiat facilisi posuere consectetur.
-            Sit viverra augue ullamcorper viverra varius vestibulum eu dictum
-            dictum. Urna tincidunt posuere neque purus tristique egestas auctor
-            id. Mauris orci dui quisque dictumst diam venenatis ultricies.
-            Luctus nunc porttitor interdum vulputate tellus at. Felis nibh nibh
-            id ultricies adipiscing sed pretium pulvinar. Aliquam neque aliquet
-            netus suscipit. Scelerisque a magnis semper scelerisque condimentum.
-            Phasellus et vitae accumsan feugiat facilisi posuere consectetur.
-            Sit viverra augue ullamcorper viverra varius vestibulum eu dictum
-            dictum. Urna tincidunt posuere neque purus tristique egestas auctor
-            id. Mauris orci dui quisque dictumst diam venenatis ultricies.
+            슬기로운 엑셀 사용을 위한 통합정리 서비스, Easy Excel dictumst diam venenatis ultricies.
+          </Visioncontext>
+          <Visioncontext>
+            엑셀을 어렵게 생각하고 사용에 있어 막막함이 많은 사람들에게 슬기로운 엑셀 사용법을 알려주기 위해 나타난 웹서비스로, 말그대로 엑셀을 쉽고 간편하게 사용할 수 있게 해준다는 의미를 담고 있습니다.
           </Visioncontext>
         </Visionmain>
       </Visionwrap>

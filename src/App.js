@@ -13,6 +13,7 @@ import Extra from "./pages/Extra";
 import Etc from "./pages/Etc";
 import Skeleton from "./pages/Skeleton";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -32,6 +33,7 @@ function App() {
         </Route>
       </Routes>
       <Footer />
+      
     </BrowserRouter>
   );
 }

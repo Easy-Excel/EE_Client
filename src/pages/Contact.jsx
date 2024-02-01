@@ -86,16 +86,17 @@ const Contactlogo2 = styled.div`
 `
 const Contactgit = styled.div`
     position: absolute;
-    left: 10.77%;
-    right: 81.52%;
-    top: 56.93%;
+    left: 150px;
+    top: 620px;
     bottom: 33.58%;
+
+    width: 100px;
+    height: 100px;
 `
 const Contactinstar = styled.div`
     position: absolute;
-    left: 10.77%;
-    right: 81.52%;
-    top: 43.21%;
+    left: 150px;
+    top: 470px;
     bottom: 47.06%;
 `
 
