@@ -34,6 +34,7 @@ function App() {
 
           {/* function 세부 내용 라우팅 */}
           <Route path="/home/function/:funcName" element={<FuncDetail />} />
+          
         </Route>
       </Routes>
       <Footer />
