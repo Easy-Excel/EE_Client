@@ -8,7 +8,9 @@ import BtnWrapper from "../../BtnWrapper";
 
 import testData from "./functionData.json";
 
+
 export default function FuncDetail() {
+
   const [funcData, setFuncData] = useState(testData.result);
 
   const navigate = useNavigate();
@@ -177,7 +179,6 @@ export default function FuncDetail() {
           ))}
         </BtnWrapper>
       )}
-
       <FContainer
         height={"68%"}
         funcName={funcData.name}

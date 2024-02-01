@@ -7,6 +7,7 @@ import ItoP from "../components/contents/functionPage/ItoP";
 import QtoZ from "../components/contents/functionPage/QtoZ";
 import BtnWrapper from "../components/BtnWrapper";
 import ChatBot from "../components/ChatBot";
+
 const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
@@ -60,6 +61,7 @@ function Function() {
     console.log(content);
     setActiveContent(content);
   };
+  
   const contentComponents = {
     AtoH: <AtoH />,
     ItoP: <ItoP />,
