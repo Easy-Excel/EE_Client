@@ -8,12 +8,15 @@ import DataContent from "../components/contents/extraPage/DataContent";
 import MacroContent from "../components/contents/extraPage/MacroContent";
 import ValidationContent from "../components/contents/extraPage/ValidationContent";
 import BtnWrapper from "../components/BtnWrapper";
+import useComponentSize from "../hooks/UseComponentSzie";
+import { render } from "@testing-library/react";
 
 const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
   max-height: 63vh;
-  padding-bottom: 20px;
+  height: 100%;
+  /* padding-bottom: 20px; */
 `;
 
 //함수 페이지//로 가야함
@@ -80,16 +83,24 @@ function Extra() {
     console.log(content);
     setActiveContent(content);
   };
-  const contentComponents = {
-    PivotTable: <PivotTableContent />,
-    Summary: <SummaryContent />,
-    Data: <DataContent />,
-    Validation: <ValidationContent />,
-    Macro: <MacroContent />,
+
+  //Container 높이 계산해서 자식에게 props로 전달
+  const [componentRef, size] = useComponentSize();
+
+  const renderHeight = {
+    mainBox: size.height - (45 + 26 + 17) - 27 - 10,
+    container: size.height - (45 + 26 + 17) - 27 - 20 - 65.5,
   };
 
+  const contentComponents = {
+    PivotTable: <PivotTableContent height={renderHeight} />,
+    Summary: <SummaryContent height={renderHeight} />,
+    Data: <DataContent height={renderHeight} />,
+    Validation: <ValidationContent height={renderHeight} />,
+    Macro: <MacroContent height={renderHeight} />,
+  };
   return (
-    <Container>
+    <Container ref={componentRef}>
       <BtnWrapper gap={"2.4vw"}>
         {buttons.map((button) => (
           <Button

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const ExtraContainer = styled.div`
   box-sizing: border-box;
-  height: 68%;
+  height: ${(props) => props.height}px;
   overflow-y: auto;
   padding-right: 15px;
   margin-top: 17px;

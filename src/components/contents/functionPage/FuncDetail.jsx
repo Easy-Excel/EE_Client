@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import FDetailContainer from "./FuncDetailComponents";
 import FExampleContainer from "./FuncExampleComponent";
 import { useLocation } from "react-router";
@@ -58,7 +58,6 @@ export default function FuncDetail() {
   const [containerSize, setContainerSize] = useState("84%");
 
   useEffect(() => {
-    console.log(size.height.toString());
     const newContainerSize = size.height - 27 - 10 - 65.5; //div(흰 박스) - 스크롤 영역 margin-top - 스크롤 영역 margin-bottom - 버튼 영역+margin
     setContainerSize(newContainerSize.toString() + "px");
   }, [size]);
