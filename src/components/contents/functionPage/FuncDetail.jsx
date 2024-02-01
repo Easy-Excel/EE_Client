@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import FDetailContainer from "./FuncDetailComponents";
 import FExampleContainer from "./FuncExampleComponent";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
+
+import useComponentSize from "../../../hooks/UseComponentSzie";
 
 //버튼
 import Button from "../../Button";
@@ -152,13 +154,37 @@ export default function FuncDetail() {
     setButtonText(isExamplePage ? "함수 예제" : "함수 설명");
   };
 
-  console.log(funcExData);
+  const [componentRef, size] = useComponentSize();
+  const [detailContainerSize, setDetailContainerSize] = useState("84%");
+  const [exContainerSize, setExContainerSize] = useState("84%");
 
+  useEffect(() => {
+    console.log(size.height.toString());
+    const newDetailSize = size.height - 90 - 65.5 - 17 - 10; // div(흰 박스) - 서브 카테고리 바 사이즈(margin,padding 고려) - 버튼 크기+위치 - 스크롤 영역 margin-top - 스크롤 영역 margin-bottom
+    const newExSize = size.height - 17 - 10; //div(흰 박스) - 스크롤 영역 margin-top - 스크롤 영역 margin-bottom
+    console.log(newDetailSize);
+    setDetailContainerSize(newDetailSize.toString() + "px");
+    setDetailContainerSize(newExSize.toString() + "px");
+  }, [size]);
+
+  // 17~10
   return (
     // 서브카테고리 버튼들
-    <div style={{ width: "100%", height: "100%", paddingBottom: "20px" }}>
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        position: "relative",
+        backgroundColor: "pink",
+      }}
+      ref={componentRef} // ref 속성 추가
+    >
       {isExamplePage ? (
-        <FExampleContainer type={exType} height={"84%"} exData={funcExData} />
+        <FExampleContainer
+          type={exType}
+          height={exContainerSize}
+          exData={funcExData}
+        />
       ) : (
         // 그룹화하기 위한 빈태그
         <>
@@ -202,7 +228,7 @@ export default function FuncDetail() {
             </BtnWrapper>
           )}
           <FDetailContainer
-            height={"68%"}
+            height={detailContainerSize}
             funcName={funcData.name}
             funcDes={funcData.explanation}
             argList={funcData.engAndKorList}
@@ -218,6 +244,8 @@ export default function FuncDetail() {
         fontColor={"white"}
         text={buttonText}
         onButtonClick={handleExamplePage}
+        absolute={true}
+        bottom="23px"
       />
     </div>
   );

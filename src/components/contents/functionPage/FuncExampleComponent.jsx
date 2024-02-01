@@ -35,7 +35,7 @@ export default function FExampleContainer({ type, height, exData }) {
   switch (type) {
     case 1:
       return (
-        <FuncContainer style={{ marginTop: "27px" }} height={height}>
+        <FuncContainer style={{ paddingTop: "10px" }} height={height}>
           <FuncTitle>{title}</FuncTitle>
           <ExampleQuestion text={question} />
           <FlexBox>

@@ -4,11 +4,13 @@ import styled from "styled-components";
 export const FuncContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
-  height: ${(props) => props.height}; //%단위로 전달받음
+  height: ${(props) => props.height};
   overflow-y: auto;
   margin-top: 17px;
   margin-bottom: 10px;
   padding-right: 15px;
+
+  background-color: yellow;
 
   //-----스크롤바 스타일링------//
   &::-webkit-scrollbar {
@@ -22,16 +24,6 @@ export const FuncContainer = styled.div`
   //호버시 색상 변경
   &::-webkit-scrollbar-thumb:hover {
     background-color: #908f8f;
-  }
-
-  @media screen and (max-height: 780px) {
-    height: calc(
-      ${(props) => props.height} - 4%
-    ); //4%를 빼고 싶음: 68%면 64%로;
-  }
-
-  @media screen and (max-height: 700px) {
-    height: calc(${(props) => props.height} - 6%); //62%;
   }
 `;
 
