@@ -47,13 +47,6 @@ const ContainerBox = styled.div`
   }
 `;
 
-// const FuncListColum = styled.div`
-//   background-color: yellow;
-//   display: flex;
-//   flex-direction: column;
-//   gap: 24px;
-// `;
-
 function FuncListContainer({ funcList, listSize, sortingType, category }) {
   // const dividedArrays = chunkArray(funcList);
   return (
