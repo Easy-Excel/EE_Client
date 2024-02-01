@@ -6,7 +6,7 @@ export const FuncContainer = styled.div`
   box-sizing: border-box;
   height: ${(props) => props.height};
   overflow-y: auto;
-  margin-top: 27px;
+  margin-top: 32px;
   margin-bottom: 10px;
   padding-right: 15px;
 
