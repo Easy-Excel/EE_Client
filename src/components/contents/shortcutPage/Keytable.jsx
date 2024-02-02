@@ -7,6 +7,36 @@ const TopContainer = styled.div`
   margin-top: 20px;
 `;
 
+const Modal = styled.div`
+    font-size: 12px;
+    width: 160px;
+    height: 60px;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: -60px;
+    left:170px;
+    background-color: #FFFF;
+    border: 2px solid rgba(217, 217, 217, 0.7);
+    box-shadow:2px 2px rgb(178 178 178 / 0.3);
+    border-radius:15px;
+    padding:5px;
+    //모달 위치 수정 필요.
+    //detail explanation의 크기에 따라 모달의 크기도 달라짐.그걸 고려해야함.
+    //모달이 table을 벗어나면 가려짐.해결 필요
+
+    .triangle {
+        width: 10px;
+        background-color: #FFFF;
+        height: 20px;
+        border-radius: 4px;
+        box-shadow:-2px 2px rgb(178 178 178 / 0.3);
+        transform: rotate(-45deg);
+        position: absolute;
+        bottom: -6px;
+        left:5px;
+    }
+`
 const KeytableContainer = styled.div`
   height: 300px;
   width: 100%;
@@ -56,11 +86,20 @@ const Row = styled.div`
   padding: 15px;
   font-size: 18px;
   box-sizing: border-box;
+  position:relative;
+
+  &:hover ${Modal} {
+    display: block;
+  }
 `;
 
 const Cell = styled.div`
   flex: 1;
   font-weight: 700;
+  &:hover {
+    text-decoration: underline; /* Add underline on hover */
+    cursor: pointer;
+  }
 `;
 
 const WordBox = styled.span`
@@ -72,6 +111,7 @@ const WordBox = styled.span`
   margin: 5px 3px;
   font-family: Arial, Helvetica, sans-serif; // 여기만 글씨체 바꾸기
 `;
+
 function Keytable() {
   const data = [
     { description: "다른 이름으로 저장", windows: "F12", mac: "Cmd ↑ S" },
@@ -94,7 +134,12 @@ function Keytable() {
           <Rows>
             {data.map((item, index) => (
               <Row key={index}>
-                <Cell>{item.description}</Cell>
+                <Cell style={{cursor: 'pointer'}}>{item.description}
+                  <Modal>
+                    <div className="triangle"></div>
+                    설명내용입니다........................
+                  </Modal>
+                </Cell>
                 <Cell>
                   {item.windows.split(" ").map((word, i) => (
                     <WordBox key={i}>{word}</WordBox>
