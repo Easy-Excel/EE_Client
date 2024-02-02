@@ -22,11 +22,14 @@ const imagesContext = require.context(
 // 이미지 파일 목록을 배열로 가져오기 (해당 폴더 내의 모든 이미지 파일이 배열에 포함됨)
 const images = imagesContext.keys().map(imagesContext);
 const StyledDiv = styled.div`
-  height: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  height: ${(props) => props.height}px;
+  position: relative;
 `;
 
-const FeatureDescription = () => (
-  <Container>
+const FeatureDescription = ({ containerSize }) => (
+  <Container height={containerSize}>
     <Title text="데이터 통합" />
     <Paragraph text="복수의 데이터를 종합하여, 개별 데이터로는 알 수 없는 인사이트를 도출하거나 새로운 시각을 제공하는 기능입니다." />
     <SubTitle text="사용하는 방법" />
@@ -56,8 +59,8 @@ const FeatureDescription = () => (
   </Container>
 );
 
-const Example = () => (
-  <Container>
+const Example = ({ containerSize }) => (
+  <Container height={containerSize}>
     <Title text="데이터 통합 예제" />
     <ExampleQuestion
       text={
@@ -78,7 +81,7 @@ const Example = () => (
   </Container>
 );
 
-const DataContent = () => {
+const DataContent = ({ height }) => {
   //useState Hook을 사용하여 페이지 상태, 버튼 텍스트 상태 관리
   const [isExamplePage, setExampePage] = useState(false);
   const [buttonText, setButtonText] = useState("예제");
@@ -90,10 +93,12 @@ const DataContent = () => {
   };
 
   return (
-    <StyledDiv>
-      {/* {isExamplePage ? <Example /> : <FeatureDescription />}
-      <ExampleBtn onClick={handleExamplePage} buttonText={buttonText} /> */}
-      {isExamplePage ? <Example /> : <FeatureDescription />}
+    <StyledDiv height={height.mainBox}>
+      {isExamplePage ? (
+        <Example containerSize={height.container} />
+      ) : (
+        <FeatureDescription containerSize={height.container} />
+      )}
       <Button
         width={"15%"}
         // height={"53px"}
@@ -101,6 +106,8 @@ const DataContent = () => {
         fontColor={"white"}
         text={buttonText}
         onButtonClick={handleExamplePage}
+        absolute={true}
+        bottom="23px"
       />
     </StyledDiv>
   );

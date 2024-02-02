@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-const FuncContainer = styled.div`
+export const FuncContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
-  height: ${(props) => props.height}; //vh단위
+  height: ${(props) => props.height};
   overflow-y: auto;
-  margin-top: 17px;
+  margin-top: 32px;
   margin-bottom: 10px;
+  padding-right: 15px;
+  position: relative;
 
   //-----스크롤바 스타일링------//
   &::-webkit-scrollbar {
@@ -22,17 +24,9 @@ const FuncContainer = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background-color: #908f8f;
   }
-
-  @media screen and (max-height: 780px) {
-    height: 64%;
-  }
-
-  @media screen and (max-height: 700px) {
-    height: 62%;
-  }
 `;
 
-const FuncTitle = styled.h1`
+export const FuncTitle = styled.h1`
   color: #000;
   font-family: SUIT;
   font-size: 22px;
@@ -52,7 +46,7 @@ const FuncSubTitle = styled.h2`
   margin-bottom: 10px;
 `; //함수 구문, 함수 특징(하위 제목 부분)
 
-const FuncDescription = styled.div`
+export const FuncDescription = styled.div`
   color: #000;
   font-family: SUIT;
   font-size: 16px;
@@ -138,8 +132,7 @@ const FuncFeature = styled.li`
   margin-bottom: 8px;
 `; //함수 특징 list
 
-
-export default function FContainer({
+export default function FDetailContainer({
   height,
   funcName,
   funcDes,

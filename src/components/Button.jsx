@@ -17,6 +17,11 @@ const Btn = styled.div`
 
   overflow: hidden;
   cursor: pointer;
+
+  //특정 페이지에서 버튼위치를 절대 좌표로 쓰기 위한 스타일 추가
+  position: ${(props) => (props.absolute ? "absolute" : "static")};
+  left: ${(props) => (props.absolute ? props.left : "auto")};
+  bottom: ${(props) => (props.absolute ? props.bottom : "auto")};
 `;
 
 const ButtonTitle = styled.div`
@@ -48,6 +53,9 @@ function Button({
   onButtonClick,
   backgroundColor,
   fontColor,
+  absolute = false,
+  bottom = "auto",
+  left = "auto",
 }) {
   return (
     <Btn
@@ -56,6 +64,9 @@ function Button({
       onClick={onButtonClick}
       backgroundColor={backgroundColor}
       border={border}
+      absolute={absolute}
+      bottom={bottom}
+      left={left}
     >
       <ButtonTitle fontColor={fontColor}>{text}</ButtonTitle>
     </Btn>

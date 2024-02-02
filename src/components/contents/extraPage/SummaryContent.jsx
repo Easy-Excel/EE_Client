@@ -23,11 +23,14 @@ const imagesContext = require.context(
 // 이미지 파일 목록을 배열로 가져오기 (해당 폴더 내의 모든 이미지 파일이 배열에 포함됨)
 const images = imagesContext.keys().map(imagesContext);
 const StyledDiv = styled.div`
-  height: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  height: ${(props) => props.height}px;
+  position: relative;
 `;
 
-const FeatureDescription = () => (
-  <Container>
+const FeatureDescription = ({ containerSize }) => (
+  <Container height={containerSize}>
     <Title text="시나리오 관리자" />
     <Paragraph
       text="시나리오 관리자는 다양한 상황과 변수에 따른 여러가지 결과값을 예상하여 알려주는 기능으로, 
@@ -60,8 +63,8 @@ const FeatureDescription = () => (
   </Container>
 );
 
-const Example = () => (
-  <Container>
+const Example = ({ containerSize }) => (
+  <Container height={containerSize}>
     <Title text="시나리오 관리자 예제" />
     <ExampleQuestion
       text={
@@ -88,7 +91,7 @@ const Example = () => (
   </Container>
 );
 
-const SummaryContent = () => {
+const SummaryContent = ({ height }) => {
   //useState Hook을 사용하여 페이지 상태, 버튼 텍스트 상태 관리
   const [isExamplePage, setExampePage] = useState(false);
   const [buttonText, setButtonText] = useState("예제");
@@ -99,13 +102,13 @@ const SummaryContent = () => {
     setButtonText(isExamplePage ? "예제" : "기능 설명");
   };
 
-  const contentComponents = {
-    예제: <Example />,
-    기능설명: <FeatureDescription />,
-  };
   return (
-    <StyledDiv>
-      {isExamplePage ? <Example /> : <FeatureDescription />}
+    <StyledDiv height={height.mainBox}>
+      {isExamplePage ? (
+        <Example containerSize={height.container} />
+      ) : (
+        <FeatureDescription containerSize={height.container} />
+      )}
       <Button
         width={"15%"}
         // height={"53px"}

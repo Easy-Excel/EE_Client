@@ -6,99 +6,92 @@ import git from "../assets/images/main/git.png";
 import styled from "styled-components";
 
 const Contactcontainer = styled.div`
+    background-color: #CEEBDE;
+    justify-content: center;
+    margin: 40px 0px 0px 0px;
+    color: black;
+    text-align: center;
+    @media screen and (max-height: 680px) {
+    height: 632.4px;};
 `
 const Contactwrap = styled.div`
 `
 const Contactheader = styled.div`
-           /* Auto layout */
-    display: flex;
-    flex-direction: row;
+   display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    gap: 10px;
-
     position: absolute;
-    width: 488px;
-    height: 82px;
     left: 59px;
-    top: 137px;
-
+    top: 75px;
     background: #107C41;
     border-radius: 16px;
-
-
-
-    /* title */
-
     width: 400px;
     height: 62px;
 
     font-family: 'SUIT';
-    font-style: normal;
     font-weight: 800;
-    font-size: 50px;
+    font-size: 47px;
     line-height: 62px;
     text-align: center;
-
     color: #FFFFFF;
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 `
 const Contactmain = styled.div`
-    box-sizing: border-box;
-    min-width: 600px;
-    max-width: 100%;
-    height: 900px;
-    background-color: #CEEBDE;
-    padding: 20px 10px;
-    margin: 150px 0px;
-    color: black;
+    align-items: center;
+    justify-content: center;
+    width: 100%; //백분율로 조장해야 화면 크기에 따라 조절됨
+    height: 63vh;
     text-align: center;
-    border-radius: 10px;
+    padding: 20px ;
+        
 `
-const Contactlogo = styled.div`
+const Logo = styled.div`
+    display: flex;
+`
+const Logo2 = styled.div`
+    margin-left: 70px;
+    flex-flow : row wrap;
 
-    position: absolute;
-    right: 150px;
-    top: 420px;
-    bottom: 43.68%;
+  `
+  
+
+const Contactlogo = styled.div`
+    display: flex;
+    flex-direction : row;
+    margin-left: auto;
+    width: 300px;
+    height: 300px;
+    margin-right: 50px;
+    margin-top: 50px;
 `
 
 const Contactlogo2 = styled.div`
     /* EASY EXCEL */
-
-    position: absolute;
-    left: 95px;
-    top: 291px;
-
+    display: flex;
+    margin-top: 30px;
+    margin-left: 50px;
     font-family: 'Knewave';
     font-style: normal;
     font-weight: 400;
     font-size: 80px;
     line-height: 124px;
-
+    
     color: #107C41;
 `
-const Contactgit = styled.div`
-    position: absolute;
-    left: 150px;
-    top: 620px;
-    bottom: 33.58%;
+const Contactinstar = styled.div`
+    display: flex;
+    margin-top: 30px;
+    margin-left: 50px;
+    height: 100px;
 
+`
+const Contactgit = styled.div`
+    display: flex;
+    margin-top: 30px;
+    margin-left: 50px;
     width: 100px;
     height: 100px;
 `
-const Contactinstar = styled.div`
-    position: absolute;
-    left: 150px;
-    top: 470px;
-    bottom: 47.06%;
-`
+
 
 export default function Contact() {
   return (
@@ -106,16 +99,22 @@ export default function Contact() {
       <Contactwrap>
         <Contactheader>Contact Us</Contactheader>
         <Contactmain>
-          <Contactlogo>
+            <Contactlogo2>EASY EXCEL</Contactlogo2>
+            <Logo>
+              <Logo2>
+              <Contactinstar>
+                <img src={instar} alt="로고" />
+              </Contactinstar>
+              <Contactgit>
+                <img src={git} alt="로고" />
+              </Contactgit>
+            </Logo2>
+            <Contactlogo>
             <img src={logo} alt="로고" />
           </Contactlogo>
-          <Contactlogo2>EASY EXCEL</Contactlogo2>
-          <Contactgit>
-            <img src={git} alt="로고" />
-          </Contactgit>
-          <Contactinstar>
-            <img src={instar} alt="로고" />
-          </Contactinstar>
+          </Logo>
+          
+          
         </Contactmain>
       </Contactwrap>
     </Contactcontainer>

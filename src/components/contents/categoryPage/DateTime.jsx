@@ -80,7 +80,7 @@ const funcList = [
   },
 ];
 const listSize = funcList.length;
-const sortingType = "DateTime";
+const sortingType = "날짜/시간";
 
 export default function DateTime() {
   return (

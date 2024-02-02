@@ -9,7 +9,7 @@ import {
   HelpImage,
   Container,
   ExampleQuestion,
-  ExampleAnswer
+  ExampleAnswer,
 } from "./ExtraComponent";
 import Button from "../../Button";
 
@@ -24,12 +24,14 @@ const imagesContext = require.context(
 const images = imagesContext.keys().map(imagesContext);
 
 const StyledDiv = styled.div`
-  height: 100%;
+  box-sizing: border-box;
+  width: 100%;
+  height: ${(props) => props.height}px;
+  position: relative;
 `;
-
 //기능 설명 화면
-const FeatureDescription = () => (
-  <Container>
+const FeatureDescription = ({ containerSize }) => (
+  <Container height={containerSize}>
     <Title text="피벗테이블" />
     <Paragraph
       text="피벗테이블은 데이터를 계산, 요약 및 분석하는 강력한 도구로서 데이터의
@@ -70,8 +72,8 @@ const FeatureDescription = () => (
 );
 
 //Example 화면
-const Example = () => (
-  <Container>
+const Example = ({ containerSize }) => (
+  <Container height={containerSize}>
     <Title text="피벗테이블 예제" />
     <ExampleQuestion
       text={
@@ -87,12 +89,12 @@ const Example = () => (
     <ExampleAnswer
       text={
         "[삽입] - [피벗 테이블] - [테이블/범위에서]를 클릭합니다.\n표/범위는 현재 표가 위치한 범위 [B3:G13]을 설정하고 위치는 기존 워크시트 B16셀을 입력합니다.\n열에는 직급, 행에는 근속년수, 값에는 상호평가점수, 영업실적을 입력하고 ∑ 값의 위치를 행 레이블로 이동시킵니다.\n보고서 레이아웃을 테이블 형식으로 표시하고 스타일은 '밝은 회색, 피벗 스타일 밝게 15'로 설정합니다.\n근속년수 필드를 그룹화하되 시작값은 1, 끝값은 10, 단위는 2로 지정합니다.\n빈셀에 오른쪽 마우스 커서를 눌러 피벗 테이블 옵션에 들어가 빈셀 표시에 *을 입력하고 열의 총합계는 표시하지 않습니다."
-        }
+      }
     />
   </Container>
 );
 
-const PivotTableContent = () => {
+const PivotTableContent = ({ height }) => {
   //useState Hook을 사용하여 페이지 상태, 버튼 텍스트 상태 관리
   const [isExamplePage, setExampePage] = useState(false);
   const [buttonText, setButtonText] = useState("예제");
@@ -102,9 +104,14 @@ const PivotTableContent = () => {
     setExampePage(!isExamplePage);
     setButtonText(isExamplePage ? "예제" : "기능 설명");
   };
+
   return (
-    <StyledDiv>
-      {isExamplePage ? <Example /> : <FeatureDescription />}
+    <StyledDiv height={height.mainBox}>
+      {isExamplePage ? (
+        <Example containerSize={height.container} />
+      ) : (
+        <FeatureDescription containerSize={height.container} />
+      )}
       <Button
         width={"15%"}
         // height={"53px"}
@@ -112,6 +119,8 @@ const PivotTableContent = () => {
         fontColor={"white"}
         text={buttonText}
         onButtonClick={handleExamplePage}
+        absolute={true}
+        bottom="23px"
       />
     </StyledDiv>
   );

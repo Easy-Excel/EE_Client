@@ -25,7 +25,7 @@ const funcList = [
 ];
 
 const listSize = funcList.length;
-const sortingType = "Text";
+const sortingType = "텍스트";
 
 export default function Text() {
   return (

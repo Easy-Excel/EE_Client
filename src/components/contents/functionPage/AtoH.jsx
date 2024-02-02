@@ -9,7 +9,7 @@ const funcList = [
   },
   {
     functionId: 2,
-    name: "CHOOSE",
+    name: "ABS",
   },
   {
     functionId: 3,
