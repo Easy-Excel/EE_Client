@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 // Styled components
 const TopContainer = styled.div`
-  height: 100%;
-  margin-top: 20px;
+  height: ${(props) => props.height}px;
+  padding: 20px 0px;
 `;
 
 const Modal = styled.div`
