@@ -7,6 +7,36 @@ const TopContainer = styled.div`
   padding: 20px 0px;
 `;
 
+const Modal = styled.div`
+    font-size: 12px;
+    width: 160px;
+    height: 60px;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: -60px;
+    left:170px;
+    background-color: #FFFF;
+    border: 2px solid rgba(217, 217, 217, 0.7);
+    box-shadow:2px 2px rgb(178 178 178 / 0.3);
+    border-radius:15px;
+    padding:5px;
+    //모달 위치 수정 필요.
+    //detail explanation의 크기에 따라 모달의 크기도 달라짐.그걸 고려해야함.
+    //모달이 table을 벗어나면 가려짐.해결 필요
+
+    .triangle {
+        width: 10px;
+        background-color: #FFFF;
+        height: 20px;
+        border-radius: 4px;
+        box-shadow:-2px 2px rgb(178 178 178 / 0.3);
+        transform: rotate(-45deg);
+        position: absolute;
+        bottom: -6px;
+        left:5px;
+    }
+`
 const KeytableContainer = styled.div`
   height: 100%;
   width: 100%;
@@ -46,9 +76,11 @@ const HeaderRow = styled.div`
   width: 100%;
   text-align: center;
 `;
+
 const Rows = styled.div`
   text-align: center;
 `;
+
 const Row = styled.div`
   border: 1px solid #d9d9d9;
   display: flex;
@@ -56,8 +88,24 @@ const Row = styled.div`
   padding: 15px;
   font-size: 18px;
   box-sizing: border-box;
+  position:relative;
+
+  &:hover ${Modal} {
+    display: block;
+  }
 `;
 
+const DesCell = styled.div`
+  flex: 1;
+  font-weight: 700;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 103%; 
+  }
+
+`;
 const Cell = styled.div`
   flex: 1;
   font-weight: 700;
@@ -94,7 +142,12 @@ function Keytable({ height }) {
           <Rows>
             {data.map((item, index) => (
               <Row key={index}>
-                <Cell>{item.description}</Cell>
+                <DesCell>{item.description}
+                  <Modal>
+                    <div className="triangle"></div>
+                    설명내용입니다........................
+                  </Modal>
+                </DesCell>
                 <Cell>
                   {item.windows.split(" ").map((word, i) => (
                     <WordBox key={i}>{word}</WordBox>
