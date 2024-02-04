@@ -14,7 +14,7 @@ const Modal = styled.div`
     display: none;
     flex-direction: column;
     position: absolute;
-    top: -60px;
+    bottom: 50px;
     left:20%;
     background-color: #FFFF;
     border: 2px solid rgba(217, 217, 217, 0.7);
@@ -121,16 +121,15 @@ const WordBox = styled.span`
 function Keytable({ height }) {
   const [datas,setDatas]=useState([]);
 
+  //1번
   // useEffect(() => {
   //   // useEffect 안에서 비동기 함수를 정의
   //   const fetchData = async () => {
   //     try {
   //       // API 호출
   //       const response = await axios.get('./shortcutData.json');
-
-  //       //json파일이 잘 불러와졌는지 확인용!
+  //       //json파일이 잘 불러와졌는지 확인용
   //       console.log('Response:', response.data);
-  
   //       // 성공적으로 데이터를 가져왔을 때 상태 업데이트
   //       setDatas(response.data);//??
   //     } catch (error) {
@@ -144,7 +143,7 @@ function Keytable({ height }) {
   // }, []); 
 
 
-
+  //2번
   // useEffect(()=>{
   //   fetch("./shortcutData.json")
     
@@ -160,14 +159,14 @@ function Keytable({ height }) {
   // },[]);
 
 
-  // const data = [
-  //   {id:"1", explanation: "다른 이름으로 저장", windowKey: "F12", macKey: "Cmd + ↑ + S", detailExplanation:"1" },
-  //   {id:"2", explanation: "새 통합문서 만들기", windowKey: "Ctrl + N", macKey: "Cmd + N",detailExplanation:"2" },
-  //   {id:"3", explanation: "인쇄하기", windowKey: "Ctrl + P", macKey: "Cmd + P" ,detailExplanation:"3"},
-  //   {id:"4", explanation: "통합 문서 열기", windowKey: "Ctrl + O", macKey: "Cmd + O",detailExplanation:"4" },
-  //   {id:"5", explanation: "통합 문서 저장", windowKey: "Ctrl + S", macKey: "Cmd + S" ,detailExplanation:"5"},
-  //   {id:"6", explanation: "통합 문서 종료", windowKey: "Alt + F4", macKey: "Cmd + Q" ,detailExplanation:"6"},
-  // ];
+  const data = [
+    {id:"1", explanation: "다른 이름으로 저장", windowKey: "F12", macKey: "Cmd + ↑ + S", detailExplanation:"1" },
+    {id:"2", explanation: "새 통합문서 만들기", windowKey: "Ctrl + N", macKey: "Cmd + N",detailExplanation:"2" },
+    {id:"3", explanation: "인쇄하기", windowKey: "Ctrl + P", macKey: "Cmd + P" ,detailExplanation:"3"},
+    {id:"4", explanation: "통합 문서 열기", windowKey: "Ctrl + O", macKey: "Cmd + O",detailExplanation:"4" },
+    {id:"5", explanation: "통합 문서 저장", windowKey: "Ctrl + S", macKey: "Cmd + S" ,detailExplanation:"5"},
+    {id:"6", explanation: "통합 문서 종료", windowKey: "Alt + F4", macKey: "Cmd + Q" ,detailExplanation:"6"},
+  ];
 
   return (
     <TopContainer height={height.mainBox}>
@@ -178,9 +177,9 @@ function Keytable({ height }) {
             <Cell>Window</Cell>
             <Cell>Mac</Cell>
           </HeaderRow>
-          {datas ? (
+          {data ? (
             <Rows>
-            {datas.map((item) => (
+            {data.map((item) => (
               <Row key={item.id}>
                 <DesCell>{item.explanation}
                   <Modal>
