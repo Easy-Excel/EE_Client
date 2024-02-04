@@ -1,5 +1,6 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import styled from "styled-components";
+import axios from 'axios';
 
 // Styled components
 const TopContainer = styled.div`
@@ -10,20 +11,17 @@ const TopContainer = styled.div`
 const Modal = styled.div`
     font-size: 12px;
     width: 160px;
-    height: 60px;
     display: none;
     flex-direction: column;
     position: absolute;
     top: -60px;
-    left:170px;
+    left:20%;
     background-color: #FFFF;
     border: 2px solid rgba(217, 217, 217, 0.7);
     box-shadow:2px 2px rgb(178 178 178 / 0.3);
     border-radius:15px;
     padding:5px;
-    //모달 위치 수정 필요.
-    //detail explanation의 크기에 따라 모달의 크기도 달라짐.그걸 고려해야함.
-    //모달이 table을 벗어나면 가려짐.해결 필요
+    //모달이 table을 벗어나면 가려짐.해결 필요. z-index로 안된다...
 
     .triangle {
         width: 10px;
@@ -121,14 +119,55 @@ const WordBox = styled.span`
   font-family: Arial, Helvetica, sans-serif; // 여기만 글씨체 바꾸기
 `;
 function Keytable({ height }) {
-  const data = [
-    { description: "다른 이름으로 저장", windows: "F12", mac: "Cmd ↑ S" },
-    { description: "새 통합문서 만들기", windows: "Ctrl N", mac: "Cmd N" },
-    { description: "인쇄하기", windows: "Ctrl P", mac: "Cmd P" },
-    { description: "통합 문서 열기", windows: "Ctrl O", mac: "Cmd O" },
-    { description: "통합 문서 저장", windows: "Ctrl S", mac: "Cmd S" },
-    { description: "통합 문서 종료", windows: "Alt F4", mac: "Cmd Q" },
-  ];
+  const [datas,setDatas]=useState([]);
+
+  // useEffect(() => {
+  //   // useEffect 안에서 비동기 함수를 정의
+  //   const fetchData = async () => {
+  //     try {
+  //       // API 호출
+  //       const response = await axios.get('./shortcutData.json');
+
+  //       //json파일이 잘 불러와졌는지 확인용!
+  //       console.log('Response:', response.data);
+  
+  //       // 성공적으로 데이터를 가져왔을 때 상태 업데이트
+  //       setDatas(response.data);//??
+  //     } catch (error) {
+  //       // 오류 처리
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+
+  //   // 비동기 함수 호출
+  //   fetchData();
+  // }, []); 
+
+
+
+  // useEffect(()=>{
+  //   fetch("./shortcutData.json")
+    
+  //  .then((res) => {
+  //     return res.json();
+  //  })
+
+  //  .then((data) =>{
+  //     setDatas(data);
+  //     console.log(data);
+  //   });
+  
+  // },[]);
+
+
+  // const data = [
+  //   {id:"1", explanation: "다른 이름으로 저장", windowKey: "F12", macKey: "Cmd + ↑ + S", detailExplanation:"1" },
+  //   {id:"2", explanation: "새 통합문서 만들기", windowKey: "Ctrl + N", macKey: "Cmd + N",detailExplanation:"2" },
+  //   {id:"3", explanation: "인쇄하기", windowKey: "Ctrl + P", macKey: "Cmd + P" ,detailExplanation:"3"},
+  //   {id:"4", explanation: "통합 문서 열기", windowKey: "Ctrl + O", macKey: "Cmd + O",detailExplanation:"4" },
+  //   {id:"5", explanation: "통합 문서 저장", windowKey: "Ctrl + S", macKey: "Cmd + S" ,detailExplanation:"5"},
+  //   {id:"6", explanation: "통합 문서 종료", windowKey: "Alt + F4", macKey: "Cmd + Q" ,detailExplanation:"6"},
+  // ];
 
   return (
     <TopContainer height={height.mainBox}>
@@ -139,28 +178,31 @@ function Keytable({ height }) {
             <Cell>Window</Cell>
             <Cell>Mac</Cell>
           </HeaderRow>
-          <Rows>
-            {data.map((item, index) => (
-              <Row key={index}>
-                <DesCell>{item.description}
+          {datas ? (
+            <Rows>
+            {datas.map((item) => (
+              <Row key={item.id}>
+                <DesCell>{item.explanation}
                   <Modal>
                     <div className="triangle"></div>
-                    설명내용입니다........................
+                    {item.detailExplanation}
                   </Modal>
                 </DesCell>
                 <Cell>
-                  {item.windows.split(" ").map((word, i) => (
-                    <WordBox key={i}>{word}</WordBox>
+                  {item.windowKey.split(/[\s+]+/).map((word) => (
+                    <WordBox key={item.id}>{word}</WordBox>
                   ))}
                 </Cell>
                 <Cell>
-                  {item.mac.split(" ").map((word, i) => (
-                    <WordBox key={i}>{word}</WordBox>
+                  {item.macKey.split(/[\s+]+/).map((word) => (
+                    <WordBox key={item.id}>{word}</WordBox>
                   ))}
                 </Cell>
               </Row>
             ))}
           </Rows>
+          ) :(<p>loading</p>)}
+          
         </Table>
       </KeytableContainer>
     </TopContainer>
