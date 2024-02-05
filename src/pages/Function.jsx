@@ -68,6 +68,8 @@ function Function() {
     QtoZ: <QtoZ />,
   };
 
+  const [xButton,setXButton]=useState(false);
+  
   return (
     <>
     <Container>
@@ -86,7 +88,7 @@ function Function() {
         ))}
       </BtnWrapper>
       {contentComponents[activeContent]}
-        <ChatBot></ChatBot>
+        <ChatBot xButton={xButton}></ChatBot>
     </Container>
 
     </>
