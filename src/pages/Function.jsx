@@ -7,6 +7,8 @@ import ItoP from "../components/contents/functionPage/ItoP";
 import QtoZ from "../components/contents/functionPage/QtoZ";
 import BtnWrapper from "../components/BtnWrapper";
 import ChatBot from "../components/ChatBot";
+//import RefreshChat from "../components/RefreshChat";
+import Finder from "../components/Finder";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -24,7 +26,7 @@ function Function() {
     ItoP: "http://3.39.29.173:8080/functions/list?firstSorting=i&lastSorting=p",
     QtoZ: "http://3.39.29.173:8080/functions/list?firstSorting=q&lastSorting=z",
   });
-
+  const [xButton, setXButton] = useState(false);
   useEffect(() => {
     setActiveContent("AtoH");
   }, []);
@@ -107,6 +109,10 @@ function Function() {
     ItoP: <ItoP functionsList={functionsList} sortingType={sortingType} />,
     QtoZ: <QtoZ functionsList={functionsList} sortingType={sortingType} />,
   };
+  const handleXButtonClick = () => {
+    setXButton(true);
+    //filterProps.on
+  };
 
   return (
     <>
@@ -128,7 +134,7 @@ function Function() {
           ))}
         </BtnWrapper>
         {contentComponents[activeContent]}
-        <ChatBot></ChatBot>
+        {<ChatBot xButton={xButton} onButtonClick={handleButtonClick} />}
       </Container>
     </>
   );
