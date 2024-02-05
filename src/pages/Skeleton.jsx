@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
+import Finder from "../components/Finder";
 import { Outlet } from "react-router-dom";
 
 const MainContainer = styled.div`
@@ -22,12 +23,12 @@ const ServContainer = styled.div`
   background-color: #f9f8f8;
   height: 22%;
   min-height: 149.6px; //화면 높이가 680px이하인 경우 고정
-  text-align: center;
   font-size: 18px; //1/25
   font-family: SUIT;
   font-weight: 500;
   word-wrap: break-word;
   gap: 6px;
+  align-items: center; // Center vertically
 `;
 const ServText = styled.div`
   margin-bottom: 37px;
@@ -35,6 +36,7 @@ const ServText = styled.div`
     margin: 0px;
     margin-left: 5px;
     font-weight: 700;
+    //align-items: center;
   }
 
   /* @media screen and (max-height: 530px) {
@@ -66,7 +68,9 @@ export default function Skeleton() {
           슬기로운 엑셀 사용을 위한 통합정리 서비스,
           <span>Easy Excel</span>
         </ServText>
+        <Finder/>
       </ServContainer>
+      {/* <Finder/> */}
       <Navbar />
       <Content>
         <Outlet />

@@ -7,7 +7,8 @@ import ItoP from "../components/contents/functionPage/ItoP";
 import QtoZ from "../components/contents/functionPage/QtoZ";
 import BtnWrapper from "../components/BtnWrapper";
 import ChatBot from "../components/ChatBot";
-import RefreshChat from "../components/RefreshChat";
+//import RefreshChat from "../components/RefreshChat";
+import Finder from "../components/Finder";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -75,6 +76,7 @@ function Function() {
 
   return (
     <>
+    
     <Container>
       <BtnWrapper gap={"5.8vw"}>
         {buttons.map((button) => (
@@ -91,9 +93,6 @@ function Function() {
         ))}
       </BtnWrapper>
       {contentComponents[activeContent]}
-      {/* {xButton? (<RefreshChat onRefresh={handleRefreshButtonClick}/>):(
-      <ChatBot xButton={xButton} onButtonClick={handleXButtonClick}/>
-      )} */}
       {<ChatBot xButton={xButton} onButtonClick={handleButtonClick}/>}
     </Container>
 
