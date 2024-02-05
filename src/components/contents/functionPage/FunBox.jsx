@@ -23,9 +23,9 @@ const FunctionBox = styled.div`
   }
 `;
 
+
 export default function FunBox({ funcId, funcName, sortingType, category }) {
   const navigate = useNavigate();
-
   const onClickBox = (event) => {
     navigate(`/home/function/${funcName}`, {
       state: { funcId, sortingType, category },
