@@ -69,7 +69,6 @@ const BGBox = styled.div`
 function Splash() {
   const navigate = useNavigate();
   useEffect(() => {
-    console.log("useEffect 실행");
     const timer = setTimeout(() => {
       navigate("/home");
     }, 1500); //1.5초

@@ -85,6 +85,7 @@ export default function FExampleContainer({
   rightDisable,
   leftClick,
   rightClick,
+  funName,
 }) {
   const exampleData = exData[idx];
   if (!exampleData) {
@@ -102,7 +103,9 @@ export default function FExampleContainer({
   return (
     <>
       <FuncContainer height={height}>
-        <FuncTitle>{title}</FuncTitle>
+        <FuncTitle>
+          {funName} 예제 - {title}
+        </FuncTitle>
         <ExampleQuestion text={question} />
         <FlexBox>
           <HelpImage
@@ -128,9 +131,9 @@ export default function FExampleContainer({
 }
 
 function ExampleAnswer({ expList, tipList }) {
-  const explanations = expList.map((item) => (
+  const explanations = expList.map((item, index) => (
     <div key={item.explanationId} style={{ display: "flex", gap: "14px" }}>
-      <ExAnswerNumber>{item.explanationId}</ExAnswerNumber>
+      <ExAnswerNumber>{index + 1}</ExAnswerNumber>
       {item.explanation}
     </div>
   ));

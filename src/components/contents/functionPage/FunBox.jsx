@@ -13,6 +13,7 @@ const FunctionBox = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 24px;
+  /* padding: 0px 20px; */
   padding-right: 20px;
   /* background-color: pink; */
   word-break: break-all;
@@ -23,12 +24,12 @@ const FunctionBox = styled.div`
   }
 `;
 
-export default function FunBox({ funcId, funcName, sortingType, category }) {
+export default function FunBox({ funcId, funcName }) {
   const navigate = useNavigate();
 
   const onClickBox = (event) => {
     navigate(`/home/function/${funcName}`, {
-      state: { funcId, sortingType, category },
+      state: { funcId },
     });
   }; //함수를 클릭하면 함수 정보로 navigate
 

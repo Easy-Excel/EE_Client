@@ -112,7 +112,7 @@ const MacroContent = ({ height }) => {
       )}
       <Button
         width={"15%"}
-        // height={"53px"}
+        height={"47px"}
         backgroundColor={"#107c41"}
         fontColor={"white"}
         text={buttonText}

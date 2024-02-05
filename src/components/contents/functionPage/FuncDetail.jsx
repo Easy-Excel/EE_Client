@@ -8,26 +8,17 @@ import useComponentSize from "../../../hooks/UseComponentSzie";
 
 //버튼
 import Button from "../../Button";
-import { FExampleNextButton } from "./FuncExampleComponent";
-//테스트용 데이터
-import testData from "./functionData.json";
-import exampleTestData from "./functionExampleData.json";
 
 export default function FuncDetail() {
-  const navigate = useNavigate();
-
   //네비게이트 훅을 통해 넘겨받은 정보 (api 연동시 사용)
   //함수 id를 받음 -> id를 가지고 서버에서 해당 함수에 대한 데이터 가져오기
   const { state } = useLocation();
   const funcId = state.funcId;
-  const sortingType = state.sortingType;
 
   //서버에서 함수 데이터를 가져와 저장 / 현재는 임시로 테스트 데이터 저장
-  const [funcData, setFuncData] = useState(testData.result);
-  const [funcExData, setFuncExData] = useState(
-    exampleTestData.result.functionsExampleDTOList
-  );
-  const exampleCount = exampleTestData.result.listSize;
+  const [funcData, setFuncData] = useState(null);
+  const [funcExData, setFuncExData] = useState(null);
+  const [exampleCount, setExampleCount] = useState(0);
   //함수 설명, 함수 예제 상태 관리
   const [isExamplePage, setExampePage] = useState(false);
   const [buttonText, setButtonText] = useState("함수 예제");
@@ -39,20 +30,31 @@ export default function FuncDetail() {
 
   //데이터 가져오기
   useEffect(() => {
-    // console.log(`${funcId}로 데이터 가져오기`);
-    // //데이터가져오기
-    // fetch(`/functions/${funcId}`)
-    // fetch("./functionData.json")
-    //   .then((response) => {
-    //     return response.json();
-    //   })
-    //   .then((data) => {
-    //     // 가져온 데이터를 상태에 설정
-    //     setFuncData(data.result);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error fetching data:", error);
-    //   });
+    console.log(`${funcId}로 데이터 가져오기`);
+    // 데이터가져오기
+    // 함수 설명 : http://3.39.29.173:8080/functions/{function_id}
+    // 함수 예제 조회 : http://3.39.29.173:8080/functions/{function_id}/examples
+    fetch(`http://3.39.29.173:8080/functions/${funcId}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        // 가져온 데이터를 상태에 설정
+        setFuncData(data.result);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+
+    fetch(`http://3.39.29.173:8080/functions/${funcId}/examples`)
+      .then((response) => response.json())
+      .then((data) => {
+        setFuncExData(data.result.functionsExampleDTOList);
+        setExampleCount(data.result.listSize);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   }, [funcId]);
 
   //컴포넌트 사이즈 가져오기
@@ -65,14 +67,15 @@ export default function FuncDetail() {
   const [exIndex, setExIndex] = useState(0);
 
   useEffect(() => {
-    if (exampleCount == 1) {
+    console.log("exampleCount : ", exampleCount);
+    if (exampleCount === 1) {
       setHasNext(false);
       setHasPrev(false);
     } else if (exampleCount > 1) {
       setHasNext(true);
       setHasPrev(false);
     }
-  }, []);
+  }, [exampleCount]);
 
   const onClickNext = () => {
     setExIndex((pre) => pre + 1); //인덱스 증가
@@ -95,7 +98,7 @@ export default function FuncDetail() {
   };
 
   useEffect(() => {
-    const newContainerSize = size.height - 27 - 10 - 65.5; //div(흰 박스) - 스크롤 영역 margin-top - 스크롤 영역 margin-bottom - 버튼 영역+margin
+    const newContainerSize = size.height - 32 - 10 - 70; //div(흰 박스) - 스크롤 영역 margin-top - 스크롤 영역 margin-bottom - 버튼 영역+margin
     setContainerSize(newContainerSize.toString() + "px");
   }, [size]);
 
@@ -117,22 +120,17 @@ export default function FuncDetail() {
           rightDisable={!hasNext}
           leftClick={onClickPrev}
           rightClick={onClickNext}
+          funName={funcData.name}
         />
       ) : (
         // 그룹화하기 위한 빈태그
         <>
-          <FDetailContainer
-            height={containerSize}
-            funcName={funcData.name}
-            funcDes={funcData.explanation}
-            argList={funcData.engAndKorList}
-            funcFeats={funcData.caution}
-          />
+          <FDetailContainer height={containerSize} funData={funcData} />
         </>
       )}
       <Button
         width={"15%"}
-        // height={"53px"}
+        height={"47px"}
         backgroundColor={"#107c41"}
         fontColor={"white"}
         text={buttonText}
