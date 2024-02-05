@@ -7,6 +7,7 @@ import ItoP from "../components/contents/functionPage/ItoP";
 import QtoZ from "../components/contents/functionPage/QtoZ";
 import BtnWrapper from "../components/BtnWrapper";
 import ChatBot from "../components/ChatBot";
+import RefreshChat from "../components/RefreshChat";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -23,7 +24,7 @@ function Function() {
   //navigator로 넘겨받은 값
   const { state } = useLocation();
   const [activeContent, setActiveContent] = useState(state.subCategory);
-
+  const [xButton,setXButton]=useState(false);
   const [buttons, setButtons] = useState([
     {
       id: "AtoH",
@@ -67,9 +68,11 @@ function Function() {
     ItoP: <ItoP />,
     QtoZ: <QtoZ />,
   };
+  const handleXButtonClick = () => {
+    setXButton(true);
+    //filterProps.on
+  };
 
-  const [xButton,setXButton]=useState(false);
-  
   return (
     <>
     <Container>
@@ -88,7 +91,10 @@ function Function() {
         ))}
       </BtnWrapper>
       {contentComponents[activeContent]}
-        <ChatBot xButton={xButton}></ChatBot>
+      {/* {xButton? (<RefreshChat onRefresh={handleRefreshButtonClick}/>):(
+      <ChatBot xButton={xButton} onButtonClick={handleXButtonClick}/>
+      )} */}
+      {<ChatBot xButton={xButton} onButtonClick={handleButtonClick}/>}
     </Container>
 
     </>

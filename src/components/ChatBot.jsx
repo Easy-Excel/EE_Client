@@ -1,7 +1,9 @@
 import React, { useState ,useRef, useEffect} from "react";
 import styled from "styled-components";
-import ellipse3 from "../assets/images/ellipse3.png";
-import x from "../assets/images/x.png";
+import ellipse3 from "../assets/images/chatbot/ellipse3.png";
+import x from "../assets/images/chatbot/x.png";
+import RefreshChat from "./RefreshChat";
+//import refresh from "../assets/images/chatbot/refresh.png";
 
 const Wrapper=styled.div`
     width: 17%; /* Set the initial width to 50% */
@@ -147,10 +149,17 @@ export default function ChatBot({xButton}){
             setUserInput("");
         }
     };
-    if(onXButton) return null;
+    
+    // const handleRefreshClick = () => {
+    //     setOnXButton(false);
+    // // 다른 리프레시 처리 로직 추가 가능
+    //  };
+
+    if(onXButton) return <RefreshChat/>;
+
     return(
         <>
-        {xButton? null :(
+        {xButton? <RefreshChat/>:(
             <Wrapper>
                 <TitleContainer>
                     <ImgContainer>
