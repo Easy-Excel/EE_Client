@@ -16,6 +16,9 @@ const Contactcontainer = styled.div`
   @media screen and (max-height: 680px) {
     height: 660.4px;
   }
+  @media screen and (max-width: 608px) {
+    height: auto;
+  }
 `;
 const Contactwrap = styled.div`
   width: 100%;
@@ -51,9 +54,15 @@ const Contactmain = styled.div`
   width: 100%; //백분율로 조장해야 화면 크기에 따라 조절됨
   height: 100%;
   text-align: center;
-  padding: 20px 90px;
+  padding: 14vh 90px;
   padding-top: 14vh;
   gap: 40px;
+  @media screen and (max-width: 608px) {
+    align-items: center;
+  }
+  @media screen and (max-height: 680px) {
+    padding-top: 95.2px;
+  }
 `;
 
 const EasyExcel = styled.div`
@@ -76,6 +85,10 @@ const Contactlogo = styled.img`
   &:hover {
     cursor: pointer;
   }
+
+  @media screen and (max-width: 608px) {
+    margin: 0px;
+  }
 `;
 
 const LogoImg = styled.img`
@@ -83,6 +96,15 @@ const LogoImg = styled.img`
   width: 260px;
   right: 110px;
   bottom: 140px;
+
+  @media screen and (max-width: 921px) {
+    width: 100px;
+    right: 50px;
+    bottom: 50px;
+  }
+  @media screen and (max-width: 608px) {
+    position: static;
+  }
 `;
 
 export default function Contact() {
