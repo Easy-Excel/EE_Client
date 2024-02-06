@@ -6,115 +6,108 @@ import git from "../assets/images/main/git.png";
 import styled from "styled-components";
 
 const Contactcontainer = styled.div`
-    background-color: #CEEBDE;
-    justify-content: center;
-    margin: 40px 0px 0px 0px;
-    color: black;
-    text-align: center;
-    @media screen and (max-height: 680px) {
-    height: 660.4px;};
-`
+  background-color: #f9f8f8;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  color: black;
+  height: 93vh;
+  text-align: center;
+  @media screen and (max-height: 680px) {
+    height: 660.4px;
+  }
+`;
 const Contactwrap = styled.div`
-`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`;
 const Contactheader = styled.div`
-   display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: 59px;
-    top: 75px;
-    background: #107C41;
-    border-radius: 16px;
-    width: 400px;
-    height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 32px;
+  left: 59px;
 
-    font-family: 'SUIT';
-    font-weight: 800;
-    font-size: 47px;
-    line-height: 62px;
-    text-align: center;
-    color: #FFFFFF;
-`
+  background: #107c41;
+  border-radius: 16px;
+  width: 400px;
+  height: 62px;
+
+  font-family: "SUIT";
+  font-weight: 800;
+  font-size: 47px;
+  line-height: 62px;
+  text-align: center;
+  color: #ffffff;
+`;
 const Contactmain = styled.div`
-    align-items: center;
-    justify-content: center;
-    width: 100%; //백분율로 조장해야 화면 크기에 따라 조절됨
-    height: 63vh;
-    text-align: center;
-    padding: 20px ;
-        
-`
-const Logo = styled.div`
-    display: flex;
-`
-const Logo2 = styled.div`
-    margin-left: 70px;
-    flex-flow : row wrap;
+  background-color: #ceebde;
+  display: flex;
+  flex-direction: column;
+  width: 100%; //백분율로 조장해야 화면 크기에 따라 조절됨
+  height: 100%;
+  text-align: center;
+  padding: 20px 90px;
+  padding-top: 14vh;
+  gap: 40px;
+`;
 
-  `
-  
+const EasyExcel = styled.div`
+  /* EASY EXCEL */
+  display: flex;
+  align-items: center;
+  font-family: "Knewave";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 80px;
+  color: #107c41;
+  margin-bottom: 20px;
+`;
 
-const Contactlogo = styled.div`
-    display: flex;
-    flex-direction : row;
-    margin-left: auto;
-    width: 300px;
-    height: 300px;
-    margin-right: 50px;
-    margin-top: 50px;
-`
+const Contactlogo = styled.img`
+  margin-left: 50px;
+  height: 100px;
+  width: 100px;
 
-const Contactlogo2 = styled.div`
-    /* EASY EXCEL */
-    display: flex;
-    margin-top: 30px;
-    margin-left: 50px;
-    font-family: 'Knewave';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 80px;
-    line-height: 124px;
-    
-    color: #107C41;
-`
-const Contactinstar = styled.div`
-    display: flex;
-    margin-top: 30px;
-    margin-left: 50px;
-    height: 100px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
-`
-const Contactgit = styled.div`
-    display: flex;
-    margin-top: 30px;
-    margin-left: 50px;
-    width: 100px;
-    height: 100px;
-`
-
+const LogoImg = styled.img`
+  position: absolute;
+  width: 260px;
+  right: 110px;
+  bottom: 140px;
+`;
 
 export default function Contact() {
+  const handleInstarClick = () => {
+    //인스타 링크로 이동
+    window.open("", "_blank"); //아직 url이 없어서 이동을 안하게 하고 싶음
+  };
+  const handleGitClick = () => {
+    // 깃허브 링크로 이동
+    window.open("https://github.com/Easy-Excel", "_blank");
+  };
   return (
     <Contactcontainer>
       <Contactwrap>
         <Contactheader>Contact Us</Contactheader>
         <Contactmain>
-            <Contactlogo2>EASY EXCEL</Contactlogo2>
-            <Logo>
-              <Logo2>
-              <Contactinstar>
-                <img src={instar} alt="로고" />
-              </Contactinstar>
-              <Contactgit>
-                <img src={git} alt="로고" />
-              </Contactgit>
-            </Logo2>
-            <Contactlogo>
-            <img src={logo} alt="로고" />
-          </Contactlogo>
-          </Logo>
-          
-          
+          <EasyExcel>EASY EXCEL</EasyExcel>
+          <Contactlogo
+            src={instar}
+            alt="인스타 로고"
+            onClick={handleInstarClick}
+          />
+          <Contactlogo src={git} alt="깃허브 로고" onClick={handleGitClick} />
+
+          <LogoImg src={logo} alt="로고" />
         </Contactmain>
       </Contactwrap>
     </Contactcontainer>

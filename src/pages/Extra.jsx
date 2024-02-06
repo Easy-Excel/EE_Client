@@ -18,9 +18,6 @@ const Container = styled.div`
 
 //함수 페이지//로 가야함
 function Extra() {
-  useEffect(() => {
-    console.log("API 호출");
-  });
   const [activeContent, setActiveContent] = useState("PivotTable");
 
   const [buttons, setButtons] = useState([
