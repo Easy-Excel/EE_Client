@@ -71,7 +71,7 @@ function Header() {
   return (
     <Head>
       <Col>
-        <Link to="/">
+        <Link to="/home">
           <Title>
             <Logo />
             Easy Excel
