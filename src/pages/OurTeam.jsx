@@ -32,22 +32,22 @@ const Teamheader = styled.div`
     text-align: center;
     color: #FFFFFF;
 `
-
 const Teammain = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%; //백분율로 조장해야 화면 크기에 따라 조절됨
-    height: 63vh;
+    height: 78vh;//푸터부분이 너무 커서 main부분을 늘렸습니다(진주)
     text-align: center;
-    padding: 20px ;
-
-        
+    display: flex;//Teammain기준으로 가운데 정렬(진주)
+    //padding: 58px ;
+   // margin-bottom: auto;
+`
+const TotalMember=styled.div`//한번에 조정하려고 컴포넌트로 한번 감쌌습니다(진주)
 `
 const Teamposition = styled.div`
   justify-content: center;
   text-align: center;
    `
-
 const Plan = styled.div`
     font-family: 'SUIT';
     font-weight: bold;
@@ -66,8 +66,6 @@ const Memberprofil = styled.div`
     text-align: center;
     margin: 10px 10px 10px 10px;`
     
-    
-
 const Memberimage = styled.div`
    width: 100px;
    height: 100px;
@@ -88,11 +86,11 @@ const Membername = styled.div`
 `  
 
 export default function OurTeam() {
-
   return (
     <Teamcontainer>
     <Teamheader>Our Team</Teamheader>
     <Teammain>
+      <TotalMember>
       <Teamposition>
         <Memberprofil>
           {dummy.members1.map(member1=> (
@@ -138,6 +136,7 @@ export default function OurTeam() {
           ))}
         </Memberprofil>
       </Teamposition>
+      </TotalMember>
     </Teammain>
   </Teamcontainer>
     
