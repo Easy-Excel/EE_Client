@@ -6,7 +6,6 @@ import styled from "styled-components";
 
 const Visioncontainer = styled.div`
     background-color: #e2e0e0ea;
-    
 `
 
 const Visionwrap = styled.div`

@@ -15,6 +15,7 @@ const MainContainer = styled.div`
     height: 632.4px;
   }
 `;
+
 const ServContainer = styled.div`
   display: flex;
   /* padding-top: 50px; //글자 위치 조절시 조정 */
@@ -30,6 +31,7 @@ const ServContainer = styled.div`
   gap: 6px;
   align-items: center; // Center vertically
 `;
+
 const ServText = styled.div`
   margin-bottom: 37px;
   & > span {
@@ -54,7 +56,6 @@ const Content = styled.div`
   justify-content: center;
   margin-top: 0px;
   padding: 0px 58px; //Content 좌우 여백 전체 적용
-
   @media screen and (max-height: 680px) {
     height: 428.4px;
   }
