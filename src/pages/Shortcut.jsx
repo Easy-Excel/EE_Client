@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Button from "../components/Button";
-import General from "../components/contents/shortcutPage/General";
-import Integrate from "../components/contents/shortcutPage/Integrate";
 import Keytable from "../components/contents/shortcutPage/Keytable";
-import Move from "../components/contents/shortcutPage/Move";
-import SheetEditor from "../components/contents/shortcutPage/SheetEditor";
 import BtnWrapper from "../components/BtnWrapper";
 
 //컴포넌트 사이즈를 가져오기 위한 hook
@@ -89,11 +85,11 @@ function ShortCut() {
     mainBox: size.height - (45 + 26 + 17),
   };
   const contentComponents = {
-    Execution: <Keytable height={renderHeight} />,
-    General: <General height={renderHeight} />,
-    SheetEditor: <SheetEditor height={renderHeight} />,
-    Integrate: <Integrate height={renderHeight} />,
-    Move: <Move height={renderHeight} />,
+    Execution: <Keytable contentType="FILE_EXECUTION" height={renderHeight} />,
+    General: <Keytable contentType="GENERAL" height={renderHeight} />,
+    SheetEditor: <Keytable contentType="SHEET_EDITING" height={renderHeight} />,
+    Integrate: <Keytable contentType="INTEGRATED_DOCUMENT_EDITING" height={renderHeight} />,
+    Move: <Keytable contentType="MOVE" height={renderHeight} />,
   };
   return (
     <Container ref={componentRef}>

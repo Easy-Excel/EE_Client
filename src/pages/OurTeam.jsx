@@ -4,6 +4,16 @@ import styled from "styled-components";
 import dummy from "./teamdata.json";
 
 const Teamcontainer = styled.div`
+<<<<<<< HEAD
+    background-color: #CEEBDE;
+    justify-content: center;
+    margin: 40px 0px 0px 0px;
+    color: black;
+    text-align: center;
+    @media screen and (max-height: 690px) {
+    height: 690.4px;
+    };`
+=======
   background-color: #f9f8f8;
   display: flex;
   flex-direction: column;
@@ -15,6 +25,7 @@ const Teamcontainer = styled.div`
     height: 660.4px;
   }
 `;
+>>>>>>> 6faac7b3a73e471054406b80189d03f966bfb892
 
 const Teamheader = styled.div`
   display: flex;
@@ -89,13 +100,13 @@ const Memberimage = styled.div`
 `;
 
 const Membername = styled.div`
-  font-family: "SUIT";
-  font-style: normal;
-  font-size: 15px;
-  line-height: 40px;
-  text-align: center;
-  color: #000000;
-`;
+    font-family: 'SUIT';
+    font-style: normal;
+    font-size: 15px;
+    line-height: 40px;
+    text-align: center;
+    color: #000000;
+`  
 
 export default function OurTeam() {
   return (

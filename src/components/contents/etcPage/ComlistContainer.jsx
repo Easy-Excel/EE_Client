@@ -1,8 +1,6 @@
-//검색창에서 엔터를 눌렀을 때 일치하는 항목만을 리스트업하는 컴포넌트
 import React, { useState } from "react";
 import styled from "styled-components";
-import FunBox from "./FunBox";
-
+import FunBox from "./Combox";
 
 const ContainerBox = styled.div`
   box-sizing: border-box;
@@ -39,21 +37,24 @@ const ContainerBox = styled.div`
   }
 `;
 
-//부모한테서 검색창에 일치하는 funcList를 받아올거임.
-function FuncListContainerFromUser({suggestions}) {
-  console.log(suggestions);
+
+function ComListContainer({ funcList, listSize, sortingType }) {
   return (
     <ContainerBox>
       <div>
-        {suggestions.map((value) => (
-          <FunBox
-            key={value.functionId}
-            funcName={value.name}
-            funcId={value.functionId}
-          ></FunBox>
-        ))}
+        {funcList.map((value) => {
+
+            return (
+              <FunBox
+                key={value.id}
+                funcName={value.name}
+                funcId={value.id}
+              ></FunBox>
+            );
+         
+        })}
       </div>
     </ContainerBox>
   );
 }
-export default FuncListContainerFromUser;
+export default ComListContainer;
