@@ -95,7 +95,6 @@ const Navbar = ({ toggle, setToggle }) => {
   useEffect(() => {
     setActiveMenu(location.pathname);
   }, []);
-
   return (
     <StHeader>
       <NavMenu>

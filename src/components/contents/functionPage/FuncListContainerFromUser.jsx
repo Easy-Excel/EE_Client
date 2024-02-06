@@ -41,6 +41,7 @@ const ContainerBox = styled.div`
 
 //부모한테서 검색창에 일치하는 funcList를 받아올거임.
 function FuncListContainerFromUser({suggestions}) {
+  console.log(suggestions);
   return (
     <ContainerBox>
       <div>

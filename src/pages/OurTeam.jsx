@@ -100,13 +100,13 @@ const Memberimage = styled.div`
 `;
 
 const Membername = styled.div`
-  font-family: "SUIT";
-  font-style: normal;
-  font-size: 15px;
-  line-height: 40px;
-  text-align: center;
-  color: #000000;
-`;
+    font-family: 'SUIT';
+    font-style: normal;
+    font-size: 15px;
+    line-height: 40px;
+    text-align: center;
+    color: #000000;
+`  
 
 export default function OurTeam() {
   return (

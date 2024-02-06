@@ -14,7 +14,6 @@ const Container = styled.div`
   width: 100%;
   padding-bottom: 20px;
 `;
-
 //함수 페이지//로 가야함
 function Category() {
   const [activeContent, setActiveContent] = useState("");
