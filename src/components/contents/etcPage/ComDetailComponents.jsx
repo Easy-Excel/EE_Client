@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+
+
 export const FuncContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
@@ -57,64 +59,6 @@ export const FuncDescription = styled.div`
   margin-bottom: 8px;
 `; //함수 설명 text
 
-//Syntax 부분 component
-const FuncSyntaxBox = styled.div`
-  border-radius: 20px;
-  border: 2px solid #000;
-  background: #fff;
-  color: #000;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  background-color: white;
-`; //함수 구문 box
-const FuncSyntax = styled.div`
-  padding: 18px 36px;
-  display: flex;
-  gap: 5px;
-`; //함수 구문(=함수이름(인수,...)
-const FuncSyntaxFName = styled.div`
-  color: #107c41;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-`;
-const FuncSyntaxSign = styled.div`
-  color: #000;
-  font-family: SUIT;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-`; //=, (,) 등
-const FuncSyntaxArgBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-`; //argument 영어, 한국어 한 묶음
-
-const FuncSyntaxArg = styled.div`
-  border-bottom: 2.5px solid black;
-  text-align: center;
-  padding-bottom: 3px;
-`; //argument
-
-const FuncSyntaxArgKor = styled.div`
-  color: #000;
-  text-align: center;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-`; //argument (한국어)
-
-const FlexDivMargin = styled.div`
-  display: flex;
-  margin-left: ${(props) => props.ml};
-  margin-right: ${(props) => props.mr};
-`;
 
 const FuncFeatures = styled.ul`
   margin-left: 38px;
@@ -132,60 +76,45 @@ const FuncFeature = styled.li`
   margin-bottom: 8px;
 `; //함수 특징 list
 
-export default function CDetailContainer({
-  height,
-  funcName,
-  funcDes,
-  argList,
-  funcFeats,
-}) {
+const FuncFunction = styled.div`
+  color: #000;
+  font-family: SUIT;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-left: 36px;
+  margin-bottom: 8px;
+`
+export default function FDetailContainer({ height, funData }) {
+  if (!funData) {
+    return null;
+  }
+  const {
+    frequentFeatureId: funcId,
+    name: funcName,
+    explanation: funcExp,
+    featureCharacteristicList: funcCau,
+    featureFunctionsList: funcFun
+  } = funData;
   return (
     <FuncContainer height={height}>
       {/* 함수 설명 */}
       <FuncTitle>{funcName}</FuncTitle>
-      {funcDes.split("\n").map((line, index) => (
+      {funcExp.split("\n").map((line, index) => (
         <FuncDescription key={index}>{line}</FuncDescription>
       ))}
 
-      {/* 함수 구문 */}
-      <FuncSubTitle>함수 구문</FuncSubTitle>
-      <FSynBox funcName={funcName} argList={argList}></FSynBox>
-
       {/* 함수 특징 */}
       <FuncSubTitle>특징</FuncSubTitle>
-      <FFeatures featureList={funcFeats} />
-    </FuncContainer>
-  );
-}
+      <FFeatures featureList={funcCau} />
+    
 
-function FSynArgs({ argList }) {
-  //order 속성을 기준으로 오름차순 정렬
-  const sortedArgList = argList.sort((a, b) => a.order - b.order); //계산 결과가 음수면 앞으로 이동, 양수면 뒤로 이동
-  return (
-    <FlexDivMargin>
-      {sortedArgList.map((arg, index) => {
-        let eng = arg.eng;
-        let kor = arg.kor;
-        let key = "인수" + arg.order;
-        let comma = true;
-        if (index === sortedArgList.length - 1) {
-          comma = false;
-        }
-        return (
-          <FlexDivMargin>
-            <FuncSyntaxArgBox key={key}>
-              <FuncSyntaxArg>{eng}</FuncSyntaxArg>
-              <FuncSyntaxArgKor>{kor}</FuncSyntaxArgKor>
-            </FuncSyntaxArgBox>
-            {comma ? (
-              <FlexDivMargin ml={"2px"} mr={"10px"}>
-                ,
-              </FlexDivMargin>
-            ) : null}
-          </FlexDivMargin>
-        );
-      })}
-    </FlexDivMargin>
+      {/*활용 함수 */}
+      <FuncSubTitle>활용 함수</FuncSubTitle>
+      <FuncFunction>{funcFun}</FuncFunction>
+    
+    </FuncContainer>
   );
 }
 

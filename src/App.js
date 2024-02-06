@@ -13,7 +13,7 @@ import Extra from "./pages/Extra";
 import Etc from "./pages/Etc";
 import Skeleton from "./pages/Skeleton";
 import FuncDetail from "./components/contents/functionPage/FuncDetail";
-
+import ComDetail from "./components/contents/etcPage/ComDetail";
 
 function App() {
   return (
@@ -34,7 +34,7 @@ function App() {
 
           {/* function 세부 내용 라우팅 */}
           <Route path="/home/function/:funcName" element={<FuncDetail />} />
-        
+          <Route path="/home/etc/:etc" element={<ComDetail />} />
         </Route>
       </Routes>
       <Footer />

@@ -9,8 +9,8 @@ const Teamcontainer = styled.div`
     margin: 40px 0px 0px 0px;
     color: black;
     text-align: center;
-    @media screen and (max-height: 680px) {
-    height: 660.4px;
+    @media screen and (max-height: 690px) {
+    height: 690.4px;
     };`
 
 const Teamheader = styled.div`

@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../functionPage/FuncListContainer";
+import Container from "./ComlistContainer";
 
 //test용(실제 함수리스트)
 const CommonList = [
@@ -59,14 +59,12 @@ const CommonList = [
 ];
 
 const listSize = CommonList.length;
-const sortingType = "A~H";
 
 export default function Common() {
   return (
     <Container
       funcList={CommonList}
       listSize={listSize}
-      sortingType={sortingType}
       category={1}
     />
   );
