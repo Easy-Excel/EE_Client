@@ -15,7 +15,7 @@ const Visionwrap = styled.div`
     color: black;
     text-align: center;
     @media screen and (max-height: 680px) {
-    height: 632.4px;
+    height: 640.4px;
     };`
 
 const Visionmain = styled.div`
