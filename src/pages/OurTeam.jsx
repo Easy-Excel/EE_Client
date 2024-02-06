@@ -12,7 +12,10 @@ const Teamcontainer = styled.div`
   height: 93vh;
   text-align: center;
   @media screen and (max-height: 680px) {
-    height: 660.4px;
+    height: auto;
+  }
+  @media screen and (max-width: 737px) {
+    height: auto;
   }
 `;
 
@@ -38,22 +41,31 @@ const Teamheader = styled.div`
 `;
 const Teammain = styled.div`
   background-color: #ceebde;
-  display: flex; //Teammain기준으로 가운데 정렬(진주)
-  align-items: center;
-  justify-content: center;
   width: 100%; //백분율로 조장해야 화면 크기에 따라 조절됨
   height: 100%; //푸터부분이 너무 커서 main부분을 늘렸습니다(진주)
   text-align: center;
+
+  /* padding: 89px 20px 20px 48px; */
 
   //padding: 58px ;
   // margin-bottom: auto;
 `;
 const TotalMember = styled.div`
+  display: flex; //Teammain기준으로 가운데 정렬(진주)
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8vh 20px 20px 5vh;
+  gap: 10px;
+  height: 100%;
+
   //한번에 조정하려고 컴포넌트로 한번 감쌌습니다(진주)
 `;
 const Teamposition = styled.div`
-  justify-content: center;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
 const Plan = styled.div`
   font-family: "SUIT";
@@ -72,9 +84,11 @@ const Memberprofil = styled.div`
   /* left: 499px; */ //필요없는 부분
   justify-content: center;
   text-align: center;
-  margin: 15px 0px;
   gap: 60px;
-  /* background-color: pink; */
+  flex-wrap: wrap;
+  @media screen and (max-width: 737px) {
+    gap: 0px;
+  }
 `;
 
 const Memberimage = styled.div`
