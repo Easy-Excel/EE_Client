@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from "react";
 import styled from "styled-components";
-import axios from 'axios';
+
 
 // Styled components
 const TopContainer = styled.div`
@@ -21,6 +21,7 @@ const Modal = styled.div`
     box-shadow:2px 2px rgb(178 178 178 / 0.3);
     border-radius:15px;
     padding:5px;
+    
     //모달이 table을 벗어나면 가려짐.해결 필요. z-index로 안된다...
 
     .triangle {
@@ -122,56 +123,30 @@ const WordBox = styled.span`
   margin: 5px 3px;
   font-family: Arial, Helvetica, sans-serif; // 여기만 글씨체 바꾸기
 `;
-
-function Keytable({ height }) {
-  const [datas,setDatas]=useState([]);
-
-  //1번
-  // useEffect(() => {
-  //   // useEffect 안에서 비동기 함수를 정의
-  //   const fetchData = async () => {
-  //     try {
-  //       // API 호출
-  //       const response = await axios.get('./shortcutData.json');
-  //       //json파일이 잘 불러와졌는지 확인용
-  //       console.log('Response:', response.data);
-  //       // 성공적으로 데이터를 가져왔을 때 상태 업데이트
-  //       setDatas(response.data);//??
-  //     } catch (error) {
-  //       // 오류 처리
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
-
-  //   // 비동기 함수 호출
-  //   fetchData();
-  // }, []); 
-
-
-  //2번
-  // useEffect(()=>{
-  //   fetch("./shortcutData.json")
-    
-  //  .then((res) => {
-  //     return res.json();
-  //  })
-
-  //  .then((data) =>{
-  //     setDatas(data);
-  //     console.log(data);
-  //   });
+function Keytable({ height , contentType}) {
   
-  // },[]);
+  const [type, setType] = useState(contentType); //버튼 클릭마다 바뀌어야 하는 부분. 디폴트는 '파일실행'
+  const [shortcutKeyData, setDatas] = useState(null);//데이터 받아와서 저장
+  useEffect(()=>{
+    setType(contentType)  
+  },[contentType]);
+  
+  useEffect(()=>{
+    fetch(`http://3.39.29.173:8080/shortcut-key/category?type=${type}`)
+    
+   .then((res) => {
+      return res.json();
+   })
 
+   .then((data) =>{
+      setDatas(data.result.shortcutKeyList);
+      console.log(data.result.shortcutKeyList);
+    })
+    .catch((err) =>{
+      console.log("Error fetching data:",err);
+    });
+  }, [type]); // type 값이 변경될 때마다 fetchData 함수를 호출
 
-  const data = [
-    {id:"1", explanation: "다른 이름으로 저장", windowKey: "F12", macKey: "Cmd + ↑ + S", detailExplanation:"1" },
-    {id:"2", explanation: "새 통합문서 만들기", windowKey: "Ctrl + N", macKey: "Cmd + N",detailExplanation:"2" },
-    {id:"3", explanation: "인쇄하기", windowKey: "Ctrl + P", macKey: "Cmd + P" ,detailExplanation:"3"},
-    {id:"4", explanation: "통합 문서 열기", windowKey: "Ctrl + O", macKey: "Cmd + O",detailExplanation:"4" },
-    {id:"5", explanation: "통합 문서 저장", windowKey: "Ctrl + S", macKey: "Cmd + S" ,detailExplanation:"5"},
-    {id:"6", explanation: "통합 문서 종료", windowKey: "Alt + F4", macKey: "Cmd + Q" ,detailExplanation:"6"},
-  ];
 
   return (
     <TopContainer height={height.mainBox}>
@@ -182,9 +157,9 @@ function Keytable({ height }) {
             <Cell>Window</Cell>
             <Cell>Mac</Cell>
           </HeaderRow>
-          {data ? (
+          {shortcutKeyData ? (
             <Rows>
-            {data.map((item) => (
+            {shortcutKeyData.map((item) => (
               <Row key={item.id}>
                 <DesCell>{item.explanation}
                   <Modal>
@@ -193,14 +168,14 @@ function Keytable({ height }) {
                   </Modal>
                 </DesCell>
                 <Cell>
-                  {item.windowKey.split(/[\s+]+/).map((word) => (
-                    <WordBox key={item.id}>{word}</WordBox>
-                  ))}
+                {item.windowKey.map((word, index) => (
+                  <WordBox key={index}>{word}</WordBox>
+                ))}
                 </Cell>
                 <Cell>
-                  {item.macKey.split(/[\s+]+/).map((word) => (
-                    <WordBox key={item.id}>{word}</WordBox>
-                  ))}
+                {item.macKey.map((word, index) => (
+                  <WordBox key={index}>{word}</WordBox>
+                ))}
                 </Cell>
               </Row>
             ))}
