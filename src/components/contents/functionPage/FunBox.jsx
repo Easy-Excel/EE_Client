@@ -20,6 +20,7 @@ const FunctionBox = styled.div`
   &:hover {
     cursor: pointer;
     color: #107c41;
+    text-decoration: underline; /* 텍스트 밑줄 추가 */
     /* background-color: #107c41; */
   }
 `;
