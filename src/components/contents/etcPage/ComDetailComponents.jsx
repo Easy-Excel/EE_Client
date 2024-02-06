@@ -132,47 +132,29 @@ const FuncFeature = styled.li`
   margin-bottom: 8px;
 `; //함수 특징 list
 
-export default function FDetailContainer({ height, funData }) {
-  if (!funData) {
-    return null;
-  }
-  const {
-    id: funcId,
-    name: funcName,
-    explanation: funcExp,
-    caution: funcCau,
-    engAndKorList: funcArgList,
-  } = funData;
+export default function CDetailContainer({
+  height,
+  funcName,
+  funcDes,
+  argList,
+  funcFeats,
+}) {
   return (
     <FuncContainer height={height}>
       {/* 함수 설명 */}
       <FuncTitle>{funcName}</FuncTitle>
-      {funcExp.split("\n").map((line, index) => (
+      {funcDes.split("\n").map((line, index) => (
         <FuncDescription key={index}>{line}</FuncDescription>
       ))}
 
       {/* 함수 구문 */}
       <FuncSubTitle>함수 구문</FuncSubTitle>
-      <FSynBox funcName={funcName} argList={funcArgList}></FSynBox>
+      <FSynBox funcName={funcName} argList={argList}></FSynBox>
 
       {/* 함수 특징 */}
       <FuncSubTitle>특징</FuncSubTitle>
-      <FFeatures featureList={funcCau} />
+      <FFeatures featureList={funcFeats} />
     </FuncContainer>
-  );
-}
-
-function FSynBox({ funcName, argList }) {
-  return (
-    <FuncSyntaxBox>
-      <FuncSyntax>
-        <FuncSyntaxSign>=</FuncSyntaxSign>
-        <FuncSyntaxFName>{funcName}</FuncSyntaxFName>
-        <FuncSyntaxSign>{"("}</FuncSyntaxSign>
-        <FSynArgs argList={argList} />
-        <FuncSyntaxSign>{")"}</FuncSyntaxSign>
-      </FuncSyntax>
-    </FuncSyntaxBox>
   );
 }
 

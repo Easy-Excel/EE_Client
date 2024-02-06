@@ -6,7 +6,6 @@ import styled from "styled-components";
 
 const Visioncontainer = styled.div`
     background-color: #e2e0e0ea;
-    
 `
 
 const Visionwrap = styled.div`
@@ -15,7 +14,7 @@ const Visionwrap = styled.div`
     color: black;
     text-align: center;
     @media screen and (max-height: 680px) {
-    height: 632.4px;
+    height: 640.4px;
     };`
 
 const Visionmain = styled.div`

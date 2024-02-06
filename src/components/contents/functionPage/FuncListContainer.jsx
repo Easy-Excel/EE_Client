@@ -2,16 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import FunBox from "./FunBox";
 
-//3개의 리스트로 쪼개는 함수. 각 리스트 원소 개수는 최소 6개여야 함
-// function chunkArray(array) {
-//   const chunkSize = Math.max(Math.ceil(array.length / 3), 5);
-//   const result = [];
-//   for (let i = 0; i < array.length; i += chunkSize) {
-//     result.push(array.slice(i, i + chunkSize));
-//   }
-//   return result;
-// }
-
 const ContainerBox = styled.div`
   box-sizing: border-box;
   width: 100%;
@@ -47,20 +37,37 @@ const ContainerBox = styled.div`
   }
 `;
 
-function FuncListContainer({ funcList, listSize, sortingType, category }) {
-  // const dividedArrays = chunkArray(funcList);
+const typeList = [
+  "STATISTICS",
+  "DATE_TIME",
+  "SEARCH_REFERENCE",
+  "TEXT",
+  "DATABASE",
+];
+
+function FuncListContainer({ funcList, listSize, sortingType }) {
   return (
     <ContainerBox>
       <div>
-        {funcList.map((value) => (
-          <FunBox
-            key={value.functionId}
-            funcName={value.name}
-            funcId={value.functionId}
-            sortingType={sortingType}
-            category={category}
-          ></FunBox>
-        ))}
+        {funcList.map((value) => {
+          if (typeList.includes(sortingType)) {
+            return (
+              <FunBox
+                key={value.id}
+                funcName={value.name}
+                funcId={value.id}
+              ></FunBox>
+            );
+          } else {
+            return (
+              <FunBox
+                key={value.functionId}
+                funcName={value.name}
+                funcId={value.functionId}
+              ></FunBox>
+            );
+          }
+        })}
       </div>
     </ContainerBox>
   );

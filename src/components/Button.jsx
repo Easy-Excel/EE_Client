@@ -36,11 +36,7 @@ const ButtonTitle = styled.div`
 
   //논의사항
   @media screen and (max-width: 1400px) {
-    font-size: 90%;
-  }
-
-  @media screen and (max-width: 900px) {
-    font-size: 80%;
+    font-size: 100%;
   }
   //...이런식으로
 `;

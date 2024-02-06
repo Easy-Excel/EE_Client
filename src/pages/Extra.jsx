@@ -85,7 +85,7 @@ function Extra() {
 
   const renderHeight = {
     mainBox: size.height - (45 + 26 + 17),
-    container: size.height - (45 + 26 + 17) - 65.5 - 10,
+    container: size.height - (45 + 26 + 17) - 70 - 10,
   };
 
   const contentComponents = {

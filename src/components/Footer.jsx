@@ -9,6 +9,7 @@ const Foot = styled.footer`
   flex-direction: column;
   gap: 10px;
   padding: 25px 211px;
+  /* background-color: white; */
 `;
 
 const Items = styled.ul`

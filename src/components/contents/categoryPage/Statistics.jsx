@@ -1,39 +1,12 @@
 import React from "react";
 import Container from "../functionPage/FuncListContainer";
 
-const funcList = [
-  {
-    functionId: 1,
-    name: "STATISTICS",
-  },
-  {
-    functionId: 2,
-    name: "STATISTICS",
-  },
-  {
-    functionId: 3,
-    name: "MATH",
-  },
-  {
-    functionId: 4,
-    name: "AVERAGE",
-  },
-  {
-    functionId: 5,
-    name: "MIN",
-  },
-];
-
-const listSize = funcList.length;
-const sortingType = "통계";
-
-export default function Statistics() {
+export default function Statistics({ functionsList, sortingType }) {
   return (
     <Container
-      funcList={funcList}
-      listSize={listSize}
+      funcList={functionsList}
+      listSize={functionsList.length}
       sortingType={sortingType}
-      category={2}
     />
   );
 }
