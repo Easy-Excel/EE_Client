@@ -16,7 +16,7 @@ const Contactcontainer = styled.div`
   @media screen and (max-height: 680px) {
     height: 660.4px;
   }
-  @media screen and (max-width: 608px) {
+  @media screen and (max-width: 605px) {
     height: auto;
   }
 `;
@@ -57,7 +57,7 @@ const Contactmain = styled.div`
   padding: 14vh 90px;
   padding-top: 14vh;
   gap: 40px;
-  @media screen and (max-width: 608px) {
+  @media screen and (max-width: 605px) {
     align-items: center;
   }
   @media screen and (max-height: 680px) {
@@ -86,7 +86,7 @@ const Contactlogo = styled.img`
     cursor: pointer;
   }
 
-  @media screen and (max-width: 608px) {
+  @media screen and (max-width: 605px) {
     margin: 0px;
   }
 `;
@@ -102,7 +102,7 @@ const LogoImg = styled.img`
     right: 50px;
     bottom: 50px;
   }
-  @media screen and (max-width: 608px) {
+  @media screen and (max-width: 605px) {
     position: static;
   }
 `;
