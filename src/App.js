@@ -13,8 +13,8 @@ import Extra from "./pages/Extra";
 import Etc from "./pages/Etc";
 import Skeleton from "./pages/Skeleton";
 import FuncDetail from "./components/contents/functionPage/FuncDetail";
-import ComDetail from "./components/contents/etcPage/ComDetail";
 import Find from "./pages/Find";
+import ComDetail from "./components/contents/etcPage/ComDetail";
 
 function App() {
   return (

@@ -150,11 +150,6 @@ export default function ChatBot({xButton}){
         }
     };
     
-    // const handleRefreshClick = () => {
-    //     setOnXButton(false);
-    // // 다른 리프레시 처리 로직 추가 가능
-    //  };
-
     if(onXButton) return <RefreshChat/>;
 
     return(

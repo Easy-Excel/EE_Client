@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as LogoSvg } from "../assets/images/logo/Logo.svg";
 import { Link } from "react-router-dom";
-import Finder from "./Finder";
+//import Finder from "./Finder";
 
 //Header
 const Head = styled.header`

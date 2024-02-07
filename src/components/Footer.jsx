@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+
 const Foot = styled.footer`
   height: 103px;
   width: 100%;
@@ -11,6 +12,8 @@ const Foot = styled.footer`
   padding: 25px 211px;
   /* background-color: white; */
 `;
+
+
 
 const Items = styled.ul`
   display: flex;
