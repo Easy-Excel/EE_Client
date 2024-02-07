@@ -42,7 +42,7 @@ const FeatureDescription = ({ containerSize }) => (
     <How text="1. 상단 메뉴바에 있는 개발 도구 탭에서 매크로 기록을 클릭하여 매크로 이름을 설정합니다." />
     <HelpImage
       width={"286px"}
-      height={"193px"}
+      height={"190px"}
       marginLeft={"94px"}
       src={images[0]}
     />
