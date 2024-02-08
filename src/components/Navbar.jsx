@@ -72,7 +72,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const Navbar = ({ toggle, setToggle }) => {
+const Navbar = ({ toggle, setToggle, handleMenuItemClick  }) => {//수정 ! : handleMenuItemClick 을 Navbar에서 props로 받아올 수 있게 추가
+  const handleItemClick = (menuName) => {
+    handleMenuItemClick(menuName);
+  };
+  
   const navigate = useNavigate();
   const location = useLocation(); //useLocation 훅을 사용하여 현재 URL 파악하고 URL에 따라 polygon 이미지 활성화
 
@@ -135,6 +139,7 @@ const Navbar = ({ toggle, setToggle }) => {
               navigate("/home/shortcut");
               // setArrowState(true);
               // setActiveMenu("/home/shortcut");
+              handleItemClick("shortcut");// 수정! : shortcut 이면 usestate를 통해 값이 변경될 수 있도록 함.
             }}
           >
             단축키
