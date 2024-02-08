@@ -15,6 +15,7 @@ const Wrapper=styled.div`
     left: 80%;
     bottom:9.6%;
     transform-origin: right bottom;
+    z-index: 100;
 
     @media (max-width: 768px) {
         width: 80%;
