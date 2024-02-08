@@ -104,6 +104,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick  }) => {//수정 ! : ha
               // setActiveMenu("/home/function"); //useEffect에서 state 변경하는 것으로 수정(아래 모두)
               navigate("/home/function", { state: { subCategory } });
               //클릭을 하자마자 화살표 모양이 나타나야 함//
+              handleItemClick("");
             }}
           >
             엑셀 함수
@@ -122,6 +123,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick  }) => {//수정 ! : ha
               // setArrowState(true);
               // setActiveMenu("/home/category");
               navigate("/home/category", { state: { subCategory } });
+              handleItemClick("");
             }}
           >
             범주
@@ -157,6 +159,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick  }) => {//수정 ! : ha
               navigate("/home/extra");
               // setArrowState(true);
               // setActiveMenu("/home/extra");
+              handleItemClick("");
             }}
           >
             추가 기능
@@ -174,6 +177,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick  }) => {//수정 ! : ha
               navigate("/home/etc");
               // setArrowState(true);
               // setActiveMenu("/home/etc");
+              handleItemClick("");
             }}
           >
             기타
