@@ -15,7 +15,7 @@ import Skeleton from "./pages/Skeleton";
 import FuncDetail from "./components/contents/functionPage/FuncDetail";
 import Find from "./pages/Find";
 import ComDetail from "./components/contents/etcPage/ComDetail";
-
+import AtoH from "./components/contents/functionPage/AtoH";
 function App() {
   return (
     <BrowserRouter>
@@ -27,14 +27,22 @@ function App() {
         <Route path="/contact" element={<Contact />}></Route>
         <Route element={<Skeleton />}>
           <Route path="/home" element={<Home />}></Route>
-          <Route path="/home/function" element={<Function />}></Route>
-          <Route path="/home/category" element={<Category />}></Route>
+          {/* <Route path="/home/function" element={<Function />}></Route> */}
+          <Route path="/home/function/:content" element={<Function />} />
+          <Route path="/home/category/:content" element={<Category />}></Route>
           <Route path="/home/shortcut" element={<Shortcut />}></Route>
           <Route path="/home/extra" element={<Extra />}></Route>
           <Route path="/home/etc" element={<Etc />}></Route>
           <Route path="/home/find" element={<Find />}></Route>
           {/* function 세부 내용 라우팅 */}
-          <Route path="/home/function/:funcName" element={<FuncDetail />} />
+          <Route
+            path="/home/function/:content/:funcName"
+            element={<FuncDetail />}
+          />
+          <Route
+            path="/home/category/:content/:funcName"
+            element={<FuncDetail />}
+          />
           <Route path="/home/etc/:etc" element={<ComDetail />} />
         </Route>
       </Routes>

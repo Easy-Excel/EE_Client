@@ -45,7 +45,7 @@ const typeList = [
   "DATABASE",
 ];
 
-function FuncListContainer({ funcList, listSize, sortingType }) {
+function FuncListContainer({ funcList, listSize, sortingType, content }) {
   return (
     <ContainerBox>
       <div>
@@ -56,6 +56,7 @@ function FuncListContainer({ funcList, listSize, sortingType }) {
                 key={value.id}
                 funcName={value.name}
                 funcId={value.id}
+                content={content}
               ></FunBox>
             );
           } else {
@@ -64,6 +65,7 @@ function FuncListContainer({ funcList, listSize, sortingType }) {
                 key={value.functionId}
                 funcName={value.name}
                 funcId={value.functionId}
+                content={content}
               ></FunBox>
             );
           }

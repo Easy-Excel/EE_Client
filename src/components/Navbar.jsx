@@ -76,7 +76,7 @@ const Navbar = ({ toggle, setToggle }) => {
   const navigate = useNavigate();
   const location = useLocation(); //useLocation 훅을 사용하여 현재 URL 파악하고 URL에 따라 polygon 이미지 활성화
 
-  const [activeMenu, setActiveMenu] = useState(null); //뭐가 활성화 상태인지 쳌
+  const [activeMenu, setActiveMenu] = useState(""); //뭐가 활성화 상태인지 쳌
   // const [arrowState, setArrowState] = useState(false);
   // 코드에서 실 사용되지 않는 부분이라 주석처리했습니다.
 
@@ -95,17 +95,19 @@ const Navbar = ({ toggle, setToggle }) => {
         <Wrapper>
           <MenuItem
             onClick={() => {
-              let subCategory = "AtoH";
+              let content = "AtoH";
               // setArrowState(true); //큰 의미가 없는 부분이라 주석처리 (아래 모두)
               // setActiveMenu("/home/function"); //useEffect에서 state 변경하는 것으로 수정(아래 모두)
-              navigate("/home/function", { state: { subCategory } });
+              navigate(`/home/function/${content}`, {
+                state: { content },
+              });
               //클릭을 하자마자 화살표 모양이 나타나야 함//
             }}
           >
             엑셀 함수
           </MenuItem>
           <ArrowImage
-            showArrow={activeMenu === "/home/function"}
+            showArrow={activeMenu.startsWith("/home/function")}
             src={polygon}
             alt="화살표"
           />
@@ -114,16 +116,16 @@ const Navbar = ({ toggle, setToggle }) => {
         <Wrapper>
           <MenuItem
             onClick={() => {
-              let subCategory = "DateTime";
+              let content = "DateTime";
               // setArrowState(true);
               // setActiveMenu("/home/category");
-              navigate("/home/category", { state: { subCategory } });
+              navigate(`/home/category/${content}`, { state: { content } });
             }}
           >
             범주
           </MenuItem>
           <ArrowImage
-            showArrow={activeMenu === "/home/category"}
+            showArrow={activeMenu.startsWith("/home/category")}
             src={polygon}
             alt="화살표"
           />

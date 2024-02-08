@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import styled from "styled-components";
 import Button from "../components/Button";
 import AtoH from "../components/contents/functionPage/AtoH";
@@ -18,18 +18,21 @@ const Container = styled.div`
 
 //함수 페이지//로 가야함
 function Function() {
-  let sortingType = null;
-  const [activeContent, setActiveContent] = useState("");
+  //함수 페이지 별도로 생성하기 위함
+  const navigate = useNavigate();
+
+  //네비게이트로 넘겨받은 정보
+  const { state } = useLocation();
+  const content = state.content;
+
   const [functionsList, setFunctionsList] = useState([]);
+  let sortingType = null;
   const [endpoints, setEndpoints] = useState({
     AtoH: "http://3.39.29.173:8080/functions/list?firstSorting=a&lastSorting=h",
     ItoP: "http://3.39.29.173:8080/functions/list?firstSorting=i&lastSorting=p",
     QtoZ: "http://3.39.29.173:8080/functions/list?firstSorting=q&lastSorting=z",
   });
   const [xButton, setXButton] = useState(false);
-  useEffect(() => {
-    setActiveContent("AtoH");
-  }, []);
 
   const fetchFunListHandler = useCallback(async () => {
     // setIsLoading(true);
@@ -37,7 +40,8 @@ function Function() {
 
     try {
       //async await 사용
-      const response = await fetch(endpoints[activeContent], { method: "GET" });
+      // const response = await fetch(endpoints[activeContent], { method: "GET" });
+      const response = await fetch(endpoints[content], { method: "GET" });
       const data = await response.json();
       const functions = data.result.functionsSortingList;
       setFunctionsList(functions);
@@ -47,7 +51,8 @@ function Function() {
       // setError(error.message);
     }
     // setIsLoading(false);
-  }, [activeContent, endpoints]);
+    // }, [activeContent, endpoints]);
+  }, [content, endpoints]);
 
   useEffect(() => {
     fetchFunListHandler();
@@ -101,13 +106,33 @@ function Function() {
   ]); //버튼들을 담을 배열
 
   const handleButtonClick = (content) => {
-    setActiveContent(content);
+    navigate(`/home/function/${content}`, {
+      state: { content },
+    });
   };
 
   const contentComponents = {
-    AtoH: <AtoH functionsList={functionsList} sortingType={sortingType} />,
-    ItoP: <ItoP functionsList={functionsList} sortingType={sortingType} />,
-    QtoZ: <QtoZ functionsList={functionsList} sortingType={sortingType} />,
+    AtoH: (
+      <AtoH
+        functionsList={functionsList}
+        sortingType={sortingType}
+        content={content}
+      />
+    ),
+    ItoP: (
+      <ItoP
+        functionsList={functionsList}
+        sortingType={sortingType}
+        content={content}
+      />
+    ),
+    QtoZ: (
+      <QtoZ
+        functionsList={functionsList}
+        sortingType={sortingType}
+        content={content}
+      />
+    ),
   };
   const handleXButtonClick = () => {
     setXButton(true);
@@ -124,16 +149,17 @@ function Function() {
               width={button.width}
               height={button.height}
               backgroundColor={
-                button.id === activeContent ? "#107c41" : "white"
+                // button.id === activeContent ? "#107c41" : "white"
+                button.id === content ? "#107c41" : "white"
               }
-              fontColor={button.id === activeContent ? "white" : "black"}
-              border={button.id === activeContent ? "none" : "1px solid black"}
+              fontColor={button.id === content ? "white" : "black"}
+              border={button.id === content ? "none" : "1px solid black"}
               text={button.text}
               onButtonClick={() => handleButtonClick(button.content)}
             ></Button>
           ))}
         </BtnWrapper>
-        {contentComponents[activeContent]}
+        {contentComponents[content]}
         {/* {<ChatBot xButton={xButton} onButtonClick={handleButtonClick} />} */}
       </Container>
     </>
