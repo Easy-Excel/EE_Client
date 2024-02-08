@@ -1,7 +1,8 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Finder from "../components/Finder";
+import ShortcutFinder from "../components/ShortcutFinder";
 import { Outlet } from "react-router-dom";
 import ChatBot from "../components/ChatBot";
 //import RefreshChat from "../components/RefreshChat";
@@ -63,6 +64,19 @@ const Content = styled.div`
 `;
 
 export default function Skeleton() {
+  //*********************추가된 부분입니다 ********************** */
+  const [showFinder, setShowFinder] = useState(true);
+  //단축키 nav가 눌렸을 때는 Finder가 사라지고 shortcutFinder가 보이게 하기 위함
+  //디폴트로 finder가 보이는 상태.
+
+  const handleMenuItemClick = (menuName) => {
+    if (menuName === "shortcut") {
+      setShowFinder(false);
+    } else {
+      setShowFinder(true);
+    }
+  };
+
   return (
     <MainContainer>
       <ServContainer>
@@ -70,10 +84,12 @@ export default function Skeleton() {
           슬기로운 엑셀 사용을 위한 통합정리 서비스,
           <span>Easy Excel</span>
         </ServText>
-        <Finder/>
+        {showFinder ? <Finder /> : <ShortcutFinder />}
+        {/* finder가 있던 부분입니다. */}
       </ServContainer>
       {/* <Finder/> */}
-      <Navbar />
+      <Navbar handleMenuItemClick={handleMenuItemClick}/>
+      {/* Navbar 컴포넌트에서 단축키를 클릭할 시 그 이벤트를 처리하고 skeleton에 전달하기 위해 props로 전달 */}
       <ChatBot/>
       <Content>        
         <Outlet />

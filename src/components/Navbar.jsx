@@ -72,7 +72,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const Navbar = ({ toggle, setToggle }) => {
+const Navbar = ({ toggle, setToggle, handleMenuItemClick  }) => {//
+  const handleItemClick = (menuName) => {
+    handleMenuItemClick(menuName);
+  };
+  
   const navigate = useNavigate();
   const location = useLocation(); //useLocation 훅을 사용하여 현재 URL 파악하고 URL에 따라 polygon 이미지 활성화
 
@@ -135,6 +139,7 @@ const Navbar = ({ toggle, setToggle }) => {
               navigate("/home/shortcut");
               // setArrowState(true);
               // setActiveMenu("/home/shortcut");
+              handleItemClick("shortcut");
             }}
           >
             단축키
