@@ -7,7 +7,7 @@ const FBContainer = styled.div`
   height: ${(props) => props.height}px;
   padding-top: 20px;
   overflow-y: auto;
-  position: relative;
+  /* position: relative; */
 
   //-----스크롤바 스타일링------//
   &::-webkit-scrollbar {
@@ -33,6 +33,7 @@ const FBForm = styled.form`
   padding-top: 10px;
   padding-left: 40px;
   font-family: SUIT;
+  position: relative;
 `;
 
 const FBLabel = styled.label`
@@ -92,11 +93,11 @@ const FBButton = styled.button`
   font-weight: 800;
   line-height: normal;
   text-align: center;
-
+  margin-left: auto;
   //특정 페이지에서 버튼위치를 절대 좌표로 쓰기 위한 스타일 추가
-  position: absolute;
+  /* position: absolute;
   right: 0px;
-  bottom: 37px;
+  bottom: 37px; */
 `;
 
 export default function Feedback({ height }) {
