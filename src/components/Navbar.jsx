@@ -106,6 +106,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick }) => {
               navigate(`/home/function/${content}`, {
                 state: { content },
               });
+              handleItemClick("");
             }}
           >
             엑셀 함수
