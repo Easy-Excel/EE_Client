@@ -119,17 +119,14 @@ const WordBox = styled.span`
   margin: 5px 3px;
   font-family: Arial, Helvetica, sans-serif; // 여기만 글씨체 바꾸기
 `;
-function Keytable({ height , contentType, searchTerm}) {
+function Keytable({ height , contentType}) {
   
   const [type, setType] = useState(contentType); //버튼 클릭마다 바뀌어야 하는 부분. 디폴트는 '파일실행'
   const [shortcutKeyData, setDatas] = useState(null);//데이터 받아와서 저장
-
-
   useEffect(()=>{
     setType(contentType)  
   },[contentType]);
-
-  // type 값이 변경될 때마다 API 호출
+  
   useEffect(()=>{
     fetch(`http://3.39.29.173:8080/shortcut-key/category?type=${type}`)
     
@@ -144,29 +141,9 @@ function Keytable({ height , contentType, searchTerm}) {
     .catch((err) =>{
       console.log("Error fetching data:",err);
     });
-  }, [type]); 
+  }, [type]); // type 값이 변경될 때마다 호출
 
-  useEffect(() => {
-    if (!searchTerm) {
-      // 검색어가 비어있으면 API에서 받아온 데이터를 그대로 표시
-      fetch(`http://3.39.29.173:8080/shortcut-key/category?type=${type}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setDatas(data.result.shortcutKeyList);
-          console.log(data.result.shortcutKeyList);
-        })
-        .catch((err) => {
-          console.log("Error fetching data:", err);
-        });
-      return;
-    }
-    // 검색어가 존재할 경우 해당 검색어가 포함된 항목만 필터링
-    const filteredData = shortcutKeyData.filter((item) =>
-      item.explanation.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setDatas(filteredData);
-  }, [searchTerm, shortcutKeyData, type]);
-  
+
   return (
     <TopContainer height={height.mainBox}>
       <KeytableContainer>
