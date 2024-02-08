@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import magfinder from "../assets/images/magfinder.png";
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
   position: absolute;
