@@ -7,7 +7,6 @@ import BtnWrapper from "../components/BtnWrapper";
 //컴포넌트 사이즈를 가져오기 위한 hook
 import useComponentSize from "../hooks/UseComponentSzie";
 import { render } from "@testing-library/react";
-import ShortcutFinder from "../components/ShortcutFinder";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -109,7 +108,6 @@ function ShortCut() {
         ))}
       </BtnWrapper>
       {contentComponents[activeContent]}
-      <ShortcutFinder></ShortcutFinder>
     </Container>
   );
 }
