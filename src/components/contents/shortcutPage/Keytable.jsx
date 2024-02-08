@@ -123,10 +123,12 @@ function Keytable({ height , contentType}) {
   
   const [type, setType] = useState(contentType); //버튼 클릭마다 바뀌어야 하는 부분. 디폴트는 '파일실행'
   const [shortcutKeyData, setDatas] = useState(null);//데이터 받아와서 저장
+
   useEffect(()=>{
     setType(contentType)  
   },[contentType]);
   
+  // type 값이 변경될 때마다 API 호출
   useEffect(()=>{
     fetch(`http://3.39.29.173:8080/shortcut-key/category?type=${type}`)
     
@@ -141,7 +143,7 @@ function Keytable({ height , contentType}) {
     .catch((err) =>{
       console.log("Error fetching data:",err);
     });
-  }, [type]); // type 값이 변경될 때마다 fetchData 함수를 호출
+  }, [type]); 
 
 
   return (
