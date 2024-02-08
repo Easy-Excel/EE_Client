@@ -134,7 +134,7 @@ function Function() {
           ))}
         </BtnWrapper>
         {contentComponents[activeContent]}
-        {<ChatBot xButton={xButton} onButtonClick={handleButtonClick} />}
+        {/* {<ChatBot xButton={xButton} onButtonClick={handleButtonClick} />} */}
       </Container>
     </>
   );

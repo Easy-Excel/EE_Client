@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   width: 300px;
   height: 38px;
   z-index: 100;
+  margin:2px;
 `;
 
 const Container_ = styled.div`
@@ -43,6 +44,8 @@ const InputBox = styled.input`
 const AutoCompleteList = styled.div`
   z-index: 2;
   background-color: white;
+  max-height: 300px;
+  overflow-y: auto;
 `;
 
 const ItemWrapper = styled.div`
@@ -61,8 +64,10 @@ const AutoCompleteItem = styled.div`
 const Finder = () => {
   const [userInput, setUserInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const inputRef = useRef(null);
+  //const inputRef = useRef(null);
   const [clickedOne, setClickedOne] = useState(false);
+  const[selected,setSelected]=useState([]);
+  //const[selectedItemArray,setSelectedItemArray]=useState([]);
   const  navigate  = useNavigate();
   const onChange = (e) => {
     setUserInput(e.target.value);
@@ -76,25 +81,36 @@ const Finder = () => {
         );
         const data = await response.json();
         setSuggestions(data.result.functionsSearchList);
+        //console.log(suggestions);
       } catch (error) {
         console.error("error fetching data: ");
       }
     };
     fetchData();
   }, [userInput]);
+  
 
   const handleClickItem = (selectedItem) => {
+  //클릭을 했으면,
     setUserInput(selectedItem);
     setClickedOne(true);
+    //setSuggestions([...userInput]);
+    //setSelected(selectedItem)
+    //navigate("/home/find", { state: { suggestions: [selectedItem], userInput: selectedItem} });
+    //inputRef.current.focus();
   };
+
 
 const handleEnterKey = (e) => {
     if (e.key === "Enter") {
-      //setClickedOne(true);
-      navigate("/home/find", { state: { suggestions: suggestions, userInput:userInput } });
+      navigate("/home/find", { state: { suggestions: suggestions, userInput: userInput } });
+      setUserInput("");//검색했으면 기존 검색 리셋
     }
-  };
 
+    //setClickedOne(false);
+  };
+  const inputRef = useRef(null);
+//자동완성 리스트 중 하나를 선택하고 바로 엔터를 누르면
   return (
     <Wrapper>
       <Container_>
@@ -104,6 +120,11 @@ const handleEnterKey = (e) => {
           value={userInput}
           onChange={onChange}
           onKeyDown={handleEnterKey}
+          ref={(input=>{
+            if(input && clickedOne){
+              input.focus();
+            }
+          })}
         />
       </Container_>
       {userInput && (
@@ -112,7 +133,9 @@ const handleEnterKey = (e) => {
             <ItemWrapper key={index}>
               <MagImage src={magfinder} alt="돋보기 이미지" />
               <AutoCompleteItem
-                onClick={() => handleClickItem(suggestion.name)}
+                onClick={() => {
+                  handleClickItem(suggestion.name);
+                }}
               >
                 {suggestion.name}
               </AutoCompleteItem>

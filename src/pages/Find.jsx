@@ -37,18 +37,30 @@ const TextWrapper=styled.div`
 const Text=styled.div`
   cursor: pointer;
   font-family: SUIT;
-  font-size: 25px; //글씨크기 줄임(1/25)
+  font-size: 26px; //글씨크기 줄임(1/25)
   font-style: normal;
   font-weight: 800;
   line-height: normal;
   padding: 12px; /* 글자와 테두리 간의 여백 조절 */
   text-align: center;
 `
+const NotFound=styled.div`
+  margin-top: 26px;
+  font-family: SUIT;
+  font-size: 25px; //글씨크기 줄임(1/25)
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 12px; /* 글자와 테두리 간의 여백 조절 */
+  //text-align: center;
+  margin-left: 40px;
+`
 const FuncWrapper=styled.div
 function Find(){
     const location=useLocation();
-    const suggestions=location.state? location.state.suggestions:[];
-    const userInput=location.state? location.state.userInput:"";
+    const suggestions = location.state? location.state.suggestions:[];
+    const userInput = location.state? location.state.userInput:"";
+    console.log(suggestions);
 
     return(
         <>
@@ -56,8 +68,10 @@ function Find(){
         <TextWrapper>
         <Text>'{userInput}'의 검색한 결과</Text>
         </TextWrapper>
+        {suggestions.length==0?<NotFound>'{userInput}'와 일치하는 단어를 찾을 수 없습니다.<br /><br/>
+        모든 단어의 철자가 맞는지 다시 확인해 주시기 바랍니다.</NotFound>:
         <FuncListContainerFromUser suggestions={suggestions}/>
-        
+        }
         </Container>
         </>
     );

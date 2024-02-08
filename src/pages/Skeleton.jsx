@@ -3,7 +3,8 @@ import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Finder from "../components/Finder";
 import { Outlet } from "react-router-dom";
-
+import ChatBot from "../components/ChatBot";
+//import RefreshChat from "../components/RefreshChat";
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -73,7 +74,8 @@ export default function Skeleton() {
       </ServContainer>
       {/* <Finder/> */}
       <Navbar />
-      <Content>
+      <ChatBot/>
+      <Content>        
         <Outlet />
       </Content>
     </MainContainer>

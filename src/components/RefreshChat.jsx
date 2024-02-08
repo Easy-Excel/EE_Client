@@ -4,21 +4,39 @@ import refresh from "../assets/images/chatbot/refresh.png";
 import ChatBot from "./ChatBot";
 
 const Wrapper = styled.div`
-  position: relative;
-  left:100%;
-  bottom:-11%;
+    width: 17%; /* Set the initial width to 50% */
+    //height: 40vh; 
+    height: 30%;
+    position: absolute;
+    left: 92%;
+    bottom:-18%;
+    //top:10%;
+    transform-origin: right bottom;
+
+    @media (max-width: 768px) {
+        width: 80%;
+        height: 80%;
+        left: 10%;
+    }
+
 `;
 
 const Btn=styled.button`
-    position: fixed;
-    /* bottom:10%;
-    right: 50%; */
-    width:5%;
-    height:8%;
-    //margin-left: auto;
+    //position: fixed;
+    //bottom:10%;
+    right: -100%;
+    //transform: translateY(0%);
+    //transform: translateX(900%);
+    margin-right:10;
+    right: -10%; /* 오른쪽 여백 조정 */
+    width:130px;
+    height:123px;
+
+    
     background-color: transparent;
     border:none;
     cursor: pointer;
+    z-index: 100;
 `
 const Image_=styled.img`
     width: 100%;

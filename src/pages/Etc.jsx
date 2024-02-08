@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import CommonUtil from "../components/contents/etcPage/CommonUtil";
 import Feedback from "../components/contents/etcPage/Feedback";
 import BtnWrapper from "../components/BtnWrapper";
+import useComponentSize from "../hooks/UseComponentSzie";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -13,10 +14,6 @@ const Container = styled.div`
 
 //함수 페이지//로 가야함
 function Etc() {
-  useEffect(() => {
-    console.log("API 호출");
-  });
-
   const [activeContent, setActiveContent] = useState("CommonUtil");
 
   const [buttons, setButtons] = useState([
@@ -46,13 +43,20 @@ function Etc() {
     console.log(content);
     setActiveContent(content);
   };
+  //Container 높이 계산해서 자식에게 props로 전달
+  const [componentRef, size] = useComponentSize();
+  const renderHeight = {
+    mainBox: size.height - (45 + 26 + 17),
+    container: size.height - (45 + 26 + 17) - 70 - 10,
+  };
+
   const contentComponents = {
     CommonUtil: <CommonUtil />,
-    Feedback: <Feedback />,
+    Feedback: <Feedback height={renderHeight} />,
   };
 
   return (
-    <Container>
+    <Container ref={componentRef}>
       <BtnWrapper gap={"2.8vw"}>
         {buttons.map((button) => (
           <Button
