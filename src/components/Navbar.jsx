@@ -72,7 +72,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Navbar = ({ toggle, setToggle, handleMenuItemClick  }) => {//
+const Navbar = ({ toggle, setToggle, handleMenuItemClick  }) => {//수정 ! : handleMenuItemClick 을 Navbar에서 props로 받아올 수 있게 추가
   const handleItemClick = (menuName) => {
     handleMenuItemClick(menuName);
   };
@@ -139,7 +139,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick  }) => {//
               navigate("/home/shortcut");
               // setArrowState(true);
               // setActiveMenu("/home/shortcut");
-              handleItemClick("shortcut");
+              handleItemClick("shortcut");// 수정! : shortcut 이면 usestate를 통해 값이 변경될 수 있도록 함.
             }}
           >
             단축키
