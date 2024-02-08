@@ -88,8 +88,12 @@ const Visionlogo = styled.img`
   display: flex;
   /* width: 377px;
   height: 350px; */
-  width: 80%;
+  width: 39vh;
   object-fit: contain;
+
+  @media screen and (max-height: 680px) {
+    width: 265.2px;
+  }
 `;
 
 const Visionlogo2 = styled.div`

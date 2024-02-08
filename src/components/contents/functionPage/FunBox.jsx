@@ -15,7 +15,6 @@ const FunctionBox = styled.div`
   margin-bottom: 24px;
   /* padding: 0px 20px; */
   padding-right: 20px;
-  /* background-color: pink; */
   word-break: break-all;
   &:hover {
     cursor: pointer;

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import FunBox from "./FunBox";
 
-
 const ContainerBox = styled.div`
   box-sizing: border-box;
   width: 100%;
@@ -34,13 +33,14 @@ const ContainerBox = styled.div`
     flex-wrap: wrap;
   }
 
-  @media screen and (max-height: 750px) {
+  //FunBox 높이가 이상해져서 주석처리했습니다(기존 FunListContainer에도 같은 현상 발생해서 주석처리) - 2/8
+  /* @media screen and (max-height: 750px) {
     height: 76%;
-  }
+  } */
 `;
 
 //부모한테서 검색창에 일치하는 funcList를 받아올거임.
-function FuncListContainerFromUser({suggestions}) {
+function FuncListContainerFromUser({ suggestions }) {
   console.log(suggestions);
   return (
     <ContainerBox>

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 
 const Foot = styled.footer`
   height: 103px;
@@ -12,8 +11,6 @@ const Foot = styled.footer`
   padding: 25px 211px;
   /* background-color: white; */
 `;
-
-
 
 const Items = styled.ul`
   display: flex;
@@ -30,6 +27,10 @@ const Item = styled.li`
   font-family: SUIT;
   font-weight: 400;
   word-wrap: break-word;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const CopyRight = styled.div`
@@ -42,17 +43,43 @@ const CopyRight = styled.div`
 `;
 
 export default function Footer() {
+  const navigate = useNavigate();
+  let nextPage = "home";
+
   return (
     <Foot>
       <Items>
-        <Item>
-          <Link to="/ourVision">Our Vision</Link>
+        <Item
+          onClick={() => {
+            nextPage = "ourVision";
+            navigate("/", {
+              state: { nextPage },
+            });
+          }}
+        >
+          Our Vision
+          {/* <Link to="/ourVision">Our Vision</Link> */}
         </Item>
-        <Item>
-          <Link to="/ourTeam">Our Team</Link>
+        <Item
+          onClick={() => {
+            nextPage = "ourTeam";
+            navigate("/", {
+              state: { nextPage },
+            });
+          }}
+        >
+          {/* <Link to="/ourTeam">Our Team</Link> */}
+          Our Team
         </Item>
-        <Item>
-          <Link to="/contact">Contact</Link>
+        <Item
+          onClick={() => {
+            nextPage = "contact";
+            navigate("/", {
+              state: { nextPage },
+            });
+          }}
+        >
+          {/* <Link to="/contact">Contact</Link> */}Contact
         </Item>
       </Items>
       <CopyRight>Copyright © Easy Excel</CopyRight>

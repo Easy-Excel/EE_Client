@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import styled, { css, keyframes } from "styled-components";
 import { ReactComponent as LogoSvg } from "../assets/images/logo/Logo.svg";
 import { motion } from "framer-motion";
@@ -68,9 +68,13 @@ const BGBox = styled.div`
 `;
 function Splash() {
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const nextPage = state === null ? "home" : state.nextPage;
+  console.log(nextPage);
+
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/home");
+      navigate(`/${nextPage}`);
     }, 1500); //1.5초
 
     return () => clearTimeout(timer);

@@ -32,9 +32,11 @@ const ContainerBox = styled.div`
     flex-wrap: wrap;
   }
 
+  //skeleton min-height 설쟁해둬서 필요없음.
+  /* 
   @media screen and (max-height: 750px) {
     height: 76%;
-  }
+  } */
 `;
 
 const typeList = [
