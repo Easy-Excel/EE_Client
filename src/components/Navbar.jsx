@@ -106,8 +106,6 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick }) => {
               navigate(`/home/function/${content}`, {
                 state: { content },
               });
-              //클릭을 하자마자 화살표 모양이 나타나야 함//
-              handleItemClick("");
             }}
           >
             엑셀 함수
