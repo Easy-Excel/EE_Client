@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { ReactComponent as LogoSvg } from "../assets/images/logo/Logo.svg";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { hideChatBot } from "../redux/chatBotReducer";
 //import Finder from "./Finder";
 
 //Header
@@ -76,6 +78,7 @@ const Item = styled.li`
 `;
 
 function Header() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   let nextPage = "home";
 

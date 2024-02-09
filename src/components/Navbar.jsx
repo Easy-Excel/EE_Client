@@ -91,7 +91,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick }) => {
    * -> state 변경에 따라 관련된 컴포넌트 재렌더링됨. 따라서 <ArrowImage> 알맞게 렌더링됨. */
   useEffect(() => {
     setActiveMenu(location.pathname);
-    console.log(location.pathname);
+    // console.log(location.pathname);
   }, [location.pathname]);
 
   return (

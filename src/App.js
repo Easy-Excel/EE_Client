@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { UseDispatch, useDispatch, useSelector } from "react-redux";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import OurVision from "./pages/OurVision";
@@ -15,8 +16,13 @@ import Skeleton from "./pages/Skeleton";
 import FuncDetail from "./components/contents/functionPage/FuncDetail";
 import Find from "./pages/Find";
 import ComDetail from "./components/contents/etcPage/ComDetail";
-import AtoH from "./components/contents/functionPage/AtoH";
+import ChatBot from "./components/ChatBot";
+
 function App() {
+  //store에 접근하여 state 가져오기
+  const dispatch = useDispatch();
+  const { showChatBot } = useSelector((state) => state.chatBot);
+
   return (
     <BrowserRouter>
       <Header />
@@ -46,6 +52,7 @@ function App() {
           <Route path="/home/etc/:etc" element={<ComDetail />} />
         </Route>
       </Routes>
+      {showChatBot ? <ChatBot /> : null}
       <Footer />
     </BrowserRouter>
   );

@@ -1,4 +1,5 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
+import { UseDispatch } from "react-redux";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Finder from "../components/Finder";
@@ -64,12 +65,15 @@ const Content = styled.div`
 `;
 
 export default function Skeleton() {
+  //----챗봇 보이도록 설정(리듀서)----//
+
   //*********************추가된 부분입니다 ********************** */
   const [showFinder, setShowFinder] = useState(true);
   //단축키 nav가 눌렸을 때는 Finder가 사라지고 shortcutFinder가 보이게 하기 위함
   //디폴트로 finder가 보이는 상태.
 
-  const handleMenuItemClick = (menuName) => {// shortcut이면 finder가 사라지도록. shortcutfinder가 보이도록 함.
+  const handleMenuItemClick = (menuName) => {
+    // shortcut이면 finder가 사라지도록. shortcutfinder가 보이도록 함.
     if (menuName === "shortcut") {
       setShowFinder(false);
     } else {
@@ -88,10 +92,10 @@ export default function Skeleton() {
         {/* finder가 있던 부분입니다. */}
       </ServContainer>
       {/* <Finder/> */}
-      <Navbar handleMenuItemClick={handleMenuItemClick}/>
+      <Navbar handleMenuItemClick={handleMenuItemClick} />
       {/* Navbar 컴포넌트에서 단축키를 클릭할 시 그 이벤트를 처리하고 skeleton에 전달하기 위해 props로 전달 */}
-      <ChatBot/>
-      <Content>        
+      {/* <ChatBot/> */}
+      <Content>
         <Outlet />
       </Content>
     </MainContainer>

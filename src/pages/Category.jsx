@@ -8,6 +8,7 @@ import SearchRef from "../components/contents/categoryPage/SearchRef";
 import Text from "../components/contents/categoryPage/Text";
 import DataBase from "../components/contents/categoryPage/DataBase";
 import BtnWrapper from "../components/BtnWrapper";
+import { API } from "../config";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -26,12 +27,11 @@ function Category() {
   const [functionsList, setFunctionsList] = useState([]);
   const [sortingType, setSortyingType] = useState("");
   const [endpoints, setEndpoints] = useState({
-    DateTime: "http://3.39.29.173:8080/functions/category?type=DATE_TIME",
-    Statistics: "http://3.39.29.173:8080/functions/category?type=STATISTICS",
-    SearchRef:
-      "http://3.39.29.173:8080/functions/category?type=SEARCH_REFERENCE",
-    DataBase: "http://3.39.29.173:8080/functions/category?type=DATABASE",
-    Text: "http://3.39.29.173:8080/functions/category?type=TEXT",
+    DateTime: `${API.FUNCTION}/category?type=DATE_TIME`,
+    Statistics: `${API.FUNCTION}/category?type=STATISTICS`,
+    SearchRef: `${API.FUNCTION}/category?type=SEARCH_REFERENCE`,
+    DataBase: `${API.FUNCTION}/category?type=DATABASE`,
+    Text: `${API.FUNCTION}/category?type=TEXT`,
   });
 
   const fetchFunListHandler = useCallback(async () => {

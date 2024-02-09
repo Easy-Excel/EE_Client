@@ -9,6 +9,7 @@ import BtnWrapper from "../components/BtnWrapper";
 import ChatBot from "../components/ChatBot";
 //import RefreshChat from "../components/RefreshChat";
 import Finder from "../components/Finder";
+import { API } from "../config";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -28,9 +29,9 @@ function Function() {
   const [functionsList, setFunctionsList] = useState([]);
   let sortingType = null;
   const [endpoints, setEndpoints] = useState({
-    AtoH: "http://3.39.29.173:8080/functions/list?firstSorting=a&lastSorting=h",
-    ItoP: "http://3.39.29.173:8080/functions/list?firstSorting=i&lastSorting=p",
-    QtoZ: "http://3.39.29.173:8080/functions/list?firstSorting=q&lastSorting=z",
+    AtoH: `${API.FUNCTION}/list?firstSorting=a&lastSorting=h`,
+    ItoP: `${API.FUNCTION}/list?firstSorting=i&lastSorting=p`,
+    QtoZ: `${API.FUNCTION}/list?firstSorting=q&lastSorting=z`,
   });
   const [xButton, setXButton] = useState(false);
 
