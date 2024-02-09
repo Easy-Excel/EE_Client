@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Title } from "../extraPage/ExtraComponent";
+import { API } from "../../../config";
 
 const FBContainer = styled.div`
   width: 100%;
@@ -119,7 +120,7 @@ export default function Feedback({ height }) {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://3.39.29.173:8080/etc/feedback", {
+      const response = await fetch(API.FEEDBACK, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -128,6 +129,7 @@ export default function Feedback({ height }) {
       });
       if (response.ok) {
         alert("정상적으로 폼이 제출되었습니다.");
+        window.location.reload();
       } else {
         alert("fail! response status : ", response.status);
       }
@@ -136,9 +138,6 @@ export default function Feedback({ height }) {
     }
   };
 
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
   return (
     <FBContainer height={height.mainBox}>
       <Title text={"Easy Excel에 대한 피드백을 남겨주세요!"} />
