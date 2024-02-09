@@ -6,6 +6,8 @@ import RefreshChat from "./RefreshChat";
 import useComponentSize from "../hooks/UseComponentSzie";
 //import refresh from "../assets/images/chatbot/refresh.png";
 
+const messageBoxPadding = "12px";
+
 const Wrapper = styled.div`
   position: fixed;
   right: 34px;
@@ -80,54 +82,86 @@ const Btn = styled.button`
   cursor: pointer;
 `;
 
-//대화 내용 컨테이너
+//대화 내용 컨테이너(회색박스)
 const DialogContainer = styled.div`
   width: 100%;
   height: 55vh;
+  padding-bottom: 50px;
   background: var(--Gray-100, #f6f5f5);
   //background: #e7e7a9;
   position: relative;
   min-height: 200px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */ //여기에 overflow scroll을 주면 적용이 안되고 하위에 한 번 더 감싸서 스크롤을 주니 해결됐습니다.
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 `;
 
+const DialogForScroll = styled.div`
+  height: 100%;
+  overflow-y: auto;
+
+  //-----스크롤바 스타일링------//
+  &::-webkit-scrollbar {
+    flex-shrink: 0;
+    width: 10px; //스크롤바의 너비 조절 (조금 좁게 함)
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #d9d9d9;
+  }
+  //호버시 색상 변경
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #908f8f;
+  }
+`;
+
+//사용자 input Box
 const Userbox = styled.div`
   display: flex;
-  padding: 10px;
+  justify-content: flex-end;
   width: 100%;
-  align-items: center;
-  gap: 7px;
-  position: absolute;
+  padding: 0px ${messageBoxPadding} 15px 40px;
+  flex-wrap: wrap;
+
+  /* width: 100%; */
+  /* align-items: center; */
+  /* gap: 7px; */
+  /* position: absolute;
   right: 14px;
-  bottom: 65px;
-  border-radius: 20px;
-  background: var(--Primary-200, #409667);
+  bottom: 65px; */
 `;
 
 const UserQuestion = styled.div`
-  background-color: #c2f0fc;
-  border-radius: 10px;
-  padding: 8px;
-  margin-bottom: 8px;
+  color: #f9f8f8;
+  background: var(--Primary-200, #409667);
+  border-radius: 20px;
+  padding: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
 `;
 
 const Responsebox = styled.div`
   display: flex;
-  padding: 10px;
+  justify-content: flex-start;
+  padding: 0px 40px 15px ${messageBoxPadding};
+  /* padding: 10px;
   align-items: center;
   gap: 7px;
   position: absolute;
   left: 12px;
   bottom: 140px;
   border-radius: 20px;
-  background: var(--Gray-25, #fcfcfc);
+  background: var(--Gray-25, #fcfcfc); */
   //position: relative;
 `;
 const ChatBotResponse = styled.div`
-  background-color: #ffd3b6;
-  border-radius: 10px;
-  padding: 8px;
-  margin-bottom: 8px;
+  background: var(--Gray-25, #fcfcfc);
+  border-radius: 20px;
+  padding: 10px;
+  color: #605f5f;
 `;
 const Input = styled.input`
   display: flex;
@@ -198,19 +232,22 @@ export default function ChatBot({ xButton }) {
             </Btn>
           </TitleContainer>
           <DialogContainer paddingTop={size.height} className="다이얼로그 박스">
-            {dialog.map((entry, index) => (
-              <div key={index}>
-                {entry.type === "user" ? (
-                  <Userbox>
-                    <UserQuestion>{entry.content}</UserQuestion>
-                  </Userbox>
-                ) : (
-                  <Responsebox>
-                    <ChatBotResponse>{entry.content}</ChatBotResponse>
-                  </Responsebox>
-                )}
-              </div>
-            ))}
+            <DialogForScroll>
+              {dialog.map(
+                (entry, index) =>
+                  // <div key={index}>
+                  entry.type === "user" ? (
+                    <Userbox key={index}>
+                      <UserQuestion>{entry.content}</UserQuestion>
+                    </Userbox>
+                  ) : (
+                    <Responsebox>
+                      <ChatBotResponse>{entry.content}</ChatBotResponse>
+                    </Responsebox>
+                  )
+                // </div>
+              )}
+            </DialogForScroll>
             <Input
               className="input입력란"
               text="text"
