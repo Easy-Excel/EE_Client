@@ -47,7 +47,7 @@ function Etc() {
   const [componentRef, size] = useComponentSize();
   const renderHeight = {
     mainBox: size.height - (45 + 26 + 17),
-    container: size.height - (45 + 26 + 17) - 70 - 10,
+    container: size.height - (45 + 26 + 17) - 25,
   };
 
   const contentComponents = {

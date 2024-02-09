@@ -8,6 +8,7 @@ const FBContainer = styled.div`
   height: ${(props) => props.height}px;
   padding-top: 20px;
   overflow-y: auto;
+  padding-right: 10px;
   /* position: relative; */
 
   //-----스크롤바 스타일링------//
@@ -70,6 +71,8 @@ const FBTextArea = styled.textarea`
   border: 1px solid black;
   padding: 10px 15px;
   font-family: SUIT;
+
+  resize: vertical;
 `;
 
 const FBButton = styled.button`
@@ -139,7 +142,7 @@ export default function Feedback({ height }) {
   };
 
   return (
-    <FBContainer height={height.mainBox}>
+    <FBContainer height={height.container}>
       <Title text={"Easy Excel에 대한 피드백을 남겨주세요!"} />
       <FBForm onSubmit={handleSubmit}>
         <FBFormItem>
