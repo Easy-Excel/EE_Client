@@ -10,6 +10,10 @@ const StHeader = styled.nav`
   align-items: center;
   justify-content: center; /* 화면 가운데 정렬을 위한 스타일 */
   margin-top: -38px; /* 원하는 위치로 조정 */
+  position: relative;
+  /* width: 100%;
+
+  top: -38px; */
 `;
 
 const NavMenu = styled.div`
@@ -72,7 +76,8 @@ const Wrapper = styled.div`
   }
 `;
 
-const Navbar = ({ toggle, setToggle, handleMenuItemClick }) => {
+const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
+  //검색창 렌더링 위해 props 추가
   //수정 ! : handleMenuItemClick 을 Navbar에서 props로 받아올 수 있게 추가
   const handleItemClick = (menuName) => {
     handleMenuItemClick(menuName);
@@ -190,6 +195,8 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick }) => {
           />
         </Wrapper>
       </NavMenu>
+      {/* 검색창 렌더링 위해 추가 */}
+      {children}
     </StHeader>
   );
 };

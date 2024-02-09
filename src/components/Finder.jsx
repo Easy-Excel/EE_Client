@@ -6,13 +6,17 @@ import magfinder from "../assets/images/magfinder.png";
 import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
-  position: absolute;
-  right: 14%;
-  bottom: 78%;
+  //right: 14%;
+  /* bottom: 78%; */
   width: 300px;
   height: 38px;
   z-index: 100;
-  margin:2px;
+  /* margin: 2px; */
+
+  //--검색창 navBar 자식으로 넣고 navBar 기준으로 position 설정--//
+  position: absolute;
+  top: -60px;
+  right: 14%;
 `;
 
 const Container_ = styled.div`
@@ -59,7 +63,7 @@ const AutoCompleteItem = styled.div`
   height: 100%;
   color: gray;
   cursor: pointer; // 마우스 커서를 포인터로 변경하여 클릭 가능한 항목임을 나타냅니다.
-  background-color: ${(props) => (props.isSelected? "lightgray":"white")};
+  background-color: ${(props) => (props.isSelected ? "lightgray" : "white")};
 `;
 
 const Finder = () => {
@@ -67,8 +71,8 @@ const Finder = () => {
   const [suggestions, setSuggestions] = useState([]);
   const inputRef = useRef(null);
   const [clickedOne, setClickedOne] = useState(false);
-  const [selectedItemIndex,setSelectedItemIndex]=useState(-1);
-  const  navigate  = useNavigate();
+  const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
+  const navigate = useNavigate();
   const onChange = (e) => {
     setUserInput(e.target.value);
   };
@@ -89,38 +93,39 @@ const Finder = () => {
     fetchData();
     setSelectedItemIndex(-1);
   }, [userInput]);
-  
 
   const handleClickItem = (selectedItem) => {
-  //클릭을 했으면,
+    //클릭을 했으면,
     setUserInput(selectedItem);
     setClickedOne(true);
   };
 
-
-const handleKeyDown = (e) => {
-  if (e.key === "Enter") {
-      if(selectedItemIndex !==-1){
-      setUserInput(suggestions[selectedItemIndex].name);
-      setSelectedItemIndex(-1);
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      if (selectedItemIndex !== -1) {
+        setUserInput(suggestions[selectedItemIndex].name);
+        setSelectedItemIndex(-1);
+      } else {
+        navigate("/home/find", {
+          state: { suggestions: suggestions, userInput: userInput },
+        });
+        setUserInput(""); // 검색했으면 기존 검색 리셋
       }
-      else{
-      navigate("/home/find", { state: { suggestions: suggestions, userInput: userInput } });
-      setUserInput(""); // 검색했으면 기존 검색 리셋
+    } else if (e.key === "ArrowDown") {
+      setSelectedItemIndex((prevIndex) =>
+        prevIndex < suggestions.length - 1 ? prevIndex + 1 : prevIndex
+      );
+      //setUserInput(""); // 검색했으면 기존 검색 리셋
+    } else if (e.key === "ArrowUp") {
+      setSelectedItemIndex((prevIndex) =>
+        prevIndex > 0 ? prevIndex - 1 : prevIndex
+      );
     }
-  
-  }else if (e.key === "ArrowDown") {
-    setSelectedItemIndex(prevIndex => (prevIndex < suggestions.length - 1) ? prevIndex + 1 : prevIndex);
-    //setUserInput(""); // 검색했으면 기존 검색 리셋
-
-  } else if (e.key === "ArrowUp") {
-    setSelectedItemIndex(prevIndex => (prevIndex > 0) ? prevIndex - 1 : prevIndex);
-  }
-  //setSelectedItemIndex(0);
-};
+    //setSelectedItemIndex(0);
+  };
 
   //const inputRef = useRef(null);
-//자동완성 리스트 중 하나를 선택하고 바로 엔터를 누르면
+  //자동완성 리스트 중 하나를 선택하고 바로 엔터를 누르면
   return (
     <Wrapper>
       <Container_>
@@ -130,11 +135,11 @@ const handleKeyDown = (e) => {
           value={userInput}
           onChange={onChange}
           onKeyDown={handleKeyDown}
-          ref={(input=>{
-            if(input && clickedOne){
+          ref={(input) => {
+            if (input && clickedOne) {
               input.focus();
             }
-          })}
+          }}
         />
       </Container_>
       {userInput && (
@@ -143,11 +148,10 @@ const handleKeyDown = (e) => {
             <ItemWrapper key={index}>
               <MagImage src={magfinder} alt="돋보기 이미지" />
               <AutoCompleteItem
-                isSelected={index===selectedItemIndex}
+                isSelected={index === selectedItemIndex}
                 onClick={() => {
                   handleClickItem(suggestion.name);
                 }}
-                
               >
                 {suggestion.name}
               </AutoCompleteItem>
@@ -155,10 +159,8 @@ const handleKeyDown = (e) => {
           ))}
         </AutoCompleteList>
       )}
-    
     </Wrapper>
   );
 };
-
 
 export default Finder;
