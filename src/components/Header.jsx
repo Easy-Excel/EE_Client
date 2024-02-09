@@ -19,7 +19,7 @@ const Head = styled.header`
   height: 65px;
   color: #3a3a3a;
   box-sizing: border-box;
-  z-index: 100; //우선 순위 가장 높게
+  z-index: 500; //우선 순위 가장 높게
 `;
 
 //Column (Layout)
