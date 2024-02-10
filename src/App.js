@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { UseDispatch, useDispatch, useSelector } from "react-redux";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import OurVision from "./pages/OurVision";
@@ -13,9 +14,15 @@ import Extra from "./pages/Extra";
 import Etc from "./pages/Etc";
 import Skeleton from "./pages/Skeleton";
 import FuncDetail from "./components/contents/functionPage/FuncDetail";
+import Find from "./pages/Find";
 import ComDetail from "./components/contents/etcPage/ComDetail";
+import ChatBot from "./components/ChatBot";
 
 function App() {
+  //store에 접근하여 state 가져오기
+  const dispatch = useDispatch();
+  const { showChatBot } = useSelector((state) => state.chatBot);
+
   return (
     <BrowserRouter>
       <Header />
@@ -26,18 +33,27 @@ function App() {
         <Route path="/contact" element={<Contact />}></Route>
         <Route element={<Skeleton />}>
           <Route path="/home" element={<Home />}></Route>
-          <Route path="/home/function" element={<Function />}></Route>
-          <Route path="/home/category" element={<Category />}></Route>
+          {/* <Route path="/home/function" element={<Function />}></Route> */}
+          <Route path="/home/function/:content" element={<Function />} />
+          <Route path="/home/category/:content" element={<Category />}></Route>
           <Route path="/home/shortcut" element={<Shortcut />}></Route>
           <Route path="/home/extra" element={<Extra />}></Route>
           <Route path="/home/etc" element={<Etc />}></Route>
+          <Route path="/home/find" element={<Find />}></Route>
           {/* function 세부 내용 라우팅 */}
-          <Route path="/home/function/:funcName" element={<FuncDetail />} />
+          <Route
+            path="/home/function/:content/:funcName"
+            element={<FuncDetail />}
+          />
+          <Route
+            path="/home/category/:content/:funcName"
+            element={<FuncDetail />}
+          />
           <Route path="/home/etc/:etc" element={<ComDetail />} />
         </Route>
       </Routes>
+      {showChatBot ? <ChatBot /> : null}
       <Footer />
-      
     </BrowserRouter>
   );
 }

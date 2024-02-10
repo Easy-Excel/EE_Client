@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { ReactComponent as LogoSvg } from "../assets/images/logo/Logo.svg";
 import { Link } from "react-router-dom";
-import Finder from "./Finder";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { hideChatBot } from "../redux/chatBotReducer";
+//import Finder from "./Finder";
 
 //Header
 const Head = styled.header`
@@ -16,7 +19,7 @@ const Head = styled.header`
   height: 65px;
   color: #3a3a3a;
   box-sizing: border-box;
-  z-index: 100; //우선 순위 가장 높게
+  z-index: 500; //우선 순위 가장 높게
 `;
 
 //Column (Layout)
@@ -30,6 +33,10 @@ const Col = styled.div`
   &:nth-child(2) {
     margin-right: 110px;
     margin-left: auto;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 
@@ -65,29 +72,67 @@ const Item = styled.li`
   &:hover {
     color: #107c41;
   }
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 function Header() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  let nextPage = "home";
+
   return (
     <Head>
-      <Col>
-        <Link to="/home">
-          <Title>
-            <Logo />
-            Easy Excel
-          </Title>
-        </Link>
+      <Col
+        onClick={() => {
+          nextPage = "home";
+          navigate("/", {
+            state: { nextPage },
+          });
+        }}
+      >
+        {/* <Link to="/"> */}
+        <Title>
+          <Logo />
+          Easy Excel
+        </Title>
+        {/* </Link> */}
       </Col>
       <Col>
         <Items>
-          <Item>
-            <Link to="/ourVision">Our Vision</Link>
+          <Item
+            onClick={() => {
+              nextPage = "ourVision";
+              navigate("/", {
+                state: { nextPage },
+              });
+            }}
+          >
+            Our Visoin
+            {/* <Link to="/ourVision">Our Vision</Link> */}
           </Item>
-          <Item>
-            <Link to="/ourTeam">Our Team</Link>
+          <Item
+            onClick={() => {
+              nextPage = "ourTeam";
+              navigate("/", {
+                state: { nextPage },
+              });
+            }}
+          >
+            Our Team
+            {/* <Link to="/ourTeam">Our Team</Link> */}
           </Item>
-          <Item>
-            <Link to="/contact">Contact</Link>
+          <Item
+            onClick={() => {
+              nextPage = "contact";
+              navigate("/", {
+                state: { nextPage },
+              });
+            }}
+          >
+            Contact
+            {/* <Link to="/contact">Contact</Link> */}
           </Item>
         </Items>
       </Col>

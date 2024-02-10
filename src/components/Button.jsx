@@ -11,22 +11,22 @@ const Btn = styled.div`
 
   width: ${(props) => props.width};
   height: ${(props) => props.height};
-  background-color: ${(props) => props.backgroundColor};
-  color: ${(props) => props.fontColor};
+  background-color: ${(props) => props.$backgroundColor};
+  color: ${(props) => props.$fontColor};
   border: ${(props) => props.border}; //선택/미선택 테두리 스타일 달리 적용
 
   overflow: hidden;
   cursor: pointer;
 
   //특정 페이지에서 버튼위치를 절대 좌표로 쓰기 위한 스타일 추가
-  position: ${(props) => (props.absolute ? "absolute" : "static")};
-  left: ${(props) => (props.absolute ? props.left : "auto")};
-  bottom: ${(props) => (props.absolute ? props.bottom : "auto")};
+  position: ${(props) => (props.absolute !== "false" ? "absolute" : "static")};
+  left: ${(props) => (props.absolute !== "false" ? props.left : "auto")};
+  bottom: ${(props) => (props.absolute !== "false" ? props.bottom : "auto")};
 `;
 
 const ButtonTitle = styled.div`
   //버튼 안의 텍스트
-  color: ${(props) => props.fontColor};
+  color: ${(props) => props.$fontColor};
   font-family: SUIT;
   font-size: 18px; //버튼 글자를 조금 줄였습니다.(1/28)
   font-style: normal;
@@ -49,7 +49,7 @@ function Button({
   onButtonClick,
   backgroundColor,
   fontColor,
-  absolute = false,
+  absolute = "false",
   bottom = "auto",
   left = "auto",
 }) {
@@ -58,13 +58,13 @@ function Button({
       width={width}
       height={height}
       onClick={onButtonClick}
-      backgroundColor={backgroundColor}
+      $backgroundColor={backgroundColor}
       border={border}
       absolute={absolute}
       bottom={bottom}
       left={left}
     >
-      <ButtonTitle fontColor={fontColor}>{text}</ButtonTitle>
+      <ButtonTitle $fontColor={fontColor}>{text}</ButtonTitle>
     </Btn>
   );
 }

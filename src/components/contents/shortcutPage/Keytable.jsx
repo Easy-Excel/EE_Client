@@ -145,7 +145,7 @@ function Keytable({ height , contentType}) {
     .catch((err) =>{
       console.log("Error fetching data:",err);
     });
-  }, [type]); // type 값이 변경될 때마다 fetchData 함수를 호출
+  }, [type]); // type 값이 변경될 때마다 호출
 
 
   return (

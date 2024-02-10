@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import styled from "styled-components";
 import Button from "../components/Button";
 import DateTime from "../components/contents/categoryPage/DateTime";
@@ -8,30 +8,31 @@ import SearchRef from "../components/contents/categoryPage/SearchRef";
 import Text from "../components/contents/categoryPage/Text";
 import DataBase from "../components/contents/categoryPage/DataBase";
 import BtnWrapper from "../components/BtnWrapper";
+import { API } from "../config";
 
 const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding-bottom: 20px;
 `;
-
 //함수 페이지//로 가야함
 function Category() {
-  const [activeContent, setActiveContent] = useState("");
+  const navigate = useNavigate();
+
+  //네비게이트로 넘겨받은 정보
+  const { state } = useLocation();
+  const content = state.content;
+  // console.log(content);
+
   const [functionsList, setFunctionsList] = useState([]);
   const [sortingType, setSortyingType] = useState("");
   const [endpoints, setEndpoints] = useState({
-    DateTime: "http://3.39.29.173:8080/functions/category?type=DATE_TIME",
-    Statistics: "http://3.39.29.173:8080/functions/category?type=STATISTICS",
-    SearchRef:
-      "http://3.39.29.173:8080/functions/category?type=SEARCH_REFERENCE",
-    DataBase: "http://3.39.29.173:8080/functions/category?type=DATABASE",
-    Text: "http://3.39.29.173:8080/functions/category?type=TEXT",
+    DateTime: `${API.FUNCTION}/category?type=DATE_TIME`,
+    Statistics: `${API.FUNCTION}/category?type=STATISTICS`,
+    SearchRef: `${API.FUNCTION}/category?type=SEARCH_REFERENCE`,
+    DataBase: `${API.FUNCTION}/category?type=DATABASE`,
+    Text: `${API.FUNCTION}/category?type=TEXT`,
   });
-
-  useEffect(() => {
-    setActiveContent("DateTime");
-  }, []);
 
   const fetchFunListHandler = useCallback(async () => {
     // setIsLoading(true);
@@ -39,12 +40,11 @@ function Category() {
 
     try {
       //async await 사용
-      const response = await fetch(endpoints[activeContent], { method: "GET" });
+      const response = await fetch(endpoints[content], { method: "GET" });
       const data = await response.json();
       const functions = data.result.inquiryList;
 
       setFunctionsList(functions);
-      console.log(data.result.categoryType);
       setSortyingType(data.result.categoryType);
 
       // setIsLoading(false);
@@ -52,7 +52,7 @@ function Category() {
       // setError(error.message);
     }
     // setIsLoading(false);
-  }, [activeContent, endpoints]);
+  }, [content, endpoints]);
 
   useEffect(() => {
     fetchFunListHandler();
@@ -112,22 +112,46 @@ function Category() {
   ]); //버튼들을 담을 배열
 
   const handleButtonClick = (content) => {
-    setActiveContent(content);
+    navigate(`/home/category/${content}`, {
+      state: { content },
+    });
   };
   const contentComponents = {
     DateTime: (
-      <DateTime functionsList={functionsList} sortingType={sortingType} />
+      <DateTime
+        functionsList={functionsList}
+        sortingType={sortingType}
+        content={content}
+      />
     ),
     Statistics: (
-      <Statistics functionsList={functionsList} sortingType={sortingType} />
+      <Statistics
+        functionsList={functionsList}
+        sortingType={sortingType}
+        content={content}
+      />
     ),
     SearchRef: (
-      <SearchRef functionsList={functionsList} sortingType={sortingType} />
+      <SearchRef
+        functionsList={functionsList}
+        sortingType={sortingType}
+        content={content}
+      />
     ),
     DataBase: (
-      <DataBase functionsList={functionsList} sortingType={sortingType} />
+      <DataBase
+        functionsList={functionsList}
+        sortingType={sortingType}
+        content={content}
+      />
     ),
-    Text: <Text functionsList={functionsList} sortingType={sortingType} />,
+    Text: (
+      <Text
+        functionsList={functionsList}
+        sortingType={sortingType}
+        content={content}
+      />
+    ),
   };
 
   return (
@@ -138,15 +162,15 @@ function Category() {
             key={button.id}
             width={button.width}
             height={button.height}
-            backgroundColor={button.id === activeContent ? "#107c41" : "white"}
-            fontColor={button.id === activeContent ? "white" : "black"}
-            border={button.id === activeContent ? "none" : "1px solid black"}
+            backgroundColor={button.id === content ? "#107c41" : "white"}
+            fontColor={button.id === content ? "white" : "black"}
+            border={button.id === content ? "none" : "1px solid black"}
             text={button.text}
             onButtonClick={() => handleButtonClick(button.content)}
           ></Button>
         ))}
       </BtnWrapper>
-      {contentComponents[activeContent]}
+      {contentComponents[content]}
     </Container>
   );
 }

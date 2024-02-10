@@ -5,6 +5,7 @@ import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
 
 import useComponentSize from "../../../hooks/UseComponentSzie";
+import { API } from "../../../config";
 
 //버튼
 import Button from "../../Button";
@@ -34,7 +35,7 @@ export default function FuncDetail() {
     // 데이터가져오기
     // 함수 설명 : http://3.39.29.173:8080/functions/{function_id}
     // 함수 예제 조회 : http://3.39.29.173:8080/functions/{function_id}/examples
-    fetch(`http://3.39.29.173:8080/functions/${funcId}`)
+    fetch(`${API.FUNCTION}/${funcId}`)
       .then((response) => {
         return response.json();
       })
@@ -46,7 +47,7 @@ export default function FuncDetail() {
         console.error("Error fetching data:", error);
       });
 
-    fetch(`http://3.39.29.173:8080/functions/${funcId}/examples`)
+    fetch(`${API.FUNCTION}/${funcId}/examples`)
       .then((response) => response.json())
       .then((data) => {
         setFuncExData(data.result.functionsExampleDTOList);

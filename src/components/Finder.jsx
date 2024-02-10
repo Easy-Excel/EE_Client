@@ -1,115 +1,230 @@
-import React, { useState ,useRef, useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
-import magfinder from "../assets/images/magfinder.png";
-import FuncListContainerFromUser from "./contents/functionPage/FuncListContainerFromUser";
-import axios from "axios";
+import magfinder from "../assets/images/search.png";
+//import FuncListContainerFromUser from "./contents/functionPage/FuncListContainerFromUser";
+//import Container from "./contents/functionPage/FuncListContainer"
+import { useNavigate } from "react-router-dom";
+import { API } from "../config";
+const Wrapper = styled.div`
+  //right: 14%;
+  /* bottom: 78%; */
+  width: 300px;
+  height: 38px;
+  z-index: 100;
+  /* margin: 2px; */
 
-const Wrapper=styled.div`
-    position: absolute;
-    //position: fixed;
-    right:14%;
-    bottom: 78%;
-    width:300px;
-    height:38px;
+  //--검색창 navBar 자식으로 넣고 navBar 기준으로 position 설정--//
+  position: absolute;
+  top: -48px;
+  right: 14%;
+  @media screen and (max-width: 1400px) and (max-height: 750px) {
+    width: 220px;
+  }
+  @media screen and (max-width: 950px) {
+    width: 220px;
+  }
+  @media screen and (max-width: 550px) {
+    width: 190px;
+  }
 `;
 
-const Container=styled.div`
-//밑에만 라인 나오게 
-    position: relative;
-    border:none;
-    width: 100%;
-    height:100%;
-    border-bottom: 1px solid gray;
-    margin-left: 2%;
-    bottom:4px;
+const Container_ = styled.div`
+  position: relative;
+  border: none;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid gray;
+  margin-left: 2%;
+  bottom: 4px;
+  display: flex;
+  padding: 0px 10px;
+  gap: 10px;
+  @media screen and (max-width: 950px) {
+    gap: 8px;
+    align-items: flex-end;
+    padding-bottom: 8px;
+  }
+
+  @media screen and (max-width: 1400px) and (max-height: 750px) {
+    gap: 8px;
+    align-items: flex-end;
+    padding-bottom: 8px;
+  }
+  @media screen and (max-width: 550px) {
+    gap: 5px;
+    align-items: flex-end;
+    padding-bottom: 8px;
+  }
 `;
 
-const MagImage=styled.img`
-    width: 24px;
-    height: 24px;
-    margin-right: 5px;
-    margin-left: 5px;
-    margin-bottom:-9px;
-`;//돋보기 이미지
-
-const InputBox=styled.input`
-    border: none;
-    background-color: transparent;
-    width:70%;
-    font-size: 15px;
-    margin-top: 5.5px;
-    //padding-bottom: 2px;
+const ImgBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  @media screen and (max-width: 950px) {
+    width: 18px;
+  }
+  @media screen and (max-width: 1400px) and (max-height: 750px) {
+    width: 18px;
+  }
+  @media screen and (max-width: 550px) {
+    width: 16px;
+  }
 `;
 
-const AutoCompleteList=styled.datalist``;
+const MagImage = styled.img`
+  /* width: 24px;
+  height: 22px; */
+  object-fit: contain;
+  width: 100%;
+  /* margin-right: 5px;*/
+  /* margin-bottom: -6.5px; */
+  /* @media screen and (max-width: 950px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 500px) {
+    width: 70%;
+  } */
+`;
 
+const InputBox = styled.input`
+  border: none;
+  background-color: transparent;
+  width: 80%;
+  font-size: 15px;
+  /* margin-top: 11px; */
+  outline: none;
+  @media screen and (max-width: 950px) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: 1400px) and (max-height: 750px) {
+    font-size: 13px;
+  }
 
-const AutoCompleteItem=styled.option``;
+  @media screen and (max-width: 550px) {
+    font-size: 11px;
+  }
+`;
 
-const Finder=()=>{
-    const [userInput,setUserInput]=useState("");
-    const [suggestions, setSuggestions]=useState([]);//자동완성기능을 위한 리스트
-    const inputRef=useRef(null);
-    const [clickedOne,setClickedOne]=useState(false);//사용자가 하나를 클릭했을 경우(or not 검색 자체를 엔터눌렀을 경우)
+const AutoCompleteList = styled.div`
+  z-index: 2;
+  background-color: white;
+  max-height: 300px;
+  overflow-y: auto;
+`;
 
-    const onChange=(e)=>{
-        setUserInput(e.target.value);
-    }//한글자씩 칠 때 마다 userInput이 바뀌는 거임
+const ItemWrapper = styled.div`
+  width: 100%;
+  height: 22px;
+  display: flex;
+`;
 
-    useEffect(()=>{
-        const fetchData=async()=>{
-            try{
-                console.log("api 받아옴");
-                const response=await fetch("/functions/search");//await axios,get("");
-                const data=await response.json();
-                const availableSuggestions = data.map(item=>item.functionName);
-                const filteredSuggestions = availableSuggestions.filter(suggestions=>
-                    suggestions.toLowerCase().includes(userInput.toLocaleLowerCase()));
-                setSuggestions(filteredSuggestions);
-            }
-            catch(error){
-                console.error("error fetching data: ");
-            }
-        };
-        fetchData();
-    },[userInput]);
+const AutoCompleteItem = styled.div`
+  width: 100%;
+  height: 100%;
+  color: gray;
+  cursor: pointer; // 마우스 커서를 포인터로 변경하여 클릭 가능한 항목임을 나타냅니다.
+  background-color: ${(props) => (props.isSelected ? "lightgray" : "white")};
+`;
 
-    const handleSelectSuggestion=(selectedSuggestion)=>{
-        setUserInput(selectedSuggestion);
-        //사용자가 하나만을 선택한 거니 suggestions에 그 하나의 값 만을 넣는다?
-        setClickedOne(true);
+const Finder = () => {
+  const [userInput, setUserInput] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const inputRef = useRef(null);
+  const [clickedOne, setClickedOne] = useState(false);
+  const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
+  const navigate = useNavigate();
+  const onChange = (e) => {
+    setUserInput(e.target.value);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${API.FUNCTION}/search?keyword=${userInput}`
+        );
+        const data = await response.json();
+        setSuggestions(data.result.functionsSearchList);
+        //console.log(suggestions);
+      } catch (error) {
+        console.error("error fetching data: ");
+      }
+    };
+    fetchData();
+    setSelectedItemIndex(-1);
+  }, [userInput]);
+
+  const handleClickItem = (selectedItem) => {
+    //클릭을 했으면,
+    setUserInput(selectedItem);
+    setClickedOne(true);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      if (selectedItemIndex !== -1) {
+        setUserInput(suggestions[selectedItemIndex].name);
+        setSelectedItemIndex(-1);
+      } else {
+        navigate("/home/find", {
+          state: { suggestions: suggestions, userInput: userInput },
+        });
+        setUserInput(""); // 검색했으면 기존 검색 리셋
+      }
+    } else if (e.key === "ArrowDown") {
+      setSelectedItemIndex((prevIndex) =>
+        prevIndex < suggestions.length - 1 ? prevIndex + 1 : prevIndex
+      );
+      //setUserInput(""); // 검색했으면 기존 검색 리셋
+    } else if (e.key === "ArrowUp") {
+      setSelectedItemIndex((prevIndex) =>
+        prevIndex > 0 ? prevIndex - 1 : prevIndex
+      );
     }
-    //case1. 사용자가 filter list에서 함수를 골라 클릭했을 경우->해당 함수설명으로 navigate하면 됨.
-    //case2. 사용자의 인풋 자체를 검색하여 엔터를 눌렀을 경우->그 인풋을 포함하거나 일치하는 함수 리스트를 쫙 나열해야 된다.
+    //setSelectedItemIndex(0);
+  };
 
-    return(
-        <Wrapper>
-        <Container>
-        <MagImage src={magfinder} alt="돋보기 이미지"/>
-        <InputBox 
-        placeholder="찾고 싶은 함수를 검색해주세요"
-        value={userInput}
-        onChange={onChange}
-        list="suggestions"
-        ref={inputRef}
-        />
-        </Container>
-        <AutoCompleteList id="suggestions">
-            {suggestions.map((suggestion,index)=>{
-                <AutoCompleteItem 
-                key={index}
-                value={suggestion}
-                onClick={()=>handleSelectSuggestion(suggestion)}
-                />
-            })}
-        </AutoCompleteList>
-        {clickedOne? <FuncListContainerFromUser
-            suggestions={suggestions}/>:
-            <FuncListContainerFromUser
-            suggestions={[userInput]}/>
+  //const inputRef = useRef(null);
+  //자동완성 리스트 중 하나를 선택하고 바로 엔터를 누르면
+  return (
+    <Wrapper>
+      <Container_>
+        <ImgBox>
+          <MagImage src={magfinder} alt="돋보기 이미지" />
+        </ImgBox>
+        <InputBox
+          placeholder="찾고 싶은 함수를 검색해주세요"
+          value={userInput}
+          onChange={onChange}
+          onKeyDown={handleKeyDown}
+          ref={(input) => {
+            if (input && clickedOne) {
+              input.focus();
             }
-       </Wrapper>
-    );
+          }}
+        />
+      </Container_>
+      {userInput && (
+        <AutoCompleteList>
+          {suggestions.map((suggestion, index) => (
+            <ItemWrapper key={index}>
+              <MagImage src={magfinder} alt="돋보기 이미지" />
+              <AutoCompleteItem
+                isSelected={index === selectedItemIndex}
+                onClick={() => {
+                  handleClickItem(suggestion.name);
+                }}
+              >
+                {suggestion.name}
+              </AutoCompleteItem>
+            </ItemWrapper>
+          ))}
+        </AutoCompleteList>
+      )}
+    </Wrapper>
+  );
 };
 
 export default Finder;

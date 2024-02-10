@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const FunctionBox = styled.div`
@@ -15,7 +15,6 @@ const FunctionBox = styled.div`
   margin-bottom: 24px;
   /* padding: 0px 20px; */
   padding-right: 20px;
-  /* background-color: pink; */
   word-break: break-all;
   &:hover {
     cursor: pointer;
@@ -25,12 +24,19 @@ const FunctionBox = styled.div`
   }
 `;
 
-export default function FunBox({ funcId, funcName }) {
+export default function FunBox({ funcId, funcName, content }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const onClickBox = (event) => {
-    navigate(`/home/function/${funcName}`, {
-      state: { funcId },
-    });
+    if (location.pathname.startsWith("/home/function")) {
+      navigate(`/home/function/${content}/${funcName}`, {
+        state: { funcId },
+      });
+    } else if (location.pathname.startsWith("/home/category")) {
+      navigate(`/home/category/${content}/${funcName}`, {
+        state: { funcId },
+      });
+    }
   }; //함수를 클릭하면 함수 정보로 navigate
 
   return <FunctionBox onClick={onClickBox}>{funcName}</FunctionBox>;
