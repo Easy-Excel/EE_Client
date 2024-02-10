@@ -59,7 +59,7 @@ const ExtraSubTitle = styled.div`
 const Image = styled.img`
   flex-shrink: 0;
   margin: 11px 0px;
-  margin-left: ${({ marginLeft }) => marginLeft};
+  margin-left: ${({ $marginLeft }) => $marginLeft};
   width: ${({ width }) => width};
   height: ${({ height }) => height};
 `;
@@ -157,7 +157,7 @@ function How({ text }) {
 }
 function HelpImage({ width, height, marginLeft, src }) {
   return (
-    <Image width={width} height={height} marginLeft={marginLeft} src={src} />
+    <Image width={width} height={height} $marginLeft={marginLeft} src={src} />
   );
 }
 

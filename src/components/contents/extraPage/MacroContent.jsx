@@ -117,7 +117,7 @@ const MacroContent = ({ height }) => {
         fontColor={"white"}
         text={buttonText}
         onButtonClick={handleExamplePage}
-        absolute={true}
+        absolute={"true"}
         bottom="23px"
       />
     </StyledDiv>

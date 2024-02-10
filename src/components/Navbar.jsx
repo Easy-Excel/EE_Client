@@ -55,7 +55,7 @@ const ArrowImage = styled.img`
   transform: translateX(-50%);
   margin-top: -5px;
   position: absolute;
-  display: ${({ showArrow }) => (showArrow ? "block" : "none")};
+  display: ${({ $showArrow }) => ($showArrow ? "block" : "none")};
   z-index: 1;
 `;
 
@@ -117,7 +117,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
             엑셀 함수
           </MenuItem>
           <ArrowImage
-            showArrow={activeMenu.startsWith("/home/function")}
+            $showArrow={activeMenu.startsWith("/home/function")}
             src={polygon}
             alt="화살표"
           />
@@ -136,7 +136,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
             범주
           </MenuItem>
           <ArrowImage
-            showArrow={activeMenu.startsWith("/home/category")}
+            $showArrow={activeMenu.startsWith("/home/category")}
             src={polygon}
             alt="화살표"
           />
@@ -154,7 +154,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
             단축키
           </MenuItem>
           <ArrowImage
-            showArrow={activeMenu === "/home/shortcut"}
+            $showArrow={activeMenu === "/home/shortcut"}
             src={polygon}
             alt="화살표"
           />
@@ -172,7 +172,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
             추가 기능
           </MenuItem>
           <ArrowImage
-            showArrow={activeMenu === "/home/extra"}
+            $showArrow={activeMenu === "/home/extra"}
             src={polygon}
             alt="화살표"
           />
@@ -190,7 +190,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
             기타
           </MenuItem>
           <ArrowImage
-            showArrow={activeMenu === "/home/etc"}
+            $showArrow={activeMenu === "/home/etc"}
             src={polygon}
             alt="화살표"
           />

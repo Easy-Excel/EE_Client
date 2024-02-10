@@ -231,7 +231,10 @@ export default function ChatBot({ xButton }) {
               <SubImage src={x} alt="x버튼" />
             </Btn>
           </TitleContainer>
-          <DialogContainer paddingTop={size.height} className="다이얼로그 박스">
+          <DialogContainer
+            $paddingTop={size.height}
+            className="다이얼로그 박스"
+          >
             <DialogForScroll>
               {dialog.map(
                 (entry, index) =>
