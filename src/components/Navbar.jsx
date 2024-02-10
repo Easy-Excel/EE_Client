@@ -111,7 +111,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
               navigate(`/home/function/${content}`, {
                 state: { content },
               });
-              handleItemClick("");
+              handleItemClick("function");
             }}
           >
             엑셀 함수
@@ -130,6 +130,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
               // setArrowState(true);
               // setActiveMenu("/home/category");
               navigate(`/home/category/${content}`, { state: { content } });
+              handleItemClick("category");
             }}
           >
             범주
@@ -165,7 +166,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
               navigate("/home/extra");
               // setArrowState(true);
               // setActiveMenu("/home/extra");
-              handleItemClick("");
+              handleItemClick("extra");
             }}
           >
             추가 기능
@@ -183,7 +184,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
               navigate("/home/etc");
               // setArrowState(true);
               // setActiveMenu("/home/etc");
-              handleItemClick("");
+              handleItemClick("etc");
             }}
           >
             기타

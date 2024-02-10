@@ -33,22 +33,29 @@ const ServContainer = styled.div`
   word-wrap: break-word;
   gap: 6px;
   align-items: center; // Center vertically
-
-  //position: relative; //검색창 위치를 위함
+  @media screen and (max-width: 950px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 550px) {
+    font-size: 14px;
+  }
 `;
 
 const ServText = styled.div`
-  margin-bottom: 37px;
+  margin-bottom: 40px;
   & > span {
     margin: 0px;
     margin-left: 5px;
     font-weight: 700;
     //align-items: center;
   }
-
-  /* @media screen and (max-height: 530px) {
+  /* 
+  @media screen and (max-height: 530px) {
     margin-bottom: 0px;
   } */
+  @media screen and (max-width: 1400px) {
+    margin-bottom: 50px;
+  }
 `;
 
 const Content = styled.div`
@@ -73,6 +80,7 @@ export default function Skeleton() {
   //디폴트로 finder가 보이는 상태.
 
   const handleMenuItemClick = (menuName) => {
+    console.log(menuName);
     // shortcut이면 finder가 사라지도록. shortcutfinder가 보이도록 함.
     if (menuName === "shortcut") {
       setShowFinder(false);

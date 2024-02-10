@@ -22,7 +22,7 @@ function Category() {
   //네비게이트로 넘겨받은 정보
   const { state } = useLocation();
   const content = state.content;
-  console.log(content);
+  // console.log(content);
 
   const [functionsList, setFunctionsList] = useState([]);
   const [sortingType, setSortyingType] = useState("");
