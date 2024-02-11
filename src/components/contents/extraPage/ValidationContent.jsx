@@ -43,7 +43,7 @@ const FeatureDescription = ({ containerSize }) => (
     <How text="1. 상단 메뉴바에 있는 데이터 탭에서 데이터 도구 버튼 > 유효성 검사를 클릭합니다." />
     <HelpImage
       width={"286px"}
-      height={"190px"}
+      height={"auto"}
       marginLeft={"94px"}
       src={images[0]}
     />
