@@ -5,6 +5,7 @@ import magfinder from "../assets/images/search.png";
 //import Container from "./contents/functionPage/FuncListContainer"
 import { useNavigate } from "react-router-dom";
 import { API } from "../config";
+
 const Wrapper = styled.div`
   //right: 14%;
   /* bottom: 78%; */
@@ -57,6 +58,7 @@ const Container_ = styled.div`
   }
 `;
 
+
 const ImgBox = styled.div`
   display: flex;
   justify-content: center;
@@ -78,14 +80,27 @@ const MagImage = styled.img`
   height: 22px; */
   object-fit: contain;
   width: 100%;
-  /* margin-right: 5px;*/
-  /* margin-bottom: -6.5px; */
+  //width: 15px;
+  margin-right: 5px;
+  margin-left: -19%;
+  margin-bottom: 8px;
+
   /* @media screen and (max-width: 950px) {
     width: 80%;
   }
   @media screen and (max-width: 500px) {
     width: 70%;
   } */
+  @media screen and (max-width: 1400px) and (max-height: 750px) {
+    width: 18px;
+    margin-right: 5px; /* 조정 */
+  }
+  @media screen and (max-width: 550px) {
+    width: 16px;
+    margin-right: 1px; /* 더 조정 */
+    margin-left: -2%;
+  }
+
 `;
 
 const InputBox = styled.input`
@@ -101,7 +116,6 @@ const InputBox = styled.input`
   @media screen and (max-width: 1400px) and (max-height: 750px) {
     font-size: 13px;
   }
-
   @media screen and (max-width: 550px) {
     font-size: 11px;
   }
@@ -112,20 +126,34 @@ const AutoCompleteList = styled.div`
   background-color: white;
   max-height: 300px;
   overflow-y: auto;
+  //margin-bottom: 5px;
 `;
 
 const ItemWrapper = styled.div`
   width: 100%;
-  height: 22px;
+  height: 23px;
   display: flex;
+  margin-bottom: 5px;
+  margin-left: -9%;
+  @media screen and (max-width: 550px) {
+    //justify-content: right; /* 화면이 600px 이하로 축소될 때 가운데 정렬 */
+    margin-left: 10%;
+  }
 `;
 
 const AutoCompleteItem = styled.div`
   width: 100%;
-  height: 100%;
+  height: 95%;
   color: gray;
   cursor: pointer; // 마우스 커서를 포인터로 변경하여 클릭 가능한 항목임을 나타냅니다.
   background-color: ${(props) => (props.isSelected ? "lightgray" : "white")};
+  margin-left: -30%;//돋보기랑 글자 사이의 간격 조정하려고
+  //gap:5%;
+  @media screen and (max-width: 550px) {
+    justify-content: right; /* 화면이 600px 이하로 축소될 때 가운데 정렬 */
+    margin-left: 10%;
+    //margin-right: 10%;
+  }
 `;
 
 const Finder = () => {
@@ -144,7 +172,7 @@ const Finder = () => {
       try {
         const response = await fetch(
           `${API.FUNCTION}/search?keyword=${userInput}`
-        );
+        ,{ method: "GET" });
         const data = await response.json();
         setSuggestions(data.result.functionsSearchList);
         //console.log(suggestions);
@@ -188,6 +216,7 @@ const Finder = () => {
 
   //const inputRef = useRef(null);
   //자동완성 리스트 중 하나를 선택하고 바로 엔터를 누르면
+
   return (
     <Wrapper>
       <Container_>
@@ -209,6 +238,7 @@ const Finder = () => {
       {userInput && (
         <AutoCompleteList>
           {suggestions.map((suggestion, index) => (
+            // <ItemContainer>
             <ItemWrapper key={index}>
               <MagImage src={magfinder} alt="돋보기 이미지" />
               <AutoCompleteItem
@@ -220,6 +250,7 @@ const Finder = () => {
                 {suggestion.name}
               </AutoCompleteItem>
             </ItemWrapper>
+           // </ItemContainer>
           ))}
         </AutoCompleteList>
       )}
