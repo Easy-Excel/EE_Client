@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import refresh from "../assets/images/chatbot/refresh.png";
-import ChatBot from "./ChatBot";
+// import ChatBot from "./ChatBot";
 
 const Wrapper = styled.div`
   /* width: 17%; //Set the initial width to 50% */
-  //height: 40vh;
+  //height: 40vh; */
   /* height: 30%; */
   position: fixed;
   /* left: 92%;
@@ -49,16 +49,17 @@ const Image_ = styled.img`
 `;
 
 //만약에 챗봇에서 x버튼이 눌렸으면 해당 컴포넌트 show, or not 챗봇
-export default function RefreshChat() {
+export default function RefreshChat({ onClickFunc }) {
   const [onButton, setOnButton] = useState(false);
-  if (onButton) return <ChatBot />;
+  // if (onButton) return <ChatBot />;
   return (
     <>
       <Wrapper className="chatbotWrapper">
         <Btn
-          onClick={() => {
-            setOnButton(true);
-          }}
+          // onClick={() => {
+          //   setOnButton(true);
+          // }}
+          onClick={onClickFunc}
         >
           <Image_ src={refresh} alt="활성화이미지" />
         </Btn>
