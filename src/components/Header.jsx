@@ -84,55 +84,24 @@ function Header() {
 
   return (
     <Head>
-      <Col
-        onClick={() => {
-          nextPage = "home";
-          navigate("/", {
-            state: { nextPage },
-          });
-        }}
-      >
-        {/* <Link to="/"> */}
-        <Title>
-          <Logo />
-          Easy Excel
-        </Title>
-        {/* </Link> */}
+      <Col>
+        <Link to="/home">
+          <Title>
+            <Logo />
+            Easy Excel
+          </Title>
+        </Link>
       </Col>
       <Col>
         <Items>
-          <Item
-            onClick={() => {
-              nextPage = "ourVision";
-              navigate("/", {
-                state: { nextPage },
-              });
-            }}
-          >
-            Our Visoin
-            {/* <Link to="/ourVision">Our Vision</Link> */}
+          <Item>
+            <Link to="/ourVision">Our Vision</Link>
           </Item>
-          <Item
-            onClick={() => {
-              nextPage = "ourTeam";
-              navigate("/", {
-                state: { nextPage },
-              });
-            }}
-          >
-            Our Team
-            {/* <Link to="/ourTeam">Our Team</Link> */}
+          <Item>
+            <Link to="/ourTeam">Our Team</Link>
           </Item>
-          <Item
-            onClick={() => {
-              nextPage = "contact";
-              navigate("/", {
-                state: { nextPage },
-              });
-            }}
-          >
-            Contact
-            {/* <Link to="/contact">Contact</Link> */}
+          <Item>
+            <Link to="/contact">Contact</Link>
           </Item>
         </Items>
       </Col>

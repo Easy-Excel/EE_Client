@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Foot = styled.footer`
   height: 103px;
@@ -43,43 +43,17 @@ const CopyRight = styled.div`
 `;
 
 export default function Footer() {
-  const navigate = useNavigate();
-  let nextPage = "home";
-
   return (
     <Foot>
       <Items>
-        <Item
-          onClick={() => {
-            nextPage = "ourVision";
-            navigate("/", {
-              state: { nextPage },
-            });
-          }}
-        >
-          Our Vision
-          {/* <Link to="/ourVision">Our Vision</Link> */}
+        <Item>
+          <Link to="/ourVision">Our Vision</Link>
         </Item>
-        <Item
-          onClick={() => {
-            nextPage = "ourTeam";
-            navigate("/", {
-              state: { nextPage },
-            });
-          }}
-        >
-          {/* <Link to="/ourTeam">Our Team</Link> */}
-          Our Team
+        <Item>
+          <Link to="/ourTeam">Our Team</Link>
         </Item>
-        <Item
-          onClick={() => {
-            nextPage = "contact";
-            navigate("/", {
-              state: { nextPage },
-            });
-          }}
-        >
-          {/* <Link to="/contact">Contact</Link> */}Contact
+        <Item>
+          <Link to="/contact">Contact</Link>
         </Item>
       </Items>
       <CopyRight>Copyright © Easy Excel</CopyRight>

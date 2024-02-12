@@ -9,7 +9,7 @@ import { API } from "../config";
 const Wrapper = styled.div`
   //right: 14%;
   /* bottom: 78%; */
-  width: 300px;
+  width: 240px;
   height: 38px;
   z-index: 100;
   /* margin: 2px; */
@@ -19,13 +19,13 @@ const Wrapper = styled.div`
   top: -48px;
   right: 14%;
   @media screen and (max-width: 1400px) and (max-height: 750px) {
-    width: 220px;
+    width: 210px;
   }
   @media screen and (max-width: 950px) {
-    width: 220px;
+    width: 210px;
   }
   @media screen and (max-width: 550px) {
-    width: 190px;
+    width: 180px;
   }
 `;
 
@@ -38,32 +38,29 @@ const Container_ = styled.div`
   margin-left: 2%;
   bottom: 4px;
   display: flex;
-  padding: 0px 10px;
+  align-items: center;
+  padding: 8px 10px;
   gap: 10px;
   @media screen and (max-width: 950px) {
     gap: 8px;
-    align-items: flex-end;
-    padding-bottom: 8px;
+    padding-bottom: 5px;
   }
 
   @media screen and (max-width: 1400px) and (max-height: 750px) {
     gap: 8px;
-    align-items: flex-end;
-    padding-bottom: 8px;
+    padding-bottom: 5px;
   }
   @media screen and (max-width: 550px) {
-    gap: 5px;
-    align-items: flex-end;
-    padding-bottom: 8px;
+    padding-bottom: 3px;
   }
 `;
-
 
 const ImgBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 22px;
+  /* height: 23px; */
   @media screen and (max-width: 950px) {
     width: 18px;
   }
@@ -81,9 +78,6 @@ const MagImage = styled.img`
   object-fit: contain;
   width: 100%;
   //width: 15px;
-  margin-right: 5px;
-  margin-left: -19%;
-  margin-bottom: 8px;
 
   /* @media screen and (max-width: 950px) {
     width: 80%;
@@ -91,22 +85,23 @@ const MagImage = styled.img`
   @media screen and (max-width: 500px) {
     width: 70%;
   } */
+
+  /*
   @media screen and (max-width: 1400px) and (max-height: 750px) {
     width: 18px;
-    margin-right: 5px; /* 조정 */
+    margin-right: 5px; // 조정
   }
   @media screen and (max-width: 550px) {
     width: 16px;
-    margin-right: 1px; /* 더 조정 */
-    margin-left: -2%;
-  }
+    margin-right: 1px; // 더 조정
 
+  }*/
 `;
 
 const InputBox = styled.input`
   border: none;
   background-color: transparent;
-  width: 80%;
+  width: 85%;
   font-size: 15px;
   /* margin-top: 11px; */
   outline: none;
@@ -127,32 +122,58 @@ const AutoCompleteList = styled.div`
   max-height: 300px;
   overflow-y: auto;
   //margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const ItemWrapper = styled.div`
-  width: 100%;
-  height: 23px;
+  /* background-color: red; */
+  height: 45px;
+  padding: 13px;
   display: flex;
-  margin-bottom: 5px;
-  margin-left: -9%;
+  align-items: center;
+  gap: 10px;
+  /* margin-bottom: 5px;
+  margin-left: -9%; */
   @media screen and (max-width: 550px) {
     //justify-content: right; /* 화면이 600px 이하로 축소될 때 가운데 정렬 */
-    margin-left: 10%;
+    /* margin-left: 10%; */
+  }
+`;
+
+const MagImageForList = styled.img`
+  display: flex;
+  width: 22px;
+  margin-left: 2px;
+  @media screen and (max-width: 950px) {
+    width: 18px;
+  }
+  @media screen and (max-width: 1400px) and (max-height: 750px) {
+    width: 18px;
+  }
+  @media screen and (max-width: 550px) {
+    width: 16px;
   }
 `;
 
 const AutoCompleteItem = styled.div`
   width: 100%;
-  height: 95%;
   color: gray;
   cursor: pointer; // 마우스 커서를 포인터로 변경하여 클릭 가능한 항목임을 나타냅니다.
   background-color: ${(props) => (props.isSelected ? "lightgray" : "white")};
-  margin-left: -30%;//돋보기랑 글자 사이의 간격 조정하려고
+  /* margin-left: -30%; //돋보기랑 글자 사이의 간격 조정하려고 */
   //gap:5%;
+  @media screen and (max-width: 950px) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: 1400px) and (max-height: 750px) {
+    font-size: 13px;
+  }
   @media screen and (max-width: 550px) {
-    justify-content: right; /* 화면이 600px 이하로 축소될 때 가운데 정렬 */
-    margin-left: 10%;
+    /* justify-content: right; 화면이 600px 이하로 축소될 때 가운데 정렬 */
+    /* margin-left: 10%; */
     //margin-right: 10%;
+    font-size: 11px;
   }
 `;
 
@@ -171,8 +192,9 @@ const Finder = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${API.FUNCTION}/search?keyword=${userInput}`
-        ,{ method: "GET" });
+          `${API.FUNCTION}/search?keyword=${userInput}`,
+          { method: "GET" }
+        );
         const data = await response.json();
         setSuggestions(data.result.functionsSearchList);
         //console.log(suggestions);
@@ -240,7 +262,7 @@ const Finder = () => {
           {suggestions.map((suggestion, index) => (
             // <ItemContainer>
             <ItemWrapper key={index}>
-              <MagImage src={magfinder} alt="돋보기 이미지" />
+              <MagImageForList src={magfinder} alt="돋보기 이미지" />
               <AutoCompleteItem
                 isSelected={index === selectedItemIndex}
                 onClick={() => {
@@ -250,7 +272,7 @@ const Finder = () => {
                 {suggestion.name}
               </AutoCompleteItem>
             </ItemWrapper>
-           // </ItemContainer>
+            // </ItemContainer>
           ))}
         </AutoCompleteList>
       )}
