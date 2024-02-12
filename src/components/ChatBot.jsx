@@ -10,7 +10,7 @@ const messageBoxPadding = "12px";
 
 const Wrapper = styled.div`
   position: fixed;
-  right: 34px;
+  right: 25px;
   bottom: 0px; //34px
   width: 350px; // 수정 가능
   /* height: 40vh; */ //height는 회색박스가 vh에 맞게 조절되도록한다. (회색 박스만 크기가 줄어들게 설정)
@@ -187,7 +187,7 @@ const Input = styled.input`
 export default function ChatBot({ xButton }) {
   const [userInput, setUserInput] = useState("");
   const [dialog, setDialog] = useState([]);
-  const [onXButton, setOnXButton] = useState(false); //x버튼을 누르면 챗봇을 안보이게 할거임.
+  const [onXButton, setOnXButton] = useState(true); //x버튼을 누르면 챗봇을 안보이게 할거임.
   const dialContainerRef = useRef(null);
   const [componentRef, size] = useComponentSize();
 
@@ -210,13 +210,67 @@ export default function ChatBot({ xButton }) {
     }
   };
 
-  if (onXButton) return <RefreshChat />;
+  const onClickHanlde = () => {
+    setOnXButton(false);
+  };
+
+  // if (onXButton) return <RefreshChat />;   //렌더링 로직 수정(2/12)
 
   return (
     <>
+      {/*  //렌더링 로직 수정(2/12)
       {xButton ? (
         <RefreshChat />
       ) : (
+        <Wrapper className="열린화면">
+          <TitleContainer className="타이틀 박스" ref={componentRef}>
+            <ImgContainer>
+              <SubImage src={ellipse3} alt="의미없는동그라미" />
+            </ImgContainer>
+            <Title>Chatbot</Title>
+            <Btn
+              onClick={() => {
+                setOnXButton(true);
+              }}
+            >
+              <SubImage src={x} alt="x버튼" />
+            </Btn>
+          </TitleContainer>
+          <DialogContainer
+            $paddingTop={size.height}
+            className="다이얼로그 박스"
+          >
+            <DialogForScroll>
+              {dialog.map(
+                (entry, index) =>
+                  // <div key={index}>
+                  entry.type === "user" ? (
+                    <Userbox key={index}>
+                      <UserQuestion>{entry.content}</UserQuestion>
+                    </Userbox>
+                  ) : (
+                    <Responsebox>
+                      <ChatBotResponse>{entry.content}</ChatBotResponse>
+                    </Responsebox>
+                  )
+                // </div>
+              )}
+            </DialogForScroll>
+            <Input
+              className="input입력란"
+              text="text"
+              placeholder="궁금한 내용을 입력하세요."
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+              onBlur={handleUserQuestionSubmit}
+              onKeyDown={(e) => e.key === "Enter" && handleUserQuestionSubmit()}
+            />
+          </DialogContainer>
+        </Wrapper>
+      )} */}
+
+      <RefreshChat onClickFunc={onClickHanlde} />
+      {!onXButton && ( //렌더링 로직 수정(2/12)
         <Wrapper className="열린화면">
           <TitleContainer className="타이틀 박스" ref={componentRef}>
             <ImgContainer>

@@ -14,19 +14,19 @@ const Wrapper = styled.div`
   position: absolute;
   top: -48px;
   right: 14%;
-  width: 320px; //width만 더 길게 설정(2/10)
+  width: 310px; //width만 더 길게 설정(2/10)
   height: 38px;
   z-index: 100;
 
   //Finder.jsx와 스타일 일치(2/10)
   @media screen and (max-width: 1400px) and (max-height: 750px) {
-    width: 220px;
+    width: 270px;
   }
   @media screen and (max-width: 950px) {
-    width: 220px;
+    width: 270px;
   }
   @media screen and (max-width: 550px) {
-    width: 190px;
+    width: 230px;
   }
 `;
 
@@ -40,23 +40,20 @@ const Container_ = styled.div`
   bottom: 4px;
   //Finder.jsx와 스타일 일치(2/10)
   display: flex;
-  padding: 0px 10px;
+  align-items: center;
+  padding: 8px 10px;
   gap: 10px;
   @media screen and (max-width: 950px) {
     gap: 8px;
-    align-items: flex-end;
-    padding-bottom: 8px;
+    padding-bottom: 5px;
   }
 
   @media screen and (max-width: 1400px) and (max-height: 750px) {
     gap: 8px;
-    align-items: flex-end;
-    padding-bottom: 8px;
+    padding-bottom: 5px;
   }
   @media screen and (max-width: 550px) {
-    gap: 5px;
-    align-items: flex-end;
-    padding-bottom: 8px;
+    padding-bottom: 3px;
   }
 `;
 //Finder.jsx와 스타일 일치(2/10)

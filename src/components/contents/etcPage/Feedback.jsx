@@ -131,13 +131,15 @@ export default function Feedback({ height }) {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        alert("정상적으로 폼이 제출되었습니다.");
+        alert(
+          "정상적으로 피드백이 제출되었습니다. Easy Excel을 이용해주셔서 감사합니다"
+        );
         window.location.reload();
       } else {
-        alert("fail! response status : ", response.status);
+        alert("실패! response status : ", response.status);
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("에러 : ", error);
     }
   };
 

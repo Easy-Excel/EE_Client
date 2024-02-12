@@ -13,7 +13,7 @@ const Visioncontainer = styled.div`
     height: 660.4px;
   }
 
-  @media screen and (max-width: 1052px) {
+  @media screen and (max-width: 1120px) {
     height: auto;
   }
 `;
@@ -28,19 +28,19 @@ const Visionwrap = styled.div`
 const Visionmain = styled.div`
   background-color: #ceebde;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 100%; //백분율로 조장해야 화면 크기에 따라 조절됨
   height: 100%;
   text-align: center;
   padding: 20px 60px;
   /* padding-top: 10.5vh; */
   display: flex;
-  @media screen and (max-width: 1052px) {
+  @media screen and (max-width: 1120px) {
+    justify-content: center;
     flex-wrap: wrap;
     gap: 40px;
     padding: 0px;
     padding-top: 90px;
-    padding-top: 10.5vh;
   }
 `;
 
@@ -81,6 +81,18 @@ const VisionContentFlexBox = styled.div`
   flex-direction: column;
   width: 70%;
   min-width: 411px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 60px;
+  margin: 0px 40px;
+
+  @media screen and (max-width: 1120px) {
+    padding: 60px;
+    margin-bottom: 40px;
+  }
+  @media screen and (max-width: 1300px) {
+    padding: 40px 60px;
+  }
 `;
 
 const Visionlogo = styled.img`
@@ -89,10 +101,13 @@ const Visionlogo = styled.img`
   /* width: 377px;
   height: 350px; */
   width: 39vh;
+  width: 75%;
   object-fit: contain;
 
   @media screen and (max-height: 680px) {
-    width: 265.2px;
+  }
+  @media screen and (max-width: 1120px) {
+    width: 60%;
   }
 `;
 
@@ -110,40 +125,52 @@ const Visionlogo2 = styled.div`
   /* line-height: 124px; */
   /* margin-bottom: auto; */
   color: #107c41;
+  @media screen and (max-width: 1120px) {
+    font-size: 50px;
+  }
 `;
 
 const Visioncontext = styled.div`
-  margin: 0px 60px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   font-family: "SUIT";
   font-style: bold;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 21px;
   line-height: 30px;
   text-align: left;
   color: #000000;
-  @media screen and (max-width: 1052px) {
+  @media screen and (max-width: 1120px) {
     margin: 0px;
     margin-bottom: 50px;
     text-align: center;
   }
+  @media screen and (max-width: 1300px) {
+    margin-bottom: 20px;
+    font-size: 19px;
+  }
 `;
 
 const Visioncontext1 = styled.div`
-  margin: 0px 60px;
   font-family: "SUIT";
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 30px;
   text-align: justify;
   white-space: pre-wrap;
   color: #000000;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  &:last-child {
+    margin-bottom: 0px;
+  }
 
-  @media screen and (max-width: 1052px) {
+  @media screen and (max-width: 1120px) {
     margin: 0px;
     margin-bottom: 50px;
+  }
+  @media screen and (max-width: 1300px) {
+    margin-bottom: 20px;
+    font-size: 16px;
   }
 `;
 
