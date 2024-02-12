@@ -11,6 +11,7 @@ import {
   ExampleQuestion,
   ExampleSubQuestion,
   ExampleAnswer,
+  ExampleAnswerTitle,
 } from "./ExtraComponent";
 import Button from "../../Button";
 
@@ -41,31 +42,21 @@ const FeatureDescription = ({ containerSize }) => (
     <How text="1. 상단 메뉴바에 있는 데이터 탭에서 가상분석 버튼 > 시나리오 관리자를 클릭합니다." />
 
     <HelpImage
-      width={"352px"}
-      height={"191px"}
+      width={"35%"}
+      minWidth={"250px"}
+      height={"auto"}
       marginLeft={"94px"}
       src={images[0]}
     />
     <How text="2. 시나리오 추가 버튼을 눌러 시나리오 이름, 변경 셀을 입력한 후 바꿀 값을 입력합니다." />
-    <HelpImage
-      width={"763px"}
-      height={"222px"}
-      marginLeft={"94px"}
-      src={images[1]}
-    />
+
     <How text="3. 입력 후 요약 버튼을 누른 후 시나리오 요약과 시나리오 피벗 테이블 보고서 중 하나의 보고서 종류를 선택합니다." />
-    <HelpImage
-      width={"763px"}
-      height={"228px"}
-      marginLeft={"94px"}
-      src={images[2]}
-    />
   </Container>
 );
 
 const Example = ({ containerSize }) => (
   <Container height={containerSize}>
-    <Title text="시나리오 관리자 예제" />
+    <Title text="시나리오 관리자 예제 - 비율인상/인하 변동 시나리오 작성" />
     <ExampleQuestion
       text={
         "시나리오 관리자 기능을 이용하여 표에서 기획팀과 개발팀의 소진율 [E4:E5]이 다음과 같이 변동하는 경우 소진액 합계 [D10]의 변동 시나리오를 작성하시오.\n이때 소진액은 예산*소진율/100으로 계산됩니다.\n [E4] 셀의 이름은 '기획팀소진율', '[E5]셀의 이름은 '개발팀소진율'로 정의하시오."
@@ -77,16 +68,48 @@ const Example = ({ containerSize }) => (
         }
       />
     </ExampleQuestion>
-    <HelpImage
-      width={"553px"}
-      height={"284px"}
-      marginLeft={"73px"}
-      src={images[3]}
+    <ExampleAnswerTitle />
+    <ExampleAnswer
+      text={
+        "1) [E4] 셀을 클릭한 후 셀이름을 '기획팀소진율'로 정의하고 [E5] 셀을 클릭한 후 셀이름을 '개발팀소진율'로 정의합니다."
+      }
     />
     <ExampleAnswer
       text={
-        "[E4] 셀을 클릭한 후 셀이름을 '기획팀소진율'로 정의하고 [E5] 셀을 클릭한 후 셀이름을 '개발팀소진율'로 정의합니다.\n[데이터] - [예측] -[가상분석] - [시나리오 관리자]를 클릭합니다.\n추가 버튼을 눌러 누른 후 시나리오 이름을 [비율인상]으로 기입합니다.\n변경 셀은 E4, E5셀을 기입하고 시나리오 값에는 각각 30, 90을 작성합니다.\n비율인하의 경우에도 4)와 같은 방식으로 작성한 후 [시나리오 관리자] - [요약] 버튼을 클릭하고 변동 셀에는 D10 셀을 기입합니다.\n확인 버튼을 클릭하면 시나리오 요약 보고서가 생성됩니다."
+        "2) [데이터] - [예측] -[가상분석] - [시나리오 관리자]를 클릭합니다."
       }
+    />
+    <ExampleAnswer
+      text={
+        "3) 추가 버튼을 눌러 누른 후 시나리오 이름을 [비율인상]으로 기입합니다."
+      }
+    />
+    <HelpImage
+      width={"85%"}
+      minWidth={"544px"}
+      height={"auto"}
+      marginLeft={"66px"}
+      src={images[1]}
+    />
+
+    <ExampleAnswer
+      text={
+        "4) 변경 셀은 E4, E5셀을 기입하고 시나리오 값에는 각각 30, 90을 작성합니다."
+      }
+    />
+    <ExampleAnswer
+      text={
+        "5) 비율인하의 경우에도 4)와 같은 방식으로 작성한 후 [시나리오 관리자] - [요약] 버튼을 클릭하고 변동 셀에는 D10 셀을 기입합니다."
+      }
+    />
+    <HelpImage
+      width={"85%"}
+      minWidth={"544px"}
+      marginLeft={"66px"}
+      src={images[2]}
+    />
+    <ExampleAnswer
+      text={"6) 확인 버튼을 클릭하면 시나리오 요약 보고서가 생성됩니다."}
     />
   </Container>
 );

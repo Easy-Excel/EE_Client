@@ -62,6 +62,7 @@ const Image = styled.img`
   margin-left: ${({ $marginLeft }) => $marginLeft};
   width: ${({ width }) => width};
   height: ${({ height }) => height};
+  min-width: ${({ $minWidth }) => $minWidth};
 `;
 const ExtraHow = styled.div`
   color: #000;
@@ -83,7 +84,7 @@ const ExQuestion = styled.div`
   word-wrap: break-word;
   margin: 0px;
   margin-left: 37px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   display: flex;
   gap: 5px;
   line-height: 1.4;
@@ -107,9 +108,11 @@ export const ExAnswerTitle = styled.div`
   font-weight: 500;
   word-wrap: break-word;
   margin: 15px;
-  margin-left: 73px;
+  margin-left: 37px;
 `;
 
+//추가기능 페이지에서 사용 안하고 함수 예제에서 사용
+//추가기능 페이지에서는 디자인 수정으로 인해 새로 컴포넌트 만듦
 export const ExAnswer = styled.div`
   color: black;
   font-size: 14px;
@@ -128,7 +131,7 @@ export const ExAnswer = styled.div`
   padding: 20px 20px;
   margin: 0px 10px 15px 73px;
 `;
-
+//추가기능 페이지에서 사용 안하고 함수 예제에서 사용
 export const ExAnswerNumber = styled.div`
   border: 1px solid black;
   border-radius: 50%;
@@ -140,6 +143,16 @@ export const ExAnswerNumber = styled.div`
   font-size: 13px;
 
   min-width: 18px;
+`;
+
+const ExAnswerLine = styled.div`
+  color: black;
+  font-size: 16px;
+  font-family: SUIT;
+  font-weight: 500;
+  word-wrap: break-word;
+  margin: 6px;
+  margin-left: 37px;
 `;
 
 function Title({ text }) {
@@ -155,9 +168,15 @@ function Paragraph({ text }) {
 function How({ text }) {
   return <ExtraHow>{text}</ExtraHow>;
 }
-function HelpImage({ width, height, marginLeft, src }) {
+function HelpImage({ width, minWidth, height, marginLeft, src }) {
   return (
-    <Image width={width} height={height} $marginLeft={marginLeft} src={src} />
+    <Image
+      width={width}
+      $minWidth={minWidth}
+      height={height}
+      $marginLeft={marginLeft}
+      src={src}
+    />
   );
 }
 
@@ -186,19 +205,13 @@ function ExampleSubQuestion({ text }) {
   return <SubQuestion>{lines}</SubQuestion>;
 }
 
+function ExampleAnswerTitle() {
+  return <ExAnswerTitle> {">"} 풀이</ExAnswerTitle>;
+}
+
+//추가 기능 디자인 + 사진 수정됨에 따라 수정(2/12)
 function ExampleAnswer({ text }) {
-  const lines = text.split("\n").map((line, index) => (
-    <div key={index} style={{ display: "flex", gap: "14px" }}>
-      <ExAnswerNumber>{index + 1}</ExAnswerNumber>
-      {line}
-    </div>
-  ));
-  return (
-    <div>
-      <ExAnswerTitle> {">"} 함수식 풀이</ExAnswerTitle>
-      <ExAnswer>{lines}</ExAnswer>
-    </div>
-  );
+  return <ExAnswerLine>{text}</ExAnswerLine>;
 }
 
 export {
@@ -210,5 +223,6 @@ export {
   Container,
   ExampleQuestion,
   ExampleSubQuestion,
+  ExampleAnswerTitle,
   ExampleAnswer,
 };
