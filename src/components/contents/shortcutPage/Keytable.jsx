@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from "react";
 import styled from "styled-components";
-
+import { API } from "../../../config";
+import { useSelector } from 'react-redux';
 
 // Styled components
 const TopContainer = styled.div`
@@ -123,12 +124,14 @@ function Keytable({ height , contentType}) {
   
   const [type, setType] = useState(contentType); //버튼 클릭마다 바뀌어야 하는 부분. 디폴트는 '파일실행'
   const [shortcutKeyData, setDatas] = useState(null);//데이터 받아와서 저장
+  const searchResults = useSelector(state => state.searchResults);
+
   useEffect(()=>{
     setType(contentType)  
   },[contentType]);
   
   useEffect(()=>{
-    fetch(`http://3.39.29.173:8080/shortcut-key/category?type=${type}`)
+    fetch(`${API.SHORTCUT}/category?type=${type}`)
     
    .then((res) => {
       return res.json();
@@ -143,6 +146,14 @@ function Keytable({ height , contentType}) {
     });
   }, [type]); // type 값이 변경될 때마다 호출
 
+  useEffect(() => {
+    if (searchResults && searchResults.length > 0) {
+      console.log("searchResults실행")//여기가 안됨
+      // searchResults가 존재하고 비어 있지 않을 때에만 데이터를 업데이트합니다.
+      setDatas(searchResults);
+    }
+    console.log(searchResults);
+  }, [searchResults]); // searchResults 값이 변경될 때마다 호출
 
   return (
     <TopContainer height={height.mainBox}>
