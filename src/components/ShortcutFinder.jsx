@@ -130,7 +130,7 @@ const ShortcutFinder = () => {
           console.log("Error fetching data:", err);
         });
     }
-  }, [userInput]);
+  }, [userInput, dispatch]);
 
   return (
     <Wrapper>

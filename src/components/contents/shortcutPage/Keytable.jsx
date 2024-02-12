@@ -148,7 +148,7 @@ function Keytable({ height , contentType}) {
 
   useEffect(() => {
     if (searchResults && searchResults.length > 0) {
-      console.log("searchResults실행")//여기가 안됨
+      console.log("searchResults실행");
       // searchResults가 존재하고 비어 있지 않을 때에만 데이터를 업데이트합니다.
       setDatas(searchResults);
     }
