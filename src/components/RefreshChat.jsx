@@ -51,11 +51,12 @@ const Image_ = styled.img`
 //만약에 챗봇에서 x버튼이 눌렸으면 해당 컴포넌트 show, or not 챗봇
 export default function RefreshChat({ onClickFunc }) {
   const [onButton, setOnButton] = useState(false);
-  // if (onButton) return <ChatBot />;
+  // if (onButton) return <ChatBot />;   //렌더링 로직 수정(2/12)
   return (
     <>
       <Wrapper className="chatbotWrapper">
         <Btn
+          //렌더링 로직 수정(2/12)
           // onClick={() => {
           //   setOnButton(true);
           // }}

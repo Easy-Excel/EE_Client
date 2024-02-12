@@ -214,11 +214,12 @@ export default function ChatBot({ xButton }) {
     setOnXButton(false);
   };
 
-  // if (onXButton) return <RefreshChat />;
+  // if (onXButton) return <RefreshChat />;   //렌더링 로직 수정(2/12)
 
   return (
     <>
-      {/* {xButton ? (
+      {/*  //렌더링 로직 수정(2/12)
+      {xButton ? (
         <RefreshChat />
       ) : (
         <Wrapper className="열린화면">
@@ -269,7 +270,7 @@ export default function ChatBot({ xButton }) {
       )} */}
 
       <RefreshChat onClickFunc={onClickHanlde} />
-      {!onXButton && (
+      {!onXButton && ( //렌더링 로직 수정(2/12)
         <Wrapper className="열린화면">
           <TitleContainer className="타이틀 박스" ref={componentRef}>
             <ImgContainer>
