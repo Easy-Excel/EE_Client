@@ -43,6 +43,7 @@ const Text = styled.div`
   line-height: normal;
   padding: 12px; /* 글자와 테두리 간의 여백 조절 */
   text-align: center;
+  color:${(props)=>props.fontColor};
 `;
 const NotFound = styled.div`
   margin-top: 26px;
@@ -65,7 +66,9 @@ function Find() {
   return (
     <Container>
       <TextWrapper>
-        <Text>'{userInput}'의 검색한 결과</Text>
+        {userInput.length===0?<Text fontColor="gray">검색어를 입력해주세요</Text>:
+         <Text>'{userInput}'의 검색한 결과</Text>}
+        {/* <Text>'{userInput}'의 검색한 결과</Text> */}
       </TextWrapper>
       {suggestions.length === 0 ? (
         <NotFound>
