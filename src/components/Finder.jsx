@@ -4,7 +4,9 @@ import magfinder from "../assets/images/search.png";
 //import FuncListContainerFromUser from "./contents/functionPage/FuncListContainerFromUser";
 //import Container from "./contents/functionPage/FuncListContainer"
 import { useNavigate } from "react-router-dom";
+import { UseDispatch } from "react-redux";
 import { API } from "../config";
+import { setInput } from "../redux/functionSearch";
 
 const Wrapper = styled.div`
   //right: 14%;
@@ -185,6 +187,7 @@ const Finder = () => {
   const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
   const navigate = useNavigate();
   const onChange = (e) => {
+    console.log(e.target.value);
     setUserInput(e.target.value);
   };
 
@@ -214,6 +217,12 @@ const Finder = () => {
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
+      //한글 keydown 이벤트 중복 문제 해결
+      e.preventDefault();
+      if (e.nativeEvent.isComposing) {
+        return;
+      }
+
       if (selectedItemIndex !== -1) {
         setUserInput(suggestions[selectedItemIndex].name);
         setSelectedItemIndex(-1);
