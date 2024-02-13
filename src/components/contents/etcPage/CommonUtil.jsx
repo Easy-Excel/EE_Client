@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import Container from "./ComlistContainer";
 
 //test용(실제 함수리스트)
@@ -60,5 +61,19 @@ const CommonList = [
 const listSize = CommonList.length;
 
 export default function Common() {
-  return <Container funcList={CommonList} listSize={listSize} category={1} />;
+  const [commonList, setCommonList]=useState([]);
+
+  useEffect(()=>{
+    fetch("http://43.203.37.62:8080/etc/frequent-functions")
+    .then((response)=>response.json())
+    .then((data)=>{
+      setCommonList(data.result.frequentFeatures)}
+      )
+
+    .catch((error)=>console.log("fetching error : ",error));
+
+  },[])
+
+
+  return <Container commonList={commonList}/>;
 }

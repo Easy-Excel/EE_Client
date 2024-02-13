@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router";
 
 
 
@@ -87,6 +88,12 @@ const FuncFunction = styled.div`
   margin-bottom: 8px;
 `
 export default function FDetailContainer({ height, funData }) {
+  const navigate = useNavigate();
+  const functionClickHandler = () => {
+    // navigate(`/home/functions/${changeCommonName}`, {
+    //   state: { commonId },
+    // });
+  }
   if (!funData) {
     return null;
   }
@@ -95,7 +102,7 @@ export default function FDetailContainer({ height, funData }) {
     name: funcName,
     explanation: funcExp,
     featureCharacteristicList: funcCau,
-    featureFunctionsList: funcFun
+    featureFunctionsList: funcFunList
   } = funData;
   return (
     <FuncContainer height={height}>
@@ -112,11 +119,15 @@ export default function FDetailContainer({ height, funData }) {
 
       {/*활용 함수 */}
       <FuncSubTitle>활용 함수</FuncSubTitle>
-      <FuncFunction>{funcFun}</FuncFunction>
+      <FuncFunction
+        // onClick={}
+      >{funcFunList[0].name}</FuncFunction>
     
     </FuncContainer>
   );
 }
+
+
 
 function FFeatures({ featureList }) {
   return (

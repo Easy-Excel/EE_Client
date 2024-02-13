@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const FunctionBox = styled.div`
@@ -24,14 +24,20 @@ const FunctionBox = styled.div`
   }
 `;
 
-export default function ComBox({ funcId, funcName}) {
+
+
+export default function ComBox({ commonId, commonName }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const onClickBox = (event) => {
-    console.log("funcId");
-    navigate(`/home/etc/${funcName}`, {
-      state: { funcId},
-    });
+    
+     const changeCommonName = commonName.replace(/\s+/g, "").replace(/\//g, "_");
+     console.log(changeCommonName);
+      navigate(`/home/etc/frequent-functions/${changeCommonName}`, {
+        state: { commonId },
+      });
+    
   }; //함수를 클릭하면 함수 정보로 navigate
 
-  return <FunctionBox onClick={onClickBox}>{funcName}</FunctionBox>;
+  return <FunctionBox onClick={onClickBox}>{commonName}</FunctionBox>;
 }
