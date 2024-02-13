@@ -66,7 +66,7 @@ export default function ComDetail() {
   const [componentRef, size] = useComponentSize();
   const renderHeight = {
     mainBox: size.height - (45 + 26 + 17),
-    container: size.height - (45 + 26 + 17) - 25,
+    container: size.height - (45 + 26 + 17) - 32,
   };
 
   return (
@@ -92,7 +92,7 @@ export default function ComDetail() {
           ></Button>
         ))}
       </BtnWrapper>
-      <CDetailContainer height={renderHeight.mainBox} funData={funcData} />
+      <CDetailContainer height={renderHeight.container} funData={funcData} />
     </div>
   );
 }

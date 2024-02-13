@@ -5,9 +5,9 @@ import { useNavigate } from "react-router";
 export const FuncContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
-  height: ${(props) => props.height};
+  height: ${(props) => props.height}px;
   overflow-y: auto;
-  margin-top: 32px;
+  padding-top: 32px;
   margin-bottom: 10px;
   padding-right: 15px;
   position: relative;
