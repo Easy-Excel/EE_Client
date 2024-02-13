@@ -4,6 +4,7 @@ import ellipse3 from "../assets/images/chatbot/ellipse2.png";
 import x from "../assets/images/chatbot/x.png";
 import RefreshChat from "./RefreshChat";
 import useComponentSize from "../hooks/UseComponentSzie";
+import logo from "../assets/images/logo/Logo.svg";
 //import refresh from "../assets/images/chatbot/refresh.png";
 
 const messageBoxPadding = "12px";
@@ -95,7 +96,9 @@ const DialogContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  //챗봇 개발 중단으로 업데이트 예정 메시지 삽입을 위해 flex-end 해제
+  /* justify-content: flex-end; */
+  justify-content: center;
 `;
 
 const DialogForScroll = styled.div`
@@ -181,6 +184,35 @@ const Input = styled.input`
   &::placeholder {
     color: #908f8f;
     font-weight: 300;
+  }
+`;
+
+const UpdateBox = styled.div`
+  padding: 10px 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  @media screen and (max-height: 490px) {
+    gap: 15px;
+  }
+`;
+
+const UpdateMsg = styled.div`
+  font-size: 18px;
+  font-weight: 400;
+  @media screen and (max-height: 490px) {
+    font-size: 16px;
+  }
+`;
+
+const LogImg = styled.img`
+  width: 90px;
+  height: auto;
+  @media screen and (max-height: 490px) {
+    width: 60px;
   }
 `;
 
@@ -289,7 +321,11 @@ export default function ChatBot({ xButton }) {
             $paddingTop={size.height}
             className="다이얼로그 박스"
           >
-            <DialogForScroll>
+            <UpdateBox>
+              <LogImg src={logo} />
+              <UpdateMsg>업데이트 예정입니다.</UpdateMsg>
+            </UpdateBox>
+            {/* <DialogForScroll>
               {dialog.map(
                 (entry, index) =>
                   // <div key={index}>
@@ -304,15 +340,16 @@ export default function ChatBot({ xButton }) {
                   )
                 // </div>
               )}
-            </DialogForScroll>
+            </DialogForScroll> */}
             <Input
               className="input입력란"
               text="text"
-              placeholder="궁금한 내용을 입력하세요."
+              placeholder="업데이트 예정입니다." //업데이트 예정으로 수정
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
               onBlur={handleUserQuestionSubmit}
               onKeyDown={(e) => e.key === "Enter" && handleUserQuestionSubmit()}
+              readOnly
             />
           </DialogContainer>
         </Wrapper>
