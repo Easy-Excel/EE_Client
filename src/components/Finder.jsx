@@ -190,22 +190,33 @@ const Finder = () => {
     setUserInput(e.target.value);
   };
 
+  const containsKoreanCharacters = (str) => {
+    const koreanRegex = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
+    console.log(koreanRegex.test(str));
+    return koreanRegex.test(str);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log("fetch함");
         const response = await fetch(
           `${API.FUNCTION}/search?keyword=${userInput}`,
           { method: "GET" }
         );
         const data = await response.json();
         setSuggestions(data.result.functionsSearchList);
-        //console.log(suggestions);
+        console.log(suggestions);
       } catch (error) {
         console.error("error fetching data: ");
       }
     };
-    fetchData();
-    setSelectedItemIndex(-1);
+    if (!containsKoreanCharacters(userInput)) {
+      fetchData();
+      setSelectedItemIndex(-1);
+    } else {
+      setSuggestions([]);
+    }
   }, [userInput]);
 
   const handleClickItem = (selectedItem) => {
