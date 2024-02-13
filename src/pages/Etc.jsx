@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router";
 import styled from "styled-components";
 import Button from "../components/Button";
 import CommonUtil from "../components/contents/etcPage/CommonUtil";
@@ -14,7 +15,14 @@ const Container = styled.div`
 
 //함수 페이지//로 가야함
 function Etc() {
-  const [activeContent, setActiveContent] = useState("CommonUtil");
+  const { state } = useLocation();
+  if (state !== null) {
+    console.log(state.content);
+  }
+
+  const [activeContent, setActiveContent] = useState(
+    state === null ? "CommonUtil" : state.content
+  );
 
   const [buttons, setButtons] = useState([
     {

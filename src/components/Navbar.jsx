@@ -190,7 +190,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
             기타
           </MenuItem>
           <ArrowImage
-            $showArrow={activeMenu === "/home/etc"}
+            $showArrow={activeMenu.startsWith("/home/etc")}
             src={polygon}
             alt="화살표"
           />
