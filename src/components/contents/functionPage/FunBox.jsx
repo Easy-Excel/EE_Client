@@ -24,6 +24,17 @@ const FunctionBox = styled.div`
   }
 `;
 
+function findPath(funName) {
+  const firstLetter = funName[0];
+  if (firstLetter <= "H") {
+    return "AtoH";
+  } else if (firstLetter <= "P") {
+    return "ItoP";
+  } else {
+    return "QtoZ";
+  }
+}
+
 export default function FunBox({ funcId, funcName, content }) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -34,6 +45,11 @@ export default function FunBox({ funcId, funcName, content }) {
       });
     } else if (location.pathname.startsWith("/home/category")) {
       navigate(`/home/category/${content}/${funcName}`, {
+        state: { funcId },
+      });
+    } else if (location.pathname.startsWith("/home/find")) {
+      content = findPath(funcName);
+      navigate(`/home/function/${content}/${funcName}`, {
         state: { funcId },
       });
     }
