@@ -1,7 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import magfinder from "../assets/images/magfinder.png";
-import { useNavigate } from "react-router-dom";
+import { API } from "../config";
+import { useDispatch } from "react-redux";
+import { setSearchResults } from "../redux/actions";
 
 const Wrapper = styled.div`
   /* position: absolute;
@@ -111,8 +113,27 @@ const InputBox = styled.input`
 
 const ShortcutFinder = () => {
   const [userInput, setUserInput] = useState("");
+  const dispatch = useDispatch();
 
-  useEffect(() => {}, [userInput]);
+  const handleInputChange = (event) => {
+    setUserInput(event.target.value);
+  };
+
+  useEffect(() => {
+    if (userInput !== "") {
+      const encodedInput = encodeURIComponent(userInput);
+      console.log(`${API.SHORTCUT}/search?keyword=${encodedInput}`);
+      fetch(`${API.SHORTCUT}/search?keyword=${encodedInput}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data.result.searchResults);
+          dispatch(setSearchResults(data.result.searchResults));
+        })
+        .catch((err) => {
+          console.log("Error fetching data:", err);
+        });
+    }
+  }, [userInput, dispatch]);
 
   return (
     <Wrapper>
@@ -123,6 +144,7 @@ const ShortcutFinder = () => {
         <InputBox
           placeholder="찾고 싶은 단축키의 키워드를 검색해주세요"
           value={userInput}
+          onChange={handleInputChange}
         />
       </Container_>
     </Wrapper>

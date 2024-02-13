@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { UseDispatch } from "react-redux";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
@@ -79,15 +79,29 @@ export default function Skeleton() {
   //단축키 nav가 눌렸을 때는 Finder가 사라지고 shortcutFinder가 보이게 하기 위함
   //디폴트로 finder가 보이는 상태.
 
+  // const handleMenuItemClick = (menuName) => {
+  //   console.log(menuName);
+  //   // shortcut이면 finder가 사라지도록. shortcutfinder가 보이도록 함.
+  //   if (menuName === "shortcut") {
+  //     setShowFinder(false);
+  //   } else {
+  //     setShowFinder(true);
+  //   }
+  const [selectedMenu, setSelectedMenu] = useState("home");
+
+  useEffect(() => {
+    const storedMenu = localStorage.getItem("selectedMenu");//로컬스토리지에서 정보 가져옴
+    if (storedMenu) 
+    setSelectedMenu(storedMenu);
+    setShowFinder(storedMenu !== "shortcut" && storedMenu !== "home/shortcut");
+  }, []);
+
   const handleMenuItemClick = (menuName) => {
-    console.log(menuName);
-    // shortcut이면 finder가 사라지도록. shortcutfinder가 보이도록 함.
-    if (menuName === "shortcut") {
-      setShowFinder(false);
-    } else {
-      setShowFinder(true);
-    }
+    setSelectedMenu(menuName);
+    localStorage.setItem("selectedMenu", menuName);
+    setShowFinder(menuName !== "shortcut" && menuName !== "home/shortcut");
   };
+
 
   return (
     <MainContainer>

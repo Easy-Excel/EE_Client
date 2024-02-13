@@ -4,6 +4,7 @@ import magfinder from "../assets/images/search.png";
 //import FuncListContainerFromUser from "./contents/functionPage/FuncListContainerFromUser";
 //import Container from "./contents/functionPage/FuncListContainer"
 import { useNavigate } from "react-router-dom";
+import { UseDispatch } from "react-redux";
 import { API } from "../config";
 
 const Wrapper = styled.div`
@@ -185,25 +186,37 @@ const Finder = () => {
   const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
   const navigate = useNavigate();
   const onChange = (e) => {
+    console.log(e.target.value);
     setUserInput(e.target.value);
+  };
+
+  const containsKoreanCharacters = (str) => {
+    const koreanRegex = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
+    console.log(koreanRegex.test(str));
+    return koreanRegex.test(str);
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log("fetch함");
         const response = await fetch(
           `${API.FUNCTION}/search?keyword=${userInput}`,
           { method: "GET" }
         );
         const data = await response.json();
         setSuggestions(data.result.functionsSearchList);
-        //console.log(suggestions);
+        console.log(suggestions);
       } catch (error) {
         console.error("error fetching data: ");
       }
     };
-    fetchData();
-    setSelectedItemIndex(-1);
+    if (!containsKoreanCharacters(userInput)) {
+      fetchData();
+      setSelectedItemIndex(-1);
+    } else {
+      setSuggestions([]);
+    }
   }, [userInput]);
 
   const handleClickItem = (selectedItem) => {
@@ -214,6 +227,12 @@ const Finder = () => {
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
+      //한글 keydown 이벤트 중복 문제 해결
+      e.preventDefault();
+      if (e.nativeEvent.isComposing) {
+        return;
+      }
+
       if (selectedItemIndex !== -1) {
         setUserInput(suggestions[selectedItemIndex].name);
         setSelectedItemIndex(-1);
