@@ -4,7 +4,7 @@ import chatBotReducer from "./chatBotReducer";
 import keyTableReducer from "./keyTableReducer";
 const rootReducer = combineReducers({
   chatBot: chatBotReducer,
-  keyTable : keyTableReducer,
+  keyTable: keyTableReducer,
 });
 
 export default rootReducer;
