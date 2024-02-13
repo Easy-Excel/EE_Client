@@ -6,7 +6,6 @@ import magfinder from "../assets/images/search.png";
 import { useNavigate } from "react-router-dom";
 import { UseDispatch } from "react-redux";
 import { API } from "../config";
-import { setInput } from "../redux/functionSearch";
 
 const Wrapper = styled.div`
   //right: 14%;
