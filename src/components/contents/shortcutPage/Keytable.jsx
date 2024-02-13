@@ -125,7 +125,8 @@ function Keytable({ height , contentType}) {
   const [type, setType] = useState(contentType); //버튼 클릭마다 바뀌어야 하는 부분. 디폴트는 '파일실행'
   const [shortcutKeyData, setDatas] = useState(null);//데이터 받아와서 저장
   const searchResults = useSelector(state => state.searchResults);
-
+  console.log("1"+searchResults);
+  
   useEffect(()=>{
     setType(contentType)  
   },[contentType]);
@@ -147,12 +148,14 @@ function Keytable({ height , contentType}) {
   }, [type]); // type 값이 변경될 때마다 호출
 
   useEffect(() => {
-    if (searchResults && searchResults.length > 0) {
-      console.log("searchResults실행");
+    console.log("2"+searchResults);
+    if (searchResults && searchResults.length > 0) {  
+      console.log("3"+searchResults); 
       // searchResults가 존재하고 비어 있지 않을 때에만 데이터를 업데이트합니다.
       setDatas(searchResults);
+      console.log("4"+searchResults);
     }
-    console.log(searchResults);
+
   }, [searchResults]); // searchResults 값이 변경될 때마다 호출
 
   return (
@@ -167,27 +170,27 @@ function Keytable({ height , contentType}) {
           {shortcutKeyData ? (
             <Rows>
             {shortcutKeyData.map((item) => (
-              <Row key={item.id}>
-                <DesCell>{item.explanation}
+              <Row key={item?.id}>
+                <DesCell>{item?.explanation}
                   <Modal>
                     <div className="triangle"></div>
-                    {item.detailExplanation}
+                    {item?.detailExplanation}
                   </Modal>
                 </DesCell>
                 <Cell>
-                {item.windowKey.map((word, index) => (
+                {item?.windowKey.map((word, index) => (
                   <WordBox key={index}>{word}</WordBox>
                 ))}
                 </Cell>
                 <Cell>
-                {item.macKey.map((word, index) => (
+                {item?.macKey.map((word, index) => (
                   <WordBox key={index}>{word}</WordBox>
                 ))}
                 </Cell>
               </Row>
             ))}
           </Rows>
-          ) :(<p>loading</p>)}
+          ) :(<p>{searchResults ? "No results found" : "Loading..."}</p>)}
           
         </Table>
       </KeytableContainer>

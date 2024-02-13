@@ -125,6 +125,7 @@ const ShortcutFinder = () => {
         .then((res) => res.json())
         .then((data) => {
           dispatch(setSearchResults(data.result.searchResults));
+          console.log("dispatch 이후 "+ setSearchResults(data.result.searchResults));
         })
         .catch((err) => {
           console.log("Error fetching data:", err);

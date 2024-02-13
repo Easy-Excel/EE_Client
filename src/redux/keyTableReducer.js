@@ -1,8 +1,9 @@
 const initialState = {
-    searchResults: {"results":{"searchResults":[]}}//수정
+    searchResults: [],
 };
   
 const keyTableReducer = (state = initialState, action) => {
+  console.log("1"+initialState);
     switch (action.type) {
       case 'SET_SEARCH_RESULTS':
         return {
@@ -10,7 +11,9 @@ const keyTableReducer = (state = initialState, action) => {
           searchResults: action.payload
         };
       default:
-        return state;
+        return {
+          ...state,
+        }
     }
 };
 
