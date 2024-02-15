@@ -49,7 +49,10 @@ function App() {
             path="/home/category/:content/:funcName"
             element={<FuncDetail />}
           />
-          <Route path="/home/etc/frequent-functions/:etc" element={<ComDetail />} />
+          <Route
+            path="/home/etc/frequent-functions/:etc"
+            element={<ComDetail />}
+          />
         </Route>
       </Routes>
       {showChatBot ? <ChatBot /> : null}

@@ -37,6 +37,12 @@ const Wrapper = styled.div`
   //RefreshChat을 position:fixed로 변경 후 브라우저 width 줄이면 위치가 이상하게 변해서 주석처리
   border-radius: 20px 20px 0px 0px; //shadow 때문에 추가
   box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 40px;
+  @media screen and (max-width: 765px) {
+    width: 300px;
+  }
+  @media screen and (max-width: 450px) {
+    width: 250px;
+  }
 `;
 
 //타이틀

@@ -12,6 +12,28 @@ const ContainerBox = styled.div`
   display: flex;
   justify-content: center;
 
+  //2/15 반응형 설정
+  @media screen and (max-width: 1160px) {
+    padding: 0px 40px;
+    padding-top: 27px;
+  }
+  @media screen and (max-width: 765px) {
+    padding: 0px 20px;
+    padding-top: 17px;
+    &::-webkit-scrollbar {
+      flex-shrink: 0;
+      width: 15px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    padding: 0px;
+    padding-top: 17px;
+    &::-webkit-scrollbar {
+      flex-shrink: 0;
+      width: 10px;
+    }
+  }
+
   //-----스크롤바 스타일링------//
   &::-webkit-scrollbar {
     flex-shrink: 0;
@@ -50,7 +72,7 @@ const typeList = [
 function FuncListContainer({ funcList, listSize, sortingType, content }) {
   return (
     <ContainerBox>
-      <div>
+      <div className="FunListDiv박스">
         {funcList.map((value) => {
           if (typeList.includes(sortingType)) {
             return (

@@ -35,6 +35,7 @@ footer, header, hgroup, main, menu, nav, section {
 html, body {
     width: 100%;
     height: 100%;
+    font-size:16px;
 }
 body {
   line-height: 1;

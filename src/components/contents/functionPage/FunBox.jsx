@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const FunctionBox = styled.div`
-  width: 33%;
+  width: 30%;
   min-width: 180px;
   /* margin: 0px 12px; */
   min-height: 40px;
@@ -14,13 +14,33 @@ const FunctionBox = styled.div`
   align-items: center;
   margin-bottom: 24px;
   /* padding: 0px 20px; */
-  padding-right: 20px;
+  margin-left: 3%;
+  padding-left: 40px;
   word-break: break-all;
   &:hover {
     cursor: pointer;
     color: #107c41;
     text-decoration: underline; /* 텍스트 밑줄 추가 */
     /* background-color: #107c41; */
+  }
+  /* background-color: pink; */
+
+  @media screen and (max-width: 1160px) {
+    width: 47%;
+    padding-left: 50px;
+    min-width: 150px;
+  }
+  @media screen and (max-width: 765px) {
+    width: 100%;
+    justify-content: center;
+    padding-left: 0px;
+    min-width: auto;
+    font-size: 90%;
+    margin-bottom: 20px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 70%;
+    margin-bottom: 17px;
   }
 `;
 

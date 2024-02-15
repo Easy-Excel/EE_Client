@@ -8,8 +8,13 @@ const Foot = styled.footer`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 25px 211px;
-  /* background-color: white; */
+  padding: 25px 13%;
+  /* background-color: pink; */
+  @media screen and (max-width: 450px) {
+    padding-top: 30px;
+    height: 90px;
+    gap: 12px;
+  }
 `;
 
 const Items = styled.ul`
@@ -17,6 +22,10 @@ const Items = styled.ul`
   align-items: center;
   list-style-type: none;
   gap: 20px;
+  @media screen and (max-width: 450px) {
+    gap: 20px;
+    justify-content: center;
+  }
 `;
 
 const Item = styled.li`
@@ -31,6 +40,10 @@ const Item = styled.li`
   &:hover {
     cursor: pointer;
   }
+
+  @media screen and (max-width: 450px) {
+    font-size: 10px;
+  }
 `;
 
 const CopyRight = styled.div`
@@ -40,6 +53,10 @@ const CopyRight = styled.div`
   font-family: SUIT;
   font-weight: 400;
   word-wrap: break-word;
+  @media screen and (max-width: 450px) {
+    text-align: center;
+    font-size: 8px;
+  }
 `;
 
 export default function Footer() {
