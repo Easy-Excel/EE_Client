@@ -38,6 +38,27 @@ const Col = styled.div`
   &:hover {
     cursor: pointer;
   }
+
+  @media screen and (max-width: 765px) {
+    &:first-child {
+      margin-right: auto;
+      margin-left: 15vw;
+    }
+    &:nth-child(2) {
+      margin-right: 15vw;
+      margin-left: auto;
+    }
+  }
+  @media screen and (max-width: 630px) {
+    &:first-child {
+      margin-right: auto;
+      margin-left: 10vw;
+    }
+    &:nth-child(2) {
+      margin-right: 10vw;
+      margin-left: auto;
+    }
+  }
 `;
 
 //Logo+Title
@@ -48,6 +69,13 @@ const Title = styled.div`
   font-size: 18px;
   font-weight: 800;
   flex-direction: row;
+  @media screen and (max-width: 630px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 450px) {
+    justify-content: center;
+    font-size: 14px;
+  }
 `;
 
 //Logo
@@ -55,6 +83,10 @@ const Logo = styled(LogoSvg)`
   margin-right: 17px;
   width: 32px;
   height: 37px;
+  @media screen and (max-width: 630px) {
+    width: 28px;
+    height: auto;
+  }
 `;
 
 //Header Navigation
@@ -74,6 +106,16 @@ const Item = styled.li`
   }
   &:hover {
     cursor: pointer;
+  }
+  @media screen and (max-width: 630px) {
+    font-size: 12px;
+    margin-left: 25px;
+  }
+  @media screen and (max-width: 450px) {
+    margin-left: 20px;
+    text-align: center;
+    font-size: 12px;
+    /* background-color: pink; */
   }
 `;
 
