@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import magfinder from "../assets/images/magfinder.png";
 import { API } from "../config";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { setSearchResults } from "../redux/actions";
 
 const Wrapper = styled.div`
@@ -121,11 +121,13 @@ const ShortcutFinder = () => {
 
   useEffect(() => {
     if (userInput !== "") {
-      fetch(`${API.SHORTCUT}/search?keyword=${userInput}`)
+      const encodedInput = encodeURIComponent(userInput);
+      console.log(`${API.SHORTCUT}/search?keyword=${encodedInput}`);
+      fetch(`${API.SHORTCUT}/search?keyword=${encodedInput}`)
         .then((res) => res.json())
         .then((data) => {
+          console.log(data.result.searchResults);
           dispatch(setSearchResults(data.result.searchResults));
-          console.log("dispatch 이후 "+ setSearchResults(data.result.searchResults));
         })
         .catch((err) => {
           console.log("Error fetching data:", err);

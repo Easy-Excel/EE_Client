@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import FunBox from "./Combox";
+import ComBox from "./Combox";
 
 const ContainerBox = styled.div`
   box-sizing: border-box;
@@ -38,18 +38,18 @@ const ContainerBox = styled.div`
 `;
 
 
-function ComListContainer({ funcList, listSize, sortingType }) {
+function ComListContainer({ commonList}) {
   return (
     <ContainerBox>
       <div>
-        {funcList.map((value) => {
+        {commonList.map((value) => {
 
             return (
-              <FunBox
-                key={value.id}
-                funcName={value.name}
-                funcId={value.id}
-              ></FunBox>
+              <ComBox
+                key={value.frequentFeatureId}
+                commonName={value.name}
+                commonId={value.frequentFeatureId}
+              ></ComBox>
             );
          
         })}
