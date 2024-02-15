@@ -77,7 +77,12 @@ const NotFound = styled.div`
   //text-align: center;
   margin-left: 40px;
 `;
-const FuncWrapper = styled.div;
+//const FuncWrapper = styled.div;
+function containsKorean(text) {
+  const koreanRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+  return koreanRegex.test(text);
+}
+
 function Find() {
   const location = useLocation();
   const suggestions = location.state ? location.state.suggestions : [];
@@ -100,6 +105,9 @@ function Find() {
           <br />
           <br />
           모든 단어의 철자가 맞는지 다시 확인해 주시기 바랍니다.
+          <br />
+          <br />
+          {containsKorean(userInput)&&<p>영문으로 입력해주세요.</p>}
         </NotFound>
       ) : (
         <FuncListContainerFromUser suggestions={suggestions} />
