@@ -17,11 +17,15 @@ import FuncDetail from "./components/contents/functionPage/FuncDetail";
 import Find from "./pages/Find";
 import ComDetail from "./components/contents/etcPage/ComDetail";
 import ChatBot from "./components/ChatBot";
+import Error from "./pages/Error";
+import { setErrorCode } from "./redux/errorCodeActions";
 
 function App() {
   //store에 접근하여 state 가져오기
   const dispatch = useDispatch();
   const { showChatBot } = useSelector((state) => state.chatBot);
+  const errorCode=404;//예시로 404사용
+  dispatch(setErrorCode(errorCode));
 
   return (
     <BrowserRouter>
@@ -31,6 +35,7 @@ function App() {
         <Route path="/ourVision" element={<OurVision />}></Route>
         <Route path="/ourTeam" element={<OurTeam />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
+
         <Route element={<Skeleton />}>
           <Route path="/home" element={<Home />}></Route>
           {/* <Route path="/home/function" element={<Function />}></Route> */}
@@ -51,6 +56,8 @@ function App() {
           />
           <Route path="/home/etc/frequent-functions/:etc" element={<ComDetail />} />
         </Route>
+        {/* {그 나머지 경로에 대해서는 에러 처리} */}
+        <Route path="*" element={<Error errorCode={errorCode}/>}></Route>
       </Routes>
       {showChatBot ? <ChatBot /> : null}
       <Footer />
