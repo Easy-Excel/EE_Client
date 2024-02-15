@@ -32,6 +32,10 @@ const TextWrapper = styled.div`
   padding: 0px 20px;
   padding-bottom: 14px;
   border-bottom: 2px solid black;
+  @media screen and (max-width: 480px) {
+    padding: 0px 15px;
+    padding-bottom: 10px;
+  }
 `;
 
 const Text = styled.div`
@@ -43,7 +47,24 @@ const Text = styled.div`
   line-height: normal;
   padding: 12px; /* 글자와 테두리 간의 여백 조절 */
   text-align: center;
-  color:${(props)=>props.fontColor};
+  color: ${(props) => props.fontColor};
+
+  //2/15 반응형 설정
+  @media screen and (max-width: 1160px) {
+    font-size: 24px;
+    padding: 10px;
+  }
+  @media screen and (max-width: 765px) {
+    font-size: 19px;
+    padding: 5px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 16px;
+    padding: 5px;
+  }
+  @media screen and (max-width: 407px) {
+    font-size: 13px;
+  }
 `;
 const NotFound = styled.div`
   margin-top: 26px;
@@ -56,7 +77,12 @@ const NotFound = styled.div`
   //text-align: center;
   margin-left: 40px;
 `;
-const FuncWrapper = styled.div;
+//const FuncWrapper = styled.div;
+function containsKorean(text) {
+  const koreanRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+  return koreanRegex.test(text);
+}
+
 function Find() {
   const location = useLocation();
   const suggestions = location.state ? location.state.suggestions : [];
@@ -66,8 +92,11 @@ function Find() {
   return (
     <Container>
       <TextWrapper>
-        {userInput.length===0?<Text fontColor="gray">검색어를 입력해주세요</Text>:
-         <Text>'{userInput}'의 검색한 결과</Text>}
+        {userInput.length === 0 ? (
+          <Text fontColor="gray">검색어를 입력해주세요</Text>
+        ) : (
+          <Text>'{userInput}'의 검색한 결과</Text>
+        )}
         {/* <Text>'{userInput}'의 검색한 결과</Text> */}
       </TextWrapper>
       {suggestions.length === 0 ? (
@@ -76,6 +105,9 @@ function Find() {
           <br />
           <br />
           모든 단어의 철자가 맞는지 다시 확인해 주시기 바랍니다.
+          <br />
+          <br />
+          {containsKorean(userInput)&&<p>영문으로 입력해주세요.</p>}
         </NotFound>
       ) : (
         <FuncListContainerFromUser suggestions={suggestions} />

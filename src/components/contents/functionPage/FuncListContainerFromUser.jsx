@@ -13,6 +13,29 @@ const ContainerBox = styled.div`
   display: flex;
   justify-content: center;
 
+  //2/15 반응형 설정
+  @media screen and (max-width: 1160px) {
+    padding: 0px 40px;
+    padding-top: 27px;
+  }
+  @media screen and (max-width: 765px) {
+    padding: 0px 20px;
+    padding-top: 17px;
+    max-height: 85%;
+    &::-webkit-scrollbar {
+      flex-shrink: 0;
+      width: 15px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    padding: 0px;
+    padding-top: 17px;
+    max-height: 504.469;
+    &::-webkit-scrollbar {
+      flex-shrink: 0;
+      width: 10px;
+    }
+  }
   //-----스크롤바 스타일링------//
   &::-webkit-scrollbar {
     flex-shrink: 0;
@@ -31,6 +54,7 @@ const ContainerBox = styled.div`
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    /* justify-content: space-between; */
   }
 
   //FunBox 높이가 이상해져서 주석처리했습니다(기존 FunListContainer에도 같은 현상 발생해서 주석처리) - 2/8

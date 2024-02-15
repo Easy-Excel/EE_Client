@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { UseDispatch } from "react-redux";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
@@ -16,6 +16,10 @@ const MainContainer = styled.div`
   /* min-height: 720px; */
   @media screen and (max-height: 680px) {
     height: 632.4px;
+  }
+
+  @media screen and (max-width: 450px) {
+    height: auto;
   }
 `;
 
@@ -71,6 +75,10 @@ const Content = styled.div`
   @media screen and (max-height: 680px) {
     height: 428.4px;
   }
+  @media screen and (max-width: 450px) {
+    height: 70vh;
+    margin-bottom: 20px;
+  }
 `;
 
 export default function Skeleton() {
@@ -90,9 +98,8 @@ export default function Skeleton() {
   const [selectedMenu, setSelectedMenu] = useState("home");
 
   useEffect(() => {
-    const storedMenu = localStorage.getItem("selectedMenu");//로컬스토리지에서 정보 가져옴
-    if (storedMenu) 
-    setSelectedMenu(storedMenu);
+    const storedMenu = localStorage.getItem("selectedMenu"); //로컬스토리지에서 정보 가져옴
+    if (storedMenu) setSelectedMenu(storedMenu);
     setShowFinder(storedMenu !== "shortcut" && storedMenu !== "home/shortcut");
   }, []);
 
@@ -101,7 +108,6 @@ export default function Skeleton() {
     localStorage.setItem("selectedMenu", menuName);
     setShowFinder(menuName !== "shortcut" && menuName !== "home/shortcut");
   };
-
 
   return (
     <MainContainer>

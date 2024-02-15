@@ -42,6 +42,14 @@ const Btn = styled.button`
   cursor: pointer;
   z-index: 100;
   /* background-color: yellow; */
+  @media screen and (max-width: 765px) {
+    width: 110px;
+    height: auto;
+  }
+  @media screen and (max-width: 450px) {
+    width: 90px;
+    height: auto;
+  }
 `;
 const Image_ = styled.img`
   width: 100%;
