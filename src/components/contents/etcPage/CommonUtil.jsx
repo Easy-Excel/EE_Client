@@ -9,7 +9,10 @@ export default function Common() {
     fetch("http://43.203.37.62:8080/etc/frequent-functions")
       .then((response) => response.json())
       .then((data) => {
-        setCommonList(data.result.frequentFeatures);
+        let commonArray = data.result.frequentFeatures;
+        [commonArray[10], commonArray[11]] = [commonArray[11], commonArray[10]];
+        // setCommonList(data.result.frequentFeatures);
+        setCommonList(commonArray);
       })
 
       .catch((error) => console.log("fetching error : ", error));
