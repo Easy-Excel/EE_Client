@@ -113,18 +113,31 @@ const InputBox = styled.input`
 
 const ShortcutFinder = () => {
   const [userInput, setUserInput] = useState("");
+
   const dispatch = useDispatch();
 
+  //검색창 초기화
   const handleInputChange = (event) => {
     setUserInput(event.target.value);
   };
-
+  //enter키 입력시 초기화
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      // 엔터 키를 누르면 입력 내용을 초기화하고 placeholder를 다시 표시합니다.
       setUserInput("");
     }
   };
+  //다른 컴포넌트를 클릭할 시 검색창 리셋
+  const handleWindowClick = () => {
+    setUserInput("");
+  };
+  useEffect(() => {
+    window.addEventListener("click", handleWindowClick);
+
+    return () => {
+      window.removeEventListener("click", handleWindowClick);
+    };
+  }, []);
+
 
   useEffect(() => {
     if (userInput !== "") {
@@ -137,7 +150,7 @@ const ShortcutFinder = () => {
             dispatch(setSearchResults(data.result.searchResults));
           }
           else{
-            dispatch(setSearchResults([]));//추가 : 검색결과가없을경우 빈배열로 전달
+            dispatch(setSearchResults([])); //추가 : 검색결과가없을경우 빈배열로 전달
           }
           
         })
@@ -146,6 +159,7 @@ const ShortcutFinder = () => {
         });
     }
   }, [userInput, dispatch]);
+
 
   return (
     <Wrapper>
