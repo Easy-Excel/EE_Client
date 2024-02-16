@@ -134,12 +134,9 @@ const ShortcutFinder = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.isSuccess){
-            console.log("제대로 됨");
             dispatch(setSearchResults(data.result.searchResults));
           }
           else{
-            console.log(data.isSuccess)
-            console.log("ㄴㄴ안됨");
             dispatch(setSearchResults([]));//추가 : 검색결과가없을경우 빈배열로 전달
           }
           
