@@ -22,23 +22,38 @@ const Btn = styled.div`
   position: ${(props) => (props.absolute !== "false" ? "absolute" : "static")};
   left: ${(props) => (props.absolute !== "false" ? props.left : "auto")};
   bottom: ${(props) => (props.absolute !== "false" ? props.bottom : "auto")};
+  /* @media screen and (max-width: 450px) {
+    height: fit-content;
+    border-radius: 10px;
+  } */
+
+  @media screen and (max-width: 850px) {
+    padding: 5px;
+  }
+  @media screen and (max-width: 765px) {
+    width: 50%;
+  }
 `;
 
 const ButtonTitle = styled.div`
   //버튼 안의 텍스트
   color: ${(props) => props.$fontColor};
   font-family: SUIT;
-  font-size: 18px; //버튼 글자를 조금 줄였습니다.(1/28)
+  font-size: 16px; //버튼 글자를 조금 줄였습니다.(1/28)
   font-style: normal;
   font-weight: 800;
   line-height: normal;
   text-align: center;
-
-  //논의사항
-  @media screen and (max-width: 1400px) {
-    font-size: 100%;
+  word-break: keep-all;
+  @media screen and (max-width: 1380px) {
+    font-size: 14px;
   }
-  //...이런식으로
+  @media screen and (max-width: 850px) {
+    font-size: 11px;
+  }
+  @media screen and (max-width: 700px) {
+    font-size: 9px;
+  }
 `;
 //버튼 한개 컴포넌트
 function Button({

@@ -15,7 +15,8 @@ const StHeader = styled.nav`
   top: -38px; */
 `;
 
-const NavMenu = styled.div`//네브 바 본체
+const NavMenu = styled.div`
+  //네브 바 본체
   //width: 1220px;
   height: 71px;
   //width:1350px;
@@ -29,13 +30,13 @@ const NavMenu = styled.div`//네브 바 본체
   align-items: center;
   justify-content: space-evenly; /* 항목 간격을 균등하게 배치합니다. */
   @media screen and (max-width: 1020px) {
-    height:67px;
+    /* height:67px; */
   }
-  @media screen and (max-width: 820px){
-    height: 64px;
+  @media screen and (max-width: 820px) {
+    /* height: 64px; */
   }
   @media screen and (max-width: 620px) {
-    height: 51px;
+    /* height: 51px; */
   }
 `;
 
@@ -56,8 +57,8 @@ const MenuItem = styled.div`
   @media screen and (max-width: 1020px) {
     font-size: 17px;
   }
-  @media screen and (max-width: 820px){
-   font-size: 14px;
+  @media screen and (max-width: 820px) {
+    font-size: 14px;
   }
   @media screen and (max-width: 620px) {
     font-size: 10px;
@@ -76,17 +77,17 @@ const ArrowImage = styled.img`
   z-index: 1;
   @media screen and (max-width: 1020px) {
     //margin-top:-10px;
-    width:48px;
+    width: 48px;
     height: 32px;
   }
-  @media screen and (max-width: 820px){
-   //margin-top:-13px;
-   width:45px;
-   height: 30px;
+  @media screen and (max-width: 820px) {
+    //margin-top:-13px;
+    width: 45px;
+    height: 30px;
   }
   @media screen and (max-width: 620px) {
     //margin-top:-10px;
-    width:27px;
+    width: 27px;
     height: 28px;
   }
 `;
@@ -133,9 +134,9 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
 
   const [isFindPage, setIsFindPage] = useState(false);
 
-  useEffect(()=>{
-    setIsFindPage(location.pathname==="/home/find");
-  },[location.pathname]);
+  useEffect(() => {
+    setIsFindPage(location.pathname === "/home/find");
+  }, [location.pathname]);
 
   console.log("엔터 눌렀을 때 home/find로 가서 플래그 떴는지 확인");
   console.log(isFindPage);
@@ -158,7 +159,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
             엑셀 함수
           </MenuItem>
           <ArrowImage
-            $showArrow={isFindPage||activeMenu.startsWith("/home/function")}
+            $showArrow={isFindPage || activeMenu.startsWith("/home/function")}
             src={polygon}
             alt="화살표"
           />
