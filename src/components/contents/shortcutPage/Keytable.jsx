@@ -134,11 +134,15 @@ const NoResult =styled.div`
   padding:10px;
   text-align: center;
 `;
+const LoadingSpinner =styled.div`
+  color:#384C36;
+`;
 function Keytable({ height, contentType }) {
   const [type, setType] = useState(contentType); //버튼 클릭마다 바뀌어야 하는 부분. 디폴트는 '파일실행'
   const [shortcutKeyData, setDatas] = useState(null); //데이터 받아와서 저장
   const { searchResults } = useSelector((state) => state.keyTable);
   const [smallScreen, setSmallScreen] = useState(false); //화면 크기 받아옴.=> 단축키 표의 박스 크기 수정시 필요
+  const [loading, setLoading] = useState(false); // 추가: 데이터 로딩 상태
 
   useEffect(() => {//화면크기설정
     function handleResize() {
@@ -157,25 +161,27 @@ function Keytable({ height, contentType }) {
   }, [contentType]);
 
   useEffect(() => {
+    setLoading(true);
     fetch(`${API.SHORTCUT}/category?type=${type}`)
-      .then((res) => {
-        return res.json();
-      })
-
-      .then((data) => {
-        setDatas(data.result.shortcutKeyList);
-        console.log(data.result.shortcutKeyList);
-      })
-      .catch((err) => {
-        console.log("Error fetching data:", err);
-      });
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      setDatas(data.result.shortcutKeyList);
+      console.log(data.result.shortcutKeyList);
+      setLoading(false);
+    })
+    .catch((err) => {
+      console.log("Error fetching data:", err);
+      setLoading(false);
+    });
   }, [type]); // type 값이 변경될 때마다 호출
 
   useEffect(() => {
     if (searchResults) {
-      setDatas(searchResults);
+      setDatas(searchResults);    
     }
-    setType("nooo"); //질문!! 검색시 type의 값을 변경하여 버튼 클릭시 다시 api를 호출하도록 하고 싶은데 바뀌지 않아요..
+     //질문!! 검색시 type의 값을 변경하여 버튼 클릭시 다시 api를 호출하도록 하고 싶은데 바뀌지 않아요..
     //console.log("settype"+contentType); 이걸로 확인해봤는데 안바뀜..
   }, [searchResults]); // searchResults 값이 변경될 때마다 호출
 
@@ -188,36 +194,41 @@ function Keytable({ height, contentType }) {
             <Cell>Window</Cell>
             <Cell>Mac</Cell>
           </HeaderRow>
-          {shortcutKeyData !== null && shortcutKeyData.length > 0 ? (
-            <Rows>
-              {shortcutKeyData.map((item) => (
-                <Row key={item?.id}>
-                  <DesCell smallScreen={smallScreen}>
-                    {item?.explanation}
-                    <Modal>
-                      <div className="triangle"></div>
-                      {item?.detailExplanation}
-                    </Modal>
-                  </DesCell>
-                  <Cell smallScreen={smallScreen}>
-                    {item?.windowKey.map((word, index) => (
-                      <WordBox key={index}>{word}</WordBox>
-                    ))}
-                  </Cell>
-                  <Cell smallScreen={smallScreen}>
-                    {item?.macKey.map((word, index) => (
-                      <WordBox key={index}>{word}</WordBox>
-                    ))}
-                  </Cell>
-                </Row>
-              ))}
-            </Rows>
+          {loading ? ( // 로딩 중일 때 로딩 표시
+            <LoadingSpinner />
           ) : (
-            <NoResult>
-              <p >No results found<br></br> </p>
-              <p style={{fontSize:'15px', fontWeight:'500'}}>검색 결과와 연관된 키워드가 없습니다. <br></br>다시 검색해 주세요.</p>
-            </NoResult>
-            
+            <>
+              {shortcutKeyData !== null && shortcutKeyData.length > 0 ? (
+                <Rows>
+                  {shortcutKeyData.map((item) => (
+                    <Row key={item?.id}>
+                      <DesCell smallScreen={smallScreen}>
+                        {item?.explanation}
+                        <Modal>
+                          <div className="triangle"></div>
+                          {item?.detailExplanation}
+                        </Modal>
+                      </DesCell>
+                      <Cell smallScreen={smallScreen}>
+                        {item?.windowKey.map((word, index) => (
+                          <WordBox key={index}>{word}</WordBox>
+                        ))}
+                      </Cell>
+                      <Cell smallScreen={smallScreen}>
+                        {item?.macKey.map((word, index) => (
+                          <WordBox key={index}>{word}</WordBox>
+                        ))}
+                      </Cell>
+                    </Row>
+                  ))}
+                </Rows>
+              ) : (
+                <NoResult>
+                  <p>No results found<br /></p>
+                  <p style={{fontSize:'15px', fontWeight:'500'}}>검색 결과와 연관된 키워드가 없습니다. <br /></p>
+                </NoResult>
+              )}
+            </>
           )}
         </Table>
       </KeytableContainer>
