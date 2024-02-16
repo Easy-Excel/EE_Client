@@ -10,7 +10,7 @@ import { API } from "../config";
 const Wrapper = styled.div`
   //right: 14%;
   /* bottom: 78%; */
-  width: 240px;
+  width: 250px;
   height: 38px;
   z-index: 100;
   /* margin: 2px; */
@@ -20,13 +20,14 @@ const Wrapper = styled.div`
   top: -48px;
   right: 14%;
   @media screen and (max-width: 1400px) and (max-height: 750px) {
-    width: 210px;
+    width: 220px;
   }
   @media screen and (max-width: 950px) {
-    width: 210px;
+    width: 220px;
   }
   @media screen and (max-width: 550px) {
-    width: 180px;
+    right: auto;
+    width: 190px;
   }
 `;
 
@@ -103,7 +104,8 @@ const InputBox = styled.input`
   border: none;
   background-color: transparent;
   width: 85%;
-  font-size: 15px;
+  font-size: 14.5px;
+  /* background-color: pink; */
   /* margin-top: 11px; */
   outline: none;
   @media screen and (max-width: 950px) {

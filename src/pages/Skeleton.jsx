@@ -46,7 +46,10 @@ const ServContainer = styled.div`
 `;
 
 const ServText = styled.div`
+  padding: 0px 20px;
+  text-align: center;
   margin-bottom: 40px;
+  word-break: keep-all;
   & > span {
     margin: 0px;
     margin-left: 5px;
