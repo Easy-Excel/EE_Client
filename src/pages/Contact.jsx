@@ -42,10 +42,18 @@ const Contactheader = styled.div`
 
   font-family: "SUIT";
   font-weight: 800;
-  font-size: 47px;
+  font-size: 40px;
   line-height: 62px;
   text-align: center;
   color: #ffffff;
+
+  @media screen and (max-width: 605px) {
+    left: 0px;
+    font-size: 35px;
+    margin: 0px auto;
+    width: 70%;
+    min-width: 300px;
+  }
 `;
 const Contactmain = styled.div`
   background-color: #ceebde;
@@ -59,6 +67,7 @@ const Contactmain = styled.div`
   gap: 40px;
   @media screen and (max-width: 605px) {
     align-items: center;
+    padding: 14vh 40px;
   }
   @media screen and (max-height: 680px) {
     padding-top: 95.2px;
@@ -75,6 +84,9 @@ const EasyExcel = styled.div`
   font-size: 80px;
   color: #107c41;
   margin-bottom: 20px;
+  @media screen and (max-width: 605px) {
+    font-size: 60px;
+  }
 `;
 
 const Contactlogo = styled.img`
@@ -88,6 +100,8 @@ const Contactlogo = styled.img`
 
   @media screen and (max-width: 605px) {
     margin: 0px;
+    width: 80px;
+    height: 80px;
   }
 `;
 
@@ -104,13 +118,18 @@ const LogoImg = styled.img`
   }
   @media screen and (max-width: 605px) {
     position: static;
+    width: 80px;
+    height: 80px;
   }
 `;
 
 export default function Contact() {
   const handleInstarClick = () => {
     //인스타 링크로 이동
-    window.open("", "_blank"); //아직 url이 없어서 이동을 안하게 하고 싶음
+    window.open(
+      "https://www.instagram.com/easy._.excel/?igsh=MWZldWxtZjAyMG5mbg%3D%3D&utm_source=qr",
+      "_blank"
+    ); //아직 url이 없어서 이동을 안하게 하고 싶음
   };
   const handleGitClick = () => {
     // 깃허브 링크로 이동

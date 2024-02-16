@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Title } from "../extraPage/ExtraComponent";
 import { API } from "../../../config";
 
 const FBContainer = styled.div`
@@ -9,6 +8,7 @@ const FBContainer = styled.div`
   padding-top: 20px;
   overflow-y: auto;
   padding-right: 10px;
+
   /* position: relative; */
 
   //-----스크롤바 스타일링------//
@@ -24,6 +24,47 @@ const FBContainer = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background-color: #908f8f;
   }
+
+  @media screen and (max-width: 765px) {
+    padding-right: 0px;
+    &::-webkit-scrollbar {
+      flex-shrink: 0;
+      width: 13px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    height: auto;
+    &::-webkit-scrollbar {
+      flex-shrink: 0;
+      width: 10px;
+    }
+  }
+`;
+
+const Title = styled.div`
+  color: #000;
+  font-family: SUIT;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin-bottom: 12px;
+  word-break: keep-all;
+
+  //2/15 반응형 설정
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    padding: 0px 10px;
+
+    text-align: center;
+    font-size: 19px;
+  }
+  @media screen and (max-width: 765px) {
+    font-size: 17px;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+  }
 `;
 
 const FBForm = styled.form`
@@ -32,10 +73,21 @@ const FBForm = styled.form`
   gap: 24px;
   width: 100%;
   /* height: 100%; */
-  padding-top: 10px;
+  padding-top: 12px;
   padding-left: 40px;
   font-family: SUIT;
   position: relative;
+  //2/15 반응형 설정
+  @media screen and (max-width: 900px) {
+    gap: 20px;
+    padding: 0px 15px;
+    padding-top: 12px;
+    /* background-color: pink; */
+  }
+
+  @media screen and (max-width: 500px) {
+    gap: 20px;
+  }
 `;
 
 const FBLabel = styled.label`
@@ -43,6 +95,21 @@ const FBLabel = styled.label`
   color: black;
   font-weight: 400;
   font-family: SUIT;
+
+  //2/15 반응형 설정
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    padding: 0px 10px;
+    /* background-color: pink; */
+    font-size: 17px;
+  }
+  @media screen and (max-width: 765px) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 500px) {
+    text-align: center;
+    font-size: 13px;
+  }
 `;
 
 const FBInput = styled.input`
@@ -53,6 +120,14 @@ const FBInput = styled.input`
   border: 1px solid black;
   padding: 10px 15px;
   font-family: SUIT;
+
+  @media screen and (max-width: 900px) {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 11px;
+  }
 `;
 
 const FBFormItem = styled.div`
@@ -60,6 +135,9 @@ const FBFormItem = styled.div`
   flex-direction: column;
   gap: 16px;
   font-family: SUIT;
+  @media screen and (max-width: 900px) {
+    gap: 10px;
+  }
 `;
 
 const FBTextArea = styled.textarea`
@@ -72,7 +150,16 @@ const FBTextArea = styled.textarea`
   padding: 10px 15px;
   font-family: SUIT;
 
-  resize: vertical;
+  resize: none;
+
+  @media screen and (max-width: 900px) {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 11px;
+    height: 160px;
+  }
 `;
 
 const FBButton = styled.button`
@@ -82,7 +169,7 @@ const FBButton = styled.button`
   padding: 10px;
   border-radius: 16px;
 
-  width: 15%;
+  width: 120px;
   height: 47px;
   background-color: #107c41;
   color: white;
@@ -102,6 +189,17 @@ const FBButton = styled.button`
   /* position: absolute;
   right: 0px;
   bottom: 37px; */
+
+  @media screen and (max-width: 900px) {
+    /* height: 47px;
+    font-size: 15px; */
+  }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    font-size: 12px;
+    height: 35px;
+    border-radius: 12px;
+  }
 `;
 
 export default function Feedback({ height }) {
@@ -145,7 +243,7 @@ export default function Feedback({ height }) {
 
   return (
     <FBContainer height={height.container}>
-      <Title text={"Easy Excel에 대한 피드백을 남겨주세요!"} />
+      <Title>Easy Excel에 대한 피드백을 남겨주세요!</Title>
       <FBForm onSubmit={handleSubmit}>
         <FBFormItem>
           <FBLabel htmlFor="email">Email</FBLabel>

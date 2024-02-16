@@ -119,6 +119,13 @@ const ShortcutFinder = () => {
     setUserInput(event.target.value);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      // 엔터 키를 누르면 입력 내용을 초기화하고 placeholder를 다시 표시합니다.
+      setUserInput("");
+    }
+  };
+
   useEffect(() => {
     if (userInput !== "") {
       const encodedInput = encodeURIComponent(userInput);
@@ -126,8 +133,13 @@ const ShortcutFinder = () => {
       fetch(`${API.SHORTCUT}/search?keyword=${encodedInput}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data.result.searchResults);
-          dispatch(setSearchResults(data.result.searchResults));
+          if (data.isSuccess){
+            dispatch(setSearchResults(data.result.searchResults));
+          }
+          else{
+            dispatch(setSearchResults([]));//추가 : 검색결과가없을경우 빈배열로 전달
+          }
+          
         })
         .catch((err) => {
           console.log("Error fetching data:", err);
@@ -145,6 +157,7 @@ const ShortcutFinder = () => {
           placeholder="찾고 싶은 단축키의 키워드를 검색해주세요"
           value={userInput}
           onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
         />
       </Container_>
     </Wrapper>

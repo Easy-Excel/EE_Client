@@ -103,6 +103,15 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
     // console.log(location.pathname);
   }, [location.pathname]);
 
+  const [isFindPage, setIsFindPage] = useState(false);
+
+  useEffect(()=>{
+    setIsFindPage(location.pathname==="/home/find");
+  },[location.pathname]);
+
+  console.log("엔터 눌렀을 때 home/find로 가서 플래그 떴는지 확인");
+  console.log(isFindPage);
+
   return (
     <StHeader>
       <NavMenu>
@@ -121,7 +130,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
             엑셀 함수
           </MenuItem>
           <ArrowImage
-            $showArrow={activeMenu.startsWith("/home/function")}
+            $showArrow={isFindPage||activeMenu.startsWith("/home/function")}
             src={polygon}
             alt="화살표"
           />
