@@ -59,10 +59,17 @@ const Visionheader = styled.div`
 
   font-family: "SUIT";
   font-weight: 800;
-  font-size: 47px;
+  font-size: 40px;
   line-height: 62px;
   text-align: center;
   color: #ffffff;
+  @media screen and (max-width: 605px) {
+    left: 0px;
+    font-size: 35px;
+    margin: 0px auto;
+    width: 70%;
+    min-width: 300px;
+  }
 `;
 
 const VisionLogoFlexBox = styled.div`
@@ -72,7 +79,7 @@ const VisionLogoFlexBox = styled.div`
   align-items: center;
   height: 100%;
   width: 30%;
-  min-width: 413px;
+  min-width: 350px;
   gap: 27px;
 `;
 
@@ -86,12 +93,24 @@ const VisionContentFlexBox = styled.div`
   padding: 60px;
   margin: 0px 40px;
 
-  @media screen and (max-width: 1120px) {
-    padding: 60px;
-    margin-bottom: 40px;
-  }
   @media screen and (max-width: 1300px) {
     padding: 40px 60px;
+  }
+  @media screen and (max-width: 1120px) {
+    padding: 60px;
+
+    max-width: 710px;
+    width: auto;
+    margin: 0px 10%;
+    margin-bottom: 40px;
+  }
+
+  @media screen and (max-width: 630px) {
+    padding: 40px 40px;
+    min-width: auto;
+    max-width: 90%;
+    margin: 0px auto;
+    margin-bottom: 40px;
   }
 `;
 
@@ -108,6 +127,9 @@ const Visionlogo = styled.img`
   }
   @media screen and (max-width: 1120px) {
     width: 60%;
+  }
+  @media screen and (max-width: 475px) {
+    width: 50%;
   }
 `;
 
@@ -139,6 +161,7 @@ const Visioncontext = styled.div`
   line-height: 30px;
   text-align: left;
   color: #000000;
+  word-break: keep-all;
   @media screen and (max-width: 1120px) {
     margin: 0px;
     margin-bottom: 50px;
@@ -148,6 +171,10 @@ const Visioncontext = styled.div`
     margin-bottom: 20px;
     font-size: 19px;
   }
+
+  @media screen and (max-width: 630px) {
+    font-size: 17px;
+  }
 `;
 
 const Visioncontext1 = styled.div`
@@ -156,8 +183,9 @@ const Visioncontext1 = styled.div`
   font-weight: 500;
   font-size: 18px;
   line-height: 30px;
-  text-align: justify;
+  text-align: left;
   white-space: pre-wrap;
+  word-break: keep-all;
   color: #000000;
   margin-bottom: 40px;
   &:last-child {
@@ -171,6 +199,10 @@ const Visioncontext1 = styled.div`
   @media screen and (max-width: 1300px) {
     margin-bottom: 20px;
     font-size: 16px;
+  }
+  @media screen and (max-width: 630px) {
+    font-size: 14px;
+    line-height: 25px;
   }
 `;
 
