@@ -13,6 +13,7 @@ const MainContainer = styled.div`
   justify-content: center;
   background-color: #ceebde;
   height: 93vh;
+  position: relative;
   /* min-height: 720px; */
   @media screen and (max-height: 680px) {
     height: 632.4px;
@@ -113,7 +114,7 @@ export default function Skeleton() {
   };
 
   return (
-    <MainContainer>
+    <MainContainer className="MainContainer메인메인">
       <ServContainer>
         <ServText>
           슬기로운 엑셀 사용을 위한 통합정리 서비스,
@@ -122,10 +123,12 @@ export default function Skeleton() {
 
         {/* finder가 있던 부분입니다. */}
       </ServContainer>
+
       <Navbar handleMenuItemClick={handleMenuItemClick}>
-        {/* 검색창 ServContainer 에서 Navbar 안으로 이동. 검색창 기준으로 위치 선정을 위함*/}
+        {" "}
         {showFinder ? <Finder /> : <ShortcutFinder />}
       </Navbar>
+      {/* 검색창 ServContainer 에서 Navbar 안으로 이동. 검색창 기준으로 위치 선정을 위함*/}
       {/* <Finder/> */}
       {/* Navbar 컴포넌트에서 단축키를 클릭할 시 그 이벤트를 처리하고 skeleton에 전달하기 위해 props로 전달 */}
       {/* <ChatBot/> */}
