@@ -34,10 +34,6 @@ const NavMenu = styled.div`
   }
   @media screen and (max-width: 820px) {
     /* height: 64px; */
-  }
-  @media screen and (max-width: 620px) {
-    height: 51px;
-  } */
 `;
 
 const MenuItem = styled.div`
