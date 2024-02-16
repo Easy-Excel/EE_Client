@@ -16,6 +16,17 @@ const ButtonWrapper = styled.div`
   padding: 0px 20px;
   padding-bottom: 17px;
   border-bottom: 2px solid black;
+  @media screen and (max-width: 765px) {
+    gap: 15px;
+    padding: 0px 10px;
+    padding-bottom: 17px;
+  }
+
+  @media screen and (max-width: 450px) {
+    gap: 10px;
+    padding: 0px;
+    padding-bottom: 17px;
+  }
 `;
 
 export default function BtnWrapper({ gap, children }) {

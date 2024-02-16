@@ -79,9 +79,15 @@ const Content = styled.div`
   @media screen and (max-height: 680px) {
     height: 428.4px;
   }
+  @media screen and (max-width: 700px) {
+    //height: 70vh;
+    //margin-bottom: 20px;
+    padding: 0px 50px;
+  }
   @media screen and (max-width: 450px) {
     height: 70vh;
     margin-bottom: 20px;
+    padding: 0px 24px;
   }
 `;
 

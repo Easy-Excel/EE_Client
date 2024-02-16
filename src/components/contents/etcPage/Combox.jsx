@@ -39,7 +39,7 @@ const FunctionBox = styled.div`
     font-size: 70%;
     margin-bottom: 17px;
   }
-  /* background-color: pink; */
+  
 `;
 
 export default function ComBox({ commonId, commonName }) {
