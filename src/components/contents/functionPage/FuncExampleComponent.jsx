@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { FuncContainer, FuncTitle } from "./FuncDetailComponents";
 import {
-  HelpImage,
   ExAnswerTitle,
   ExAnswer,
   ExAnswerNumber,
@@ -19,6 +18,10 @@ const FlexBox = styled.div`
   margin-bottom: 10px;
   gap: 25px;
   align-items: flex-start;
+
+  @media screen and (max-width: 1100px) {
+    flex-direction: column;
+  }
 `;
 
 const AnswerFlexBox = styled.div`
@@ -47,6 +50,18 @@ const NextButton = styled.button`
   }
 `;
 
+const ExImg = styled.img`
+  flex-shrink: 0;
+  margin: 11px 0px;
+  margin-left: ${({ $marginLeft }) => $marginLeft};
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+  min-width: ${({ $minWidth }) => $minWidth};
+  @media screen and (max-width: 1100px) {
+    width: 90%;
+    margin: auto;
+  }
+`;
 const ButtonContainer = styled.div`
   height: 39px;
   position: absolute;
@@ -58,6 +73,18 @@ const ButtonContainer = styled.div`
   justify-content: flex-end;
   gap: 11px;
 `;
+
+function FunExImage({ width, minWidth, height, marginLeft, src }) {
+  return (
+    <ExImg
+      width={width}
+      $minWidth={minWidth}
+      height={height}
+      $marginLeft={marginLeft}
+      src={src}
+    />
+  );
+}
 
 export function FExampleNextButton({
   leftDisable,
@@ -108,8 +135,9 @@ export default function FExampleContainer({
         </FuncTitle>
         <ExampleQuestion text={question} />
         <FlexBox>
-          <HelpImage
+          <FunExImage
             width={"435px"}
+            minWidth={"435px"}
             height={"auto"}
             marginLeft={"0px"}
             src={exampleImgDTOList[0].url}

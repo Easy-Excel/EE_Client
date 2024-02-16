@@ -12,7 +12,7 @@ import {
   ExampleAnswer,
   ExampleAnswerTitle,
 } from "./ExtraComponent";
-import Button from "../../Button";
+import Button from "../../ButtonType2";
 
 //Webpack의 require.context를 사용하여 특정 폴더의 모든 파일 가져오기
 const imagesContext = require.context(
