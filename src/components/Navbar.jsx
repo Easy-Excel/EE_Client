@@ -45,6 +45,10 @@ const MenuItem = styled.div`
   text-align: center;
   flex-direction: column; /* 추가: 수직으로 정렬하기 위해 */
   align-items: center; /* 추가: 수직으로 정렬하기 위해 */
+  
+  @media (max-width: 600px) {
+    font-size: 14px; /*화면이 작을 때 글꼴 크기를 줄임*/
+  }
 `;
 
 const ArrowImage = styled.img`
