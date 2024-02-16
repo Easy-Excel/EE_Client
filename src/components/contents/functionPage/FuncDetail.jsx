@@ -3,12 +3,21 @@ import FDetailContainer from "./FuncDetailComponents";
 import FExampleContainer from "./FuncExampleComponent";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
-
+import styled from "styled-components";
 import useComponentSize from "../../../hooks/UseComponentSzie";
 import { API } from "../../../config";
 
 //버튼
 import Button from "../../Button";
+
+
+const Wrapper = styled.div`
+  /* 화면 폭이 600px 이하일 때 적용되는 스타일 */
+  @media (max-width: 600px) {
+    font-size: 14px; /* 예시로 글꼴 크기를 14px로 설정 */
+  }
+`;
+
 
 export default function FuncDetail() {
   //네비게이트 훅을 통해 넘겨받은 정보 (api 연동시 사용)
@@ -125,9 +134,9 @@ export default function FuncDetail() {
         />
       ) : (
         // 그룹화하기 위한 빈태그
-        <>
+        <Wrapper>
           <FDetailContainer height={containerSize} funData={funcData} />
-        </>
+        </Wrapper>
       )}
       <Button
         width={"15%"}

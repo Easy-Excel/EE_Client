@@ -35,7 +35,17 @@ export const FuncTitle = styled.h1`
   font-weight: 800;
   line-height: normal;
   margin-bottom: 12px;
+  @media screen and (max-width:700px){
+    //text-align:center;
+    font-size:19px
+  }
+  @media screen and (max-width:475px){
+    margin-top: -19px;
+    text-align:center;
+    font-size: 15px;
+  }
 `; //함수 이름
+
 const FuncSubTitle = styled.h2`
   color: #000;
   font-family: SUIT;
@@ -46,7 +56,23 @@ const FuncSubTitle = styled.h2`
   margin-top: 20px;
   margin-bottom: 10px;
   margin-left: 38px;
+  @media screen and (max-width:800px){
+      //font-size: 15px;
+      margin-left: 14px;
+  }
+  @media screen and (max-width:700px){
+    //text-align:center;
+    font-size: 15px;
+    margin-left: 17px;
+  }
+   @media screen and (max-width:475px){
+    //text-align:center;
+    font-size: 13px;
+    margin-left: 18px;
+  }//'특징'
+
 `; //함수 구문, 함수 특징(하위 제목 부분)
+
 
 export const FuncDescription = styled.div`
   color: #000;
@@ -57,11 +83,38 @@ export const FuncDescription = styled.div`
   line-height: normal;
   margin-left: 36px;
   margin-bottom: 8px;
+
+  @media screen and (max-width:700px){
+    //text-align:center;
+    font-size: 13px;
+    margin-left: 17px;
+  }
+   @media screen and (max-width:475px){
+    //text-align:center;
+    font-size: 10px;
+    margin-left: 18px;
+    margin-bottom: -7px;
+  }
 `; //함수 설명 text
 
 const FuncFeatures = styled.ul`
   margin-left: 78px;
   /* margin-bottom: 10px; */
+  @media screen and (max-width:800px){
+      //font-size: 15px;
+      margin-left: 14px;
+  }
+    @media screen and (max-width:700px){
+    //text-align:center;
+    font-size: 13px;
+    margin-left: 17px;
+  }
+   @media screen and (max-width:475px){
+    //text-align:center;
+    font-size: 10px;
+    margin-left: 4px;
+    //padding: 0 -1px;
+  }
 `;
 //함수 특징 unordered lists 묶음
 const FuncFeature = styled.li`
@@ -74,6 +127,16 @@ const FuncFeature = styled.li`
   line-height: normal;
   margin-bottom: 8px;
   line-height: 150%;
+  @media screen and (max-width:700px){
+    //text-align:center;
+    font-size: 13px;
+    margin-left: 17px;
+  }
+   @media screen and (max-width:475px){
+    //text-align:center;
+    font-size: 10px;
+    margin-left: 18px;
+  }
 `; //함수 특징 list
 
 const FuncFunction = styled.div`
@@ -90,6 +153,15 @@ const FuncFunction = styled.div`
 
   &:hover {
     cursor: pointer;
+  }
+  @media screen and (max-width:700px){
+    //margin-top: -10px;
+    margin-left: 14px;
+  }
+   @media screen and (max-width:475px){
+    font-size: 13px;
+    //margin-top: -10px;
+    margin-left: 20px;
   }
 `;
 export default function FDetailContainer({ height, funData }) {

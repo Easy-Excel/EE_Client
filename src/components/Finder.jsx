@@ -8,9 +8,8 @@ import { UseDispatch } from "react-redux";
 import { API } from "../config";
 
 const Wrapper = styled.div`
-  //right: 14%;
+  right: 14%;
   /* bottom: 78%; */
-  width: 240px;
   height: 38px;
   z-index: 100;
   /* margin: 2px; */
@@ -19,14 +18,12 @@ const Wrapper = styled.div`
   position: absolute;
   top: -48px;
   right: 14%;
-  @media screen and (max-width: 1400px) and (max-height: 750px) {
-    width: 210px;
+  /* @media screen and (max-width: 1400px) and (max-height: 750px) {
   }
   @media screen and (max-width: 950px) {
-    width: 210px;
-  }
+  } */
   @media screen and (max-width: 550px) {
-    width: 180px;
+    right: auto;
   }
 `;
 
@@ -102,18 +99,23 @@ const MagImage = styled.img`
 const InputBox = styled.input`
   border: none;
   background-color: transparent;
-  width: 85%;
-  font-size: 15px;
+  min-width: 210px;
+  font-size: 14.5px;
+  padding: 5px;
+  /* background-color: pink; */
   /* margin-top: 11px; */
-  outline: none;
+  /* outline: none; */
   @media screen and (max-width: 950px) {
     font-size: 13px;
+    min-width: 185px;
   }
   @media screen and (max-width: 1400px) and (max-height: 750px) {
     font-size: 13px;
+    min-width: 185px;
   }
   @media screen and (max-width: 550px) {
     font-size: 11px;
+    min-width: 160px;
   }
 `;
 
