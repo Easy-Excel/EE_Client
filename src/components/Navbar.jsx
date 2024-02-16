@@ -29,15 +29,15 @@ const NavMenu = styled.div`
   justify-content: space-between; //헤더에 맞춰 간격 동일하게 조젏
   align-items: center;
   justify-content: space-evenly; /* 항목 간격을 균등하게 배치합니다. */
-  @media screen and (max-width: 1020px) {
-    /* height:67px; */
+  /* @media screen and (max-width: 1020px) {
+    height:67px;
   }
   @media screen and (max-width: 820px) {
     /* height: 64px; */
   }
   @media screen and (max-width: 620px) {
-    /* height: 51px; */
-  }
+    height: 51px;
+  } */
 `;
 
 const MenuItem = styled.div`
@@ -75,20 +75,17 @@ const ArrowImage = styled.img`
   position: absolute;
   display: ${({ $showArrow }) => ($showArrow ? "block" : "none")};
   z-index: 1;
-  @media screen and (max-width: 1020px) {
-    //margin-top:-10px;
-    width: 48px;
-    height: 32px;
+  /* @media screen and (max-width: 1020px) {
+
   }
-  @media screen and (max-width: 820px) {
-    //margin-top:-13px;
-    width: 45px;
-    height: 30px;
-  }
+  @media screen and (max-width: 820px){
+
+  } */
   @media screen and (max-width: 620px) {
-    //margin-top:-10px;
-    width: 27px;
-    height: 28px;
+    margin-top: 0px;
+  }
+  @media screen and (max-width: 475px) {
+    margin-top: -2px;
   }
 `;
 
