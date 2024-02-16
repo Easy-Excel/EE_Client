@@ -16,19 +16,19 @@ const Wrapper = styled.div`
   position: absolute;
   top: -48px;
   right: 14%;
-  width: 310px; //width만 더 길게 설정(2/10)
+  /* width: 310px; //width만 더 길게 설정(2/10) */
   height: 38px;
   z-index: 100;
 
   //Finder.jsx와 스타일 일치(2/10)
-  @media screen and (max-width: 1400px) and (max-height: 750px) {
+  /* @media screen and (max-width: 1400px) and (max-height: 750px) {
     width: 270px;
   }
   @media screen and (max-width: 950px) {
     width: 270px;
-  }
+  } */
   @media screen and (max-width: 550px) {
-    width: 230px;
+    right: auto;
   }
 `;
 
@@ -44,7 +44,7 @@ const Container_ = styled.div`
   display: flex;
   align-items: center;
   padding: 8px 10px;
-  gap: 10px;
+  gap: 8px;
   @media screen and (max-width: 950px) {
     gap: 8px;
     padding-bottom: 5px;
@@ -96,18 +96,24 @@ const InputBox = styled.input`
   border: none;
   background-color: transparent;
   width: 90%; //width만 더 길게 설정(2/10)
-  font-size: 15px;
+  font-size: 14.5px;
+  min-width: 280px;
+  padding: 5px;
+
   /* margin-top: 11px; */
-  outline: none;
+  /* outline: none; */
   @media screen and (max-width: 950px) {
     font-size: 13px;
+    min-width: 250px;
   }
   @media screen and (max-width: 1400px) and (max-height: 750px) {
     font-size: 13px;
+    min-width: 250px;
   }
 
   @media screen and (max-width: 550px) {
     font-size: 11px;
+    min-width: 210px;
   }
 `;
 
@@ -120,7 +126,7 @@ const ShortcutFinder = () => {
   };
 
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       // 엔터 키를 누르면 입력 내용을 초기화하고 placeholder를 다시 표시합니다.
       setUserInput("");
     }
@@ -133,13 +139,11 @@ const ShortcutFinder = () => {
       fetch(`${API.SHORTCUT}/search?keyword=${encodedInput}`)
         .then((res) => res.json())
         .then((data) => {
-          if (data.isSuccess){
+          if (data.isSuccess) {
             dispatch(setSearchResults(data.result.searchResults));
+          } else {
+            dispatch(setSearchResults([])); //추가 : 검색결과가없을경우 빈배열로 전달
           }
-          else{
-            dispatch(setSearchResults([]));//추가 : 검색결과가없을경우 빈배열로 전달
-          }
-          
         })
         .catch((err) => {
           console.log("Error fetching data:", err);
