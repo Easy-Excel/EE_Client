@@ -30,12 +30,7 @@ const Btn = styled.div`
     border-radius: 10px;
   } */
 
-  @media screen and (max-width: 850px) {
-    padding: 5px;
-  }
-  @media screen and (max-width: 765px) {
-    width: 50%;
-  }
+
 `;
 
 const ButtonTitle = styled.div`
@@ -53,9 +48,7 @@ const ButtonTitle = styled.div`
   @media screen and (max-width: 1400px) {
     font-size: 100%;
   }
-  @media screen and (max-width: 700px) {
-    font-size: 9px;
-  }
+
 `;
 //버튼 한개 컴포넌트
 function Button({
