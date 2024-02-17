@@ -8,8 +8,7 @@ const Btn = styled.div`
   align-items: center;
   padding: 10px;
   border-radius: 16px;
-  width: ${(props) => props.width}; /* 버튼 너비 고정 */
-  min-width: 100px; /* 최소 너비 설정 */
+  width: ${(props) => props.width};
   height: ${(props) => props.height};
   background-color: ${(props) => props.$backgroundColor};
   color: ${(props) => props.$fontColor};
@@ -18,17 +17,12 @@ const Btn = styled.div`
   overflow: hidden;
   cursor: pointer;
 
+  // 화면 크기에 따른 텍스트 크기 조정
 
-   // 화면 크기에 따른 텍스트 크기 조정
-  
   //특정 페이지에서 버튼위치를 절대 좌표로 쓰기 위한 스타일 추가
   position: ${(props) => (props.absolute !== "false" ? "absolute" : "static")};
   left: ${(props) => (props.absolute !== "false" ? props.left : "auto")};
   bottom: ${(props) => (props.absolute !== "false" ? props.bottom : "auto")};
-  /* @media screen and (max-width: 450px) {
-    height: fit-content;
-    border-radius: 10px;
-  } */
 
   @media screen and (max-width: 865px) {
     padding: 5px;
@@ -63,7 +57,6 @@ const ButtonTitle = styled.div`
   @media screen and (max-width: 670px) {
     word-break: normal;
   }
-
 `;
 //버튼 한개 컴포넌트
 function Button({

@@ -32,7 +32,7 @@ export const FuncContainer = styled.div`
       width: 13px;
     }
   }
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 475px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,7 +54,7 @@ export const FuncTitle = styled.h1`
   font-weight: 800;
   line-height: normal;
   margin-bottom: 12px;
-  
+
   @media screen and (max-width: 1000px) {
     font-size: 20px;
   }
@@ -66,7 +66,7 @@ export const FuncTitle = styled.h1`
     font-size: 17px;
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 475px) {
     word-break: keep-all;
     text-align: center;
     font-size: 16px;
@@ -98,15 +98,13 @@ const FuncSubTitle = styled.h2`
     margin-left: 15px;
     font-size: 15px;
   }
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 475px) {
     margin-left: 0px;
     width: 100%;
     text-align: center;
     font-size: 14px;
   }
 `;
-
-
 
 export const FuncDescription = styled.div`
   color: #000;
@@ -131,7 +129,7 @@ export const FuncDescription = styled.div`
     margin-left: 15px;
     font-size: 13px;
   }
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 475px) {
     margin-left: 0px;
     width: 100%;
     font-size: 13px;
@@ -139,7 +137,6 @@ export const FuncDescription = styled.div`
     margin-bottom: 5px;
   }
 `;
-
 
 const FuncFeatures = styled.ul`
   margin-left: 78px;
@@ -155,22 +152,22 @@ const FuncFeatures = styled.ul`
     margin-left: 35px;
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 475px) {
     margin: 0px;
     padding: 0px 10px;
     width: 100%;
   }
   /* margin-bottom: 10px; */
-  @media screen and (max-width:800px){
-      //font-size: 15px;
-      margin-left: 14px;
+  @media screen and (max-width: 800px) {
+    //font-size: 15px;
+    margin-left: 14px;
   }
-    @media screen and (max-width:700px){
+  @media screen and (max-width: 700px) {
     //text-align:center;
     font-size: 13px;
     margin-left: 17px;
   }
-   @media screen and (max-width:475px){
+  @media screen and (max-width: 475px) {
     //text-align:center;
     font-size: 10px;
     margin-left: 4px;
@@ -200,13 +197,12 @@ const FuncFeature = styled.li`
     font-size: 13px;
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 475px) {
     margin-left: 0px;
     width: 100%;
     font-size: 13px;
     padding: 0px 5px;
     margin-bottom: 8px;
-
   }
 `; //함수 특징 list
 
@@ -240,14 +236,13 @@ const FuncFunction = styled.div`
     font-size: 13px;
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 475px) {
     text-align: center;
     width: 100%;
     font-size: 13px;
     padding: 0px 5px;
     margin: 5px 0px;
     margin-bottom: 15px;
-
   }
 `;
 export default function FDetailContainer({ height, funData }) {
