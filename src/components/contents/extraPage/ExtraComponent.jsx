@@ -22,7 +22,6 @@ const ExtraContainer = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background-color: #908f8f;
   }
-
 `;
 
 const ExtraTitle = styled.div`
@@ -33,12 +32,12 @@ const ExtraTitle = styled.div`
   font-weight: 800;
   line-height: normal;
   margin-bottom: 12px;
-  @media screen and (max-width:700px){
+  @media screen and (max-width: 700px) {
     //text-align:center;
-    font-size:20px
+    font-size: 20px;
   }
-  @media screen and (max-width:475px){
-    text-align:center;
+  @media screen and (max-width: 475px) {
+    text-align: center;
     font-size: 17px;
   }
 `;
@@ -54,12 +53,12 @@ const ExtraParagraph = styled.div`
   margin: 0px;
   margin-left: 38px;
   margin-bottom: 10px;
-  @media screen and (max-width:700px){
+  @media screen and (max-width: 700px) {
     //text-align:center;
     font-size: 15px;
     margin-left: 17px;
   }
-   @media screen and (max-width:475px){
+  @media screen and (max-width: 475px) {
     //text-align:center;
     font-size: 13px;
     margin-left: 18px;
@@ -77,15 +76,15 @@ const ExtraSubTitle = styled.div`
   letter-spacing: -0.4px;
   margin: 20px 0px 12px 38px;
 
-  @media screen and (max-width:900px){
+  @media screen and (max-width: 900px) {
     margin-left: 12px;
   }
-  @media screen and (max-width:700px){
+  @media screen and (max-width: 700px) {
     //text-align:center;
     font-size: 15px;
   }
-    @media screen and (max-width:475px){
-    text-align:center;
+  @media screen and (max-width: 475px) {
+    text-align: center;
     font-size: 14px;
     margin-left: 8px;
     margin-bottom: 5px;
@@ -98,15 +97,15 @@ const Image = styled.img`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   min-width: ${({ $minWidth }) => $minWidth};
-  @media screen and (max-width:900px){
+  @media screen and (max-width: 900px) {
     margin-left: 12px;
   }
-  @media screen and (max-width:700px){
-    width:55px;
+  @media screen and (max-width: 700px) {
+    width: 55px;
   }
-  @media screen and (max-width:475px){
+  @media screen and (max-width: 475px) {
     margin-left: 12px;
-    width:20px;
+    width: 20px;
   }
 `;
 const ExtraHow = styled.div`
@@ -118,17 +117,16 @@ const ExtraHow = styled.div`
   line-height: normal;
   //margin-top: 30px;
   margin: 0px 0px 10px 59px;
-  @media screen and (max-width:900px){
+  @media screen and (max-width: 900px) {
     margin-left: 12px;
   }
-  @media screen and (max-width:700px){
+  @media screen and (max-width: 700px) {
     //text-align:center;
     font-size: 13px;
   }
-    @media screen and (max-width:475px){
+  @media screen and (max-width: 475px) {
     font-size: 11.5px;
     margin-left: 10px;
-
   }
 `;
 
@@ -145,14 +143,14 @@ const ExQuestion = styled.div`
   display: flex;
   gap: 5px;
   line-height: 1.4;
-  @media screen and (max-width:900px){
+  @media screen and (max-width: 900px) {
     margin-left: 12px;
   }
-  @media screen and (max-width:700px){
-    //text-align:center;
+  @media screen and (max-width: 765px) {
+    margin-left: 0px;
     font-size: 13px;
   }
-    @media screen and (max-width:475px){
+  @media screen and (max-width: 475px) {
     font-size: 11.5px;
     margin-left: 2px;
   }
@@ -168,18 +166,17 @@ const SubQuestion = styled.div`
   margin: 0px;
   margin-top: 15px;
   line-height: 1.4;
-  @media screen and (max-width:900px){
+  @media screen and (max-width: 900px) {
     margin-left: -8px;
   }
-  @media screen and (max-width:700px){
+  @media screen and (max-width: 700px) {
     margin-left: -12px;
     font-size: 13px;
   }
-  @media screen and (max-width:475px){
+  @media screen and (max-width: 475px) {
     font-size: 11px;
     margin-left: -18px;
   }
-  
 `;
 
 export const ExAnswerTitle = styled.div`
@@ -190,20 +187,18 @@ export const ExAnswerTitle = styled.div`
   word-wrap: break-word;
   margin: 15px;
   margin-left: 37px;
-  @media screen and (max-width:900px){
+  @media screen and (max-width: 900px) {
     margin-left: 12px;
   }
-  @media screen and (max-width:700px){
-    margin-left:10px;
+  @media screen and (max-width: 700px) {
+    margin-left: 10px;
     margin-top: 10px;
   }
-  @media screen and (max-width:475px){
-      
-      margin-left: 2px;
+  @media screen and (max-width: 450px) {
+    margin-left: 0px;
+    font-size: 13px;
   }
-
 `;
-
 
 //추가기능 페이지에서 사용 안하고 함수 예제에서 사용
 //추가기능 페이지에서는 디자인 수정으로 인해 새로 컴포넌트 만듦
@@ -224,20 +219,59 @@ export const ExAnswer = styled.div`
   gap: 10px;
   padding: 20px 20px;
   margin: 0px 10px 15px 73px;
-  
+  @media screen and (max-width: 1000px) {
+    font-size: 13px;
+  }
+
+  @media screen and (max-width: 765px) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 450px) {
+    padding: 15px;
+    font-size: 11px;
+    margin: 0px;
+    margin-bottom: 15px;
+  }
 `;
 
 //추가기능 페이지에서 사용 안하고 함수 예제에서 사용
 export const ExAnswerNumber = styled.div`
   border: 1px solid black;
   border-radius: 50%;
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 13px;
   min-width: 18px;
+  font-size: 11px;
+
+  @media screen and (max-width: 1000px) {
+  }
+
+  @media screen and (max-width: 765px) {
+    min-width: 16px;
+    height: 16px;
+    font-size: 10px;
+    margin-top: 1px;
+  }
+  @media screen and (max-width: 600px) {
+    margin-top: 1px;
+    min-width: 16px;
+    height: 16px;
+    font-size: 10px;
+  }
+
+  @media screen and (max-width: 450px) {
+    min-width: 15px;
+    height: 15px;
+    font-size: 9px;
+  }
 `;
 
 const ExAnswerLine = styled.div`
@@ -248,18 +282,18 @@ const ExAnswerLine = styled.div`
   word-wrap: break-word;
   margin: 6px;
   margin-left: 37px;
-  @media screen and (max-width:900px){
+  @media screen and (max-width: 900px) {
     margin-left: 12px;
     //font-size: 10;
   }
-  @media screen and (max-width:700px){
+  @media screen and (max-width: 700px) {
     //text-align:center;
     font-size: 13px;
   }
-    @media screen and (max-width:475px){
+  @media screen and (max-width: 475px) {
     font-size: 11.5px;
     margin-left: 2px;
-    }
+  }
 `;
 
 function Title({ text }) {
@@ -269,7 +303,6 @@ function Title({ text }) {
 function SubTitle({ text }) {
   return <ExtraSubTitle>{text}</ExtraSubTitle>;
 }
-
 
 function Paragraph({ text }) {
   return <ExtraParagraph>{text}</ExtraParagraph>;
@@ -308,7 +341,8 @@ function ExampleQuestion({ text, children = null }) {
   );
 }
 
-function ExampleSubQuestion({ text }) {//시나리오 부분
+function ExampleSubQuestion({ text }) {
+  //시나리오 부분
   const lines = text
     .split("\n")
     .map((line, index) => <div key={index}>{line}</div>);

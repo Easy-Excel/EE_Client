@@ -19,8 +19,15 @@ const FlexBox = styled.div`
   gap: 25px;
   align-items: flex-start;
 
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 1200px) {
     flex-direction: column;
+  }
+  @media screen and (max-width: 765px) {
+    margin-left: 0px;
+  }
+  @media screen and (max-width: 450px) {
+    margin-left: 0px;
+    width: 100%;
   }
 `;
 
@@ -48,6 +55,14 @@ const NextButton = styled.button`
   &:disabled {
     background-color: #cfe5d9;
   }
+  @media screen and (max-width: 765px) {
+    width: 33px;
+    height: 33px;
+  }
+  @media screen and (max-width: 450px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 const ExImg = styled.img`
@@ -56,10 +71,14 @@ const ExImg = styled.img`
   margin-left: ${({ $marginLeft }) => $marginLeft};
   width: ${({ width }) => width};
   height: ${({ height }) => height};
-  min-width: ${({ $minWidth }) => $minWidth};
   @media screen and (max-width: 1100px) {
-    width: 90%;
+    width: 100%;
     margin: auto;
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 100%;
+    min-width: auto;
   }
 `;
 const ButtonContainer = styled.div`
@@ -72,6 +91,19 @@ const ButtonContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   gap: 11px;
+
+  @media screen and (max-width: 450px) {
+    position: static;
+    margin-bottom: 90px;
+    justify-content: space-between;
+    height: auto;
+  }
+`;
+
+const FunExAnswerLine = styled.div`
+  display: flex;
+  gap: 14px;
+  /* align-items: center; */
 `;
 
 function FunExImage({ width, minWidth, height, marginLeft, src }) {
@@ -136,8 +168,7 @@ export default function FExampleContainer({
         <ExampleQuestion text={question} />
         <FlexBox>
           <FunExImage
-            width={"435px"}
-            minWidth={"435px"}
+            width={"400px"}
             height={"auto"}
             marginLeft={"0px"}
             src={exampleImgDTOList[0].url}
@@ -160,16 +191,16 @@ export default function FExampleContainer({
 
 function ExampleAnswer({ expList, tipList }) {
   const explanations = expList.map((item, index) => (
-    <div key={item.explanationId} style={{ display: "flex", gap: "14px" }}>
+    <FunExAnswerLine key={item.explanationId}>
       <ExAnswerNumber>{index + 1}</ExAnswerNumber>
-      {item.explanation}
-    </div>
+      <div>{item.explanation}</div>
+    </FunExAnswerLine>
   ));
   const tips = tipList.map((item) => (
-    <div key={item.tipId} style={{ display: "flex", gap: "14px" }}>
+    <FunExAnswerLine key={item.tipId}>
       <ExAnswerNumber>+</ExAnswerNumber>
-      {item.content}
-    </div>
+      <div>{item.content}</div>
+    </FunExAnswerLine>
   ));
   return (
     <AnswerFlexBox>

@@ -28,6 +28,8 @@ const ContainerBox = styled.div`
   @media screen and (max-width: 450px) {
     padding: 0px;
     padding-top: 17px;
+    max-height: 80%;
+    /* max-height: 100vh; */
     &::-webkit-scrollbar {
       flex-shrink: 0;
       width: 10px;

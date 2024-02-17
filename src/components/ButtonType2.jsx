@@ -31,7 +31,7 @@ const Btn = styled.div`
     height: 42px;
     width: 100px;
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 450px) {
     width: 100%;
     height: 35px;
     border-radius: 12px;
@@ -54,7 +54,7 @@ const ButtonTitle = styled.div`
   @media screen and (max-width: 765px) {
     font-size: 13px;
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 450px) {
     font-size: 12px;
   }
   //...이런식으로

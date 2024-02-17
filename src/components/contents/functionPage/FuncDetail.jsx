@@ -15,6 +15,20 @@ const Wrapper = styled.div`
   @media (max-width: 600px) {
     font-size: 14px; /* 예시로 글꼴 크기를 14px로 설정 */
   }
+
+  @media screen and (max-height: 680px) {
+  }
+  @media screen and (max-width: 700px) {
+  }
+  @media screen and (max-width: 450px) {
+    height: auto;
+    min-height: 600px;
+    padding-bottom: 80px;
+  }
+  @media screen and (max-width: 450px) and (max-height: 700px) {
+    height: auto;
+    padding-bottom: 80px;
+  }
 `;
 
 export default function FuncDetail() {

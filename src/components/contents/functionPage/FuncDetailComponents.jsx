@@ -24,6 +24,23 @@ export const FuncContainer = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background-color: #908f8f;
   }
+
+  @media screen and (max-width: 765px) {
+    &::-webkit-scrollbar {
+      flex-shrink: 0;
+      width: 10px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    height: auto;
+    padding-right: 0px;
+    /* padding-bottom: 100px; */
+
+    &::-webkit-scrollbar {
+      flex-shrink: 0;
+      width: 10px;
+    }
+  }
 `;
 
 export const FuncTitle = styled.h1`
@@ -34,8 +51,22 @@ export const FuncTitle = styled.h1`
   font-weight: 800;
   line-height: normal;
   margin-bottom: 12px;
-  @media (max-width: 600px) {
-    font-size: 100%; /* 화면이 작아질 때 글씨 크기를 80%로 줄임 */
+  @media screen and (max-width: 1000px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 765px) {
+    font-size: 19px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 17px;
+  }
+
+  @media screen and (max-width: 450px) {
+    word-break: keep-all;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
   }
 `; //함수 이름
 const FuncSubTitle = styled.h2`
@@ -47,8 +78,21 @@ const FuncSubTitle = styled.h2`
   line-height: normal;
   margin-top: 20px;
   margin-bottom: 10px;
-  @media (max-width: 600px) {
-    font-size: 100%; /* 화면이 작아질 때 글씨 크기를 80%로 줄임 */
+  @media screen and (max-width: 1000px) {
+    font-size: 18px;
+  }
+
+  @media screen and (max-width: 765px) {
+    font-size: 17px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 450px) {
+    margin-left: 0px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
   }
 `; //함수 구문, 함수 특징(하위 제목 부분)
 
@@ -61,10 +105,26 @@ export const FuncDescription = styled.div`
   line-height: normal;
   margin-left: 3%; /* 왼쪽 패딩을 화면의 너비에 따라 상대적으로 조절 */
   margin-bottom: 8px;
-  @media (max-width: 600px) {
-    font-size: 80%; /* 화면이 작아질 때 글씨 크기를 80%로 줄임 */
-    
-`; //함수 설명 text
+  word-break: keep-all;
+  @media screen and (max-width: 1000px) {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 765px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: 450px) {
+    margin-left: 0px;
+    padding: 0px 10px;
+    font-size: 12px;
+    margin-bottom: 5px;
+    width: 100%;
+    word-break: break-all;
+  }
+`;
 
 //Syntax 부분 component
 const FuncSyntaxBox = styled.div`
@@ -78,19 +138,25 @@ const FuncSyntaxBox = styled.div`
   line-height: normal;
   background-color: white;
   overflow-wrap: break-word; /* 텍스트가 박스를 넘어갈 때 단어를 자르고 줄 바꿈 */
-  max-height: 200px; /* 최대 높이 설정 */
-  
+  max-height: max-content;
+
+  @media screen and (max-width: 600px) {
+    max-height: max-content;
+    border: 1.5px solid #000;
+  }
 `; //함수 구문 box
 
 const FuncSyntax = styled.div`
   padding: 18px 36px;
-  padding-left: 3%; /* 왼쪽 패딩을 화면의 너비에 따라 상대적으로 조절 */
   display: flex;
+  flex-wrap: wrap;
   gap: 5px;
-  
-  max-height: 200px; /* 최대 높이 설정 */
-  @media (max-width: 600px) {
-    padding-left: 1%; /* 화면이 작아질 때 왼쪽 패딩을 더 줄임 */
+  max-height: max-content;
+
+  @media screen and (max-width: 450px) {
+    padding: 15px 20px;
+    display: flex;
+    max-height: max-content;
   }
 `; //함수 구문(=함수이름(인수,...)
 
@@ -100,8 +166,19 @@ const FuncSyntaxFName = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  @media (max-width: 600px) {
-    font-size: 80%; /* 화면이 작아질 때 글씨 크기를 80%로 줄임 */}
+  @media screen and (max-width: 1000px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 765px) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 13px;
+  }
 `;
 const FuncSyntaxSign = styled.div`
   color: #000;
@@ -110,21 +187,47 @@ const FuncSyntaxSign = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  @media (max-width: 600px) {
-    font-size: 80%; /* 화면이 작아질 때 글씨 크기를 80%로 줄임 */
+  @media screen and (max-width: 1000px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 765px) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 13px;
   }
 `; //=, (,) 등
 const FuncSyntaxArgBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
+  @media screen and (max-width: 1000px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 765px) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 13px;
+  }
 `; //argument 영어, 한국어 한 묶음
 
 const FuncSyntaxArg = styled.div`
   border-bottom: 2.5px solid black;
   text-align: center;
   padding-bottom: 3px;
-  
+  @media screen and (max-width: 600px) {
+    font-size: 13px;
+    border-bottom: 1.5px solid black;
+  }
 `; //argument
 
 const FuncSyntaxArgKor = styled.div`
@@ -134,22 +237,53 @@ const FuncSyntaxArgKor = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  @media (max-width: 600px) {
-    font-size: 80%; /* 화면이 작아질 때 글씨 크기를 80%로 줄임 */
+  @media screen and (max-width: 1000px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 765px) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 13px;
   }
 `; //argument (한국어)
 
 const FlexDivMargin = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin-left: ${(props) => props.ml};
   margin-right: ${(props) => props.mr};
+  margin-bottom: 3px;
+  @media screen and (max-width: 450px) {
+    padding-left: 5px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    flex-wrap: wrap;
+  }
 `;
 
 const FuncFeatures = styled.ul`
   margin-left: 5%; /* 초기 마진을 상대적인 단위로 설정 */
   /* margin-bottom: 10px; */
-  @media (max-width: 600px) {
-    margin-left: 2%; /* 화면이 작아질 때 마진을 더 작게 설정 */
+  @media screen and (max-width: 1000px) {
+    margin-left: 66px;
+  }
+
+  @media screen and (max-width: 765px) {
+    margin-left: 45px;
+  }
+  @media screen and (max-width: 600px) {
+    margin-left: 35px;
+  }
+
+  @media screen and (max-width: 450px) {
+    margin-left: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `;
 //함수 특징 unordered lists 묶음
@@ -162,8 +296,22 @@ const FuncFeature = styled.li`
   font-weight: 500;
   line-height: normal;
   margin-bottom: 8px;
-  @media (max-width: 600px) {
-    font-size: 80%; /* 화면이 작아질 때 글씨 크기를 80%로 줄임 */
+  @media screen and (max-width: 1000px) {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 765px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 13px;
+  }
+
+  @media screen and (max-width: 450px) {
+    margin-left: 0px;
+    font-size: 12px;
+    margin-bottom: 8px;
+    word-break: break-all;
   }
 `; //함수 특징 list
 

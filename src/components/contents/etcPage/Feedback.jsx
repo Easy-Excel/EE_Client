@@ -62,7 +62,7 @@ const Title = styled.div`
   @media screen and (max-width: 765px) {
     font-size: 17px;
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 450px) {
     font-size: 16px;
   }
 `;
@@ -85,7 +85,7 @@ const FBForm = styled.form`
     /* background-color: pink; */
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 450px) {
     gap: 20px;
   }
 `;
@@ -106,7 +106,7 @@ const FBLabel = styled.label`
   @media screen and (max-width: 765px) {
     font-size: 15px;
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 450px) {
     text-align: center;
     font-size: 13px;
   }
@@ -125,7 +125,7 @@ const FBInput = styled.input`
     font-size: 14px;
     padding: 10px 12px;
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 450px) {
     font-size: 11px;
   }
 `;
@@ -156,7 +156,7 @@ const FBTextArea = styled.textarea`
     font-size: 14px;
     padding: 10px 12px;
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 450px) {
     font-size: 11px;
     height: 160px;
   }
@@ -200,7 +200,7 @@ const FBButton = styled.button`
     height: 42px;
     width: 100px;
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 450px) {
     width: 100%;
     font-size: 12px;
     height: 35px;

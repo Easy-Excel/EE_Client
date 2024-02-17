@@ -11,6 +11,10 @@ const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding-bottom: 20px;
+  @media screen and (max-width: 450px) {
+    max-height: 70vh;
+    min-height: 550px;
+  }
 `;
 
 //함수 페이지//로 가야함

@@ -32,12 +32,14 @@ export const FuncContainer = styled.div`
       width: 13px;
     }
   }
-  @media screen and (max-width: 475px) {
+  @media screen and (max-width: 450px) {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    padding: 0px 10px;
+    height: auto;
+    min-height: 58vh;
+    padding: 0px;
     padding-top: 17px;
     &::-webkit-scrollbar {
       flex-shrink: 0;
@@ -60,17 +62,17 @@ export const FuncTitle = styled.h1`
   }
 
   @media screen and (max-width: 765px) {
-    font-size: 18px;
+    font-size: 19px;
   }
   @media screen and (max-width: 600px) {
-    font-size: 17px;
+    font-size: 17.5px;
   }
 
-  @media screen and (max-width: 475px) {
+  @media screen and (max-width: 450px) {
     word-break: keep-all;
-    text-align: center;
     font-size: 16px;
     width: 100%;
+    text-align: center;
   }
 `;
 
@@ -87,22 +89,22 @@ const FuncSubTitle = styled.h2`
 
   @media screen and (max-width: 1000px) {
     margin-left: 26px;
-    font-size: 17px;
+    font-size: 18px;
   }
 
   @media screen and (max-width: 765px) {
     margin-left: 20px;
-    font-size: 16px;
+    font-size: 17px;
   }
   @media screen and (max-width: 600px) {
     margin-left: 15px;
     font-size: 15px;
   }
-  @media screen and (max-width: 475px) {
+  @media screen and (max-width: 450px) {
     margin-left: 0px;
+    font-size: 14px;
     width: 100%;
     text-align: center;
-    font-size: 14px;
   }
 `;
 
@@ -115,6 +117,7 @@ export const FuncDescription = styled.div`
   line-height: normal;
   margin-left: 36px;
   margin-bottom: 8px;
+  word-break: keep-all;
 
   @media screen and (max-width: 1000px) {
     margin-left: 26px;
@@ -129,12 +132,13 @@ export const FuncDescription = styled.div`
     margin-left: 15px;
     font-size: 13px;
   }
-  @media screen and (max-width: 475px) {
+  @media screen and (max-width: 450px) {
     margin-left: 0px;
-    width: 100%;
-    font-size: 13px;
-    padding: 0px 5px;
+    padding: 0px 10px;
+    font-size: 12px;
     margin-bottom: 5px;
+    width: 100%;
+    word-break: break-all;
   }
 `;
 
@@ -152,26 +156,10 @@ const FuncFeatures = styled.ul`
     margin-left: 35px;
   }
 
-  @media screen and (max-width: 475px) {
-    margin: 0px;
-    padding: 0px 10px;
-    width: 100%;
-  }
-  /* margin-bottom: 10px; */
-  @media screen and (max-width: 800px) {
-    //font-size: 15px;
-    margin-left: 14px;
-  }
-  @media screen and (max-width: 700px) {
-    //text-align:center;
-    font-size: 13px;
-    margin-left: 17px;
-  }
-  @media screen and (max-width: 475px) {
-    //text-align:center;
-    font-size: 10px;
-    margin-left: 4px;
-    //padding: 0 -1px;
+  @media screen and (max-width: 450px) {
+    margin-left: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 `;
 //함수 특징 unordered lists 묶음
@@ -185,6 +173,7 @@ const FuncFeature = styled.li`
   line-height: normal;
   margin-bottom: 8px;
   line-height: 150%;
+  word-break: keep-all;
 
   @media screen and (max-width: 1000px) {
     font-size: 15px;
@@ -197,12 +186,11 @@ const FuncFeature = styled.li`
     font-size: 13px;
   }
 
-  @media screen and (max-width: 475px) {
+  @media screen and (max-width: 450px) {
     margin-left: 0px;
-    width: 100%;
-    font-size: 13px;
-    padding: 0px 5px;
+    font-size: 12px;
     margin-bottom: 8px;
+    word-break: break-all;
   }
 `; //함수 특징 list
 
@@ -236,13 +224,12 @@ const FuncFunction = styled.div`
     font-size: 13px;
   }
 
-  @media screen and (max-width: 475px) {
-    text-align: center;
+  @media screen and (max-width: 450px) {
     width: 100%;
-    font-size: 13px;
-    padding: 0px 5px;
-    margin: 5px 0px;
+    font-size: 12px;
     margin-bottom: 15px;
+    margin-left: 0px;
+    text-align: center;
   }
 `;
 export default function FDetailContainer({ height, funData }) {
