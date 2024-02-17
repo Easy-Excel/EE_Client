@@ -72,7 +72,7 @@ const typeList = [
 function FuncListContainer({ funcList, listSize, sortingType, content }) {
   return (
     <ContainerBox>
-      <div className="FunListDiv박스">
+      <div>
         {funcList.map((value) => {
           if (typeList.includes(sortingType)) {
             return (

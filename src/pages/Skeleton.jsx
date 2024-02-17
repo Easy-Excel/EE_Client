@@ -123,7 +123,7 @@ export default function Skeleton() {
   };
 
   return (
-    <MainContainer className="MainContainer메인메인">
+    <MainContainer>
       <ServContainer>
         <ServText>
           슬기로운 엑셀 사용을 위한 통합정리 서비스,

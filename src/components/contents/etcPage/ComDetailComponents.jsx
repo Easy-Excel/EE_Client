@@ -7,7 +7,7 @@ export const FuncContainer = styled.div`
   box-sizing: border-box;
   height: ${(props) => props.height}px;
   overflow-y: auto;
-  padding-top: 32px;
+  padding-top: 17px;
   margin-bottom: 10px;
   padding-right: 15px;
   position: relative;
@@ -25,6 +25,25 @@ export const FuncContainer = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background-color: #908f8f;
   }
+
+  @media screen and (max-width: 765px) {
+    &::-webkit-scrollbar {
+      flex-shrink: 0;
+      width: 13px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0px 10px;
+    padding-top: 17px;
+    &::-webkit-scrollbar {
+      flex-shrink: 0;
+      width: 10px;
+    }
+  }
 `;
 
 export const FuncTitle = styled.h1`
@@ -35,16 +54,25 @@ export const FuncTitle = styled.h1`
   font-weight: 800;
   line-height: normal;
   margin-bottom: 12px;
-  @media screen and (max-width:700px){
-    //text-align:center;
-    font-size:19px
+  
+  @media screen and (max-width: 1000px) {
+    font-size: 20px;
   }
-  @media screen and (max-width:475px){
-    margin-top: -19px;
-    text-align:center;
-    font-size: 15px;
+
+  @media screen and (max-width: 765px) {
+    font-size: 18px;
   }
-`; //함수 이름
+  @media screen and (max-width: 600px) {
+    font-size: 17px;
+  }
+
+  @media screen and (max-width: 450px) {
+    word-break: keep-all;
+    text-align: center;
+    font-size: 16px;
+    width: 100%;
+  }
+`;
 
 const FuncSubTitle = styled.h2`
   color: #000;
@@ -56,22 +84,28 @@ const FuncSubTitle = styled.h2`
   margin-top: 20px;
   margin-bottom: 10px;
   margin-left: 38px;
-  @media screen and (max-width:800px){
-      //font-size: 15px;
-      margin-left: 14px;
-  }
-  @media screen and (max-width:700px){
-    //text-align:center;
-    font-size: 15px;
-    margin-left: 17px;
-  }
-   @media screen and (max-width:475px){
-    //text-align:center;
-    font-size: 13px;
-    margin-left: 18px;
-  }//'특징'
 
-`; //함수 구문, 함수 특징(하위 제목 부분)
+  @media screen and (max-width: 1000px) {
+    margin-left: 26px;
+    font-size: 17px;
+  }
+
+  @media screen and (max-width: 765px) {
+    margin-left: 20px;
+    font-size: 16px;
+  }
+  @media screen and (max-width: 600px) {
+    margin-left: 15px;
+    font-size: 15px;
+  }
+  @media screen and (max-width: 450px) {
+    margin-left: 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+  }
+`;
+
 
 
 export const FuncDescription = styled.div`
@@ -84,21 +118,48 @@ export const FuncDescription = styled.div`
   margin-left: 36px;
   margin-bottom: 8px;
 
-  @media screen and (max-width:700px){
-    //text-align:center;
+  @media screen and (max-width: 1000px) {
+    margin-left: 26px;
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: 765px) {
+    margin-left: 20px;
+    font-size: 14px;
+  }
+  @media screen and (max-width: 600px) {
+    margin-left: 15px;
     font-size: 13px;
-    margin-left: 17px;
   }
-   @media screen and (max-width:475px){
-    //text-align:center;
-    font-size: 10px;
-    margin-left: 18px;
-    margin-bottom: -7px;
+  @media screen and (max-width: 450px) {
+    margin-left: 0px;
+    width: 100%;
+    font-size: 13px;
+    padding: 0px 5px;
+    margin-bottom: 5px;
   }
-`; //함수 설명 text
+`;
+
 
 const FuncFeatures = styled.ul`
   margin-left: 78px;
+
+  @media screen and (max-width: 1000px) {
+    margin-left: 66px;
+  }
+
+  @media screen and (max-width: 765px) {
+    margin-left: 45px;
+  }
+  @media screen and (max-width: 600px) {
+    margin-left: 35px;
+  }
+
+  @media screen and (max-width: 450px) {
+    margin: 0px;
+    padding: 0px 10px;
+    width: 100%;
+  }
   /* margin-bottom: 10px; */
   @media screen and (max-width:800px){
       //font-size: 15px;
@@ -127,15 +188,25 @@ const FuncFeature = styled.li`
   line-height: normal;
   margin-bottom: 8px;
   line-height: 150%;
-  @media screen and (max-width:700px){
-    //text-align:center;
-    font-size: 13px;
-    margin-left: 17px;
+
+  @media screen and (max-width: 1000px) {
+    font-size: 15px;
   }
-   @media screen and (max-width:475px){
-    //text-align:center;
-    font-size: 10px;
-    margin-left: 18px;
+
+  @media screen and (max-width: 765px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 13px;
+  }
+
+  @media screen and (max-width: 450px) {
+    margin-left: 0px;
+    width: 100%;
+    font-size: 13px;
+    padding: 0px 5px;
+    margin-bottom: 8px;
+
   }
 `; //함수 특징 list
 
@@ -154,14 +225,29 @@ const FuncFunction = styled.div`
   &:hover {
     cursor: pointer;
   }
-  @media screen and (max-width:700px){
-    //margin-top: -10px;
-    margin-left: 14px;
+
+  @media screen and (max-width: 1000px) {
+    margin-left: 53px;
+    font-size: 15px;
   }
-   @media screen and (max-width:475px){
+
+  @media screen and (max-width: 765px) {
+    margin-left: 32px;
+    font-size: 14px;
+  }
+  @media screen and (max-width: 600px) {
+    margin-left: 22px;
     font-size: 13px;
-    //margin-top: -10px;
-    margin-left: 20px;
+  }
+
+  @media screen and (max-width: 450px) {
+    text-align: center;
+    width: 100%;
+    font-size: 13px;
+    padding: 0px 5px;
+    margin: 5px 0px;
+    margin-bottom: 15px;
+
   }
 `;
 export default function FDetailContainer({ height, funData }) {

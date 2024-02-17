@@ -8,8 +8,7 @@ import useComponentSize from "../../../hooks/UseComponentSzie";
 import { API } from "../../../config";
 
 //버튼
-import Button from "../../Button";
-
+import Button from "../../ButtonType2";
 
 const Wrapper = styled.div`
   /* 화면 폭이 600px 이하일 때 적용되는 스타일 */
@@ -17,7 +16,6 @@ const Wrapper = styled.div`
     font-size: 14px; /* 예시로 글꼴 크기를 14px로 설정 */
   }
 `;
-
 
 export default function FuncDetail() {
   //네비게이트 훅을 통해 넘겨받은 정보 (api 연동시 사용)
@@ -139,9 +137,6 @@ export default function FuncDetail() {
         </Wrapper>
       )}
       <Button
-        width={"15%"}
-        height={"47px"}
-        backgroundColor={"#107c41"}
         fontColor={"white"}
         text={buttonText}
         onButtonClick={handleExamplePage}

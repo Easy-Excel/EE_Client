@@ -143,7 +143,7 @@ function Function() {
   return (
     <>
       <Container>
-        <BtnWrapper width={"215px"} gap={"5.8vw"}>
+        <BtnWrapper gap={"5.8vw"}>
           {buttons.map((button) => (
             <Button
               key={button.id}

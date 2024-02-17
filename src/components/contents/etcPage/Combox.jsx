@@ -35,9 +35,9 @@ const FunctionBox = styled.div`
     font-size: 90%;
     margin-bottom: 15px;
   }
-  @media screen and (max-width: 450px) {
-    font-size: 70%;
-    margin-bottom: 17px;
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
+    margin-bottom: 15px;
   }
   
 `;

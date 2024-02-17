@@ -179,7 +179,7 @@ const FBButton = styled.button`
   cursor: pointer;
 
   font-family: SUIT;
-  font-size: 18px; //버튼 글자를 조금 줄였습니다.(1/28)
+  font-size: 17px; //버튼 글자를 조금 줄였습니다.(1/28)
   font-style: normal;
   font-weight: 800;
   line-height: normal;
@@ -191,8 +191,14 @@ const FBButton = styled.button`
   bottom: 37px; */
 
   @media screen and (max-width: 900px) {
-    /* height: 47px;
-    font-size: 15px; */
+    height: 45px;
+    font-size: 15px;
+    width: 110px;
+  }
+  @media screen and (max-width: 765px) {
+    font-size: 13px;
+    height: 42px;
+    width: 100px;
   }
   @media screen and (max-width: 500px) {
     width: 100%;
