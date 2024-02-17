@@ -34,6 +34,9 @@ export const FuncTitle = styled.h1`
   font-weight: 800;
   line-height: normal;
   margin-bottom: 12px;
+  @media (max-width: 600px) {
+    font-size: 100%; /* 화면이 작아질 때 글씨 크기를 80%로 줄임 */
+  }
 `; //함수 이름
 const FuncSubTitle = styled.h2`
   color: #000;
@@ -44,6 +47,9 @@ const FuncSubTitle = styled.h2`
   line-height: normal;
   margin-top: 20px;
   margin-bottom: 10px;
+  @media (max-width: 600px) {
+    font-size: 100%; /* 화면이 작아질 때 글씨 크기를 80%로 줄임 */
+  }
 `; //함수 구문, 함수 특징(하위 제목 부분)
 
 export const FuncDescription = styled.div`
@@ -53,8 +59,11 @@ export const FuncDescription = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  margin-left: 36px;
+  margin-left: 3%; /* 왼쪽 패딩을 화면의 너비에 따라 상대적으로 조절 */
   margin-bottom: 8px;
+  @media (max-width: 600px) {
+    font-size: 80%; /* 화면이 작아질 때 글씨 크기를 80%로 줄임 */
+    
 `; //함수 설명 text
 
 //Syntax 부분 component
@@ -68,18 +77,31 @@ const FuncSyntaxBox = styled.div`
   font-weight: 400;
   line-height: normal;
   background-color: white;
+  overflow-wrap: break-word; /* 텍스트가 박스를 넘어갈 때 단어를 자르고 줄 바꿈 */
+  max-height: 200px; /* 최대 높이 설정 */
+  
 `; //함수 구문 box
+
 const FuncSyntax = styled.div`
   padding: 18px 36px;
+  padding-left: 3%; /* 왼쪽 패딩을 화면의 너비에 따라 상대적으로 조절 */
   display: flex;
   gap: 5px;
+  
+  max-height: 200px; /* 최대 높이 설정 */
+  @media (max-width: 600px) {
+    padding-left: 1%; /* 화면이 작아질 때 왼쪽 패딩을 더 줄임 */
+  }
 `; //함수 구문(=함수이름(인수,...)
+
 const FuncSyntaxFName = styled.div`
   color: #107c41;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  @media (max-width: 600px) {
+    font-size: 80%; /* 화면이 작아질 때 글씨 크기를 80%로 줄임 */}
 `;
 const FuncSyntaxSign = styled.div`
   color: #000;
@@ -88,6 +110,9 @@ const FuncSyntaxSign = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  @media (max-width: 600px) {
+    font-size: 80%; /* 화면이 작아질 때 글씨 크기를 80%로 줄임 */
+  }
 `; //=, (,) 등
 const FuncSyntaxArgBox = styled.div`
   display: flex;
@@ -99,6 +124,7 @@ const FuncSyntaxArg = styled.div`
   border-bottom: 2.5px solid black;
   text-align: center;
   padding-bottom: 3px;
+  
 `; //argument
 
 const FuncSyntaxArgKor = styled.div`
@@ -108,6 +134,9 @@ const FuncSyntaxArgKor = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  @media (max-width: 600px) {
+    font-size: 80%; /* 화면이 작아질 때 글씨 크기를 80%로 줄임 */
+  }
 `; //argument (한국어)
 
 const FlexDivMargin = styled.div`
@@ -117,8 +146,11 @@ const FlexDivMargin = styled.div`
 `;
 
 const FuncFeatures = styled.ul`
-  margin-left: 38px;
+  margin-left: 5%; /* 초기 마진을 상대적인 단위로 설정 */
   /* margin-bottom: 10px; */
+  @media (max-width: 600px) {
+    margin-left: 2%; /* 화면이 작아질 때 마진을 더 작게 설정 */
+  }
 `;
 //함수 특징 unordered lists 묶음
 const FuncFeature = styled.li`
@@ -130,6 +162,9 @@ const FuncFeature = styled.li`
   font-weight: 500;
   line-height: normal;
   margin-bottom: 8px;
+  @media (max-width: 600px) {
+    font-size: 80%; /* 화면이 작아질 때 글씨 크기를 80%로 줄임 */
+  }
 `; //함수 특징 list
 
 export default function FDetailContainer({ height, funData }) {

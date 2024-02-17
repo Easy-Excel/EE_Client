@@ -29,8 +29,8 @@ const NavMenu = styled.div`
   justify-content: space-between; //헤더에 맞춰 간격 동일하게 조젏
   align-items: center;
   justify-content: space-evenly; /* 항목 간격을 균등하게 배치합니다. */
-  @media screen and (max-width: 1020px) {
-    /* height:67px; */
+  /* @media screen and (max-width: 1020px) {
+    height:67px;
   }
   @media screen and (max-width: 820px) {
     /* height: 64px; */
@@ -38,6 +38,7 @@ const NavMenu = styled.div`
   @media screen and (max-width: 450px) {
     height: 61px;
   }
+
 `;
 
 const MenuItem = styled.div`
@@ -87,7 +88,7 @@ const ArrowImage = styled.img`
     //margin-top:-13px;
     width: 45px;
     height: 32px;
-  }
+
   @media screen and (max-width: 620px) {
     width: 40px;
     margin-top: -3px;
@@ -95,6 +96,7 @@ const ArrowImage = styled.img`
   @media screen and (max-width: 450px) {
     margin-top: -3px;
     width: 25px;
+
   }
 `;
 

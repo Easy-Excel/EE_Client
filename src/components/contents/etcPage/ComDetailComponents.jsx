@@ -54,6 +54,7 @@ export const FuncTitle = styled.h1`
   font-weight: 800;
   line-height: normal;
   margin-bottom: 12px;
+  
   @media screen and (max-width: 1000px) {
     font-size: 20px;
   }
@@ -72,6 +73,7 @@ export const FuncTitle = styled.h1`
     width: 100%;
   }
 `;
+
 const FuncSubTitle = styled.h2`
   color: #000;
   font-family: SUIT;
@@ -104,6 +106,8 @@ const FuncSubTitle = styled.h2`
   }
 `;
 
+
+
 export const FuncDescription = styled.div`
   color: #000;
   font-family: SUIT;
@@ -113,6 +117,7 @@ export const FuncDescription = styled.div`
   line-height: normal;
   margin-left: 36px;
   margin-bottom: 8px;
+
   @media screen and (max-width: 1000px) {
     margin-left: 26px;
     font-size: 15px;
@@ -135,6 +140,7 @@ export const FuncDescription = styled.div`
   }
 `;
 
+
 const FuncFeatures = styled.ul`
   margin-left: 78px;
 
@@ -155,6 +161,21 @@ const FuncFeatures = styled.ul`
     width: 100%;
   }
   /* margin-bottom: 10px; */
+  @media screen and (max-width:800px){
+      //font-size: 15px;
+      margin-left: 14px;
+  }
+    @media screen and (max-width:700px){
+    //text-align:center;
+    font-size: 13px;
+    margin-left: 17px;
+  }
+   @media screen and (max-width:475px){
+    //text-align:center;
+    font-size: 10px;
+    margin-left: 4px;
+    //padding: 0 -1px;
+  }
 `;
 //함수 특징 unordered lists 묶음
 const FuncFeature = styled.li`
@@ -167,6 +188,7 @@ const FuncFeature = styled.li`
   line-height: normal;
   margin-bottom: 8px;
   line-height: 150%;
+
   @media screen and (max-width: 1000px) {
     font-size: 15px;
   }
@@ -184,6 +206,7 @@ const FuncFeature = styled.li`
     font-size: 13px;
     padding: 0px 5px;
     margin-bottom: 8px;
+
   }
 `; //함수 특징 list
 
@@ -202,6 +225,7 @@ const FuncFunction = styled.div`
   &:hover {
     cursor: pointer;
   }
+
   @media screen and (max-width: 1000px) {
     margin-left: 53px;
     font-size: 15px;
@@ -223,6 +247,7 @@ const FuncFunction = styled.div`
     padding: 0px 5px;
     margin: 5px 0px;
     margin-bottom: 15px;
+
   }
 `;
 export default function FDetailContainer({ height, funData }) {

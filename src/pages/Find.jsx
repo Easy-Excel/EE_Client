@@ -76,6 +76,17 @@ const NotFound = styled.div`
   padding: 12px; /* 글자와 테두리 간의 여백 조절 */
   //text-align: center;
   margin-left: 40px;
+  @media screen and (max-width: 1020px) {
+    font-size: px;
+  }
+  @media screen and (max-width: 820px){
+   font-size: 18px;
+  }
+  @media screen and (max-width: 620px) {
+    font-size: 13px;
+    justify-content: center;
+    margin-left: 10px;
+  }
 `;
 //const FuncWrapper = styled.div;
 function containsKorean(text) {
