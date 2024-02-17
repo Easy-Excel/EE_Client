@@ -137,9 +137,6 @@ export default function FuncDetail() {
         </Wrapper>
       )}
       <Button
-        width={"15%"}
-        height={"47px"}
-        backgroundColor={"#107c41"}
         fontColor={"white"}
         text={buttonText}
         onButtonClick={handleExamplePage}

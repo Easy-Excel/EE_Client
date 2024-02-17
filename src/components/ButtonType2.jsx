@@ -9,11 +9,11 @@ const Btn = styled.div`
   padding: 10px;
   border-radius: 16px;
 
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  background-color: ${(props) => props.$backgroundColor};
-  color: ${(props) => props.$fontColor};
-  border: ${(props) => props.border}; //선택/미선택 테두리 스타일 달리 적용
+  width: 120px;
+  height: 47px;
+  background-color: #107c41;
+  color: white;
+  border: none;
 
   overflow: hidden;
   cursor: pointer;
@@ -22,21 +22,40 @@ const Btn = styled.div`
   position: ${(props) => (props.absolute !== "false" ? "absolute" : "static")};
   left: ${(props) => (props.absolute !== "false" ? props.left : "auto")};
   bottom: ${(props) => (props.absolute !== "false" ? props.bottom : "auto")};
+  @media screen and (max-width: 900px) {
+    height: 45px;
+    font-size: 15px;
+    width: 110px;
+  }
+  @media screen and (max-width: 765px) {
+    height: 42px;
+    width: 100px;
+  }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    height: 35px;
+    border-radius: 12px;
+  }
 `;
 
 const ButtonTitle = styled.div`
   //버튼 안의 텍스트
   color: ${(props) => props.$fontColor};
   font-family: SUIT;
-  font-size: 18px; //버튼 글자를 조금 줄였습니다.(1/28)
+  font-size: 17px; //버튼 글자를 조금 줄였습니다.(1/28)
   font-style: normal;
   font-weight: 800;
   line-height: normal;
   text-align: center;
+  @media screen and (max-width: 900px) {
+    font-size: 15px;
+  }
 
-  //논의사항
-  @media screen and (max-width: 1400px) {
-    font-size: 100%;
+  @media screen and (max-width: 765px) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 12px;
   }
   //...이런식으로
 `;

@@ -27,11 +27,11 @@ const Btn = styled.div`
     border-radius: 10px;
   } */
 
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 865px) {
     padding: 5px;
   }
-  @media screen and (max-width: 765px) {
-    width: 50%;
+  @media screen and (max-width: 550px) {
+    border-radius: 14px;
   }
 `;
 
@@ -48,11 +48,17 @@ const ButtonTitle = styled.div`
   @media screen and (max-width: 1380px) {
     font-size: 14px;
   }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 1000px) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: 865px) {
     font-size: 11px;
   }
-  @media screen and (max-width: 700px) {
-    font-size: 9px;
+  @media screen and (max-width: 715px) {
+    font-size: 10px;
+  }
+  @media screen and (max-width: 670px) {
+    word-break: normal;
   }
 `;
 //버튼 한개 컴포넌트

@@ -22,9 +22,9 @@ const ButtonWrapper = styled.div`
     padding-bottom: 17px;
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 550px) {
     gap: 10px;
-    padding: 0px;
+    padding: 0px 8px;
     padding-bottom: 17px;
   }
 `;
