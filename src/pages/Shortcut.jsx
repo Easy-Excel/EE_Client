@@ -12,8 +12,10 @@ const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding-bottom: 20px;
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 450px) {
     height: auto;
+    padding-bottom: 0px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -91,7 +93,12 @@ function ShortCut() {
     Execution: <Keytable contentType="FILE_EXECUTION" height={renderHeight} />,
     General: <Keytable contentType="GENERAL" height={renderHeight} />,
     SheetEditor: <Keytable contentType="SHEET_EDITING" height={renderHeight} />,
-    Integrate: <Keytable contentType="INTEGRATED_DOCUMENT_EDITING" height={renderHeight} />,
+    Integrate: (
+      <Keytable
+        contentType="INTEGRATED_DOCUMENT_EDITING"
+        height={renderHeight}
+      />
+    ),
     Move: <Keytable contentType="MOVE" height={renderHeight} />,
   };
   return (
