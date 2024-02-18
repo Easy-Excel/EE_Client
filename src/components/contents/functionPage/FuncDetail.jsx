@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import FDetailContainer from "./FuncDetailComponents";
 import FExampleContainer from "./FuncExampleComponent";
 import { useLocation } from "react-router";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import useComponentSize from "../../../hooks/UseComponentSzie";
 import { API } from "../../../config";
+import { setErrorCode } from "../../../redux/errorCodeActions";
 
 //버튼
 import Button from "../../ButtonType2";
@@ -34,8 +36,18 @@ const Wrapper = styled.div`
 export default function FuncDetail() {
   //네비게이트 훅을 통해 넘겨받은 정보 (api 연동시 사용)
   //함수 id를 받음 -> id를 가지고 서버에서 해당 함수에 대한 데이터 가져오기
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { state } = useLocation();
-  const funcId = state.funcId;
+
+  let funcId;
+  try {
+    funcId = state.funcId;
+  } catch (error) {
+    const errorCode = 404; //예시로 404사용
+    dispatch(setErrorCode(errorCode));
+    navigate("/error");
+  }
 
   //서버에서 함수 데이터를 가져와 저장 / 현재는 임시로 테스트 데이터 저장
   const [funcData, setFuncData] = useState(null);

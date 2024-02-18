@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
-import { UseDispatch, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import OurVision from "./pages/OurVision";
@@ -24,7 +24,7 @@ function App() {
   //store에 접근하여 state 가져오기
   const dispatch = useDispatch();
   const { showChatBot } = useSelector((state) => state.chatBot);
-  const errorCode=404;//예시로 404사용
+  const errorCode = 404; //예시로 404사용
   dispatch(setErrorCode(errorCode));
 
   return (
@@ -40,6 +40,7 @@ function App() {
           <Route path="/home" element={<Home />}></Route>
           {/* <Route path="/home/function" element={<Function />}></Route> */}
           <Route path="/home/function/:content" element={<Function />} />
+
           <Route path="/home/category/:content" element={<Category />}></Route>
           <Route path="/home/shortcut" element={<Shortcut />}></Route>
           <Route path="/home/extra" element={<Extra />}></Route>
@@ -60,7 +61,7 @@ function App() {
           />
         </Route>
         {/* {그 나머지 경로에 대해서는 에러 처리} */}
-        <Route path="*" element={<Error errorCode={errorCode}/>}></Route>
+        <Route path="*" element={<Error errorCode={errorCode} />}></Route>
       </Routes>
       {showChatBot ? <ChatBot /> : null}
       <Footer />
