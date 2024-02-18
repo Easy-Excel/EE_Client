@@ -9,56 +9,56 @@
     {
       "id": 1,
       "position": "Plan",
-      "name": "이나영/학교1"
+      "name": "이나영"
     },
     {
       "id": 2,
       "position": "Design",
-      "name": "신기현/학교2"
+      "name": "신기현"
     }
   ],
   "members2": [
     {
       "id": 3,
       "position": "Front-end",
-      "name": "김진주/학교3"
+      "name": "김진주"
     },
     {
       "id": 4,
       "position": "Front-end",
-      "name": "이도현/학교4"
+      "name": "이도현"
     },
     {
       "id": 5,
       "position": "Front-end",
-      "name": "장서연/학교5"
+      "name": "장서연"
     },
     {
       "id": 6,
       "position": "Front-end",
-      "name": "정예원/학교6"
+      "name": "정예원"
     }
   ],
   "members3": [
     {
       "id": 7,
       "position": "Back-end",
-      "name": "김진형/학교7"
+      "name": "김진형"
     },
     {
       "id": 8,
       "position": "Back-end",
-      "name": "백소미/학교8"
+      "name": "백소미"
     },
     {
       "id": 9,
       "position": "Back-end",
-      "name": "신예은/학교9"
+      "name": "신예은"
     },
     {
       "id": 10,
       "position": "Back-end",
-      "name": "조은채/학교10"
+      "name": "조은채"
     }
   ]
 }
