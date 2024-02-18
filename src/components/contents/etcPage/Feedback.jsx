@@ -33,7 +33,6 @@ const FBContainer = styled.div`
     }
   }
   @media screen and (max-width: 450px) {
-    height: auto;
     &::-webkit-scrollbar {
       flex-shrink: 0;
       width: 10px;

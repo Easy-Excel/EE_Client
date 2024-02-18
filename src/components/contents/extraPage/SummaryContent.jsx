@@ -28,6 +28,17 @@ const StyledDiv = styled.div`
   width: 100%;
   height: ${(props) => props.height}px;
   position: relative;
+  @media screen and (max-width: 450px) {
+    height: auto;
+    min-height: 63vh;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+  @media screen and (max-width: 450px) and (max-height: 700px) {
+    height: auto;
+    padding-bottom: 30px;
+  }
 `;
 
 const FeatureDescription = ({ containerSize }) => (

@@ -13,6 +13,10 @@ const StyledBox = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
+  @media screen and (max-width: 450px) {
+    height: auto;
+    min-height: 63vh;
+  }
 `;
 
 export default function ComDetail() {

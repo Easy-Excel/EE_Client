@@ -8,6 +8,10 @@ const Container = styled.div`
   width: 100%;
   padding-bottom: 20px;
   align-items: center;
+  @media screen and (max-width: 450px) {
+    height: auto;
+    min-height: 63vh;
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -79,8 +83,8 @@ const NotFound = styled.div`
   @media screen and (max-width: 1020px) {
     font-size: px;
   }
-  @media screen and (max-width: 820px){
-   font-size: 18px;
+  @media screen and (max-width: 820px) {
+    font-size: 18px;
   }
   @media screen and (max-width: 620px) {
     font-size: 13px;
@@ -118,7 +122,7 @@ function Find() {
           모든 단어의 철자가 맞는지 다시 확인해 주시기 바랍니다.
           <br />
           <br />
-          {containsKorean(userInput)&&<p>영문으로 입력해주세요.</p>}
+          {containsKorean(userInput) && <p>영문으로 입력해주세요.</p>}
         </NotFound>
       ) : (
         <FuncListContainerFromUser suggestions={suggestions} />

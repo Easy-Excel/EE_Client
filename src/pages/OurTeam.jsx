@@ -3,6 +3,28 @@ import profillimage from "../assets/images/main/profillimage.png";
 import git from "../assets/images/git.png";
 import styled from "styled-components";
 import dummy from "./teamdata.json";
+
+//팀원 이미지 가져오기
+const planDesigner = require.context(
+  "../assets/images/ourTeam/planDesigner",
+  false,
+  /\.(png|jpg|jpeg|gif|svg)$/
+);
+// 이미지 파일 목록을 배열로 가져오기 (해당 폴더 내의 모든 이미지 파일이 배열에 포함됨)
+const mem1Images = planDesigner.keys().map(planDesigner);
+const frontEnd = require.context(
+  "../assets/images/ourTeam/frontEnd",
+  false,
+  /\.(png|jpg|jpeg|gif|svg)$/
+);
+const mem2Images = frontEnd.keys().map(frontEnd);
+const backEnd = require.context(
+  "../assets/images/ourTeam/backEnd",
+  false,
+  /\.(png|jpg|jpeg|gif|svg)$/
+);
+const mem3Images = backEnd.keys().map(backEnd);
+
 const Teamcontainer = styled.div`
   background-color: #f9f8f8;
   display: flex;
@@ -113,7 +135,7 @@ const Memberimage = styled.img`
   width: 100px;
   height: 100px;
   margin: 0px 10px;
-  background: #e7e6e6;
+  background: white;
   @media screen and (max-width: 605px) {
     width: 90px;
     height: 90px;
@@ -137,12 +159,12 @@ export default function OurTeam() {
         <TotalMember>
           <Teamposition>
             <Memberprofil>
-              {dummy.members1.map((member1) => (
+              {dummy.members1.map((member1, index) => (
                 <div>
                   <Plan>{member1.position}</Plan>
                   <Memberimage
                     // src={require(member1.imagePath).default}
-                    src={git}
+                    src={mem1Images[index]}
                     alt="이미지"
                   />
                   <Membername>{member1.name}</Membername>
@@ -153,11 +175,11 @@ export default function OurTeam() {
           <Teamposition>
             <Plan>Front-end</Plan>
             <Memberprofil>
-              {dummy.members2.map((member2) => (
+              {dummy.members2.map((member2, index) => (
                 <div>
                   <Memberimage
                     // src={require(member2.imagePath).default}
-                    src={git}
+                    src={mem2Images[index]}
                     alt="이미지"
                   />
                   <Membername>{member2.name}</Membername>
@@ -168,11 +190,11 @@ export default function OurTeam() {
           <Teamposition>
             <Plan>Back-end</Plan>
             <Memberprofil>
-              {dummy.members3.map((member3) => (
+              {dummy.members3.map((member3, index) => (
                 <div>
                   <Memberimage
                     // src={require(member3.imagePath).default}
-                    src={git}
+                    src={mem3Images[index]}
                     alt="이미지"
                   />
                   <Membername>{member3.name}</Membername>

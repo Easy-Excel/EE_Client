@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   }
   @media screen and (max-width: 450px) {
     height: auto;
-    min-height: 600px;
+    min-height: 63vh;
     padding-bottom: 80px;
   }
   @media screen and (max-width: 450px) and (max-height: 700px) {

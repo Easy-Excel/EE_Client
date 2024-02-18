@@ -22,6 +22,12 @@ const ExtraContainer = styled.div`
   &::-webkit-scrollbar-thumb:hover {
     background-color: #908f8f;
   }
+
+  @media screen and (max-width: 450px) {
+    height: auto;
+    padding-right: 0px;
+    min-height: 520px;
+  }
 `;
 
 const ExtraTitle = styled.div`
@@ -36,9 +42,10 @@ const ExtraTitle = styled.div`
     //text-align:center;
     font-size: 20px;
   }
-  @media screen and (max-width: 475px) {
+  @media screen and (max-width: 450px) {
     text-align: center;
     font-size: 17px;
+    width: 100%;
   }
 `;
 
@@ -58,11 +65,12 @@ const ExtraParagraph = styled.div`
     font-size: 15px;
     margin-left: 17px;
   }
-  @media screen and (max-width: 475px) {
+  @media screen and (max-width: 450px) {
     //text-align:center;
     font-size: 13px;
-    margin-left: 18px;
-    margin-bottom: -7px;
+    padding: 0px 9px;
+    width: 100%;
+    margin-left: 0px;
   }
 `;
 
@@ -83,11 +91,12 @@ const ExtraSubTitle = styled.div`
     //text-align:center;
     font-size: 15px;
   }
-  @media screen and (max-width: 475px) {
+  @media screen and (max-width: 450px) {
     text-align: center;
     font-size: 14px;
-    margin-left: 8px;
+    margin-left: 0px;
     margin-bottom: 5px;
+    width: 100%;
   }
 `;
 const Image = styled.img`
@@ -103,9 +112,10 @@ const Image = styled.img`
   @media screen and (max-width: 700px) {
     width: 55px;
   }
-  @media screen and (max-width: 475px) {
-    margin-left: 12px;
-    width: 20px;
+  @media screen and (max-width: 450px) {
+    margin-left: 0px;
+    width: 100%;
+    min-width: auto;
   }
 `;
 const ExtraHow = styled.div`
@@ -124,9 +134,11 @@ const ExtraHow = styled.div`
     //text-align:center;
     font-size: 13px;
   }
-  @media screen and (max-width: 475px) {
+  @media screen and (max-width: 450px) {
     font-size: 11.5px;
-    margin-left: 10px;
+    margin-left: 0px;
+    width: 100%;
+    padding: 0px 9px;
   }
 `;
 
@@ -150,9 +162,9 @@ const ExQuestion = styled.div`
     margin-left: 0px;
     font-size: 13px;
   }
-  @media screen and (max-width: 475px) {
+  @media screen and (max-width: 450px) {
     font-size: 11.5px;
-    margin-left: 2px;
+    margin-left: 0px;
   }
 `;
 
@@ -173,9 +185,9 @@ const SubQuestion = styled.div`
     margin-left: -12px;
     font-size: 13px;
   }
-  @media screen and (max-width: 475px) {
+  @media screen and (max-width: 450px) {
     font-size: 11px;
-    margin-left: -18px;
+    margin-left: 0px;
   }
 `;
 
@@ -290,9 +302,9 @@ const ExAnswerLine = styled.div`
     //text-align:center;
     font-size: 13px;
   }
-  @media screen and (max-width: 475px) {
+  @media screen and (max-width: 450px) {
     font-size: 11.5px;
-    margin-left: 2px;
+    margin-left: 0px;
   }
 `;
 

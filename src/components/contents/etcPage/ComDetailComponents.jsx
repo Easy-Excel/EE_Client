@@ -36,9 +36,7 @@ export const FuncContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
     height: auto;
-    min-height: 58vh;
     padding: 0px;
     padding-top: 17px;
     &::-webkit-scrollbar {

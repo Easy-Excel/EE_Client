@@ -259,9 +259,7 @@ const FlexDivMargin = styled.div`
   margin-right: ${(props) => props.mr};
   margin-bottom: 3px;
   @media screen and (max-width: 450px) {
-    padding-left: 5px;
     margin-bottom: 3px;
-    margin-top: 3px;
     flex-wrap: wrap;
   }
 `;

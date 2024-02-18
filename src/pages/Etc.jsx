@@ -12,8 +12,8 @@ const Container = styled.div`
   width: 100%;
   padding-bottom: 20px;
   @media screen and (max-width: 450px) {
-    max-height: 70vh;
-    min-height: 550px;
+    max-height: 63vh;
+    min-height: 63vh;
   }
 `;
 
