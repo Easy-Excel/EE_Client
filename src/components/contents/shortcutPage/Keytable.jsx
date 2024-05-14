@@ -44,10 +44,10 @@ const KeytableContainer = styled.div`
   overflow-y: auto;
 
   @media screen and (max-width: 480px) {
-    height: auto;
-    width: 150%;
+    overflow-y: auto;
+    max-height:50vh;
+    width: 100%;
     position: relative;
-    left:-25%;
 
     &::-webkit-scrollbar {
     display: none; /* 스마트폰 : 스크롤바 숨기기 */
@@ -78,8 +78,8 @@ const Table = styled.div`
   box-sizing: border-box;
   margin-top: -20px;
   min-width: 600px;
+  
   @media screen and (max-width: 480px) {
-    height: auto;
     min-width:auto;
     width:${(props) => props.width}px;
   }
@@ -229,7 +229,7 @@ function Keytable({ height, contentType}) {
 
   useEffect(() => {
     if (searchResults) {
-      setDatas(searchResults);    
+      setDatas(searchResults);  
     }
     //질문!! 검색시 type의 값을 변경하여 버튼 클릭시 다시 api를 호출하도록 하고 싶은데 바뀌지 않아요..
     //console.log("settype"+contentType); 이걸로 확인해봤는데 안바뀜..
