@@ -8,7 +8,6 @@ import { Outlet } from "react-router-dom";
 
 /** styled components */
 const MobilePageWrapper = styled.div`
-//수정 필요
   background-color: #ceebde;
 `
 const MainContainer = styled.div`
@@ -16,84 +15,56 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   background-color: #ceebde;
-  height: 93vh;
+  height: calc(100vh - 65px);
   position: relative;
-  /* min-height: 720px; */
-  @media screen and (max-height: 680px) {
-    height: 632.4px;
-  }
-
-  @media screen and (max-width: 450px) {
-    height: auto;
-  }
 `;
 
 const ServContainer = styled.div`
   display: flex;
-  /* padding-top: 50px; //글자 위치 조절시 조정 */
+  position: relative;
   justify-content: center;
   align-items: center;
   background-color: #f9f8f8;
-  height: 22%;
-  min-height: 149.6px; //화면 높이가 680px이하인 경우 고정
-  font-size: 18px; //1/25
-  font-family: SUIT;
-  font-weight: 500;
+  height: 15vh;
+  padding-bottom: 2vh;
+  min-height: 100px;
   word-wrap: break-word;
-  gap: 6px;
-  align-items: center; // Center vertically
-  @media screen and (max-width: 950px) {
-    font-size: 16px;
-  }
-  @media screen and (max-width: 550px) {
-    font-size: 14px;
-  }
 `;
 
 const ServText = styled.div`
-  padding: 0px 20px;
+  color: #000;
   text-align: center;
-  margin-bottom: 40px;
+  font-family: SUIT;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
   word-break: keep-all;
-  & > span {
-    margin: 0px;
-    margin-left: 5px;
-    font-weight: 700;
-    //align-items: center;
-  }
-  /* 
-  @media screen and (max-height: 530px) {
-    margin-bottom: 0px;
-  } */
-  @media screen and (max-width: 1400px) {
-    margin-bottom: 50px;
-  }
 `;
 
 const Content = styled.div`
-  width: 73%; //백분율로 조장해야 화면 크기에 따라 조절됨
-  height: 63vh; //viewport height로 수정
-  /* min-height: 400px; */
+  width: 90vw; //백분율로 조장해야 화면 크기에 따라 조절됨
+  height: 100vh;
   background-color: white;
   margin: auto;
   display: flex;
   justify-content: center;
-  margin-top: 0px;
-  padding: 0px 58px; //Content 좌우 여백 전체 적용
-  @media screen and (max-height: 680px) {
-    height: 428.4px;
-  }
-  @media screen and (max-width: 700px) {
-    //height: 70vh;
-    //margin-bottom: 20px;
-    padding: 0px 50px;
-  }
-  @media screen and (max-width: 450px) {
-    height: 70vh;
-    margin-bottom: 20px;
-    padding: 0px 24px;
-  }
+  margin-bottom: 20px;
+  padding: 0px 21px;
+  border-radius: 0 0 10px 10px;
 `;
+
+const Copyright = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 5px;
+  width: 100%;
+  color: var(--Gray-600, #605F5F);
+  font-family: SUIT;
+  font-size: 9px;
+  font-weight: 400;
+`
 const SkeletonMobile = () => {
   const [showFinder, setShowFinder] = useState(true);
   const [selectedMenu, setSelectedMenu] = useState("home");
@@ -112,25 +83,25 @@ const SkeletonMobile = () => {
   return (
     <MobilePageWrapper>
       <MainContainer className="MainContainer메인메인">
-      <ServContainer>
-        <ServText>
-          슬기로운 엑셀 사용을 위한 통합정리 서비스,
-          <span>Easy Excel</span>
-        </ServText>
-      </ServContainer>
+        <ServContainer>
+          <ServText>
+            슬기로운 엑셀 사용을 위한 통합정리 서비스<br/>
+            <span>Easy Excel</span>
+          </ServText>
+        </ServContainer>
 
-      <Navbar handleMenuItemClick={handleMenuItemClick}>
-        {" "}
-        {showFinder ? <Finder /> : <ShortcutFinder />}
-      </Navbar>
-      {/* 검색창 ServContainer 에서 Navbar 안으로 이동. 검색창 기준으로 위치 선정을 위함*/}
-      {/* <Finder/> */}
-      {/* Navbar 컴포넌트에서 단축키를 클릭할 시 그 이벤트를 처리하고 skeleton에 전달하기 위해 props로 전달 */}
-      {/* <ChatBot/> */}
-      <Content>
-        <Outlet />
-      </Content>
-    </MainContainer>   
+        <Navbar handleMenuItemClick={handleMenuItemClick}>
+          {/*showFinder ? <Finder /> : <ShortcutFinder />*/}
+        </Navbar>
+        {/* 검색창 ServContainer 에서 Navbar 안으로 이동. 검색창 기준으로 위치 선정을 위함*/}
+        {/* <Finder/> */}
+        {/* Navbar 컴포넌트에서 단축키를 클릭할 시 그 이벤트를 처리하고 skeleton에 전달하기 위해 props로 전달 */}
+        {/* <ChatBot/> */}
+        <Content>
+          <Outlet />
+        </Content>
+        <Copyright>Copyright © Easy Excel</Copyright>
+      </MainContainer>   
     </MobilePageWrapper>
   );
 };

@@ -61,13 +61,6 @@ function HeaderMobile() {
   const navigate = useNavigate();
   let nextPage = "home";
 
-  //findermobile 열고닫기
-  const [isFinderOpen, setIsFinderOpen] = useState(false); // 검색창 표시 여부를 제어하는 상태
-
-  const toggleFinder = () => {
-    setIsFinderOpen(!isFinderOpen);
-  };
-
   return (
     <Head>
       <SideWrap>
@@ -81,7 +74,7 @@ function HeaderMobile() {
           </Title>
         </Link>
       </Col>
-      <FinderMobile isOpen={isFinderOpen} toggleFinder={toggleFinder}/>
+      <FinderMobile/>
     </Head>
   );
 }
