@@ -1,3 +1,4 @@
+import React, { useState,useRef, useEffect } from 'react';
 import styled from "styled-components";
 import { ReactComponent as LogoSvg } from "../assets/images/logo/Logo.svg";
 import { Link } from "react-router-dom";
@@ -16,7 +17,7 @@ const Head = styled.header`
   background-color: white;
   position: fixed;
   top: 0;
-  height: 65px;
+  height: 77px;
   color: #3a3a3a;
   box-sizing: border-box;
   z-index: 500; //우선 순위 가장 높게
@@ -26,67 +27,30 @@ const Head = styled.header`
 const Col = styled.div`
   display: flex;
   align-items: center;
-  &:first-child {
-    margin-right: auto;
-    margin-left: 10px;
-  }
-  &:nth-child(2) {
-    margin-right: 200px;
-    margin-left: auto;
-  }
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  @media screen and (max-width: 765px) {
-    &:first-child {
-      margin-right: auto;
-      margin-left: 15vw;
-    }
-    &:nth-child(2) {
-      margin-right: 15vw;
-      margin-left: auto;
-    }
-  }
-  @media screen and (max-width: 630px) {
-    &:first-child {
-      margin-right: auto;
-      margin-left: 10vw;
-    }
-    &:nth-child(2) {
-      margin-right: 10vw;
-      margin-left: auto;
-    }
-  }
 `;
 
 //Logo+Title
 const Title = styled.div`
   display: flex;
   align-items: center;
-  color: black;
-  font-size: 18px;
+  color: #000;
+  font-family: SUIT;
+  font-size: 16px;
+  font-style: normal;
   font-weight: 800;
-  flex-direction: row;
-  @media screen and (max-width: 630px) {
-    font-size: 16px;
-  }
-  @media screen and (max-width: 450px) {
-    justify-content: center;
-    font-size: 14px;
-  }
+  line-height: normal;
+  margin: 10px;
+  position: fixed;
+  top: 14px;
+  left: 60px;
 `;
 
 //Logo
 const Logo = styled(LogoSvg)`
-  margin-right: 17px;
-  width: 32px;
-  height: 37px;
-  @media screen and (max-width: 630px) {
-    width: 28px;
-    height: auto;
-  }
+  width: 27.73px;
+  height: 32px;
+  flex-shrink: 0;
+  margin-right : 10px;
 `;
 const SideWrap = styled.div`
   margin:10px; 
@@ -97,20 +61,27 @@ function HeaderMobile() {
   const navigate = useNavigate();
   let nextPage = "home";
 
+  //findermobile 열고닫기
+  const [isFinderOpen, setIsFinderOpen] = useState(false); // 검색창 표시 여부를 제어하는 상태
+
+  const toggleFinder = () => {
+    setIsFinderOpen(!isFinderOpen);
+  };
+
   return (
     <Head>
       <SideWrap>
         <SidebarMobile/>
       </SideWrap>
       <Col>
-        <Link to="/home">
+        <Link to="/home"> {/*나중에 변경 필요 */}
           <Title>
             <Logo />
             Easy Excel
           </Title>
         </Link>
       </Col>
-      <FinderMobile/>
+      <FinderMobile isOpen={isFinderOpen} toggleFinder={toggleFinder}/>
     </Head>
   );
 }

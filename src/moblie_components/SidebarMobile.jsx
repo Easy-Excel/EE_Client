@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const SidebarWrapper = styled.div`
-  left :32px;
-  top: 40px;
+  position:fixed;
+  left :14px;
+  top: 16px;
   margin : 5px; 
   color : orange;
 `;
