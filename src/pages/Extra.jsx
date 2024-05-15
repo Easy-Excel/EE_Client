@@ -96,6 +96,7 @@ function Extra() {
     Validation: <ValidationContent height={renderHeight} />,
     Macro: <MacroContent height={renderHeight} />,
   };
+  
   return (
     <Container ref={componentRef}>
       <BtnWrapper gap={"2.4vw"}>

@@ -11,6 +11,7 @@ import Function from "./pages/Function";
 import Category from "./pages/Category";
 import Shortcut from "./pages/Shortcut";
 import Extra from "./pages/Extra";
+import ExtraM from "./mobile/pages/ExtraM";
 import Etc from "./pages/Etc";
 import Skeleton from "./pages/Skeleton";
 import FuncDetail from "./components/contents/functionPage/FuncDetail";
@@ -20,6 +21,8 @@ import ChatBot from "./components/ChatBot";
 import Error from "./pages/Error";
 import { setErrorCode } from "./redux/errorCodeActions";
 
+import { BrowserView,MobileView } from "react-device-detect";
+
 function App() {
   //store에 접근하여 state 가져오기
   const dispatch = useDispatch();
@@ -28,6 +31,18 @@ function App() {
   dispatch(setErrorCode(errorCode));
 
   return (
+    <>
+    <MobileView>
+      <BrowserRouter>
+      <Routes>
+      {/* <Route element={<Skeleton/>} */}
+      <Route path="/home/extra" element={<ExtraM/>}/>
+
+      </Routes>
+      </BrowserRouter>
+    </MobileView>
+
+    <BrowserView>
     <BrowserRouter>
       <Header />
       <Routes>
@@ -66,6 +81,9 @@ function App() {
       {showChatBot ? <ChatBot /> : null}
       <Footer />
     </BrowserRouter>
+    </BrowserView>
+
+    </>
   );
 }
 

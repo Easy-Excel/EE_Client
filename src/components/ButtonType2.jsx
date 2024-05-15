@@ -32,7 +32,7 @@ const Btn = styled.div`
     width: 100px;
   }
   @media screen and (max-width: 450px) {
-    width: 100%;
+    //width: 100%;
     height: 35px;
     border-radius: 12px;
   }

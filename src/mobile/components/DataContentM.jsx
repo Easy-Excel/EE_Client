@@ -11,13 +11,16 @@ import {
   ExampleQuestion,
   ExampleAnswer,
   ExampleAnswerTitle,
-} from "./ExtraComponent";
-import Button from "../../ButtonType2";
+} from "../../mobile/components/ExtraComponentM";
+//import Button from "../../ButtonType2";
+
+import Button from "../../components/ButtonType2";
 
 
 //Webpack의 require.context를 사용하여 특정 폴더의 모든 파일 가져오기
 const imagesContext = require.context(
-  "../../../assets/images/extra/data",
+  "../../assets/images/extra/data",
+  
   false,
   /\.(png|jpg|jpeg|gif|svg)$/
 );
@@ -134,6 +137,7 @@ const DataContent = ({ height }) => {
         onButtonClick={handleExamplePage}
         absolute={"true"}
         bottom="23px"
+        left={"65%"}
       />
     </StyledDiv>
   );
