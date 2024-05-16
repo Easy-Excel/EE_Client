@@ -38,8 +38,10 @@ function App() {
       <BrowserRouter>
       <HeaderMobile/>
       <Routes>
-      <Route element={<SkeletonMobile/>}/>
-        <Route path="/home/extra" element={<ExtraM/>}/>
+        <Route> {/*element={<SkeletonMobile/>}  home페이지 만든 후 집어넣기*/}
+          <Route path="/home" element={<SkeletonMobile/>}/>
+          <Route path="/home/extra" element={<ExtraM/>}/>
+        </Route>
       </Routes>
       </BrowserRouter>
     </MobileView>
