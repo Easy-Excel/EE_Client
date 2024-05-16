@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CDetailContainer from "./ComDetailComponents";
+import styled from "styled-components";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
 import useComponentSize from "../../../hooks/UseComponentSzie";
@@ -7,6 +8,16 @@ import Button from "../../Button";
 import BtnWrapper from "../../BtnWrapper";
 
 import { API } from "../../../config";
+
+const StyledBox = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  @media screen and (max-width: 450px) {
+    height: auto;
+    min-height: 63vh;
+  }
+`;
 
 export default function ComDetail() {
   const navigate = useNavigate();
@@ -70,12 +81,7 @@ export default function ComDetail() {
   };
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        position: "relative",
-      }}
+    <StyledBox
       ref={componentRef} // ref 속성 추가 (컨텐츠 크기를 가져오기 위함)
     >
       <BtnWrapper gap={"2.8vw"}>
@@ -93,6 +99,6 @@ export default function ComDetail() {
         ))}
       </BtnWrapper>
       <CDetailContainer height={renderHeight.container} funData={funcData} />
-    </div>
+    </StyledBox>
   );
 }

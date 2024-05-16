@@ -11,12 +11,13 @@ import {
   ExampleQuestion,
   ExampleAnswerTitle,
   ExampleAnswer,
-} from "./ExtraComponent";
-import Button from "../../ButtonType2";
+} from "../../mobile/components/ExtraComponentM";
+
+import Button from "../../components/ButtonType2";
 
 //Webpack의 require.context를 사용하여 특정 폴더의 모든 파일 가져오기
 const imagesContext = require.context(
-  "../../../assets/images/extra/pivotTable",
+  "../../assets/images/extra/pivotTable",
   false,
   /\.(png|jpg|jpeg|gif|svg)$/
 );
@@ -29,7 +30,7 @@ const StyledDiv = styled.div`
   width: 100%;
   height: ${(props) => props.height}px;
   position: relative;
-  @media screen and (max-width: 450px) {
+   @media screen and (max-width: 450px) {
     height: auto;
     min-height: 63vh;
     padding-bottom: 50px;
@@ -37,7 +38,9 @@ const StyledDiv = styled.div`
   @media screen and (max-width: 450px) and (max-height: 700px) {
     height: auto;
     padding-bottom: 50px;
-  }
+  } 
+
+  //background-color:black;
 `;
 //기능 설명 화면
 const FeatureDescription = ({ containerSize }) => (
@@ -86,7 +89,7 @@ const Example = ({ containerSize }) => (
       width={"65%"}
       minWidth={"500px"}
       height={"auto"}
-      marginLeft={"66px"}
+      marginLeft={"30px"}
       src={images[1]}
     />
     <ExampleAnswer
@@ -95,9 +98,9 @@ const Example = ({ containerSize }) => (
       }
     />
     <HelpImage
-      width={"63%"}
+      width={"80%"}
       minWidth={"480px"}
-      marginLeft={"66px"}
+      marginLeft={"20px"}
       src={images[2]}
     />
     <ExampleAnswer
@@ -137,14 +140,14 @@ const PivotTableContent = ({ height }) => {
         <FeatureDescription containerSize={height.container} />
       )}
       <Button
-        width={"15%"}
+        width={"10%"}
         height={"47px"}
         backgroundColor={"#107c41"}
         fontColor={"white"}
         text={buttonText}
         onButtonClick={handleExamplePage}
         absolute={"true"}
-        bottom="23px"
+        left={"65%"}
       />
     </StyledDiv>
   );

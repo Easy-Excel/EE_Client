@@ -19,6 +19,11 @@ const LogoImg = styled.img`
   @media screen and (max-width: 700px) {
     width: 180px;
   }
+
+  @media screen and (max-width: 450px) {
+    height: 63vh;
+    width: 33vmin;
+  }
 `;
 
 export default function Home() {

@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { FuncContainer, FuncTitle } from "./FuncDetailComponents";
 import {
-  HelpImage,
   ExAnswerTitle,
   ExAnswer,
   ExAnswerNumber,
@@ -19,6 +18,17 @@ const FlexBox = styled.div`
   margin-bottom: 10px;
   gap: 25px;
   align-items: flex-start;
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+  }
+  @media screen and (max-width: 765px) {
+    margin-left: 0px;
+  }
+  @media screen and (max-width: 450px) {
+    margin-left: 0px;
+    width: 100%;
+  }
 `;
 
 const AnswerFlexBox = styled.div`
@@ -45,8 +55,32 @@ const NextButton = styled.button`
   &:disabled {
     background-color: #cfe5d9;
   }
+  @media screen and (max-width: 765px) {
+    width: 33px;
+    height: 33px;
+  }
+  @media screen and (max-width: 450px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
+const ExImg = styled.img`
+  flex-shrink: 0;
+  margin: 11px 0px;
+  margin-left: ${({ $marginLeft }) => $marginLeft};
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+    margin: auto;
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 100%;
+    min-width: auto;
+  }
+`;
 const ButtonContainer = styled.div`
   height: 39px;
   position: absolute;
@@ -57,7 +91,32 @@ const ButtonContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   gap: 11px;
+
+  @media screen and (max-width: 450px) {
+    position: static;
+    margin-bottom: 90px;
+    justify-content: space-between;
+    height: auto;
+  }
 `;
+
+const FunExAnswerLine = styled.div`
+  display: flex;
+  gap: 14px;
+  /* align-items: center; */
+`;
+
+function FunExImage({ width, minWidth, height, marginLeft, src }) {
+  return (
+    <ExImg
+      width={width}
+      $minWidth={minWidth}
+      height={height}
+      $marginLeft={marginLeft}
+      src={src}
+    />
+  );
+}
 
 export function FExampleNextButton({
   leftDisable,
@@ -108,8 +167,8 @@ export default function FExampleContainer({
         </FuncTitle>
         <ExampleQuestion text={question} />
         <FlexBox>
-          <HelpImage
-            width={"435px"}
+          <FunExImage
+            width={"400px"}
             height={"auto"}
             marginLeft={"0px"}
             src={exampleImgDTOList[0].url}
@@ -132,16 +191,16 @@ export default function FExampleContainer({
 
 function ExampleAnswer({ expList, tipList }) {
   const explanations = expList.map((item, index) => (
-    <div key={item.explanationId} style={{ display: "flex", gap: "14px" }}>
+    <FunExAnswerLine key={item.explanationId}>
       <ExAnswerNumber>{index + 1}</ExAnswerNumber>
-      {item.explanation}
-    </div>
+      <div>{item.explanation}</div>
+    </FunExAnswerLine>
   ));
   const tips = tipList.map((item) => (
-    <div key={item.tipId} style={{ display: "flex", gap: "14px" }}>
+    <FunExAnswerLine key={item.tipId}>
       <ExAnswerNumber>+</ExAnswerNumber>
-      {item.content}
-    </div>
+      <div>{item.content}</div>
+    </FunExAnswerLine>
   ));
   return (
     <AnswerFlexBox>

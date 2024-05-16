@@ -12,7 +12,8 @@ import {
   ExampleAnswer,
   ExampleAnswerTitle,
 } from "./ExtraComponent";
-import Button from "../../Button";
+import Button from "../../ButtonType2";
+
 
 //Webpack의 require.context를 사용하여 특정 폴더의 모든 파일 가져오기
 const imagesContext = require.context(
@@ -27,6 +28,15 @@ const StyledDiv = styled.div`
   width: 100%;
   height: ${(props) => props.height}px;
   position: relative;
+  @media screen and (max-width: 450px) {
+    height: auto;
+    min-height: 63vh;
+    padding-bottom: 80px;
+  }
+  @media screen and (max-width: 450px) and (max-height: 700px) {
+    height: auto;
+    padding-bottom: 80px;
+  }
 `;
 
 const FeatureDescription = ({ containerSize }) => (

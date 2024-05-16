@@ -2,28 +2,52 @@ import React, { useEffect, useState } from "react";
 import FDetailContainer from "./FuncDetailComponents";
 import FExampleContainer from "./FuncExampleComponent";
 import { useLocation } from "react-router";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import useComponentSize from "../../../hooks/UseComponentSzie";
 import { API } from "../../../config";
+import { setErrorCode } from "../../../redux/errorCodeActions";
 
 //버튼
-import Button from "../../Button";
-
+import Button from "../../ButtonType2";
 
 const Wrapper = styled.div`
   /* 화면 폭이 600px 이하일 때 적용되는 스타일 */
   @media (max-width: 600px) {
     font-size: 14px; /* 예시로 글꼴 크기를 14px로 설정 */
   }
-`;
 
+  @media screen and (max-height: 680px) {
+  }
+  @media screen and (max-width: 700px) {
+  }
+  @media screen and (max-width: 450px) {
+    height: auto;
+    min-height: 63vh;
+    padding-bottom: 80px;
+  }
+  @media screen and (max-width: 450px) and (max-height: 700px) {
+    height: auto;
+    padding-bottom: 80px;
+  }
+`;
 
 export default function FuncDetail() {
   //네비게이트 훅을 통해 넘겨받은 정보 (api 연동시 사용)
   //함수 id를 받음 -> id를 가지고 서버에서 해당 함수에 대한 데이터 가져오기
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { state } = useLocation();
-  const funcId = state.funcId;
+
+  let funcId;
+  try {
+    funcId = state.funcId;
+  } catch (error) {
+    const errorCode = 404; //예시로 404사용
+    dispatch(setErrorCode(errorCode));
+    navigate("/error");
+  }
 
   //서버에서 함수 데이터를 가져와 저장 / 현재는 임시로 테스트 데이터 저장
   const [funcData, setFuncData] = useState(null);
@@ -139,9 +163,6 @@ export default function FuncDetail() {
         </Wrapper>
       )}
       <Button
-        width={"15%"}
-        height={"47px"}
-        backgroundColor={"#107c41"}
         fontColor={"white"}
         text={buttonText}
         onButtonClick={handleExamplePage}

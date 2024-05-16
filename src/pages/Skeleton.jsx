@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Finder from "../components/Finder";
 import ShortcutFinder from "../components/ShortcutFinder";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 // import ChatBot from "../components/ChatBot";
 //import RefreshChat from "../components/RefreshChat";
 const MainContainer = styled.div`
@@ -85,7 +85,7 @@ const Content = styled.div`
     padding: 0px 50px;
   }
   @media screen and (max-width: 450px) {
-    height: 70vh;
+    height: auto;
     margin-bottom: 20px;
     padding: 0px 24px;
   }
@@ -106,12 +106,14 @@ export default function Skeleton() {
   //     setShowFinder(true);
   //   }
   const [selectedMenu, setSelectedMenu] = useState("home");
+  const location = useLocation();
 
   useEffect(() => {
     const storedMenu = localStorage.getItem("selectedMenu"); //로컬스토리지에서 정보 가져옴
     if (storedMenu) setSelectedMenu(storedMenu);
-    setShowFinder(storedMenu !== "shortcut" && storedMenu !== "home/shortcut");
-  }, []);
+
+    setShowFinder(location.pathname !== "/home/shortcut");
+  }, [location.pathname]);
 
   const handleMenuItemClick = (menuName) => {
     setSelectedMenu(menuName);
@@ -120,7 +122,7 @@ export default function Skeleton() {
   };
 
   return (
-    <MainContainer className="MainContainer메인메인">
+    <MainContainer>
       <ServContainer>
         <ServText>
           슬기로운 엑셀 사용을 위한 통합정리 서비스,

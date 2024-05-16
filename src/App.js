@@ -13,6 +13,7 @@ import Function from "./pages/Function";
 import Category from "./pages/Category";
 import Shortcut from "./pages/Shortcut";
 import Extra from "./pages/Extra";
+import ExtraM from "./mobile/pages/ExtraM";
 import Etc from "./pages/Etc";
 import Skeleton from "./pages/Skeleton";
 import SkeletonMobile from "./mobile_pages/SkeletonMobile";
@@ -23,10 +24,12 @@ import ChatBot from "./components/ChatBot";
 import Error from "./pages/Error";
 import { setErrorCode } from "./redux/errorCodeActions";
 import HeaderMobile from "./moblie_components/HeaderMoblie";
+
+
 function App() {
   const dispatch = useDispatch();
   const { showChatBot } = useSelector((state) => state.chatBot);
-  const errorCode = 404; // 예시로 404 사용
+  const errorCode = 404; //예시로 404사용
   dispatch(setErrorCode(errorCode));
 
   return (

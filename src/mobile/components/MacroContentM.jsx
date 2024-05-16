@@ -11,12 +11,12 @@ import {
   ExampleAnswer,
   ExampleAnswerTitle,
   ExampleSubQuestion,
-} from "./ExtraComponent";
-import Button from "../../ButtonType2";
+} from "../../mobile/components/ExtraComponentM";
+import Button from "../../components/ButtonType2";
 
 //Webpack의 require.context를 사용하여 특정 폴더의 모든 파일 가져오기
 const imagesContext = require.context(
-  "../../../assets/images/extra/macro",
+  "../../assets/images/extra/macro",
   false,
   /\.(png|jpg|jpeg|gif|svg)$/
 );
@@ -140,14 +140,14 @@ const MacroContent = ({ height }) => {
         <FeatureDescription containerSize={height.container} />
       )}
       <Button
-        width={"15%"}
+        width={"10%"}
         height={"47px"}
         backgroundColor={"#107c41"}
         fontColor={"white"}
         text={buttonText}
         onButtonClick={handleExamplePage}
         absolute={"true"}
-        bottom="23px"
+        left={"65%"}
       />
     </StyledDiv>
   );

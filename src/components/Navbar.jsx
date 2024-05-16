@@ -35,9 +35,10 @@ const NavMenu = styled.div`
   @media screen and (max-width: 820px) {
     /* height: 64px; */
   }
-  @media screen and (max-width: 620px) {
-    height: 51px;
-  } */
+  @media screen and (max-width: 450px) {
+    height: 61px;
+  }
+
 `;
 
 const MenuItem = styled.div`
@@ -61,6 +62,9 @@ const MenuItem = styled.div`
     font-size: 14px;
   }
   @media screen and (max-width: 620px) {
+    font-size: 12px;
+  }
+  @media screen and (max-width: 450px) {
     font-size: 10px;
   }
 `;
@@ -75,17 +79,24 @@ const ArrowImage = styled.img`
   position: absolute;
   display: ${({ $showArrow }) => ($showArrow ? "block" : "none")};
   z-index: 1;
-  /* @media screen and (max-width: 1020px) {
-
+  @media screen and (max-width: 1020px) {
+    //margin-top:-10px;
+    width: 48px;
+    height: 32px;
   }
-  @media screen and (max-width: 820px){
+  @media screen and (max-width: 820px) {
+    //margin-top:-13px;
+    width: 45px;
+    height: 32px;
 
-  } */
   @media screen and (max-width: 620px) {
-    margin-top: 0px;
+    width: 40px;
+    margin-top: -3px;
   }
-  @media screen and (max-width: 475px) {
-    margin-top: -2px;
+  @media screen and (max-width: 450px) {
+    margin-top: -3px;
+    width: 25px;
+
   }
 `;
 

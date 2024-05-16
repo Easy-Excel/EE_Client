@@ -15,6 +15,11 @@ const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding-bottom: 20px;
+  @media screen and (max-width: 450px) {
+    /* height: auto; */
+    max-height: 63vh;
+    min-height: 63vh;
+  }
 `;
 
 //함수 페이지//로 가야함
@@ -143,7 +148,7 @@ function Function() {
   return (
     <>
       <Container>
-        <BtnWrapper width={"215px"} gap={"5.8vw"}>
+        <BtnWrapper gap={"5.8vw"}>
           {buttons.map((button) => (
             <Button
               key={button.id}
