@@ -34,12 +34,16 @@ function App() {
 
   return (
     <>
-      <MobileView>
-        <BrowserRouter>
-          <HeaderMobile />
-          <SkeletonMobile />
-        </BrowserRouter>
-      </MobileView>
+    <MobileView>
+      <BrowserRouter>
+      <HeaderMobile/>
+      <Routes>
+      <Route element={<SkeletonMobile/>}/>
+        <Route path="/home/extra" element={<ExtraM/>}/>
+      </Routes>
+      </BrowserRouter>
+    </MobileView>
+
       <BrowserView>
         <BrowserRouter>
           <Header />
