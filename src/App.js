@@ -67,7 +67,7 @@ function App() {
               <Route path="/home/category/:content/:funcName" element={<FuncDetail />} />
               <Route path="/home/etc/frequent-functions/:etc" element={<ComDetail />} />
             </Route>
-
+            
             {/* 그 나머지 경로에 대해서는 에러 처리 */}
             <Route path="*" element={<Error errorCode={errorCode} />} />
           </Routes>
