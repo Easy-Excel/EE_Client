@@ -43,6 +43,10 @@ function App() {
               {/*element={<SkeletonMobile/>}  home페이지 만든 후 집어넣기*/}
               <Route path="/home" element={<Home />} />
               <Route path="/home/function/:content" element={<FunctionM />} />
+              <Route path="/home/function/:content" element={<Function />} />
+              <Route path="/home/category/:content" element={<Category />} />
+              <Route path="/home/shortcut" element={<Shortcut />} />
+              <Route path="/home/etc" element={<Etc />} />
               <Route path="/home/extra" element={<ExtraM />} />
             </Route>
           </Routes>

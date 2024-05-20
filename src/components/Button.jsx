@@ -59,7 +59,34 @@ const ButtonTitle = styled.div`
   }
 `;
 
-const BtnM = styled.div``;
+const BtnM = styled.div`
+  display: flex;
+  min-width: 82px;
+  width: fit-content; /* 버튼의 너비가 컨텐츠 크기에 맞게 조절됩니다. */
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  white-space: nowrap; /* 텍스트가 한 줄로 유지되도록 합니다. */
+  height: auto;
+  background-color: ${(props) => props.$backgroundColor};
+  color: ${(props) => props.$fontColor};
+  border: ${(props) => props.border}; //선택/미선택 테두리 스타일 달리 적용
+`;
+
+const ButtonTitleM = styled.div`
+  //버튼 안의 텍스트
+  color: ${(props) => props.$fontColor};
+  text-align: center;
+  word-break: keep-all;
+  font-family: SUIT;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+`;
+
 //버튼 한개 컴포넌트
 function Button({
   width,
@@ -75,8 +102,14 @@ function Button({
 }) {
   if (isMobile) {
     return (
-      <BtnM>
-        <ButtonTitle $fontColor={fontColor}>{text}</ButtonTitle>
+      <BtnM
+        width={width}
+        height={height}
+        onClick={onButtonClick}
+        $backgroundColor={backgroundColor}
+        border={border}
+      >
+        <ButtonTitleM $fontColor={fontColor}>{text}</ButtonTitleM>
       </BtnM>
     );
   }

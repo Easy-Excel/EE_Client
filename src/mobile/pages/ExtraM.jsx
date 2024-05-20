@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Button from "../../components/Button";
 import styled from "styled-components";
 
@@ -15,25 +15,24 @@ const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  background-color:pink;
+  background-color: pink;
   //flex-direction: column;
 `;
 
-const StyledBtnWrapper=styled(BtnWrapper)`//버튼 2줄 배열하려고
-    gap:2.4vw;
-    justify-content: center;
-    width: 100%;
+const StyledBtnWrapper = styled(BtnWrapper)`
+  //버튼 2줄 배열하려고
+  gap: 2.4vw;
+  justify-content: center;
+  width: 100%;
 `;
 
 const ButtonRow = styled.div`
   display: flex;
-  justify-content:flex-start;
+  justify-content: center;
   gap: 2.4vw;
   flex-wrap: wrap;
   background-color: red;
-
 `;
-
 
 //함수 페이지//로 가야함
 function ExtraM() {
@@ -43,10 +42,10 @@ function ExtraM() {
     {
       id: "PivotTable",
       //width: "16%",
-      width:"89px",
-      height:"36px",
-      padding:"10px",
-      gap:"10px",
+      width: "89px",
+      height: "36px",
+      padding: "10px",
+      gap: "10px",
       backgroundColor: "#107c41",
       fontColor: "white",
       border: "none",
@@ -55,10 +54,10 @@ function ExtraM() {
     },
     {
       id: "Summary",
-      width:"89px",
-      height:"36px",
-      padding:"10px",
-      gap:"10px",
+      width: "89px",
+      height: "36px",
+      padding: "10px",
+      gap: "10px",
       backgroundColor: "#107c41",
       fontColor: "white",
       border: "none",
@@ -67,10 +66,10 @@ function ExtraM() {
     },
     {
       id: "Data",
-      width:"89px",
-      height:"36px",
-      padding:"10px",
-      gap:"10px",
+      width: "89px",
+      height: "36px",
+      padding: "10px",
+      gap: "10px",
       backgroundColor: "#107c41",
       fontColor: "white",
       border: "none",
@@ -79,10 +78,10 @@ function ExtraM() {
     },
     {
       id: "Validation",
-      width:"89px",
-      height:"36px",
-      padding:"10px",
-      gap:"10px",
+      width: "89px",
+      height: "36px",
+      padding: "10px",
+      gap: "10px",
       backgroundColor: "#107c41",
       fontColor: "white",
       border: "none",
@@ -91,10 +90,10 @@ function ExtraM() {
     },
     {
       id: "Macro",
-      width:"89px",
-      height:"36px",
-      padding:"10px",
-      gap:"10px",
+      width: "89px",
+      height: "36px",
+      padding: "10px",
+      gap: "10px",
       backgroundColor: "#107c41",
       fontColor: "white",
       border: "none",
@@ -122,24 +121,25 @@ function ExtraM() {
     Validation: <ValidationContentM height={renderHeight} />,
     Macro: <MacroContentM height={renderHeight} />,
   };
-  
+
   return (
     <Container ref={componentRef}>
-
       <StyledBtnWrapper>
         <ButtonRow>
-        {buttons.map((button) => (
-          <Button
-            key={button.id}
-            backgroundColor={button.id === activeContent ? "#107c41" : "white"}
-            fontColor={button.id === activeContent ? "white" : "black"}
-            border={button.id === activeContent ? "none" : "1px solid black"}
-            text={button.text}
-            onButtonClick={() => handleButtonClick(button.content)}
-          ></Button>
-        ))}
+          {buttons.map((button) => (
+            <Button
+              key={button.id}
+              backgroundColor={
+                button.id === activeContent ? "#107c41" : "white"
+              }
+              fontColor={button.id === activeContent ? "white" : "black"}
+              border={button.id === activeContent ? "none" : "1px solid black"}
+              text={button.text}
+              onButtonClick={() => handleButtonClick(button.content)}
+            ></Button>
+          ))}
         </ButtonRow>
-{/* 
+        {/* 
         <ButtonRow>
         {buttons.slice(3).map((button) => (
           <Button
@@ -152,9 +152,6 @@ function ExtraM() {
           ></Button>
         ))}
         </ButtonRow> */}
-
-
-
       </StyledBtnWrapper>
       {contentComponents[activeContent]}
     </Container>
@@ -162,4 +159,3 @@ function ExtraM() {
 }
 
 export default ExtraM;
-
