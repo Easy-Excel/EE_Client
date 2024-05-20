@@ -83,7 +83,6 @@ const FBForm = styled.form`
     padding-top: 12px;
     /* background-color: pink; */
   }
-
   @media screen and (max-width: 450px) {
     gap: 20px;
   }
@@ -106,7 +105,7 @@ const FBLabel = styled.label`
     font-size: 15px;
   }
   @media screen and (max-width: 450px) {
-    text-align: center;
+    //text-align: center;
     font-size: 13px;
   }
 `;
@@ -168,7 +167,8 @@ const FBButton = styled.button`
   padding: 10px;
   border-radius: 16px;
 
-  width: 120px;
+  //width: 120px;\
+  width: ${props=>props.width};
   height: 47px;
   background-color: #107c41;
   color: white;
@@ -200,14 +200,14 @@ const FBButton = styled.button`
     width: 100px;
   }
   @media screen and (max-width: 450px) {
-    width: 100%;
+    //width: 100%;
     font-size: 12px;
     height: 35px;
     border-radius: 12px;
   }
 `;
 
-export default function Feedback({ height }) {
+export default function Feedback({ height,width }) {
   //전달할 데이터 저장할 변수
   const [formData, setFormData] = useState({
     email: "",
@@ -271,7 +271,7 @@ export default function Feedback({ height }) {
             onChange={handleChange}
           ></FBTextArea>
         </FBFormItem>
-        <FBButton type="submit">보내기</FBButton>
+        <FBButton width={width} type="submit">보내기</FBButton>
       </FBForm>
     </FBContainer>
   );

@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import styled from "styled-components";
-import Button from "../components/Button";
-import CommonUtil from "../components/contents/etcPage/CommonUtil";
-import Feedback from "../components/contents/etcPage/Feedback";
-import BtnWrapper from "../components/BtnWrapper";
-import useComponentSize from "../hooks/UseComponentSzie";
+import Button from "../../components/Button";
+import CommonUtil from "../../components/contents/etcPage/CommonUtil";
+import Feedback from "../../components/contents/etcPage/Feedback";
+import BtnWrapper from "../../components/BtnWrapper";
+import useComponentSize from "../../hooks/UseComponentSzie";
 
 const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding-bottom: 20px;
-  @media screen and (max-width: 450px) {
+  background-color: pink;
+  /* @media screen and (max-width: 450px) {
     max-height: 63vh;
     min-height: 63vh;
-  }
+  } */
 `;
 
 //함수 페이지//로 가야함
-function Etc() {
+function EtcM() {
   const { state } = useLocation();
   if (state !== null) {
     console.log(state.content);
@@ -31,7 +32,7 @@ function Etc() {
   const [buttons, setButtons] = useState([
     {
       id: "CommonUtil",
-      width: "22%",
+      width: "123px",
       height: "45px",
       backgroundColor: "#107c41",
       fontColor: "white",
@@ -41,7 +42,7 @@ function Etc() {
     },
     {
       id: "Feedback",
-      width: "22%",
+      width: "84px",
       height: "45px",
       backgroundColor: "white",
       fontColor: "black",
@@ -64,7 +65,7 @@ function Etc() {
 
   const contentComponents = {
     CommonUtil: <CommonUtil />,
-    Feedback: <Feedback width="120px" height={renderHeight} />,
+    Feedback: <Feedback height={renderHeight} width="20px" />,
   };
 
   return (
@@ -87,4 +88,4 @@ function Etc() {
     </Container>
   );
 }
-export default Etc;
+export default EtcM;

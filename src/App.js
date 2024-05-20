@@ -24,7 +24,8 @@ import ChatBot from "./components/ChatBot";
 import Error from "./pages/Error";
 import { setErrorCode } from "./redux/errorCodeActions";
 import HeaderMobile from "./moblie_components/HeaderMoblie";
-
+import ContactM from './mobile/pages/ContactM';
+import EtcM from './mobile/pages/EtcM';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,8 +39,13 @@ function App() {
       <BrowserRouter>
       <HeaderMobile/>
       <Routes>
+        <Route path="/contact" element={<ContactM />} />
+
+
       <Route element={<SkeletonMobile/>}/>
         <Route path="/home/extra" element={<ExtraM/>}/>
+        
+        <Route path="/home/etc" element={<EtcM/>} />
       </Routes>
       </BrowserRouter>
     </MobileView>
