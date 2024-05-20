@@ -41,10 +41,9 @@ function App() {
       <Routes>
         <Route path="/contact" element={<ContactM />} />
 
-
       <Route element={<SkeletonMobile/>}/>
         <Route path="/home/extra" element={<ExtraM/>}/>
-        
+
         <Route path="/home/etc" element={<EtcM/>} />
       </Routes>
       </BrowserRouter>
@@ -52,13 +51,12 @@ function App() {
 
       <BrowserView>
         <BrowserRouter>
-          <Header />
+          <Header/>
           <Routes>
             <Route path="/" element={<Splash />} />
             <Route path="/ourVision" element={<OurVision />} />
             <Route path="/ourTeam" element={<OurTeam />} />
             <Route path="/contact" element={<Contact />} />
-
             <Route element={<Skeleton />}>
               <Route path="/home" element={<Home />} />
               <Route path="/home/function/:content" element={<Function />} />
