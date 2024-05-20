@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
-import Finder from "../components/Finder";
-import ShortcutFinder from "../components/ShortcutFinder";
+import Navbar from "../../components/Navbar";
+import Finder from "../../components/Finder";
+import ShortcutFinder from "../../components/ShortcutFinder";
 import { Outlet } from "react-router-dom";
-import NavbarMobile from "../moblie_components/NavbarMobile";
+import NavbarMobile from "../components/NavbarMobile";
 
 /** styled components */
 const MobilePageWrapper = styled.div`
