@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Button from "../../components/Button";
 import styled from "styled-components";
 
@@ -11,14 +11,13 @@ import ValidationContentM from "../components/ValidationContentM";
 import BtnWrapper from "../../components/BtnWrapper";
 import useComponentSize from "../../hooks/UseComponentSzie";
 
-
 const Container = styled.div`
   margin-top: 50px;
   box-sizing: border-box;
   width: 100%;
-  padding:10px;
+  padding: 10px;
   height: 80%;
-  background-color:pink;
+  background-color: pink;
 `;
 const ButtonRow = styled.div`
   display: flex;
@@ -49,10 +48,10 @@ function ExtraM() {
     {
       id: "PivotTable",
       //width: "16%",
-      width:"89px",
-      height:"36px",
-      padding:"10px",
-      gap:"10px",
+      width: "89px",
+      height: "36px",
+      padding: "10px",
+      gap: "10px",
       backgroundColor: "#107c41",
       fontColor: "white",
       border: "none",
@@ -61,10 +60,10 @@ function ExtraM() {
     },
     {
       id: "Summary",
-      width:"89px",
-      height:"36px",
-      padding:"10px",
-      gap:"10px",
+      width: "89px",
+      height: "36px",
+      padding: "10px",
+      gap: "10px",
       backgroundColor: "#107c41",
       fontColor: "white",
       border: "none",
@@ -73,10 +72,10 @@ function ExtraM() {
     },
     {
       id: "Data",
-      width:"89px",
-      height:"36px",
-      padding:"10px",
-      gap:"10px",
+      width: "89px",
+      height: "36px",
+      padding: "10px",
+      gap: "10px",
       backgroundColor: "#107c41",
       fontColor: "white",
       border: "none",
@@ -85,10 +84,10 @@ function ExtraM() {
     },
     {
       id: "Validation",
-      width:"89px",
-      height:"36px",
-      padding:"10px",
-      gap:"10px",
+      width: "89px",
+      height: "36px",
+      padding: "10px",
+      gap: "10px",
       backgroundColor: "#107c41",
       fontColor: "white",
       border: "none",
@@ -97,10 +96,10 @@ function ExtraM() {
     },
     {
       id: "Macro",
-      width:"89px",
-      height:"36px",
-      padding:"10px",
-      gap:"10px",
+      width: "89px",
+      height: "36px",
+      padding: "10px",
+      gap: "10px",
       backgroundColor: "#107c41",
       fontColor: "white",
       border: "none",
@@ -128,13 +127,12 @@ function ExtraM() {
     Validation: <ValidationContentM height={renderHeight} />,
     Macro: <MacroContentM height={renderHeight} />,
   };
-  
+
   return (
     <Container ref={componentRef}>
-
       {/* <StyledBtnWrapper> */}
-        <ButtonRow>
-        {buttons.slice(0,3).map((button) => (
+      <ButtonRow>
+        {buttons.slice(0, 3).map((button) => (
           <Button
             key={button.id}
             backgroundColor={button.id === activeContent ? "#107c41" : "white"}
@@ -146,9 +144,9 @@ function ExtraM() {
             onButtonClick={() => handleButtonClick(button.content)}
           ></Button>
         ))}
-        </ButtonRow>  
+      </ButtonRow>
 
-         <ButtonRow>
+      <ButtonRow>
         {buttons.slice(3).map((button) => (
           <Button
             key={button.id}
@@ -161,9 +159,8 @@ function ExtraM() {
             onButtonClick={() => handleButtonClick(button.content)}
           ></Button>
         ))}
-        </ButtonRow> 
-        {/* </StyledBtnWrapper> */}
-      
+      </ButtonRow>
+      {/* </StyledBtnWrapper> */}
 
       {contentComponents[activeContent]}
     </Container>
@@ -171,4 +168,3 @@ function ExtraM() {
 }
 
 export default ExtraM;
-

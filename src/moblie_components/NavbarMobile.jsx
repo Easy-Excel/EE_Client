@@ -18,35 +18,25 @@ const StHeader = styled.nav`
 const NavMenu = styled.div`
   //네브 바 본체
   //width: 1220px;
-  height: 71px;
+  height: 66px;
   //width:1350px;
-  width: 75%; //화면 비율 조정하느라 네비 바 줄임(1/25)
+  width: 100%;
   flex-shrink: 0; //figma에서 네비게이터 사이즈
-  border-radius: 19.248px;
   background: #107c41;
   list-style: none;
   display: flex;
   justify-content: space-between; //헤더에 맞춰 간격 동일하게 조젏
   align-items: center;
   justify-content: space-evenly; /* 항목 간격을 균등하게 배치합니다. */
-  @media screen and (max-width: 1020px) {
-    height:67px;
-  }
-  @media screen and (max-width: 820px) {
-    /* height: 64px; */
-  //}
-  @media screen and (max-width: 450px) {
-    height: 61px;
-  }
 `;
 
 const MenuItem = styled.div`
   flex-grow: 1; /* 각 항목이 동일한 너비를 가지도록 설정합니다. */
   position: relative;
   cursor: pointer;
-  color: #fff;
+  color: #ffffff;
   font-family: SUIT;
-  font-size: 19px; //글씨크기 줄임(1/25)
+  font-size: 14px;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
@@ -54,31 +44,23 @@ const MenuItem = styled.div`
   text-align: center;
   flex-direction: column; /* 추가: 수직으로 정렬하기 위해 */
   align-items: center; /* 추가: 수직으로 정렬하기 위해 */
-  @media screen and (max-width: 1020px) {
-    font-size: 17px;
-  }
-  @media screen and (max-width: 820px) {
-    font-size: 14px;
-  }
-  @media screen and (max-width: 620px) {
-    font-size: 12px;
-  }
-  @media screen and (max-width: 450px) {
-    font-size: 10px;
-  }
 `;
 
 const ArrowImage = styled.img`
+  /* background-color: red; */
   width: 40px;
-  height: 33px;
+  height: 34px;
   flex-shrink: 0;
+  /* width: 40px;
+  height: 33px;
+  flex-shrink: 0; */
   left: 50%;
   transform: translateX(-50%);
   margin-top: -5px;
   position: absolute;
   display: ${({ $showArrow }) => ($showArrow ? "block" : "none")};
   z-index: 1;
-  @media screen and (max-width: 1020px) {
+  /* @media screen and (max-width: 1020px) {
     //margin-top:-10px;
     width: 48px;
     height: 32px;
@@ -96,7 +78,7 @@ const ArrowImage = styled.img`
   @media screen and (max-width: 450px) {
     margin-top: -3px;
     width: 25px;
-  }
+  } */
 `;
 
 const Wrapper = styled.div`
@@ -116,7 +98,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
+const NavbarMobile = ({ toggle, setToggle, handleMenuItemClick, children }) => {
   //검색창 렌더링 위해 props 추가
   //수정 ! : handleMenuItemClick 을 Navbar에서 props로 받아올 수 있게 추가
   const handleItemClick = (menuName) => {
@@ -145,9 +127,6 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
     setIsFindPage(location.pathname === "/home/find");
   }, [location.pathname]);
 
-  console.log("엔터 눌렀을 때 home/find로 가서 플래그 떴는지 확인");
-  console.log(isFindPage);
-
   return (
     <StHeader>
       <NavMenu>
@@ -167,6 +146,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
           </MenuItem>
           <ArrowImage
             $showArrow={isFindPage || activeMenu.startsWith("/home/function")}
+            // $showArrow={true}
             src={polygon}
             alt="화살표"
           />
@@ -186,6 +166,7 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
           </MenuItem>
           <ArrowImage
             $showArrow={activeMenu.startsWith("/home/category")}
+            //$showArrow={true}
             src={polygon}
             alt="화살표"
           />
@@ -250,4 +231,4 @@ const Navbar = ({ toggle, setToggle, handleMenuItemClick, children }) => {
     </StHeader>
   );
 };
-export default Navbar;
+export default NavbarMobile;

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Finder from "../components/Finder";
 import ShortcutFinder from "../components/ShortcutFinder";
 import { Outlet } from "react-router-dom";
-
+import NavbarMobile from "../moblie_components/NavbarMobile";
 
 /** styled components */
 const MobilePageWrapper = styled.div`
   background-color: #ceebde;
-`
+`;
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -60,11 +60,11 @@ const Copyright = styled.div`
   justify-content: center;
   bottom: 5px;
   width: 100%;
-  color: var(--Gray-600, #605F5F);
+  color: var(--Gray-600, #605f5f);
   font-family: SUIT;
   font-size: 9px;
   font-weight: 400;
-`
+`;
 const SkeletonMobile = () => {
   const [showFinder, setShowFinder] = useState(true);
   const [selectedMenu, setSelectedMenu] = useState("home");
@@ -85,14 +85,15 @@ const SkeletonMobile = () => {
       <MainContainer className="MainContainer메인메인">
         <ServContainer>
           <ServText>
-            슬기로운 엑셀 사용을 위한 통합정리 서비스<br/>
+            슬기로운 엑셀 사용을 위한 통합정리 서비스
+            <br />
             <span>Easy Excel</span>
           </ServText>
         </ServContainer>
 
-        <Navbar handleMenuItemClick={handleMenuItemClick}>
+        <NavbarMobile handleMenuItemClick={handleMenuItemClick}>
           {/*showFinder ? <Finder /> : <ShortcutFinder />*/}
-        </Navbar>
+        </NavbarMobile>
         {/* 검색창 ServContainer 에서 Navbar 안으로 이동. 검색창 기준으로 위치 선정을 위함*/}
         {/* <Finder/> */}
         {/* Navbar 컴포넌트에서 단축키를 클릭할 시 그 이벤트를 처리하고 skeleton에 전달하기 위해 props로 전달 */}
@@ -101,7 +102,7 @@ const SkeletonMobile = () => {
           <Outlet />
         </Content>
         <Copyright>Copyright © Easy Excel</Copyright>
-      </MainContainer>   
+      </MainContainer>
     </MobilePageWrapper>
   );
 };
