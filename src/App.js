@@ -39,12 +39,9 @@ function App() {
       <BrowserRouter>
       <HeaderMobile/>
       <Routes>
-        <Route> {/*element={<SkeletonMobile/>}  home페이지 만든 후 집어넣기*/}
-            <Route path="/contact" element={<ContactM />} />
-
-      <Route path="/home" element={<SkeletonMobile/>}/>
-          <Route path="/home/extra" element={<ExtraM/>}/>
-        </Route>
+        <Route path="/contact" element={<ContactM />} />
+      <Route element={<SkeletonMobile/>}/>
+        <Route path="/home/extra" element={<ExtraM/>}/>
         <Route path="/home/etc" element={<EtcM/>} />
       </Routes>
       </BrowserRouter>
