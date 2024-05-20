@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-
+import { isMobile } from "react-device-detect";
 const Btn = styled.div`
   //버튼 크기 조정
   display: flex;
@@ -58,6 +58,8 @@ const ButtonTitle = styled.div`
     word-break: normal;
   }
 `;
+
+const BtnM = styled.div``;
 //버튼 한개 컴포넌트
 function Button({
   width,
@@ -71,6 +73,13 @@ function Button({
   bottom = "auto",
   left = "auto",
 }) {
+  if (isMobile) {
+    return (
+      <BtnM>
+        <ButtonTitle $fontColor={fontColor}>{text}</ButtonTitle>
+      </BtnM>
+    );
+  }
   return (
     <Btn
       width={width}

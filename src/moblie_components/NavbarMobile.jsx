@@ -127,9 +127,6 @@ const NavbarMobile = ({ toggle, setToggle, handleMenuItemClick, children }) => {
     setIsFindPage(location.pathname === "/home/find");
   }, [location.pathname]);
 
-  console.log("엔터 눌렀을 때 home/find로 가서 플래그 떴는지 확인");
-  console.log(isFindPage);
-
   return (
     <StHeader>
       <NavMenu>

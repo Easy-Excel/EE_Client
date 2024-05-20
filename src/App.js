@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserView, MobileView } from 'react-device-detect';
+import { BrowserView, MobileView } from "react-device-detect";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import OurVision from "./pages/OurVision";
@@ -24,7 +24,7 @@ import ChatBot from "./components/ChatBot";
 import Error from "./pages/Error";
 import { setErrorCode } from "./redux/errorCodeActions";
 import HeaderMobile from "./moblie_components/HeaderMoblie";
-
+import FunctionM from "./mobile/pages/FunctionM";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,17 +34,20 @@ function App() {
 
   return (
     <>
-    <MobileView>
-      <BrowserRouter>
-      <HeaderMobile/>
-      <Routes>
-        <Route> {/*element={<SkeletonMobile/>}  home페이지 만든 후 집어넣기*/}
-          <Route path="/home" element={<SkeletonMobile/>}/>
-          <Route path="/home/extra" element={<ExtraM/>}/>
-        </Route>
-      </Routes>
-      </BrowserRouter>
-    </MobileView>
+      <MobileView>
+        <BrowserRouter>
+          <HeaderMobile />
+          <Routes>
+            <Route path="/" element={<Splash />} />
+            <Route element={<SkeletonMobile />}>
+              {/*element={<SkeletonMobile/>}  home페이지 만든 후 집어넣기*/}
+              <Route path="/home" element={<Home />} />
+              <Route path="/home/function/:content" element={<FunctionM />} />
+              <Route path="/home/extra" element={<ExtraM />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </MobileView>
 
       <BrowserView>
         <BrowserRouter>
@@ -63,11 +66,20 @@ function App() {
               <Route path="/home/extra" element={<Extra />} />
               <Route path="/home/etc" element={<Etc />} />
               <Route path="/home/find" element={<Find />} />
-              <Route path="/home/function/:content/:funcName" element={<FuncDetail />} />
-              <Route path="/home/category/:content/:funcName" element={<FuncDetail />} />
-              <Route path="/home/etc/frequent-functions/:etc" element={<ComDetail />} />
+              <Route
+                path="/home/function/:content/:funcName"
+                element={<FuncDetail />}
+              />
+              <Route
+                path="/home/category/:content/:funcName"
+                element={<FuncDetail />}
+              />
+              <Route
+                path="/home/etc/frequent-functions/:etc"
+                element={<ComDetail />}
+              />
             </Route>
-            
+
             {/* 그 나머지 경로에 대해서는 에러 처리 */}
             <Route path="*" element={<Error errorCode={errorCode} />} />
           </Routes>

@@ -1,4 +1,4 @@
-import React, { useState,useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { ReactComponent as LogoSvg } from "../assets/images/logo/Logo.svg";
 import { Link } from "react-router-dom";
@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { hideChatBot } from "../redux/chatBotReducer";
 import FinderMobile from "./FinderMobile";
 import SidebarMobile from "./SidebarMobile";
+import SideBarContent from "../mobile/components/SideBarContent";
+
 //Header
 const Head = styled.header`
   width: 100%;
@@ -50,11 +52,17 @@ const Logo = styled(LogoSvg)`
   width: 27.73px;
   height: 32px;
   flex-shrink: 0;
-  margin-right : 10px;
+  margin-right: 10px;
 `;
 const SideWrap = styled.div`
-  margin:10px; 
-`
+  margin: 10px;
+`;
+
+const Container = styled.div`
+  /* width: 100%;
+  height: 100vh; */
+  /* background-color: none; */
+`;
 
 function HeaderMobile() {
   const dispatch = useDispatch();
@@ -62,20 +70,25 @@ function HeaderMobile() {
   let nextPage = "home";
 
   return (
-    <Head>
-      <SideWrap>
-        <SidebarMobile/>
-      </SideWrap>
-      <Col>
-        <Link to="/home"> {/*나중에 변경 필요 */}
-          <Title>
-            <Logo />
-            Easy Excel
-          </Title>
-        </Link>
-      </Col>
-      <FinderMobile/>
-    </Head>
+    <Container className="Here">
+      <Head>
+        <SideWrap>
+          <SidebarMobile />
+        </SideWrap>
+        <Col>
+          <Link to="/home">
+            {" "}
+            {/*나중에 변경 필요 */}
+            <Title>
+              <Logo />
+              Easy Excel
+            </Title>
+          </Link>
+        </Col>
+        <FinderMobile />
+      </Head>
+      <SideBarContent />
+    </Container>
   );
 }
 
