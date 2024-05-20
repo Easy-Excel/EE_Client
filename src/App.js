@@ -24,7 +24,8 @@ import ChatBot from "./components/ChatBot";
 import Error from "./pages/Error";
 import { setErrorCode } from "./redux/errorCodeActions";
 import HeaderMobile from "./moblie_components/HeaderMoblie";
-
+import ContactM from './mobile/pages/ContactM';
+import EtcM from './mobile/pages/EtcM';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,22 +40,24 @@ function App() {
       <HeaderMobile/>
       <Routes>
         <Route> {/*element={<SkeletonMobile/>}  home페이지 만든 후 집어넣기*/}
-          <Route path="/home" element={<SkeletonMobile/>}/>
+            <Route path="/contact" element={<ContactM />} />
+
+      <Route path="/home" element={<SkeletonMobile/>}/>
           <Route path="/home/extra" element={<ExtraM/>}/>
         </Route>
+        <Route path="/home/etc" element={<EtcM/>} />
       </Routes>
       </BrowserRouter>
     </MobileView>
 
       <BrowserView>
         <BrowserRouter>
-          <Header />
+          <Header/>
           <Routes>
             <Route path="/" element={<Splash />} />
             <Route path="/ourVision" element={<OurVision />} />
             <Route path="/ourTeam" element={<OurTeam />} />
             <Route path="/contact" element={<Contact />} />
-
             <Route element={<Skeleton />}>
               <Route path="/home" element={<Home />} />
               <Route path="/home/function/:content" element={<Function />} />

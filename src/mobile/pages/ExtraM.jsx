@@ -11,29 +11,35 @@ import ValidationContentM from "../components/ValidationContentM";
 import BtnWrapper from "../../components/BtnWrapper";
 import useComponentSize from "../../hooks/UseComponentSzie";
 
+
 const Container = styled.div`
+  margin-top: 50px;
   box-sizing: border-box;
   width: 100%;
-  height: 100%;
+  padding:10px;
+  height: 80%;
   background-color:pink;
-  //flex-direction: column;
 `;
-
-const StyledBtnWrapper=styled(BtnWrapper)`//버튼 2줄 배열하려고
-    gap:2.4vw;
-    justify-content: center;
-    width: 100%;
-`;
-
 const ButtonRow = styled.div`
   display: flex;
-  justify-content:flex-start;
-  gap: 2.4vw;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4vw;
   background-color: red;
-
+  margin-bottom: 7px; // 줄 사이 간격 추가
+  width: 100%; // 버튼 줄이 부모 요소를 꽉 차게 설정
 `;
 
+/*const StyledBtnWrapper=styled(BtnWrapper)`//버튼 2줄 배열하려고
+
+    justify-content: center;
+    //display:flex;
+    //width: 100%;
+    //flex-wrap: wrap;
+    margin-bottom: 10px; // 줄 사이 간격 추가
+    flex-direction: column;
+    background-color: red;
+    gap: 20vw;
+`;*/
 
 //함수 페이지//로 가야함
 function ExtraM() {
@@ -126,21 +132,23 @@ function ExtraM() {
   return (
     <Container ref={componentRef}>
 
-      <StyledBtnWrapper>
+      {/* <StyledBtnWrapper> */}
         <ButtonRow>
-        {buttons.map((button) => (
+        {buttons.slice(0,3).map((button) => (
           <Button
             key={button.id}
             backgroundColor={button.id === activeContent ? "#107c41" : "white"}
             fontColor={button.id === activeContent ? "white" : "black"}
             border={button.id === activeContent ? "none" : "1px solid black"}
             text={button.text}
+            width={"89px"}
+            height={"30px"}
             onButtonClick={() => handleButtonClick(button.content)}
           ></Button>
         ))}
-        </ButtonRow>
-{/* 
-        <ButtonRow>
+        </ButtonRow>  
+
+         <ButtonRow>
         {buttons.slice(3).map((button) => (
           <Button
             key={button.id}
@@ -148,14 +156,15 @@ function ExtraM() {
             fontColor={button.id === activeContent ? "white" : "black"}
             border={button.id === activeContent ? "none" : "1px solid black"}
             text={button.text}
+            width={"89px"}
+            height={"30px"}
             onButtonClick={() => handleButtonClick(button.content)}
           ></Button>
         ))}
-        </ButtonRow> */}
+        </ButtonRow> 
+        {/* </StyledBtnWrapper> */}
+      
 
-
-
-      </StyledBtnWrapper>
       {contentComponents[activeContent]}
     </Container>
   );
