@@ -40,10 +40,8 @@ function App() {
       <HeaderMobile/>
       <Routes>
         <Route path="/contact" element={<ContactM />} />
-
       <Route element={<SkeletonMobile/>}/>
         <Route path="/home/extra" element={<ExtraM/>}/>
-
         <Route path="/home/etc" element={<EtcM/>} />
       </Routes>
       </BrowserRouter>
