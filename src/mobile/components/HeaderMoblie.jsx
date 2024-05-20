@@ -1,12 +1,12 @@
 import React, { useState,useRef, useEffect } from 'react';
 import styled from "styled-components";
-import { ReactComponent as LogoSvg } from "../assets/images/logo/Logo.svg";
+import { ReactComponent as LogoSvg } from "../../assets/images/logo/Logo.svg";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { hideChatBot } from "../redux/chatBotReducer";
+import { hideChatBot } from "../../redux/chatBotReducer";
 import FinderMobile from "./FinderMobile";
-import SidebarMobile from "./SidebarMobile";
+import SidebarMobile from "../../mobile_components/SidebarMobile";
 //Header
 const Head = styled.header`
   width: 100%;
