@@ -121,30 +121,6 @@ export default function SideBarContent({ width = 195 }) {
   }, [showSideBar]);
 
   return (
-    //   <SideBarContainer
-    //     className="사이드바 헤더"
-    //     isOpen={showSideBar}
-    //     ref={side}
-    //     width={width}
-    //     xPosition={xPosition}
-    //   >
-    //     <SideBarHeader>
-    //       <Logo />
-    //       <XButton src={XIcon} onClick={closeSideBar} />
-    //     </SideBarHeader>
-    //     <Items>
-    //       <Item>
-    //         <Link to="/ourVision">Our Vision</Link>
-    //       </Item>
-    //       <Item>
-    //         <Link to="/ourTeam">Our Team</Link>
-    //       </Item>
-    //       <Item>
-    //         <Link to="/contact">Contact</Link>
-    //       </Item>
-    //     </Items>
-    //   </SideBarContainer>
-    // );
     <>
       {isOverlayVisible && <Overlay onClick={handleOverlayClick} />}
       <SideBarContainer isOpen={showSideBar} ref={side} width={width}>
@@ -154,13 +130,19 @@ export default function SideBarContent({ width = 195 }) {
         </SideBarHeader>
         <Items>
           <Item>
-            <Link to="/ourVision">Our Vision</Link>
+            <Link to="/ourVision" onClick={closeSideBar}>
+              Our Vision
+            </Link>
           </Item>
           <Item>
-            <Link to="/ourTeam">Our Team</Link>
+            <Link to="/ourTeam" onClick={closeSideBar}>
+              Our Team
+            </Link>
           </Item>
           <Item>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact" onClick={closeSideBar}>
+              Contact
+            </Link>
           </Item>
         </Items>
       </SideBarContainer>
