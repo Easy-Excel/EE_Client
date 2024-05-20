@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import polygon from "../assets/images/navBar/polygon.svg";
+import polygon from "../../assets/images/navBar/polygon.svg";
 
 const StHeader = styled.nav`
   //네비게이션 바 가운데 정렬하려고

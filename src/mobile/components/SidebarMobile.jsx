@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { showSideBar, hideSideBar } from "../redux/sideBarReducer";
+import { showSideBar, hideSideBar } from "../../redux/sideBarReducer";
 
 const SidebarWrapper = styled.div`
   position: fixed;
@@ -30,7 +30,7 @@ function SidebarMobile({ img }) {
   return (
     <SidebarWrapper>
       <SidebarImage
-        src={require("../assets/images/sidebar.png")}
+        src={require("../../assets/images/sidebar.png")}
         alt="Sidebar Image"
         onClick={toggleSidebar}
       />
