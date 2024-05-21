@@ -12,33 +12,29 @@ import BtnWrapper from "../../components/BtnWrapper";
 import useComponentSize from "../../hooks/UseComponentSzie";
 
 const Container = styled.div`
-  margin-top: 50px;
+  //background-color: pink; 
   box-sizing: border-box;
   width: 100%;
-  padding: 10px;
-  height: 80%;
-  background-color: pink;
+  padding-bottom: 20px;
+  @media screen and (max-width: 450px) {
+    /* height: auto; */
+    max-height: 63vh;
+    min-height: 63vh;
+  }
 `;
+
+const ButtonWrapper = styled.div`
+  //gap: 1px;
+`;
+
 const ButtonRow = styled.div`
   display: flex;
   justify-content: center;
-  gap: 4vw;
-  background-color: red;
-  margin-bottom: 7px; // 줄 사이 간격 추가
+  gap: 3vw;
   width: 100%; // 버튼 줄이 부모 요소를 꽉 차게 설정
 `;
 
-/*const StyledBtnWrapper=styled(BtnWrapper)`//버튼 2줄 배열하려고
 
-    justify-content: center;
-    //display:flex;
-    //width: 100%;
-    //flex-wrap: wrap;
-    margin-bottom: 10px; // 줄 사이 간격 추가
-    flex-direction: column;
-    background-color: red;
-    gap: 20vw;
-`;*/
 
 //함수 페이지//로 가야함
 function ExtraM() {
@@ -129,8 +125,10 @@ function ExtraM() {
   };
 
   return (
+    <>
     <Container ref={componentRef}>
       {/* <StyledBtnWrapper> */}
+      <BtnWrapper>
       <ButtonRow>
         {buttons.slice(0, 3).map((button) => (
           <Button
@@ -161,9 +159,11 @@ function ExtraM() {
         ))}
       </ButtonRow>
       {/* </StyledBtnWrapper> */}
+      </BtnWrapper>
 
       {contentComponents[activeContent]}
     </Container>
+    </>
   );
 }
 
